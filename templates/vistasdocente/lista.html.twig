@@ -10,7 +10,21 @@
 {% block body %}
 <h1>Lista de Asistencia</h1>
 
+
+
+
+
 <table id="EstadisticasModal" class="tablillacursada" border="1">
+
+<div class="cuadro-referencias-horizontal">
+    <strong>Referencias:</strong>
+    <span><strong>P</strong>: Presente</span> |
+    <span><strong>A</strong>: Ausente</span> |
+    <span><strong>T</strong>: Media falta</span> |
+    <span><strong>J</strong>: Justificada</span> |
+    <span><strong>N</strong>: No marcado</span>
+</div>
+
     <thead>
         <tr>
             <th colspan="7" class="nombre-tecnicatura">{{ curso.asignatura.tecnicatura.nombre }}</th>
