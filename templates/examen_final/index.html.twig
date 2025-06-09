@@ -3,9 +3,9 @@
 {% block title %}ExamenFinal index{% endblock %}
 
 {% block body %}
-    <h1>Listado de Exámenes Finales</h1>
+    <h1 style="text-align: center;">Listado de Exámenes Finales</h1>
 
-    <table class="table">
+    <table class="tabla_home">
         <thead>
             <tr>
                 <th>ID</th>
@@ -19,8 +19,8 @@
                 <td>{{ examen_final.id }}</td>
                 <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_examen_final_show', {'id': examen_final.id}) }}">Mostrar</a>
-                    <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}">Editar</a>
+                    <a href="{{ path('app_examen_final_show', {'id': examen_final.id}) }}"class="button">Mostrar</a>
+                    <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}"class="button">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_examen_final_new') }}">Crear Nuevo Examen Final</a>
-{% endblock %}
+ <div style="text-align: center;">
+        <a href="{{ path('app_examen_final_new') }}">Crear Nuevo Examen Final</a>
+    </div>
+
+{% endblock %}  
