@@ -136,5 +136,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-  
+    public function getMainRole(): string
+{
+    $roles = $this->getRoles();
+
+    // Lista ordenada de mayor a menor jerarquía
+    $rolePriority = [
+        'ROLE_SUPER_ADMIN',
+        'ROLE_ADMIN',
+        'ROLE_PRECEPTOR',
+        'ROLE_DOCENTE',
+        'ROLE_ESTUDIANTE',
+        'ROLE_USER',
+    ];
+
+    foreach ($rolePriority as $role) {
+        if (in_array($role, $roles, true)) {
+            return $role;
+        }
+    }
+
+    // Si no tiene ningún rol, devolvemos ROLE_USER por defecto
+    return 'ROLE_USER';
+}
+
+
 }

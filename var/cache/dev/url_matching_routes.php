@@ -37,6 +37,7 @@ return [
         '/habilitante' => [[['_route' => 'app_habilitante_index', '_controller' => 'App\\Controller\\HabilitanteController::index'], null, ['GET' => 0], null, true, false, null]],
         '/habilitante/new' => [[['_route' => 'app_habilitante_new', '_controller' => 'App\\Controller\\HabilitanteController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/horario' => [[['_route' => 'app_horario_index', '_controller' => 'App\\Controller\\HorarioController::index'], null, ['GET' => 0], null, true, false, null]],
         '/inscripcion/final' => [[['_route' => 'app_inscripcion_final_index', '_controller' => 'App\\Controller\\InscripcionFinalController::index'], null, ['GET' => 0], null, true, false, null]],
         '/inscripcion/final/new' => [[['_route' => 'app_inscripcion_final_new', '_controller' => 'App\\Controller\\InscripcionFinalController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/instituto' => [[['_route' => 'app_instituto_index', '_controller' => 'App\\Controller\\InstitutoController::index'], null, ['GET' => 0], null, true, false, null]],
@@ -214,179 +215,189 @@ return [
                         .'|nota/([^/]++)/cursodesesion/([^/]++)(*:1081)'
                     .')'
                 .')'
-                .'|/habilitante/([^/]++)(?'
-                    .'|(*:1116)'
-                    .'|/edit(*:1130)'
-                    .'|(*:1139)'
+                .'|/h(?'
+                    .'|abilitante/([^/]++)(?'
+                        .'|(*:1119)'
+                        .'|/edit(*:1133)'
+                        .'|(*:1142)'
+                    .')'
+                    .'|orario/(?'
+                        .'|new(?:/([^/]++))?(*:1179)'
+                        .'|([^/]++)(?'
+                            .'|(*:1199)'
+                            .'|/edit(*:1213)'
+                            .'|(*:1222)'
+                        .')'
+                    .')'
                 .')'
                 .'|/ins(?'
                     .'|cripcion/final/([^/]++)(?'
-                        .'|(*:1182)'
-                        .'|/edit(*:1196)'
-                        .'|(*:1205)'
+                        .'|(*:1267)'
+                        .'|/edit(*:1281)'
+                        .'|(*:1290)'
                     .')'
                     .'|tituto/([^/]++)(?'
-                        .'|(*:1233)'
-                        .'|/edit(*:1247)'
-                        .'|(*:1256)'
+                        .'|(*:1318)'
+                        .'|/edit(*:1332)'
+                        .'|(*:1341)'
                     .')'
                 .')'
                 .'|/localidad/([^/]++)(?'
-                    .'|(*:1289)'
-                    .'|/edit(*:1303)'
-                    .'|(*:1312)'
+                    .'|(*:1374)'
+                    .'|/edit(*:1388)'
+                    .'|(*:1397)'
                 .')'
                 .'|/modalidad/([^/]++)(?'
-                    .'|(*:1344)'
-                    .'|/edit(*:1358)'
-                    .'|(*:1367)'
+                    .'|(*:1429)'
+                    .'|/edit(*:1443)'
+                    .'|(*:1452)'
                 .')'
                 .'|/nota/([^/]++)(?'
-                    .'|(*:1394)'
-                    .'|/edit(*:1408)'
-                    .'|(*:1417)'
+                    .'|(*:1479)'
+                    .'|/edit(*:1493)'
+                    .'|(*:1502)'
                 .')'
                 .'|/p(?'
                     .'|ais/([^/]++)(?'
-                        .'|(*:1447)'
-                        .'|/edit(*:1461)'
-                        .'|(*:1470)'
+                        .'|(*:1532)'
+                        .'|/edit(*:1546)'
+                        .'|(*:1555)'
                     .')'
                     .'|ersona/([^/]++)(?'
-                        .'|(*:1498)'
-                        .'|/edit(*:1512)'
-                        .'|(*:1521)'
+                        .'|(*:1583)'
+                        .'|/edit(*:1597)'
+                        .'|(*:1606)'
                     .')'
                     .'|rovincia/([^/]++)(?'
-                        .'|(*:1551)'
-                        .'|/edit(*:1565)'
-                        .'|(*:1574)'
+                        .'|(*:1636)'
+                        .'|/edit(*:1650)'
+                        .'|(*:1659)'
                     .')'
                 .')'
                 .'|/r(?'
                     .'|e(?'
                         .'|gion/([^/]++)(?'
-                            .'|(*:1610)'
-                            .'|/edit(*:1624)'
-                            .'|(*:1633)'
+                            .'|(*:1695)'
+                            .'|/edit(*:1709)'
+                            .'|(*:1718)'
                         .')'
                         .'|vista/([^/]++)(?'
-                            .'|(*:1660)'
-                            .'|/edit(*:1674)'
-                            .'|(*:1683)'
+                            .'|(*:1745)'
+                            .'|/edit(*:1759)'
+                            .'|(*:1768)'
                         .')'
                     .')'
                     .'|ol/([^/]++)(?'
-                        .'|(*:1708)'
-                        .'|/edit(*:1722)'
-                        .'|(*:1731)'
+                        .'|(*:1793)'
+                        .'|/edit(*:1807)'
+                        .'|(*:1816)'
                     .')'
                 .')'
                 .'|/t(?'
                     .'|e(?'
                         .'|cnicat(?'
                             .'|ura/([^/]++)(?'
-                                .'|(*:1775)'
-                                .'|/edit(*:1789)'
-                                .'|(*:1798)'
+                                .'|(*:1860)'
+                                .'|/edit(*:1874)'
+                                .'|(*:1883)'
                             .')'
-                            .'|(?:/([^/]++))?(*:1822)'
+                            .'|(?:/([^/]++))?(*:1907)'
                         .')'
                         .'|lefono/([^/]++)(?'
-                            .'|(*:1850)'
-                            .'|/edit(*:1864)'
-                            .'|(*:1873)'
+                            .'|(*:1935)'
+                            .'|/edit(*:1949)'
+                            .'|(*:1958)'
                         .')'
                     .')'
                     .'|itulo/([^/]++)(?'
-                        .'|(*:1901)'
-                        .'|/edit(*:1915)'
-                        .'|(*:1924)'
+                        .'|(*:1986)'
+                        .'|/edit(*:2000)'
+                        .'|(*:2009)'
                     .')'
                     .'|urno/([^/]++)(?'
-                        .'|(*:1950)'
-                        .'|/edit(*:1964)'
-                        .'|(*:1973)'
+                        .'|(*:2035)'
+                        .'|/edit(*:2049)'
+                        .'|(*:2058)'
                     .')'
                 .')'
                 .'|/user/([^/]++)(?'
-                    .'|(*:2001)'
-                    .'|/edit(*:2015)'
-                    .'|(*:2024)'
+                    .'|(*:2086)'
+                    .'|/edit(*:2100)'
+                    .'|(*:2109)'
                 .')'
                 .'|/vi(?'
-                    .'|stas/([^/]++)/tecnicatura(?:/([^/]++))?(*:2079)'
-                    .'|ewcorrelativas/([^/]++)(*:2111)'
+                    .'|stas/([^/]++)/tecnicatura(?:/([^/]++))?(*:2164)'
+                    .'|ewcorrelativas/([^/]++)(*:2196)'
                 .')'
-                .'|/([^/]++)/edit/curso/([^/]++)(*:2150)'
-                .'|/pasarlista/([^/]++)(*:2179)'
+                .'|/([^/]++)/edit/curso/([^/]++)(*:2235)'
+                .'|/pasarlista/([^/]++)(*:2264)'
                 .'|/a(?'
                     .'|ctualizar(?'
-                        .'|\\-lista\\-alumnos/([^/]++)(*:2230)'
-                        .'|alumnos/([^/]++)(*:2255)'
+                        .'|\\-lista\\-alumnos/([^/]++)(*:2315)'
+                        .'|alumnos/([^/]++)(*:2340)'
                     .')'
                     .'|pi/(?'
                         .'|calendario\\-(?'
-                            .'|clase\\-del\\-dia/([^/]++)(*:2310)'
-                            .'|fechas/([^/]++)(*:2334)'
+                            .'|clase\\-del\\-dia/([^/]++)(*:2395)'
+                            .'|fechas/([^/]++)(*:2419)'
                         .')'
-                        .'|asistencias\\-por\\-fecha/([^/]++)(*:2376)'
+                        .'|asistencias\\-por\\-fecha/([^/]++)(*:2461)'
                     .')'
                 .')'
                 .'|/e(?'
-                    .'|stadisticas/([^/]++)(*:2412)'
+                    .'|stadisticas/([^/]++)(*:2497)'
                     .'|ditar(?'
-                        .'|alumno/([^/]++)(*:2444)'
-                        .'|docente/([^/]++)(*:2469)'
-                        .'|persona/([^/]++)(*:2494)'
-                        .'|carreras/([^/]++)(*:2520)'
+                        .'|alumno/([^/]++)(*:2529)'
+                        .'|docente/([^/]++)(*:2554)'
+                        .'|persona/([^/]++)(*:2579)'
+                        .'|carreras/([^/]++)(*:2605)'
                     .')'
                     .'|xiste(?'
-                        .'|Persona/([^/]++)(*:2554)'
-                        .'|Alumno/([^/]++)(*:2578)'
-                        .'|Carrera/([^/]++)(*:2603)'
+                        .'|Persona/([^/]++)(*:2639)'
+                        .'|Alumno/([^/]++)(*:2663)'
+                        .'|Carrera/([^/]++)(*:2688)'
                     .')'
                 .')'
-                .'|/lista/([^/]++)(*:2629)'
-                .'|/miscursos/([^/]++)/([^/]++)(*:2666)'
-                .'|/MiCursada/([^/]++)/MiComision(?:/([^/]++))?(*:2719)'
+                .'|/lista/([^/]++)(*:2714)'
+                .'|/miscursos/([^/]++)/([^/]++)(*:2751)'
+                .'|/MiCursada/([^/]++)/MiComision(?:/([^/]++))?(*:2804)'
                 .'|/c(?'
-                    .'|lave/([^/]++)/edit(*:2751)'
-                    .'|ursadaasignatura/([^/]++)/resolucion/([^/]++)/N2/([^/]++)/id/([^/]++)/anio/([^/]++)(*:2843)'
+                    .'|lave/([^/]++)/edit(*:2836)'
+                    .'|ursadaasignatura/([^/]++)/resolucion/([^/]++)/N2/([^/]++)/id/([^/]++)/anio/([^/]++)(*:2928)'
                 .')'
                 .'|/v(?'
-                    .'|erificarcomision/resolucion/([^/]++)/N2/([^/]++)/anio/([^/]++)(*:2920)'
+                    .'|erificarcomision/resolucion/([^/]++)/N2/([^/]++)/anio/([^/]++)(*:3005)'
                     .'|istaspreinscriptos/(?'
                         .'|edit(?'
-                            .'|/([^/]++)(*:2967)'
-                            .'|2/([^/]++)(*:2986)'
-                            .'|3/([^/]++)(*:3005)'
-                            .'|4/([^/]++)(*:3024)'
-                            .'|5/([^/]++)(*:3043)'
+                            .'|/([^/]++)(*:3052)'
+                            .'|2/([^/]++)(*:3071)'
+                            .'|3/([^/]++)(*:3090)'
+                            .'|4/([^/]++)(*:3109)'
+                            .'|5/([^/]++)(*:3128)'
                         .')'
-                        .'|download/([^/]++)(*:3070)'
+                        .'|download/([^/]++)(*:3155)'
                     .')'
                 .')'
                 .'|/nuev(?'
                     .'|a(?'
-                        .'|personaPre/([^/]++)/id/([^/]++)(*:3124)'
-                        .'|/carreras/([^/]++)/dni/([^/]++)(*:3164)'
+                        .'|personaPre/([^/]++)/id/([^/]++)(*:3209)'
+                        .'|/carreras/([^/]++)/dni/([^/]++)(*:3249)'
                     .')'
-                    .'|oalumnoPre/([^/]++)/id/([^/]++)(*:3205)'
+                    .'|oalumnoPre/([^/]++)/id/([^/]++)(*:3290)'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:3246)'
-                    .'|wdt/([^/]++)(*:3267)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:3331)'
+                    .'|wdt/([^/]++)(*:3352)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:3314)'
-                            .'|router(*:3329)'
+                            .'|search/results(*:3399)'
+                            .'|router(*:3414)'
                             .'|exception(?'
-                                .'|(*:3350)'
-                                .'|\\.css(*:3364)'
+                                .'|(*:3435)'
+                                .'|\\.css(*:3449)'
                             .')'
                         .')'
-                        .'|(*:3375)'
+                        .'|(*:3460)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -442,97 +453,101 @@ return [
         1000 => [[['_route' => 'editar_curso', '_controller' => 'App\\Controller\\VistascursadaController::editarCurso'], ['curso_id'], ['GET' => 0, 'POST' => 1], null, true, true, null]],
         1035 => [[['_route' => 'editar_comision', '_controller' => 'App\\Controller\\VistascursadaController::editarComision'], ['comision_id', 'tecnicatura_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
         1081 => [[['_route' => 'editar_nota', '_controller' => 'App\\Controller\\VistasdocenteController::edit'], ['id', 'curso_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        1116 => [[['_route' => 'app_habilitante_show', '_controller' => 'App\\Controller\\HabilitanteController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1130 => [[['_route' => 'app_habilitante_edit', '_controller' => 'App\\Controller\\HabilitanteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1139 => [[['_route' => 'app_habilitante_delete', '_controller' => 'App\\Controller\\HabilitanteController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1182 => [[['_route' => 'app_inscripcion_final_show', '_controller' => 'App\\Controller\\InscripcionFinalController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1196 => [[['_route' => 'app_inscripcion_final_edit', '_controller' => 'App\\Controller\\InscripcionFinalController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1205 => [[['_route' => 'app_inscripcion_final_delete', '_controller' => 'App\\Controller\\InscripcionFinalController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1233 => [[['_route' => 'app_instituto_show', '_controller' => 'App\\Controller\\InstitutoController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1247 => [[['_route' => 'app_instituto_edit', '_controller' => 'App\\Controller\\InstitutoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1256 => [[['_route' => 'app_instituto_delete', '_controller' => 'App\\Controller\\InstitutoController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1289 => [[['_route' => 'app_localidad_show', '_controller' => 'App\\Controller\\LocalidadController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1303 => [[['_route' => 'app_localidad_edit', '_controller' => 'App\\Controller\\LocalidadController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1312 => [[['_route' => 'app_localidad_delete', '_controller' => 'App\\Controller\\LocalidadController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1344 => [[['_route' => 'app_modalidad_show', '_controller' => 'App\\Controller\\ModalidadController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1358 => [[['_route' => 'app_modalidad_edit', '_controller' => 'App\\Controller\\ModalidadController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1367 => [[['_route' => 'app_modalidad_delete', '_controller' => 'App\\Controller\\ModalidadController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1394 => [[['_route' => 'app_nota_show', '_controller' => 'App\\Controller\\NotaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1408 => [[['_route' => 'app_nota_edit', '_controller' => 'App\\Controller\\NotaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1417 => [[['_route' => 'app_nota_delete', '_controller' => 'App\\Controller\\NotaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1447 => [[['_route' => 'app_pais_show', '_controller' => 'App\\Controller\\PaisController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1461 => [[['_route' => 'app_pais_edit', '_controller' => 'App\\Controller\\PaisController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1470 => [[['_route' => 'app_pais_delete', '_controller' => 'App\\Controller\\PaisController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1498 => [[['_route' => 'app_persona_show', '_controller' => 'App\\Controller\\PersonaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1512 => [[['_route' => 'app_persona_edit', '_controller' => 'App\\Controller\\PersonaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1521 => [[['_route' => 'app_persona_delete', '_controller' => 'App\\Controller\\PersonaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1551 => [[['_route' => 'app_provincia_show', '_controller' => 'App\\Controller\\ProvinciaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1565 => [[['_route' => 'app_provincia_edit', '_controller' => 'App\\Controller\\ProvinciaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1574 => [[['_route' => 'app_provincia_delete', '_controller' => 'App\\Controller\\ProvinciaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1610 => [[['_route' => 'app_region_show', '_controller' => 'App\\Controller\\RegionController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1624 => [[['_route' => 'app_region_edit', '_controller' => 'App\\Controller\\RegionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1633 => [[['_route' => 'app_region_delete', '_controller' => 'App\\Controller\\RegionController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1660 => [[['_route' => 'app_revista_show', '_controller' => 'App\\Controller\\RevistaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1674 => [[['_route' => 'app_revista_edit', '_controller' => 'App\\Controller\\RevistaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1683 => [[['_route' => 'app_revista_delete', '_controller' => 'App\\Controller\\RevistaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1708 => [[['_route' => 'app_rol_show', '_controller' => 'App\\Controller\\RolController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1722 => [[['_route' => 'app_rol_edit', '_controller' => 'App\\Controller\\RolController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1731 => [[['_route' => 'app_rol_delete', '_controller' => 'App\\Controller\\RolController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1775 => [[['_route' => 'app_tecnicatura_show', '_controller' => 'App\\Controller\\TecnicaturaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1789 => [[['_route' => 'app_tecnicatura_edit', '_controller' => 'App\\Controller\\TecnicaturaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1798 => [[['_route' => 'app_tecnicatura_delete', '_controller' => 'App\\Controller\\TecnicaturaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1822 => [[['_route' => 'crear_asignatura', 'tecnicatura_id' => null, '_controller' => 'App\\Controller\\VistasController::create'], ['tecnicatura_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        1850 => [[['_route' => 'app_telefono_show', '_controller' => 'App\\Controller\\TelefonoController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1864 => [[['_route' => 'app_telefono_edit', '_controller' => 'App\\Controller\\TelefonoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1873 => [[['_route' => 'app_telefono_delete', '_controller' => 'App\\Controller\\TelefonoController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1901 => [[['_route' => 'app_titulo_show', '_controller' => 'App\\Controller\\TituloController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1915 => [[['_route' => 'app_titulo_edit', '_controller' => 'App\\Controller\\TituloController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1924 => [[['_route' => 'app_titulo_delete', '_controller' => 'App\\Controller\\TituloController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1950 => [[['_route' => 'app_turno_show', '_controller' => 'App\\Controller\\TurnoController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1964 => [[['_route' => 'app_turno_edit', '_controller' => 'App\\Controller\\TurnoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1973 => [[['_route' => 'app_turno_delete', '_controller' => 'App\\Controller\\TurnoController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        2001 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        2015 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        2024 => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        2079 => [[['_route' => 'editar_asignatura', 'tecnicatura_id' => null, '_controller' => 'App\\Controller\\VistasController::edit'], ['id', 'tecnicatura_id'], null, null, false, true, null]],
-        2111 => [[['_route' => 'view_correlativas', '_controller' => 'App\\Controller\\VistasController::viewCorrelativas'], ['asignatura_id'], ['GET' => 0], null, false, true, null]],
-        2150 => [[['_route' => 'editar_asistencias', '_controller' => 'App\\Controller\\VistasdocenteController::editarAsistencia'], ['id', 'curso_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2179 => [[['_route' => 'app_pasarlista', '_controller' => 'App\\Controller\\VistasdocenteController::pasarlista'], ['curso_id'], null, null, false, true, null]],
-        2230 => [[['_route' => 'actualizar_lista_alumnos', '_controller' => 'App\\Controller\\VistasdocenteController::actualizarListaAlumnos'], ['curso_id'], ['GET' => 0], null, false, true, null]],
-        2255 => [[['_route' => 'actualizaralumnos', '_controller' => 'App\\Controller\\VistasdocenteController::actualizarAlumnos'], ['curso_id'], ['GET' => 0], null, false, true, null]],
-        2310 => [[['_route' => 'api_calendario_clase_del_dia', '_controller' => 'App\\Controller\\VistasdocenteController::getCalendarioClaseDelDia'], ['cursoId'], ['GET' => 0], null, false, true, null]],
-        2334 => [[['_route' => 'api_calendario_fechas', '_controller' => 'App\\Controller\\VistasdocenteController::getFechasCalendario'], ['cursoId'], ['GET' => 0], null, false, true, null]],
-        2376 => [[['_route' => 'asistencias_por_fecha', '_controller' => 'App\\Controller\\VistasdocenteController::asistenciasPorFecha'], ['cursoId'], ['GET' => 0], null, false, true, null]],
-        2412 => [[['_route' => 'estadisticas', '_controller' => 'App\\Controller\\VistasdocenteController::actualizarestadisticas'], ['curso_id'], ['GET' => 0], null, false, true, null]],
-        2444 => [[['_route' => 'editar_alumno', '_controller' => 'App\\Controller\\VistaspersonaController::editarAlumno'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2469 => [[['_route' => 'editar_docente', '_controller' => 'App\\Controller\\VistaspersonaController::editarDocente'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2494 => [[['_route' => 'editar_persona', '_controller' => 'App\\Controller\\VistaspersonaController::editarPersona'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2520 => [[['_route' => 'editar_carreras', '_controller' => 'App\\Controller\\VistaspersonaController::editarCarreras'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2554 => [[['_route' => 'persona_siguiente', '_controller' => 'App\\Controller\\VistaspreinscriptosController::siguientePersonaPer'], ['dni'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2578 => [[['_route' => 'alumno_siguiente', '_controller' => 'App\\Controller\\VistaspreinscriptosController::siguienteAlumno'], ['dni'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2603 => [[['_route' => 'carrera_siguiente', '_controller' => 'App\\Controller\\VistaspreinscriptosController::siguienteCarrera'], ['dni'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2629 => [[['_route' => 'app_lista', '_controller' => 'App\\Controller\\VistasdocenteController::listaAsistencia'], ['curso_id'], null, null, false, true, null]],
-        2666 => [[['_route' => 'cursos_disponibles', '_controller' => 'App\\Controller\\VistasestudianteController::cursosDisponiblesAction'], ['Id', 'tecnicaturaId'], null, null, false, true, null]],
-        2719 => [[['_route' => 'crear_MiCursada', 'tecnicatura_id' => null, 'comision_id' => null, '_controller' => 'App\\Controller\\VistasestudianteController::createCursada'], ['tecnicatura_id', 'comision_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2751 => [[['_route' => 'editar_usuario', '_controller' => 'App\\Controller\\VistasestudianteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        2843 => [[['_route' => 'crear_asignaturasDe1', '_controller' => 'App\\Controller\\VistaspreinscriptosController::CrearCursadasDeAsignaturas'], ['dni', 'resolucion', 'N2', 'id', 'anio'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2920 => [[['_route' => 'verificar_comision', '_controller' => 'App\\Controller\\VistaspreinscriptosController::verificarComision'], ['resolucion', 'N2', 'anio'], ['GET' => 0], null, false, true, null]],
-        2967 => [[['_route' => 'app_vistaspreinscriptos_edit', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        2986 => [[['_route' => 'app_vistaspreinscriptos_edit2', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit2'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        3005 => [[['_route' => 'app_vistaspreinscriptos_edit3', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit3'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        3024 => [[['_route' => 'app_vistaspreinscriptos_edit4', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit4'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        3043 => [[['_route' => 'app_vistaspreinscriptos_edit5', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit5'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        3070 => [[['_route' => 'app_vistaspreinscriptos_download', '_controller' => 'App\\Controller\\VistaspreinscriptosController::download'], ['filename'], null, null, false, true, null]],
-        3124 => [[['_route' => 'crear_persona_pre', '_controller' => 'App\\Controller\\VistaspreinscriptosController::nuevapersonaPre'], ['dni', 'id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        3164 => [[['_route' => 'crear_carrera_Pre', '_controller' => 'App\\Controller\\VistaspreinscriptosController::nuevacarreraPreinscripcion'], ['id', 'dni'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        3205 => [[['_route' => 'crear_alumno_pre', '_controller' => 'App\\Controller\\VistaspreinscriptosController::nuevoalumnoPre'], ['dni', 'id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        3246 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        3267 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        3314 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        3329 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        3350 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        3364 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        3375 => [
+        1119 => [[['_route' => 'app_habilitante_show', '_controller' => 'App\\Controller\\HabilitanteController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1133 => [[['_route' => 'app_habilitante_edit', '_controller' => 'App\\Controller\\HabilitanteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1142 => [[['_route' => 'app_habilitante_delete', '_controller' => 'App\\Controller\\HabilitanteController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1179 => [[['_route' => 'app_horario_new', 'curso_id' => null, '_controller' => 'App\\Controller\\HorarioController::new'], ['curso_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        1199 => [[['_route' => 'app_horario_show', '_controller' => 'App\\Controller\\HorarioController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1213 => [[['_route' => 'app_horario_edit', '_controller' => 'App\\Controller\\HorarioController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1222 => [[['_route' => 'app_horario_delete', '_controller' => 'App\\Controller\\HorarioController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1267 => [[['_route' => 'app_inscripcion_final_show', '_controller' => 'App\\Controller\\InscripcionFinalController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1281 => [[['_route' => 'app_inscripcion_final_edit', '_controller' => 'App\\Controller\\InscripcionFinalController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1290 => [[['_route' => 'app_inscripcion_final_delete', '_controller' => 'App\\Controller\\InscripcionFinalController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1318 => [[['_route' => 'app_instituto_show', '_controller' => 'App\\Controller\\InstitutoController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1332 => [[['_route' => 'app_instituto_edit', '_controller' => 'App\\Controller\\InstitutoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1341 => [[['_route' => 'app_instituto_delete', '_controller' => 'App\\Controller\\InstitutoController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1374 => [[['_route' => 'app_localidad_show', '_controller' => 'App\\Controller\\LocalidadController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1388 => [[['_route' => 'app_localidad_edit', '_controller' => 'App\\Controller\\LocalidadController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1397 => [[['_route' => 'app_localidad_delete', '_controller' => 'App\\Controller\\LocalidadController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1429 => [[['_route' => 'app_modalidad_show', '_controller' => 'App\\Controller\\ModalidadController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1443 => [[['_route' => 'app_modalidad_edit', '_controller' => 'App\\Controller\\ModalidadController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1452 => [[['_route' => 'app_modalidad_delete', '_controller' => 'App\\Controller\\ModalidadController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1479 => [[['_route' => 'app_nota_show', '_controller' => 'App\\Controller\\NotaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1493 => [[['_route' => 'app_nota_edit', '_controller' => 'App\\Controller\\NotaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1502 => [[['_route' => 'app_nota_delete', '_controller' => 'App\\Controller\\NotaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1532 => [[['_route' => 'app_pais_show', '_controller' => 'App\\Controller\\PaisController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1546 => [[['_route' => 'app_pais_edit', '_controller' => 'App\\Controller\\PaisController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1555 => [[['_route' => 'app_pais_delete', '_controller' => 'App\\Controller\\PaisController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1583 => [[['_route' => 'app_persona_show', '_controller' => 'App\\Controller\\PersonaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1597 => [[['_route' => 'app_persona_edit', '_controller' => 'App\\Controller\\PersonaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1606 => [[['_route' => 'app_persona_delete', '_controller' => 'App\\Controller\\PersonaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1636 => [[['_route' => 'app_provincia_show', '_controller' => 'App\\Controller\\ProvinciaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1650 => [[['_route' => 'app_provincia_edit', '_controller' => 'App\\Controller\\ProvinciaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1659 => [[['_route' => 'app_provincia_delete', '_controller' => 'App\\Controller\\ProvinciaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1695 => [[['_route' => 'app_region_show', '_controller' => 'App\\Controller\\RegionController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1709 => [[['_route' => 'app_region_edit', '_controller' => 'App\\Controller\\RegionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1718 => [[['_route' => 'app_region_delete', '_controller' => 'App\\Controller\\RegionController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1745 => [[['_route' => 'app_revista_show', '_controller' => 'App\\Controller\\RevistaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1759 => [[['_route' => 'app_revista_edit', '_controller' => 'App\\Controller\\RevistaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1768 => [[['_route' => 'app_revista_delete', '_controller' => 'App\\Controller\\RevistaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1793 => [[['_route' => 'app_rol_show', '_controller' => 'App\\Controller\\RolController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1807 => [[['_route' => 'app_rol_edit', '_controller' => 'App\\Controller\\RolController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1816 => [[['_route' => 'app_rol_delete', '_controller' => 'App\\Controller\\RolController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1860 => [[['_route' => 'app_tecnicatura_show', '_controller' => 'App\\Controller\\TecnicaturaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1874 => [[['_route' => 'app_tecnicatura_edit', '_controller' => 'App\\Controller\\TecnicaturaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1883 => [[['_route' => 'app_tecnicatura_delete', '_controller' => 'App\\Controller\\TecnicaturaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1907 => [[['_route' => 'crear_asignatura', 'tecnicatura_id' => null, '_controller' => 'App\\Controller\\VistasController::create'], ['tecnicatura_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        1935 => [[['_route' => 'app_telefono_show', '_controller' => 'App\\Controller\\TelefonoController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        1949 => [[['_route' => 'app_telefono_edit', '_controller' => 'App\\Controller\\TelefonoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        1958 => [[['_route' => 'app_telefono_delete', '_controller' => 'App\\Controller\\TelefonoController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        1986 => [[['_route' => 'app_titulo_show', '_controller' => 'App\\Controller\\TituloController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        2000 => [[['_route' => 'app_titulo_edit', '_controller' => 'App\\Controller\\TituloController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        2009 => [[['_route' => 'app_titulo_delete', '_controller' => 'App\\Controller\\TituloController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        2035 => [[['_route' => 'app_turno_show', '_controller' => 'App\\Controller\\TurnoController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        2049 => [[['_route' => 'app_turno_edit', '_controller' => 'App\\Controller\\TurnoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        2058 => [[['_route' => 'app_turno_delete', '_controller' => 'App\\Controller\\TurnoController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        2086 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        2100 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        2109 => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        2164 => [[['_route' => 'editar_asignatura', 'tecnicatura_id' => null, '_controller' => 'App\\Controller\\VistasController::edit'], ['id', 'tecnicatura_id'], null, null, false, true, null]],
+        2196 => [[['_route' => 'view_correlativas', '_controller' => 'App\\Controller\\VistasController::viewCorrelativas'], ['asignatura_id'], ['GET' => 0], null, false, true, null]],
+        2235 => [[['_route' => 'editar_asistencias', '_controller' => 'App\\Controller\\VistasdocenteController::editarAsistencia'], ['id', 'curso_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2264 => [[['_route' => 'app_pasarlista', '_controller' => 'App\\Controller\\VistasdocenteController::pasarlista'], ['curso_id'], null, null, false, true, null]],
+        2315 => [[['_route' => 'actualizar_lista_alumnos', '_controller' => 'App\\Controller\\VistasdocenteController::actualizarListaAlumnos'], ['curso_id'], ['GET' => 0], null, false, true, null]],
+        2340 => [[['_route' => 'actualizaralumnos', '_controller' => 'App\\Controller\\VistasdocenteController::actualizarAlumnos'], ['curso_id'], ['GET' => 0], null, false, true, null]],
+        2395 => [[['_route' => 'api_calendario_clase_del_dia', '_controller' => 'App\\Controller\\VistasdocenteController::getCalendarioClaseDelDia'], ['cursoId'], ['GET' => 0], null, false, true, null]],
+        2419 => [[['_route' => 'api_calendario_fechas', '_controller' => 'App\\Controller\\VistasdocenteController::getFechasCalendario'], ['cursoId'], ['GET' => 0], null, false, true, null]],
+        2461 => [[['_route' => 'asistencias_por_fecha', '_controller' => 'App\\Controller\\VistasdocenteController::asistenciasPorFecha'], ['cursoId'], ['GET' => 0], null, false, true, null]],
+        2497 => [[['_route' => 'estadisticas', '_controller' => 'App\\Controller\\VistasdocenteController::actualizarestadisticas'], ['curso_id'], ['GET' => 0], null, false, true, null]],
+        2529 => [[['_route' => 'editar_alumno', '_controller' => 'App\\Controller\\VistaspersonaController::editarAlumno'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2554 => [[['_route' => 'editar_docente', '_controller' => 'App\\Controller\\VistaspersonaController::editarDocente'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2579 => [[['_route' => 'editar_persona', '_controller' => 'App\\Controller\\VistaspersonaController::editarPersona'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2605 => [[['_route' => 'editar_carreras', '_controller' => 'App\\Controller\\VistaspersonaController::editarCarreras'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2639 => [[['_route' => 'persona_siguiente', '_controller' => 'App\\Controller\\VistaspreinscriptosController::siguientePersonaPer'], ['dni'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2663 => [[['_route' => 'alumno_siguiente', '_controller' => 'App\\Controller\\VistaspreinscriptosController::siguienteAlumno'], ['dni'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2688 => [[['_route' => 'carrera_siguiente', '_controller' => 'App\\Controller\\VistaspreinscriptosController::siguienteCarrera'], ['dni'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2714 => [[['_route' => 'app_lista', '_controller' => 'App\\Controller\\VistasdocenteController::listaAsistencia'], ['curso_id'], null, null, false, true, null]],
+        2751 => [[['_route' => 'cursos_disponibles', '_controller' => 'App\\Controller\\VistasestudianteController::cursosDisponiblesAction'], ['Id', 'tecnicaturaId'], null, null, false, true, null]],
+        2804 => [[['_route' => 'crear_MiCursada', 'tecnicatura_id' => null, 'comision_id' => null, '_controller' => 'App\\Controller\\VistasestudianteController::createCursada'], ['tecnicatura_id', 'comision_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        2836 => [[['_route' => 'editar_usuario', '_controller' => 'App\\Controller\\VistasestudianteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        2928 => [[['_route' => 'crear_asignaturasDe1', '_controller' => 'App\\Controller\\VistaspreinscriptosController::CrearCursadasDeAsignaturas'], ['dni', 'resolucion', 'N2', 'id', 'anio'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3005 => [[['_route' => 'verificar_comision', '_controller' => 'App\\Controller\\VistaspreinscriptosController::verificarComision'], ['resolucion', 'N2', 'anio'], ['GET' => 0], null, false, true, null]],
+        3052 => [[['_route' => 'app_vistaspreinscriptos_edit', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3071 => [[['_route' => 'app_vistaspreinscriptos_edit2', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit2'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3090 => [[['_route' => 'app_vistaspreinscriptos_edit3', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit3'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3109 => [[['_route' => 'app_vistaspreinscriptos_edit4', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit4'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3128 => [[['_route' => 'app_vistaspreinscriptos_edit5', '_controller' => 'App\\Controller\\VistaspreinscriptosController::edit5'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3155 => [[['_route' => 'app_vistaspreinscriptos_download', '_controller' => 'App\\Controller\\VistaspreinscriptosController::download'], ['filename'], null, null, false, true, null]],
+        3209 => [[['_route' => 'crear_persona_pre', '_controller' => 'App\\Controller\\VistaspreinscriptosController::nuevapersonaPre'], ['dni', 'id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3249 => [[['_route' => 'crear_carrera_Pre', '_controller' => 'App\\Controller\\VistaspreinscriptosController::nuevacarreraPreinscripcion'], ['id', 'dni'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3290 => [[['_route' => 'crear_alumno_pre', '_controller' => 'App\\Controller\\VistaspreinscriptosController::nuevoalumnoPre'], ['dni', 'id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        3331 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        3352 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        3399 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        3414 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        3435 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        3449 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        3460 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

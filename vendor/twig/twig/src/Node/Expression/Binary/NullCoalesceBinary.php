@@ -19,16 +19,11 @@ use Twig\Node\Expression\OperatorEscapeInterface;
 use Twig\Node\Expression\Test\DefinedTest;
 use Twig\Node\Expression\Test\NullTest;
 use Twig\Node\Expression\Unary\NotUnary;
-use Twig\Node\Node;
 use Twig\TwigTest;
 
 final class NullCoalesceBinary extends AbstractBinary implements OperatorEscapeInterface
 {
-    /**
-     * @param AbstractExpression $left
-     * @param AbstractExpression $right
-     */
-    public function __construct(Node $left, Node $right, int $lineno)
+    public function __construct(AbstractExpression $left, AbstractExpression $right, int $lineno)
     {
         parent::__construct($left, $right, $lineno);
 

@@ -6,6 +6,8 @@
     {{ parent() }}
 
     {#Scripts de filtros, vistas de tablas y la session iniciada -vista del usuario-#}
+
+    
     <script>
         function filterTableTecnicatura() {
             let searchNombre = document.getElementById("searchNombre").value.toLowerCase();
@@ -429,6 +431,52 @@
         }
     </script>
 
+     {# Script para crear horarios #}
+<script>
+function openModalHorario(cursoId) {
+    // Construye la URL dinámicamente pasando el cursoId
+    const url = "{{ path('app_horario_new', { 'curso_id': 'CURSO_ID' }) }}".replace('CURSO_ID', cursoId);
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el formulario: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(html => {
+            // Inserta el contenido del formulario dentro del modal
+            document.getElementById('modalBodyHorario').innerHTML = html;
+            // Muestra el modal
+            document.getElementById('ModalHorario').style.display = 'block';
+
+            // Opcional: oculta campo y label 'curso' si existen en el formulario
+            const labelCurso = document.querySelector('label[for="horario_curso"]');
+            if (labelCurso) labelCurso.style.display = 'none';
+
+            const cursoInput = document.getElementById('horario_curso');
+            if (cursoInput) {
+                cursoInput.value = cursoId;
+                cursoInput.style.display = 'none';
+            }
+        })
+        .catch(error => {
+            console.error('Error al cargar el formulario de horario:', error);
+            alert('No se pudo cargar el formulario de horario. Intenta nuevamente.');
+        });
+}
+
+function closeModalHorario() {
+    document.getElementById('ModalHorario').style.display = 'none';
+    document.getElementById('modalBodyHorario').innerHTML = '';
+}
+</script>
+
+
+
+
+
+
     {#script para crear cursada docente#}
     <script>
         function openModal4(cursoId) {
@@ -811,6 +859,63 @@
         {% endfor %}
     {% endfor %}
 
+    <!-- Campo de búsqueda de ciclo lectivo -->
+<form class="form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <div class="input-group">
+        <input id="ciclo-lectivo-input" type="text" class="form-control bg-light border-0 small" placeholder="Ciclo Lectivo - Cohorte..." aria-label="Search" aria-describedby="basic-addon2" value="" maxlength="4">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" onclick="filtrarPorCicloLectivo()">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM completamente cargado y parseado");
+    
+    // Obtener el año actual
+    const currentYear = new Date().getFullYear();
+    console.log("Año actual:", currentYear);
+
+    // Establecer el valor del campo de ciclo lectivo con el año actual por defecto
+    const inputCiclo = document.getElementById('ciclo-lectivo-input');
+    console.log("Campo input encontrado:", inputCiclo);
+
+    if (inputCiclo) {
+        inputCiclo.value = currentYear;
+        console.log("Valor asignado al input:", inputCiclo.value);
+
+        // Solo permitir ingresar números y limitar a 4 dígitos
+        inputCiclo.addEventListener('input', function() {
+            // Eliminar cualquier carácter que no sea un número
+            this.value = this.value.replace(/\D/g, '');
+            // Limitar la longitud a 4 caracteres
+            if (this.value.length > 4) {
+                this.value = this.value.slice(0, 4);
+            }
+            console.log("Valor actual del input:", this.value);
+        });
+    } else {
+        console.error("No se encontró el campo input ciclo lectivo.");
+    }
+
+    // Función para filtrar por ciclo lectivo y redirigir
+    window.filtrarPorCicloLectivo = function() {
+        const cicloLectivo = inputCiclo.value;
+        // Validar que el ciclo lectivo tenga 4 dígitos
+        if (cicloLectivo.length === 4) {
+            // Redirigir a la misma página con el ciclo lectivo como parámetro en la URL
+            window.location.href = `{{ path('app_vistascursada') }}?cicloLectivo=${cicloLectivo}`;
+        } else {
+            alert('Por favor, ingresa un ciclo lectivo válido de 4 dígitos.');
+        }
+    }
+});
+</script>
+
     <div id="body-vistas">
         <h1 id="vistas">Comisiones, Cursadas y Curso del Cohorte {{ cicloLectivo }}</h1>
 
@@ -904,10 +1009,12 @@
                 <thead>
                     <tr>
                         <th colspan="2">{{ comision.tecnicatura }} -Cursos-</th>
-                        <th colspan="1"> Año: {{ comision.anio }} Comisión: {{ comision.comision }}</th>
+                        <th colspan="3"> Año: {{ comision.anio }} Comisión: {{ comision.comision }}</th>
                     </tr>
                     <tr>
                         <th colspan="1">Asignatura</th>
+                         <th colspan="1">Horario</th>
+                         <th colspan="1">Docente</th>
                         <th colspan="1">Cursos</th>
                         <th colspan="1">Acciones</th>
                     </tr>
@@ -919,6 +1026,9 @@
                             {% set asignaturas_encontradas = true %}
                             <tr>
                                 <td colspan="1">{{ asignatura.nombre }}</td>   
+                               <td colspan="1">&nbsp;</td>
+                               <td colspan="1">&nbsp;</td>
+
                                 <td>
                                     <button onclick="openModal3('{{ comision.tecnicatura.id }}', '{{ comision.id }}', '{{ asignatura.id }}')" class="btn-primary">Agregar Curso</button>
                                 </td>
@@ -927,20 +1037,80 @@
                                 </td>                   
                             </tr>
                             
-                            {% for curso in cursos %}
+                          {% for curso in cursos %}
                                 {% if curso.asignatura.id == asignatura.id and curso.comision.id == comision.id %}
                                     <tr>
                                         <td><strong>Cupof:</strong> {{ curso.cupof }}<br></td>
+
+                                        {# Horarios #}
+                                        <td colspan="1">
+                                            {% if curso.horarios|length > 0 %}
+                                                <p><strong>Horarios asignados:</strong></p>
+                                                <ul>
+                                                    {% for horario in curso.horarios %}
+                                                        <li>{{ horario.dia }}: {{ horario.horarioInicio }} - {{ horario.horarioFin }} ({{ horario.cantModulos }} módulo/s)</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% else %}
+                                                <span>Sin horario asignado</span>
+                                            {% endif %}
+                                        </td>
+
+                                        {# Docentes #}
+                                        <td colspan="1">
+                                            {% if curso.cursadaDocentes|length > 0 %}
+                                                <p><strong>Docente/s asignado/s:</strong></p>
+                                                <ul>
+                                                    {% for cursada in curso.cursadaDocentes %}
+                                                        <li>
+                                                            {{ cursada.docente.persona.apellido }}, {{ cursada.docente.persona.nombre }}
+                                                            (Desde: {{ cursada.toma|date('d/m/Y') }})
+                                                            {% if cursada.cese %} hasta {{ cursada.cese|date('d/m/Y') }}{% endif %}
+                                                            {% if cursada.licencia %}
+                                                                <span class="text-danger">(En licencia)</span>
+                                                            {% else %}
+                                                                <span class="text-success">(Activo)</span>
+                                                            {% endif %}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% else %}
+                                                <span>Sin docente asignado</span>
+                                            {% endif %}
+                                        </td>
+
+                                        {# Columna de Acciones estilizada #}
                                         <td colspan="2">
-                                            
-                                            <button onclick="showCursoCursada({{ comision.id }}, {{ comision.tecnicatura.id }}, {{ asignatura.id }}, {{ curso.id }})" class="btn-primary">Ver</button>
-                                            <button onclick="openModal31({{ curso.id }}, {{ curso.asignatura.id }}, {{ curso.comision.id }})" class="btn-secondary">Editar</button>
-                                            <button onclick="openModal4({{ curso.id }})" class="btn-primary">Asignar Docente/s</button>
-                                            <button onclick="showCursadaDocente({{ curso.id }})" class="btn-primary">Ver Docente/s</button>
+                                            <div style="display: flex; flex-direction: column; gap: 6px;">
+                                                <button onclick="showCursoCursada({{ comision.id }}, {{ comision.tecnicatura.id }}, {{ asignatura.id }}, {{ curso.id }})" class="btn-primary">Ver Curso</button>
+
+                                                <button onclick="openModal31({{ curso.id }}, {{ curso.asignatura.id }}, {{ curso.comision.id }})" class="btn-secondary">
+                                                    {% if curso.cupof %}
+                                                        Editar Cupof
+                                                    {% else %}
+                                                        Editar
+                                                    {% endif %}
+                                                </button>
+
+                                                <button onclick="openModal4({{ curso.id }})" class="btn-primary">Agregar Docente</button>
+
+                                                {% for cursada in curso.cursadaDocentes %}
+                                                    <button onclick="openModal41({{ curso.id }}, {{ cursada.id }})" class="btn-secondary">Editar Docente</button>
+                                                {% endfor %}
+
+                                                <button onclick="openModalHorario({{ curso.id }})" class="btn-primary">Agregar Horario</button>
+
+                                                {% if curso.horarios|length > 0 %}
+                                                    <button onclick="openModalHorario({{ curso.id }})" class="btn-secondary">Editar Horario</button>
+                                                {% endif %}
+                                            </div>
                                         </td>
                                     </tr>
                                 {% endif %}
                             {% endfor %}
+
+
+
        
                            
                         {% endif %}
@@ -1157,6 +1327,16 @@
                 </div>
             </div>    
         </div>
+        <!-- ModalHorario para cargar horarios -->
+<div id="ModalHorario" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-content-horario">
+            <span class="close" onclick="closeModalHorario()">&times;</span>
+            <div id="modalBodyHorario" class="submodal"></div>
+        </div>
+    </div>    
+</div>
+
 
         <button id="backButton" style="display: none;" class="btn-primary">Regresar</button>
 

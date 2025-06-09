@@ -14,19 +14,19 @@ class Horario
     private ?int $id = null;
 
     #[ORM\Column(length: 30)]
-    private ?string $Dia = null;
+    private ?string $dia = null;
 
     #[ORM\Column(length: 40)]
-    private ?string $Horario_inicio = null;
+    private ?string $horarioInicio = null;
 
     #[ORM\Column(length: 40)]
-    private ?string $Horario_fin = null;
+    private ?string $horarioFin = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Cant_modulos = null;
+    private ?string $cantModulos = null;
 
     #[ORM\ManyToOne(inversedBy: 'horarios')]
-    private ?Curso $Curso = null;
+    private ?Curso $curso = null;
 
     public function getId(): ?int
     {
@@ -35,60 +35,60 @@ class Horario
 
     public function getDia(): ?string
     {
-        return $this->Dia;
+        return $this->dia;
     }
 
-    public function setDia(string $Dia): static
+    public function setDia(string $dia): static
     {
-        $this->Dia = $Dia;
+        $this->dia = $dia;
 
         return $this;
     }
 
     public function getHorarioInicio(): ?string
     {
-        return $this->Horario_inicio;
+        return $this->horarioInicio;
     }
 
-    public function setHorarioInicio(string $Horario_inicio): static
+    public function setHorarioInicio(string $horarioInicio): static
     {
-        $this->Horario_inicio = $Horario_inicio;
+        $this->horarioInicio = $horarioInicio;
 
         return $this;
     }
 
     public function getHorarioFin(): ?string
     {
-        return $this->Horario_fin;
+        return $this->horarioFin;
     }
 
-    public function setHorarioFin(string $Horario_fin): static
+    public function setHorarioFin(string $horarioFin): static
     {
-        $this->Horario_fin = $Horario_fin;
+        $this->horarioFin = $horarioFin;
 
         return $this;
     }
 
     public function getCantModulos(): ?string
     {
-        return $this->Cant_modulos;
+        return $this->cantModulos;
     }
 
-    public function setCantModulos(string $Cant_modulos): static
+    public function setCantModulos(string $cantModulos): static
     {
-        $this->Cant_modulos = $Cant_modulos;
+        $this->cantModulos = $cantModulos;
 
         return $this;
     }
 
-    public function getCurso(): ?Asignatura
+    public function getCurso(): ?Curso
     {
-        return $this->Curso;
+        return $this->curso;
     }
 
-    public function setCurso(?Curso $Curso): static
+    public function setCurso(?Curso $curso): static
     {
-        $this->Curso = $Curso;
+        $this->curso = $curso;
 
         return $this;
     }

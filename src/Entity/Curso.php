@@ -31,17 +31,18 @@ class Curso
 
     #[ORM\Column(length: 30)]
     private ?string $CUPOF = null;
-    #[ORM\OneToMany(mappedBy: 'Asignatura', targetEntity: Horario::class)]
+
+    #[ORM\OneToMany(mappedBy: 'curso', targetEntity: Horario::class, cascade: ['persist', 'remove'])]
     private Collection $horarios;
 
-    #[ORM\OneToMany(mappedBy: 'Curso', targetEntity: CalendarioClase::class)]
+    #[ORM\OneToMany(mappedBy: 'curso', targetEntity: CalendarioClase::class)]
     private Collection $calendarioClases;
-
 
     public function __construct()
     {
         $this->cursadas = new ArrayCollection();
         $this->cursadaDocentes = new ArrayCollection();
+        $this->horarios = new ArrayCollection();
         $this->calendarioClases = new ArrayCollection();
     }
 
@@ -70,6 +71,18 @@ class Curso
     public function setComision(?Comision $comision): self
     {
         $this->comision = $comision;
+
+        return $this;
+    }
+
+    public function getCUPOF(): ?string
+    {
+        return $this->CUPOF;
+    }
+
+    public function setCUPOF(string $CUPOF): static
+    {
+        $this->CUPOF = $CUPOF;
 
         return $this;
     }
@@ -132,23 +145,7 @@ class Curso
         return $this;
     }
 
-    public function __toString(): string
-    {
-        return (string) $this->getAsignatura();
-    }
-    public function getCUPOF(): ?string
-    {
-        return $this->CUPOF;
-    }
-
-    public function setCUPOF(string $CUPOF): static
-    {
-        $this->CUPOF = $CUPOF;
-
-        return $this;
-    }
-    
- /**
+    /**
      * @return Collection<int, Horario>
      */
     public function getHorarios(): Collection
@@ -160,53 +157,53 @@ class Curso
     {
         if (!$this->horarios->contains($horario)) {
             $this->horarios->add($horario);
-            $horario->setAsignatura($this);
+            $horario->setCurso($this);
         }
 
         return $this;
     }
-      public function removeHorario(Horario $horario): static
+
+    public function removeHorario(Horario $horario): static
     {
         if ($this->horarios->removeElement($horario)) {
-            // set the owning side to null (unless already changed)
-            if ($horario->getAsignatura() === $this) {
-                $horario->setAsignatura(null);
+            if ($horario->getCurso() === $this) {
+                $horario->setCurso(null);
             }
         }
 
         return $this;
     }
 
-      /**
-       * @return Collection<int, CalendarioClase>
-       */
-      public function getCalendarioClases(): Collection
-      {
-          return $this->calendarioClases;
-      }
+    /**
+     * @return Collection<int, CalendarioClase>
+     */
+    public function getCalendarioClases(): Collection
+    {
+        return $this->calendarioClases;
+    }
 
-      public function addCalendarioClase(CalendarioClase $calendarioClase): static
-      {
-          if (!$this->calendarioClases->contains($calendarioClase)) {
-              $this->calendarioClases->add($calendarioClase);
-              $calendarioClase->setCurso($this);
-          }
+    public function addCalendarioClase(CalendarioClase $calendarioClase): static
+    {
+        if (!$this->calendarioClases->contains($calendarioClase)) {
+            $this->calendarioClases->add($calendarioClase);
+            $calendarioClase->setCurso($this);
+        }
 
-          return $this;
-      }
+        return $this;
+    }
 
-      public function removeCalendarioClase(CalendarioClase $calendarioClase): static
-      {
-          if ($this->calendarioClases->removeElement($calendarioClase)) {
-              // set the owning side to null (unless already changed)
-              if ($calendarioClase->getCurso() === $this) {
-                  $calendarioClase->setCurso(null);
-              }
-          }
+    public function removeCalendarioClase(CalendarioClase $calendarioClase): static
+    {
+        if ($this->calendarioClases->removeElement($calendarioClase)) {
+            if ($calendarioClase->getCurso() === $this) {
+                $calendarioClase->setCurso(null);
+            }
+        }
 
-          return $this;
-      }
-        public function getNombresDocentes(): string
+        return $this;
+    }
+
+    public function getNombresDocentes(): string
     {
         $nombres = [];
         foreach ($this->cursadaDocentes as $cursadaDocente) {
@@ -216,5 +213,10 @@ class Curso
             }
         }
         return implode(', ', $nombres);
+    }
+
+    public function __toString(): string
+    {
+        return (string) $this->getAsignatura();
     }
 }

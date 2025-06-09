@@ -52,11 +52,8 @@ final class ExtensionSet
     private $binaryOperators;
     /** @var array<string, mixed>|null */
     private $globals;
-    /** @var array<callable(string): (TwigFunction|false)> */
     private $functionCallbacks = [];
-    /** @var array<callable(string): (TwigFilter|false)> */
     private $filterCallbacks = [];
-    /** @var array<callable(string): (TokenParserInterface|false)> */
     private $parserCallbacks = [];
     private $lastModified = 0;
 
@@ -201,9 +198,6 @@ final class ExtensionSet
         return null;
     }
 
-    /**
-     * @param callable(string): (TwigFunction|false) $callable
-     */
     public function registerUndefinedFunctionCallback(callable $callable): void
     {
         $this->functionCallbacks[] = $callable;
@@ -257,9 +251,6 @@ final class ExtensionSet
         return null;
     }
 
-    /**
-     * @param callable(string): (TwigFilter|false) $callable
-     */
     public function registerUndefinedFilterCallback(callable $callable): void
     {
         $this->filterCallbacks[] = $callable;
@@ -326,9 +317,6 @@ final class ExtensionSet
         return null;
     }
 
-    /**
-     * @param callable(string): (TokenParserInterface|false) $callable
-     */
     public function registerUndefinedTokenParserCallback(callable $callable): void
     {
         $this->parserCallbacks[] = $callable;
