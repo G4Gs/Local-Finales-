@@ -19,7 +19,6 @@
                 <td>{{ examen_final.id }}</td>
                 <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_examen_final_show', {'id': examen_final.id}) }}"class="button">Mostrar</a>
                     <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}"class="button">Editar</a>
                 </td>
             </tr>

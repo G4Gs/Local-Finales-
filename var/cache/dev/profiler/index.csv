@@ -34,3 +34,11 @@ f58574,::1,GET,http://localhost/local/public/index.php/examen/final/,1749507469,
 302277,::1,GET,http://localhost/local/public/index.php/examen/final/,1749507486,,200
 d4d269,::1,GET,http://localhost/local/public/index.php/examen/final/,1749507496,,200
 2daf07,::1,GET,http://localhost/local/public/index.php/examen/final/,1749507540,,200
+69f60e,::1,GET,http://localhost/local/public/index.php/login,1749557412,,302
+001fbc,::1,GET,http://localhost/local/public/index.php/home,1749557413,,200
+66ab0c,::1,GET,http://localhost/local/public/index.php/inscripcion/final/,1749557502,,200
+671612,::1,GET,http://localhost/local/public/index.php/examen/final/,1749557537,,200
+864be4,::1,GET,http://localhost/local/public/index.php/examen/final/,1749557574,,200
+df5eea,::1,GET,http://localhost/local/public/index.php/examen/alumno/,1749557578,,200
+276a92,::1,GET,http://localhost/local/public/index.php/inscripcion/final/,1749557584,,200
+78d5cd,::1,GET,http://localhost/local/public/index.php/inscripcion/final/1/edit,1749557590,,200
