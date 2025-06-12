@@ -42,3 +42,9 @@ d4d269,::1,GET,http://localhost/local/public/index.php/examen/final/,1749507496,
 df5eea,::1,GET,http://localhost/local/public/index.php/examen/alumno/,1749557578,,200
 276a92,::1,GET,http://localhost/local/public/index.php/inscripcion/final/,1749557584,,200
 78d5cd,::1,GET,http://localhost/local/public/index.php/inscripcion/final/1/edit,1749557590,,200
+6187a5,::1,GET,http://localhost/local/public/index.php/login,1749763397,,302
+375f6a,::1,GET,http://localhost/local/public/index.php/home,1749763398,,200
+bfeb35,::1,GET,http://localhost/local/public/index.php/examen/final/,1749763409,,200
+ad2555,::1,GET,http://localhost/local/public/index.php/vistasestudiante,1749763414,,200
+3ee674,::1,GET,http://localhost/local/public/index.php/examen/final/,1749764210,,200
+ddac19,::1,GET,http://localhost/local/public/index.php/examen/final/,1749764435,,200

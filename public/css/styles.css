@@ -30,6 +30,8 @@
     cursor: pointer !important;           /* Cursor en forma de mano */
     transition: background-color 0.3s ease, transform 0.3s ease !important; /* Transición suave */
     text-align: center !important;      /* Centrado del texto */
+    text-decoration: none !important;
+    cursor: pointer !important;
 }
 
 .buttonn:hover {

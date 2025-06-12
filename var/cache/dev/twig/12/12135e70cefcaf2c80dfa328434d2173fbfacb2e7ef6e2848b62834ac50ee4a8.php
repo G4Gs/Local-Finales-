@@ -127,20 +127,16 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
                 <td>
                     <a href=\"";
             // line 22
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 22)]), "html", null, true);
-            yield "\"class=\"button\">Mostrar</a>
-                    <a href=\"";
-            // line 23
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 23)]), "html", null, true);
-            yield "\"class=\"button\">Editar</a>
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 22)]), "html", null, true);
+            yield "\" class=\"buttonn\">Editar</a>
                 </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
-        // line 30
+        // line 29
         if (!$context['_iterated']) {
-            // line 27
+            // line 26
             yield "            <tr>
                 <td colspan=\"3\">No se encontraron registros</td>
             </tr>
@@ -149,13 +145,13 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 30
         yield "        </tbody>
     </table>
 
  <div style=\"text-align: center;\">
         <a href=\"";
-        // line 35
+        // line 34
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_new");
         yield "\">Crear Nuevo Examen Final</a>
     </div>
@@ -191,7 +187,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
      */
     public function getDebugInfo(): array
     {
-        return array (  159 => 35,  153 => 31,  144 => 27,  142 => 30,  134 => 23,  130 => 22,  125 => 20,  121 => 19,  118 => 18,  113 => 17,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  155 => 34,  149 => 30,  140 => 26,  138 => 29,  130 => 22,  125 => 20,  121 => 19,  118 => 18,  113 => 17,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -217,8 +213,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
                 <td>{{ examen_final.id }}</td>
                 <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href=\"{{ path('app_examen_final_show', {'id': examen_final.id}) }}\"class=\"button\">Mostrar</a>
-                    <a href=\"{{ path('app_examen_final_edit', {'id': examen_final.id}) }}\"class=\"button\">Editar</a>
+                    <a href=\"{{ path('app_examen_final_edit', {'id': examen_final.id}) }}\" class=\"buttonn\">Editar</a>
                 </td>
             </tr>
         {% else %}
