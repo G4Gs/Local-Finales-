@@ -133,3 +133,12 @@ a018a1,::1,GET,http://localhost/local/public/index.php/examen/final/4/edit,17497
 e5c668,::1,POST,http://localhost/local/public/index.php/examen/final/4,1749774052,,500
 879e92,::1,POST,http://localhost/local/public/index.php/examen/final/4,1749774146,,302
 0371e1,::1,GET,http://localhost/local/public/index.php/examen/final/4/edit,1749774147,,200
+4e3cc9,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775012,,200
+083539,::1,GET,http://localhost/local/public/index.php/examen/final/1/edit,1749775039,,200
+b42324,::1,POST,http://localhost/local/public/index.php/examen/final/1,1749775044,,302
+22b6b7,::1,GET,http://localhost/local/public/index.php/examen/final/1/edit,1749775044,,200
+acfca5,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775239,,200
+00ac0e,::1,GET,http://localhost/local/public/index.php/examen/final/4/edit,1749775279,,200
+49b1cc,::1,POST,http://localhost/local/public/index.php/examen/final/4,1749775283,,302
+1f6336,::1,GET,http://localhost/local/public/index.php/examen/final/4/edit,1749775283,,200
+d49721,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775287,,200
