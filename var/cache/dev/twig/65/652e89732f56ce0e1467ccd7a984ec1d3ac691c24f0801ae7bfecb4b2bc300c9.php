@@ -240,6 +240,6 @@ class __TwigTemplate_186c2eea6e52bef844a6d51b6609a26df8f597de6bc33eefe56947b7dcc
     <!-- Custom scripts for all pages-->
     <script src=\"js/sb-admin-2.min.js\"></script>#}
 </body>
-</html>", "login.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\login.html.twig");
+</html>", "login.html.twig", "C:\\xampp\\htdocs\\local\\templates\\login.html.twig");
     }
 }

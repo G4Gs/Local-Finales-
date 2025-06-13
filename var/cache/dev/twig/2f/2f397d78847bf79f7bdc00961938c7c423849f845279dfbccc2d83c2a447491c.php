@@ -1135,6 +1135,6 @@ class __TwigTemplate_6d794379a190eff472f1d8e553ed3a65530e0b6c4438b4aba33624d0c51
 \t\t\t</body>
 \t\t</body>
 \t</html>
-", "base.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\base.html.twig");
+", "base.html.twig", "C:\\xampp\\htdocs\\local\\templates\\base.html.twig");
     }
 }

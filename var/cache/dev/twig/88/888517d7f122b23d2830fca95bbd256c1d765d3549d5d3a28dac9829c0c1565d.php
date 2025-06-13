@@ -236,6 +236,6 @@ class __TwigTemplate_ef83f57eeae70d5204470e23f2c8e9f5d81e16fd85bcd0b3254a3dd4d17
    
 </form>
 {% endblock %}
-", "security/login.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\security\\login.html.twig");
+", "security/login.html.twig", "C:\\xampp\\htdocs\\local\\templates\\security\\login.html.twig");
     }
 }

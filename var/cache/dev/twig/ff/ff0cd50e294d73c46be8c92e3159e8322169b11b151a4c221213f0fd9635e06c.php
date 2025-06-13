@@ -155,6 +155,6 @@ class __TwigTemplate_ac54414872b9afbc8a1d7c989f7bbe4576fa72b33680772a150cad3610b
 
     <a href=\"{{ path('app_habilitante_index') }}\">Regresar</a>
 {% endblock %}
-", "habilitante/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\habilitante\\new.html.twig");
+", "habilitante/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\habilitante\\new.html.twig");
     }
 }
