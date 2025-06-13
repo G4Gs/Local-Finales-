@@ -129,3 +129,7 @@ d1b1fc,::1,POST,http://localhost/local/public/index.php/examen/final/4,174977387
 cf3c28,::1,GET,http://localhost/local/public/index.php/examen/final/4,1749773924,6a475c,500
 6a475c,::1,POST,http://localhost/local/public/index.php/examen/final/4,1749773924,,500
 a018a1,::1,GET,http://localhost/local/public/index.php/examen/final/4/edit,1749773930,,200
+80eb66,::1,GET,http://localhost/local/public/index.php/examen/final/4,1749774052,e5c668,500
+e5c668,::1,POST,http://localhost/local/public/index.php/examen/final/4,1749774052,,500
+879e92,::1,POST,http://localhost/local/public/index.php/examen/final/4,1749774146,,302
+0371e1,::1,GET,http://localhost/local/public/index.php/examen/final/4/edit,1749774147,,200

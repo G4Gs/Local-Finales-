@@ -68,15 +68,17 @@ class ExamenFinalController extends AbstractController
         ]);
     }
 
-   #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
+ #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
 public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
 {
-    if ($this->isCsrfTokenValid('delete'.$examenFinal->getId(), $request->request->get('_token'))) {
+    $id = $examenFinal->getId(); // Guarda el ID antes de eliminar
+
+    if ($this->isCsrfTokenValid('delete'.$id, $request->request->get('_token'))) {
         try {
             $examenFinalRepository->remove($examenFinal, true);
         } catch (ForeignKeyConstraintViolationException $e) {
             $this->addFlash('error', 'No puedes eliminar el examen final porque tiene alumnos asociados. Elimina primero los registros de alumnos vinculados a este examen.');
-            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+            return $this->redirectToRoute('app_examen_final_edit', ['id' => $id]);
         }
     }
 
