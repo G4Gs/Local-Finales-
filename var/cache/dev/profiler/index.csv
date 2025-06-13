@@ -93,3 +93,5 @@ cbd022,::1,POST,http://localhost/local/public/index.php/examen/final/1,174977663
 82730c,::1,GET,http://localhost/local/public/index.php/examen/final/1/edit,1749776745,,200
 6537e0,::1,POST,http://localhost/local/public/index.php/examen/final/1,1749776748,,302
 f07b07,::1,GET,http://localhost/local/public/index.php/examen/final/1/edit,1749776748,,200
+65c1d8,::1,POST,http://localhost/local/public/index.php/examen/final/1,1749776778,,302
+23f663,::1,GET,http://localhost/local/public/index.php/examen/final/1/edit,1749776778,,200
