@@ -84,3 +84,7 @@ d71a58,::1,GET,http://localhost/local/public/index.php/examen/final/,1749771000,
 6ff570,::1,POST,http://localhost/local/public/index.php/examen/final/1/edit,1749771029,,303
 29cc9d,::1,GET,http://localhost/local/public/index.php/examen/final/,1749771029,,200
 00a4bf,::1,GET,http://localhost/local/public/index.php/examen/final/,1749776584,,200
+bb0af8,::1,GET,http://localhost/local/public/index.php/examen/final/,1749776625,,200
+18b59c,::1,GET,http://localhost/local/public/index.php/examen/final/1/edit,1749776627,,200
+e71474,::1,GET,http://localhost/local/public/index.php/examen/final/1,1749776630,cbd022,500
+cbd022,::1,POST,http://localhost/local/public/index.php/examen/final/1,1749776630,,500
