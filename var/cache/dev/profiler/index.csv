@@ -142,3 +142,8 @@ acfca5,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775239,
 49b1cc,::1,POST,http://localhost/local/public/index.php/examen/final/4,1749775283,,302
 1f6336,::1,GET,http://localhost/local/public/index.php/examen/final/4/edit,1749775283,,200
 d49721,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775287,,200
+1b754b,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775531,,200
+6ab94f,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775702,,200
+4abc0d,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775789,,200
+a258a6,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775792,,200
+bd30a6,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775845,,200
