@@ -97,14 +97,14 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1 style=\"text-align: center;\">Listado de Exámenes Finales</h1>
+        yield "    <h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
 
     <table class=\"tabla_home\">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Materia</th>
-                <th>Fecha</th>
+                <th style=\"width: 180px;\">Fecha</th>
                 <th>Presidente</th>
                 <th>Vocales </th>
                 <th>Acciones</th>
@@ -127,7 +127,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
             // line 23
             yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignaturaId", [], "any", false, false, false, 23)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignaturaId", [], "any", false, false, false, 23), "nombre", [], "any", false, false, false, 23), "html", null, true)) : (""));
             yield "</td>
-                <td>";
+                <td style=\"width: 180px;\">";
             // line 24
             yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 24)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 24), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
@@ -171,14 +171,15 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         // line 41
         yield "        </tbody>
     </table>
-
-     <div style=\"text-align: center;\">
-        <a href=\"";
+    <table>
+      <div style=\"text-align: center;\">
+         <a href=\"";
         // line 45
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_new");
         yield "\" class=\"buttonn\">Crear Nuevo Examen Final</a>
-    </div>
-
+      </div>
+    </table>  
+   
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -220,14 +221,14 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
 {% block title %}ExamenFinal index{% endblock %}
 
 {% block body %}
-    <h1 style=\"text-align: center;\">Listado de Exámenes Finales</h1>
+    <h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
 
     <table class=\"tabla_home\">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Materia</th>
-                <th>Fecha</th>
+                <th style=\"width: 180px;\">Fecha</th>
                 <th>Presidente</th>
                 <th>Vocales </th>
                 <th>Acciones</th>
@@ -238,7 +239,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
             <tr>
                 <td>{{ examen_final.id }}</td>
                 <td>{{ examen_final.asignaturaId ? examen_final.asignaturaId.nombre : '' }}</td>
-                <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                <td style=\"width: 180px;\">{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
                 <td>
                     {{ examen_final.presidenteId ? examen_final.presidenteId.persona : '' }}
                 </td>
@@ -257,11 +258,12 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         {% endfor %}
         </tbody>
     </table>
-
-     <div style=\"text-align: center;\">
-        <a href=\"{{ path('app_examen_final_new') }}\" class=\"buttonn\">Crear Nuevo Examen Final</a>
-    </div>
-
+    <table>
+      <div style=\"text-align: center;\">
+         <a href=\"{{ path('app_examen_final_new') }}\" class=\"buttonn\">Crear Nuevo Examen Final</a>
+      </div>
+    </table>  
+   
 {% endblock %}  ", "examen_final/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_final\\index.html.twig");
     }
 }

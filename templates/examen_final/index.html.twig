@@ -3,14 +3,14 @@
 {% block title %}ExamenFinal index{% endblock %}
 
 {% block body %}
-    <h1 style="text-align: center;">Listado de Exámenes Finales</h1>
+    <h1 style="text-align: center;">Listado de Llamados a Exámenes Finales</h1>
 
     <table class="tabla_home">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Materia</th>
-                <th>Fecha</th>
+                <th style="width: 180px;">Fecha</th>
                 <th>Presidente</th>
                 <th>Vocales </th>
                 <th>Acciones</th>
@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ examen_final.id }}</td>
                 <td>{{ examen_final.asignaturaId ? examen_final.asignaturaId.nombre : '' }}</td>
-                <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                <td style="width: 180px;">{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
                 <td>
                     {{ examen_final.presidenteId ? examen_final.presidenteId.persona : '' }}
                 </td>
@@ -40,9 +40,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-     <div style="text-align: center;">
-        <a href="{{ path('app_examen_final_new') }}" class="buttonn">Crear Nuevo Examen Final</a>
-    </div>
-
+    <div style="text-align: center;">
+      <a href="{{ path('app_examen_final_new') }}" class="buttonn">Crear Nuevo Examen Final</a>
+   </div>  
+   
 {% endblock %}  
