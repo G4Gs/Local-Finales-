@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ExamenAlumnoRepository;
 //obliga a que no envia a la pagina de error de synfony
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 
@@ -69,19 +70,40 @@ class ExamenFinalController extends AbstractController
     }
 
  #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
-public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
+public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
 {
-    $id = $examenFinal->getId(); // Guarda el ID antes de eliminar
+    $id = $examenFinal->getId(); 
+    // Obtiene los alumnos asociados al examen final
+   $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal_id' => $examenFinal]);
+  
+      if (count($alumnosAsociados) > 0) {
+            // Construye un mensaje con los IDs o nombres de los alumnos
+            $info = [];
+            foreach ($alumnosAsociados as $alumno) {
+                $info[] = $alumno->getAlumno()->getNombre();
+                $examenAlumnoRepository->remove($alumno, true);
+            }
+            $this->addFlash('error', 'No puedes eliminar el examen final porque tiene alumnos asociados: ' . implode(', ', $info));
+            return $this->redirectToRoute('app_examen_final_edit', ['id' => $id]);
+        }
 
-    if ($this->isCsrfTokenValid('delete'.$id, $request->request->get('_token'))) {
+        // Si no hay alumnos asociados, elimina el examen final
         try {
             $examenFinalRepository->remove($examenFinal, true);
         } catch (ForeignKeyConstraintViolationException $e) {
-            $this->addFlash('error', 'No puedes eliminar el examen final porque tiene alumnos asociados. Elimina primero los registros de alumnos vinculados a este examen.');
+            $this->addFlash('error', 'Error inesperado al eliminar el examen final, Por favor borrelos desde la BD');
             return $this->redirectToRoute('app_examen_final_edit', ['id' => $id]);
         }
+        
+        $examenFinalRepository->remove($examenFinal, true);
+
+        return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+    public function remove(ExamenFinal $entity, bool $flush = false): void{
+    $this->_em->remove($entity);
+    if ($flush) {
+        $this->_em->flush();
+    }
 }
 }

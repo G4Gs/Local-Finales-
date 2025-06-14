@@ -8059,6 +8059,20 @@
         <argument key="examenFinalRepository" type="service_closure" id="App\Repository\ExamenFinalRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.4EHAhEc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="examenAlumnoRepository" type="service_closure" id="App\Repository\ExamenAlumnoRepository"/>
+        <argument key="examenFinal" type="service_closure" id=".errored..service_locator.4EHAhEc.App\Entity\ExamenFinal"/>
+        <argument key="examenFinalRepository" type="service_closure" id="App\Repository\ExamenFinalRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.lHmEKYy" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entity" type="service_closure" id=".errored..service_locator.lHmEKYy.App\Entity\ExamenFinal"/>
+      </argument>
+    </service>
     <service id=".service_locator.xj1Vwg0" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8555,7 +8569,7 @@
         <argument key="personaRepository" type="service_closure" id="App\Repository\PersonaRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.BKYXEVr" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.NjCgTMX" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AlumnoController::delete" type="service_closure" id=".service_locator.7MymQPJ"/>
@@ -8618,10 +8632,11 @@
         <argument key="App\Controller\ExamenAlumnoController::index" type="service_closure" id=".service_locator.tU2nkXn"/>
         <argument key="App\Controller\ExamenAlumnoController::new" type="service_closure" id=".service_locator.tU2nkXn"/>
         <argument key="App\Controller\ExamenAlumnoController::show" type="service_closure" id=".service_locator.cJRo3qT"/>
-        <argument key="App\Controller\ExamenFinalController::delete" type="service_closure" id=".service_locator.u2fciAB"/>
+        <argument key="App\Controller\ExamenFinalController::delete" type="service_closure" id=".service_locator.4EHAhEc"/>
         <argument key="App\Controller\ExamenFinalController::edit" type="service_closure" id=".service_locator.u2fciAB"/>
         <argument key="App\Controller\ExamenFinalController::index" type="service_closure" id=".service_locator.fiV_3M5"/>
         <argument key="App\Controller\ExamenFinalController::new" type="service_closure" id=".service_locator.fiV_3M5"/>
+        <argument key="App\Controller\ExamenFinalController::remove" type="service_closure" id=".service_locator.lHmEKYy"/>
         <argument key="App\Controller\ExamenFinalController::show" type="service_closure" id=".service_locator.6cSPOzr"/>
         <argument key="App\Controller\HabilitanteController::delete" type="service_closure" id=".service_locator.dgvuIAT"/>
         <argument key="App\Controller\HabilitanteController::edit" type="service_closure" id=".service_locator.dgvuIAT"/>
@@ -8835,10 +8850,11 @@
         <argument key="App\Controller\ExamenAlumnoController:index" type="service_closure" id=".service_locator.tU2nkXn"/>
         <argument key="App\Controller\ExamenAlumnoController:new" type="service_closure" id=".service_locator.tU2nkXn"/>
         <argument key="App\Controller\ExamenAlumnoController:show" type="service_closure" id=".service_locator.cJRo3qT"/>
-        <argument key="App\Controller\ExamenFinalController:delete" type="service_closure" id=".service_locator.u2fciAB"/>
+        <argument key="App\Controller\ExamenFinalController:delete" type="service_closure" id=".service_locator.4EHAhEc"/>
         <argument key="App\Controller\ExamenFinalController:edit" type="service_closure" id=".service_locator.u2fciAB"/>
         <argument key="App\Controller\ExamenFinalController:index" type="service_closure" id=".service_locator.fiV_3M5"/>
         <argument key="App\Controller\ExamenFinalController:new" type="service_closure" id=".service_locator.fiV_3M5"/>
+        <argument key="App\Controller\ExamenFinalController:remove" type="service_closure" id=".service_locator.lHmEKYy"/>
         <argument key="App\Controller\ExamenFinalController:show" type="service_closure" id=".service_locator.6cSPOzr"/>
         <argument key="App\Controller\HabilitanteController:delete" type="service_closure" id=".service_locator.dgvuIAT"/>
         <argument key="App\Controller\HabilitanteController:edit" type="service_closure" id=".service_locator.dgvuIAT"/>
@@ -9930,12 +9946,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.BKYXEVr"/>
+      <argument type="service" id=".service_locator.NjCgTMX"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.BKYXEVr"/>
+      <argument type="service" id=".service_locator.NjCgTMX"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9981,6 +9997,8 @@
     <service id=".errored..service_locator.gceykvT.App\Entity\ExamenAlumno" class="App\Entity\ExamenAlumno"/>
     <service id=".errored..service_locator.6cSPOzr.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
     <service id=".errored..service_locator.u2fciAB.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
+    <service id=".errored..service_locator.4EHAhEc.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
+    <service id=".errored..service_locator.lHmEKYy.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
     <service id=".errored..service_locator..EDEdwm.App\Entity\Habilitante" class="App\Entity\Habilitante"/>
     <service id=".errored..service_locator.dgvuIAT.App\Entity\Habilitante" class="App\Entity\Habilitante"/>
     <service id=".errored..service_locator.NyMPQM_.App\Entity\Horario" class="App\Entity\Horario"/>
@@ -10975,7 +10993,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.BKYXEVr"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.NjCgTMX"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -11000,6 +11018,7 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.zspsrL7" alias=".service_locator.S2dBoYM"/>
+    <service id=".service_locator.V7MSkAY" alias=".service_locator.4EHAhEc"/>
     <service id=".service_locator.UAuErqb" alias=".service_locator.bIPZ3W7"/>
     <service id=".service_locator.qfV1snN" alias=".service_locator..RP8fEe"/>
     <service id=".service_locator.RoHaIJo" alias=".service_locator.eSDB_Bi"/>
@@ -11018,7 +11037,7 @@
     <service id=".service_locator.8g3mun1" alias=".service_locator.q4LbOCZ"/>
     <service id=".service_locator.rSnBo0F" alias=".service_locator.E4CDJlE"/>
     <service id=".service_locator.lYeQ6ry" alias=".service_locator.omZi5k."/>
-    <service id=".service_locator.pPlc2Zb" alias=".service_locator.BKYXEVr"/>
+    <service id=".service_locator.UiuAetb" alias=".service_locator.NjCgTMX"/>
     <service id=".service_locator.vOwA1I0" alias=".service_locator.SSQnsG8"/>
     <service id=".service_locator.EiLRmSZ" alias=".service_locator.Vtu2h8e"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
@@ -11086,6 +11105,8 @@
     <service id=".service_locator.PCj_Z7Y" alias=".service_locator.fiV_3M5"/>
     <service id=".service_locator.Up4HqRs" alias=".service_locator.6cSPOzr"/>
     <service id=".service_locator.tGDLkWF" alias=".service_locator.u2fciAB"/>
+    <service id=".service_locator.d9.PyOZ" alias=".service_locator.4EHAhEc"/>
+    <service id=".service_locator.mF0QSLV" alias=".service_locator.lHmEKYy"/>
     <service id=".service_locator.lTUi0Kx" alias=".service_locator.xj1Vwg0"/>
     <service id=".service_locator.gGi0xWE" alias=".service_locator..EDEdwm"/>
     <service id=".service_locator.avMzvDW" alias=".service_locator.dgvuIAT"/>

@@ -125,19 +125,19 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
 
     <a href=\"";
         // line 16
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_fiÑnal_index");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_index");
         yield "\">Regresar</a>
 
-    <form method=\"post\" action=\"";
+  <form method=\"post\" action=\"";
         // line 18
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_delete", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 18, $this->source); })()), "id", [], "any", false, false, false, 18)]), "html", null, true);
         yield "\" onsubmit=\"return confirm('¿Estás seguro de eliminar este examen final?');\">
-         <input type=\"hidden\" name=\"_token\" value=\"";
+    <input type=\"hidden\" name=\"_token\" value=\"";
         // line 19
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19))), "html", null, true);
         yield "\">
-         <button class=\"btn btn-danger\">Eliminar</button>
-   </form>
+    <button class=\"btn btn-danger\">Eliminar</button>
+</form>
  
 ";
         
@@ -190,12 +190,12 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
 
     {{ include('examen_final/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
-    <a href=\"{{ path('app_examen_fiÑnal_index') }}\">Regresar</a>
+    <a href=\"{{ path('app_examen_final_index') }}\">Regresar</a>
 
-    <form method=\"post\" action=\"{{ path('app_examen_final_delete', {'id': examen_final.id}) }}\" onsubmit=\"return confirm('¿Estás seguro de eliminar este examen final?');\">
-         <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ examen_final.id) }}\">
-         <button class=\"btn btn-danger\">Eliminar</button>
-   </form>
+  <form method=\"post\" action=\"{{ path('app_examen_final_delete', {'id': examen_final.id}) }}\" onsubmit=\"return confirm('¿Estás seguro de eliminar este examen final?');\">
+    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ examen_final.id) }}\">
+    <button class=\"btn btn-danger\">Eliminar</button>
+</form>
  
 {% endblock %}", "examen_final/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_final\\edit.html.twig");
     }
