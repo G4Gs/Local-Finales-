@@ -125,7 +125,7 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
 
     <a href=\"";
         // line 16
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_index");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_fiÑnal_index");
         yield "\">Regresar</a>
 
     <form method=\"post\" action=\"";
@@ -190,7 +190,7 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
 
     {{ include('examen_final/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
-    <a href=\"{{ path('app_examen_final_index') }}\">Regresar</a>
+    <a href=\"{{ path('app_examen_fiÑnal_index') }}\">Regresar</a>
 
     <form method=\"post\" action=\"{{ path('app_examen_final_delete', {'id': examen_final.id}) }}\" onsubmit=\"return confirm('¿Estás seguro de eliminar este examen final?');\">
          <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ examen_final.id) }}\">

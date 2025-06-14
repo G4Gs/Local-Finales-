@@ -13,7 +13,7 @@
 
     {{ include('examen_final/_form.html.twig', {'button_label': 'Actualizar'}) }}
 
-    <a href="{{ path('app_examen_fiÑnal_index') }}">Regresar</a>
+    <a href="{{ path('app_examen_final_index') }}">Regresar</a>
 
     <form method="post" action="{{ path('app_examen_final_delete', {'id': examen_final.id}) }}" onsubmit="return confirm('¿Estás seguro de eliminar este examen final?');">
          <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ examen_final.id) }}">

@@ -13,3 +13,11 @@ de7df9,::1,POST,http://localhost/local/public/index.php/examen/final/2,174978372
 abc23e,::1,GET,http://localhost/local/public/index.php/examen/final/2/edit,1749783726,,200
 b33e6f,::1,GET,http://localhost/local/public/index.php/habilitante/,1749783929,,200
 8bee9f,::1,GET,http://localhost/local/public/index.php/habilitante/new,1749783932,,200
+cbdb74,::1,GET,http://localhost/local/public/index.php/examen/final/2,1749932485,1f5fab,404
+1f5fab,::1,POST,http://localhost/local/public/index.php/examen/final/2,1749932485,,404
+3b8817,::1,GET,http://localhost/local/public/index.php/examen/final/,1749932493,,200
+5b9819,::1,GET,http://localhost/local/public/index.php/examen/final/new,1749932499,,200
+53df68,::1,POST,http://localhost/local/public/index.php/examen/final/new,1749932611,,303
+3fea6a,::1,GET,http://localhost/local/public/index.php/examen/final/,1749932611,,200
+6c6387,::1,GET,http://localhost/local/public/index.php/examen/final/3/edit,1749932640,127470,500
+127470,::1,GET,http://localhost/local/public/index.php/examen/final/3/edit,1749932640,,500
