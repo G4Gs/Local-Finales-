@@ -29,16 +29,12 @@ class __TwigTemplate_65c6f485fda6b12b081eb3b9cd370554ae873bc995c55c32d222f0379df
 
         $this->source = $this->getSourceContext();
 
+        $this->parent = false;
+
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
-    }
-
-    protected function doGetParent(array $context): bool|string|Template|TemplateWrapper
-    {
-        // line 1
-        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = []): iterable
@@ -50,17 +46,23 @@ class __TwigTemplate_65c6f485fda6b12b081eb3b9cd370554ae873bc995c55c32d222f0379df
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "examen_final/new.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "examen_final/new.html.twig", 1);
-        yield from $this->parent->unwrap()->yield($context, array_merge($this->blocks, $blocks));
+        // line 1
+        yield from $this->unwrap()->yieldBlock('title', $context, $blocks);
+        // line 2
+        yield "
+";
+        // line 3
+        yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
+        yield from [];
     }
 
-    // line 3
+    // line 1
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -73,7 +75,7 @@ class __TwigTemplate_65c6f485fda6b12b081eb3b9cd370554ae873bc995c55c32d222f0379df
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "New ExamenFinal";
+        yield " <h1>Crear Nuevo Examen Final</h1>";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -83,7 +85,7 @@ class __TwigTemplate_65c6f485fda6b12b081eb3b9cd370554ae873bc995c55c32d222f0379df
         yield from [];
     }
 
-    // line 5
+    // line 3
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -96,18 +98,13 @@ class __TwigTemplate_65c6f485fda6b12b081eb3b9cd370554ae873bc995c55c32d222f0379df
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        yield "    <h1>Crear Nuevo Examen Final</h1>
-
+        // line 4
+        yield "   
     ";
-        // line 8
+        // line 5
         yield Twig\Extension\CoreExtension::include($this->env, $context, "examen_final/_form.html.twig");
         yield "
 
-    <a href=\"";
-        // line 10
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_index");
-        yield "\">Regresar</a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -129,31 +126,19 @@ class __TwigTemplate_65c6f485fda6b12b081eb3b9cd370554ae873bc995c55c32d222f0379df
     /**
      * @codeCoverageIgnore
      */
-    public function isTraitable(): bool
-    {
-        return false;
-    }
-
-    /**
-     * @codeCoverageIgnore
-     */
     public function getDebugInfo(): array
     {
-        return array (  109 => 10,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  105 => 5,  102 => 4,  89 => 3,  66 => 1,  55 => 3,  52 => 2,  50 => 1,);
     }
 
     public function getSourceContext(): Source
     {
-        return new Source("{% extends 'base.html.twig' %}
-
-{% block title %}New ExamenFinal{% endblock %}
+        return new Source("{% block title %} <h1>Crear Nuevo Examen Final</h1>{% endblock %}
 
 {% block body %}
-    <h1>Crear Nuevo Examen Final</h1>
-
+   
     {{ include('examen_final/_form.html.twig') }}
 
-    <a href=\"{{ path('app_examen_final_index') }}\">Regresar</a>
 {% endblock %}
 ", "examen_final/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_final\\new.html.twig");
     }

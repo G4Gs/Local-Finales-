@@ -11,7 +11,7 @@
                 <th>ID</th>
                 <th>Materia</th>
                 <th style="width: 180px;">Fecha</th>
-                <th>Presidente</th>
+                <th>PresidenteDM</th>
                 <th>Vocales </th>
                 <th>Acciones</th>
             </tr>
@@ -29,9 +29,11 @@
                     {{ examen_final.vocal1Id ? examen_final.vocal1Id.persona : '' }}<br>
                     {{ examen_final.vocal2Id ? examen_final.vocal2Id.persona : '' }}
                 </td>
-                <td>
-                    <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}" class="buttonn">Editar</a>
-                </td>
+               <td>
+                 <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">
+                      Editar
+                 </button>
+               </td>
             </tr>
         {% else %}
             <tr>
@@ -41,8 +43,71 @@
         </tbody>
     </table>
     
-    <div style="text-align: center;">
-      <a href="{{ path('app_examen_final_new') }}" class="buttonn">Crear Nuevo Examen Final</a>
-   </div>  
-   
-{% endblock %}  
+   <div style="text-align: center;">
+       <button class="buttonn" onclick="openNewExamenModal()">Crear Nuevo Examen Final</button>
+  </div>
+
+    
+ <!-- Modal para edición -->
+   <div id="editExamenModal" class="modal" style="display: none;">
+      <div class="modal-content">
+         <span class="close" onclick="closeEditExamenModal()">&times;</span>
+         <div id="editExamenBody" class="submodal"></div>
+     </div>
+ </div>
+
+ <!-- Modal para creación -->
+   <div id="newExamenModal" class="modal" style="display: none;">
+      <div class="modal-content">
+         <span class="close" onclick="closeNewExamenModal()">&times;</span>
+         <div id="newExamenBody" class="submodal"></div>
+     </div>
+ </div>
+
+ {% block javascripts %}
+     <script>
+         function openEditExamenModal(examenId) {
+              const url = "{{ path('app_examen_final_edit', {'id': '__id__'}) }}".replace('__id__', examenId);
+             fetch(url)
+              .then(response => response.text())
+              .then(html => {
+                   document.getElementById('editExamenBody').innerHTML = html;
+                   document.getElementById('editExamenModal').style.display = 'block';
+                })
+              .catch(error => console.error('Error al cargar el formulario de edición:', error));
+            }
+
+            function openNewExamenModal() {
+                const url = "{{ path('app_examen_final_new') }}";
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('newExamenBody').innerHTML = html;
+                        document.getElementById('newExamenModal').style.display = 'block';
+                    })
+                    .catch(error => console.error('Error al cargar el formulario de creación:', error));
+            }
+
+            function closeEditExamenModal() {
+              document.getElementById('editExamenModal').style.display = 'none';
+             document.getElementById('editExamenBody').innerHTML = '';
+            }
+       </script>
+       {{ parent() }}
+       <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              var errorAlert = document.querySelector('.alert-danger');
+              if (errorAlert) {
+                  var link = document.querySelector("link[rel~='icon']");
+                  if (!link) {
+                        link = document.createElement('link');
+                        link.rel = 'icon';
+                        document.head.appendChild(link);
+                    }
+                  link.href = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle fill=%22red%22 cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>';
+                  document.title = '3RR00r' + document.title;
+                }
+            });
+      </script>
+  {% endblock %}  
+{% endblock %} 

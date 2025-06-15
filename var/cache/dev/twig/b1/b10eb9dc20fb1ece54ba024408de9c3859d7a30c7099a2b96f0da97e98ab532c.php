@@ -47,19 +47,17 @@ class __TwigTemplate_25a5a81d0eca504bad48dfeabdd3121ea2cbae4a82c5da03b40991608c4
         // line 1
         yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 1, $this->source); })()), 'form_start');
         yield "
-    ";
+";
         // line 2
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 2, $this->source); })()), 'widget');
         yield "
-    <button class=\"btn\">";
+<button class=\"btn\">";
         // line 3
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("button_label", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 3, $this->source); })()), "Guardar")) : ("Guardar")), "html", null, true);
         yield "</button>
 ";
         // line 4
         yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 4, $this->source); })()), 'form_end');
-        yield "
-";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -96,9 +94,8 @@ class __TwigTemplate_25a5a81d0eca504bad48dfeabdd3121ea2cbae4a82c5da03b40991608c4
     public function getSourceContext(): Source
     {
         return new Source("{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class=\"btn\">{{ button_label|default('Guardar') }}</button>
-{{ form_end(form) }}
-", "examen_final/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_final\\_form.html.twig");
+{{ form_widget(form) }}
+<button class=\"btn\">{{ button_label|default('Guardar') }}</button>
+{{ form_end(form) }}", "examen_final/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_final\\_form.html.twig");
     }
 }

@@ -72,38 +72,33 @@ class ExamenFinalController extends AbstractController
  #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
 public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
 {
-    $id = $examenFinal->getId(); 
-    // Obtiene los alumnos asociados al examen final
-   $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal_id' => $examenFinal]);
-  
-      if (count($alumnosAsociados) > 0) {
-            // Construye un mensaje con los IDs o nombres de los alumnos
-            $info = [];
-            foreach ($alumnosAsociados as $alumno) {
-                $info[] = $alumno->getAlumno()->getNombre();
-                $examenAlumnoRepository->remove($alumno, true);
-            }
+    $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal_id' => $examenFinal]);
+
+    if (count($alumnosAsociados) > 0) {
+        $info = [];
+        foreach ($alumnosAsociados as $alumno) {
+            $info[] = $alumno->getAlumno()->getNombre();
+        }
+        if ($examenFinal->getId()) {
             $this->addFlash('error', 'No puedes eliminar el examen final porque tiene alumnos asociados: ' . implode(', ', $info));
-            return $this->redirectToRoute('app_examen_final_edit', ['id' => $id]);
+            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+        } else {
+            $this->addFlash('error', 'No se encontró el examen final.');
+            return $this->redirectToRoute('app_examen_final_index');
         }
-
-        // Si no hay alumnos asociados, elimina el examen final
-        try {
-            $examenFinalRepository->remove($examenFinal, true);
-        } catch (ForeignKeyConstraintViolationException $e) {
-            $this->addFlash('error', 'Error inesperado al eliminar el examen final, Por favor borrelos desde la BD');
-            return $this->redirectToRoute('app_examen_final_edit', ['id' => $id]);
-        }
-        
+    }
+    try {
         $examenFinalRepository->remove($examenFinal, true);
-
-        return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+    } catch (ForeignKeyConstraintViolationException $e) {
+        if ($examenFinal->getId()) {
+            $this->addFlash('error', 'Error inesperado al eliminar el examen final, Por favor borrelos desde la BD');
+            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+        } else {
+            $this->addFlash('error', 'No se encontró el examen final.');
+            return $this->redirectToRoute('app_examen_final_index');
+        }
     }
 
-    public function remove(ExamenFinal $entity, bool $flush = false): void{
-    $this->_em->remove($entity);
-    if ($flush) {
-        $this->_em->flush();
-    }
+    return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
 }
 }
