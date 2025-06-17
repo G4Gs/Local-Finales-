@@ -31,8 +31,8 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
-            'body' => [$this, 'block_body'],
             'javascripts' => [$this, 'block_javascripts'],
+            'body' => [$this, 'block_body'],
         ];
     }
 
@@ -88,6 +88,128 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
     /**
      * @return iterable<null|scalar|\Stringable>
      */
+    public function block_javascripts(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 6
+        yield "     
+     <script>
+         function handleExamenFinalFormSubmit(modalId, bodyId) {
+             const modalBody = document.getElementById(bodyId);
+             modalBody.addEventListener('submit', function(e) {
+                 if (e.target.tagName === 'FORM') {
+                     if (e.target.querySelector('button[type=\"submit\"].btn-danger')) {
+                         e.preventDefault();
+                         const form = e.target;
+                         const formData = new FormData(form);
+                         fetch(form.action, {
+                             method: form.method,
+                             body: formData,
+                            })
+                         .then(() => {
+                             window.location.reload();
+                           })
+                         .catch(error => {
+                             alert('Ocurrió un error al eliminar el examen final.');
+                             console.error(error);
+                           });
+                         return;
+                        }
+                     e.preventDefault();
+                     const form = e.target;
+                     const formData = new FormData(form);
+                     fetch(form.action, {
+                         method: form.method,
+                         body: formData,
+                       })
+                     .then(response => response.text())
+                     .then(html => {
+                         if (html.includes('<form')) {
+                             modalBody.innerHTML = html;
+                        } else {
+                             window.location.reload();
+                           }
+                        })
+                     .catch(error => {
+                         alert('Ocurrió un error al guardar el examen final.');
+                         console.error(error);
+                        });
+                   }
+              });
+           }
+     </script>
+
+     <script>
+         function openEditExamenModal(examenId) {
+             const url = \"";
+        // line 55
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_edit", ["id" => "__id__"]);
+        yield "\".replace('__id__', examenId);
+             fetch(url, {
+                 headers: {
+                     'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+             .then(response => response.text())
+             .then(html => {
+                 document.getElementById('editExamenBody').innerHTML = html;
+                 document.getElementById('editExamenModal').style.display = 'block';
+                 handleExamenFinalFormSubmit('editExamenModal', 'editExamenBody');
+                })
+             .catch(error => console.error('Error al cargar el formulario de edición:', error));
+            }
+
+           function closeEditExamenModal() {
+             document.getElementById('editExamenModal').style.display = 'none';
+             document.getElementById('editExamenBody').innerHTML = '';
+            }
+      </script>
+
+      <script>
+         function openNewExamenModal() {
+             const url = \"";
+        // line 78
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_new");
+        yield "\";
+             fetch(url, {
+                 headers: {
+                     'X-Requested-With': 'XMLHttpRequest'
+                    }
+               })
+             .then(response => response.text())
+             .then(html => {
+                 document.getElementById('newExamenBody').innerHTML = html;
+                 document.getElementById('newExamenModal').style.display = 'block';
+                 handleExamenFinalFormSubmit('newExamenModal', 'newExamenBody');
+                })
+             .catch(error => console.error('Error al cargar el formulario de creación:', error));
+            }
+
+         function closeNewExamenModal() {
+             document.getElementById('newExamenModal').style.display = 'none';
+             document.getElementById('newExamenBody').innerHTML = '';
+            }
+     </script>
+ ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+        yield from [];
+    }
+
+    // line 100
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
     public function block_body(array $context, array $blocks = []): iterable
     {
         $macros = $this->macros;
@@ -97,10 +219,27 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 101
         yield "    <h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
-
-    <table class=\"tabla_home\">
+    ";
+        // line 102
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 102, $this->source); })()), "flashes", ["error"], "method", false, false, false, 102));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 103
+            yield "    <div class=\"alert alert-danger\">
+        ";
+            // line 104
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
+            yield "
+    </div>
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 107
+        yield "    <table class=\"tabla_home\">
         <thead>
             <tr>
                 <th>ID</th>
@@ -113,45 +252,45 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         </thead>
         <tbody>
         ";
-        // line 20
+        // line 119
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 119, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_final"]) {
-            // line 21
+            // line 120
             yield "            <tr>
                 <td>";
-            // line 22
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 22), "html", null, true);
+            // line 121
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 121), "html", null, true);
             yield "</td>
                 <td>";
-            // line 23
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignaturaId", [], "any", false, false, false, 23)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignaturaId", [], "any", false, false, false, 23), "nombre", [], "any", false, false, false, 23), "html", null, true)) : (""));
+            // line 122
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignaturaId", [], "any", false, false, false, 122)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignaturaId", [], "any", false, false, false, 122), "nombre", [], "any", false, false, false, 122), "html", null, true)) : (""));
             yield "</td>
                 <td style=\"width: 180px;\">";
-            // line 24
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 24)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 24), "Y-m-d"), "html", null, true)) : (""));
+            // line 123
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 123)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 123), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
                 <td>
                     ";
-            // line 26
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidenteId", [], "any", false, false, false, 26)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidenteId", [], "any", false, false, false, 26), "persona", [], "any", false, false, false, 26), "html", null, true)) : (""));
+            // line 125
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidenteId", [], "any", false, false, false, 125)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidenteId", [], "any", false, false, false, 125), "persona", [], "any", false, false, false, 125), "html", null, true)) : (""));
             yield "
                 </td>
                 <td>
                     ";
-            // line 29
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1Id", [], "any", false, false, false, 29)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1Id", [], "any", false, false, false, 29), "persona", [], "any", false, false, false, 29), "html", null, true)) : (""));
+            // line 128
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1Id", [], "any", false, false, false, 128)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1Id", [], "any", false, false, false, 128), "persona", [], "any", false, false, false, 128), "html", null, true)) : (""));
             yield "<br>
                     ";
-            // line 30
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2Id", [], "any", false, false, false, 30)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2Id", [], "any", false, false, false, 30), "persona", [], "any", false, false, false, 30), "html", null, true)) : (""));
+            // line 129
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2Id", [], "any", false, false, false, 129)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2Id", [], "any", false, false, false, 129), "persona", [], "any", false, false, false, 129), "html", null, true)) : (""));
             yield "
                 </td>
                <td>
                  <button type=\"button\" class=\"buttonn\" onclick=\"openEditExamenModal(";
-            // line 33
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 33), "html", null, true);
+            // line 132
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 132), "html", null, true);
             yield ")\">
                       Editar
                  </button>
@@ -160,9 +299,9 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         ";
             $context['_iterated'] = true;
         }
-        // line 42
+        // line 141
         if (!$context['_iterated']) {
-            // line 39
+            // line 138
             yield "            <tr>
                 <td colspan=\"6\">No se encontraron registros</td>
             </tr>
@@ -171,7 +310,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 142
         yield "        </tbody>
     </table>
     
@@ -179,106 +318,24 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
        <button class=\"buttonn\" onclick=\"openNewExamenModal()\">Crear Nuevo Examen Final</button>
   </div>
 
-    
- <!-- Modal para edición -->
-   <div id=\"editExamenModal\" class=\"modal\" style=\"display: none;\">
-      <div class=\"modal-content\">
-         <span class=\"close\" onclick=\"closeEditExamenModal()\">&times;</span>
-         <div id=\"editExamenBody\" class=\"submodal\"></div>
-     </div>
- </div>
+  <!-- Modal para editar -->
+  <div id=\"editExamenModal\" class=\"modal\" style=\"display: none;\">
+     <div class=\"modal-content\">
+          <span class=\"close\" onclick=\"closeEditExamenModal()\">&times;</span>
+          <div id=\"editExamenBody\" class=\"submodal\"></div>
+      </div>
+  </div>
 
- <!-- Modal para creación -->
-   <div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
-      <div class=\"modal-content\">
+  <!-- Modal para crear -->
+  <div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
+     <div class=\"modal-content\">
          <span class=\"close\" onclick=\"closeNewExamenModal()\">&times;</span>
          <div id=\"newExamenBody\" class=\"submodal\"></div>
      </div>
- </div>
+  </div>
 
- ";
-        // line 67
-        yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
-        // line 112
-        yield "  
+  
 ";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-        yield from [];
-    }
-
-    // line 67
-    /**
-     * @return iterable<null|scalar|\Stringable>
-     */
-    public function block_javascripts(array $context, array $blocks = []): iterable
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 68
-        yield "     <script>
-         function openEditExamenModal(examenId) {
-              const url = \"";
-        // line 70
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_edit", ["id" => "__id__"]);
-        yield "\".replace('__id__', examenId);
-             fetch(url)
-              .then(response => response.text())
-              .then(html => {
-                   document.getElementById('editExamenBody').innerHTML = html;
-                   document.getElementById('editExamenModal').style.display = 'block';
-                })
-              .catch(error => console.error('Error al cargar el formulario de edición:', error));
-            }
-
-            function openNewExamenModal() {
-                const url = \"";
-        // line 81
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_new");
-        yield "\";
-                fetch(url)
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById('newExamenBody').innerHTML = html;
-                        document.getElementById('newExamenModal').style.display = 'block';
-                    })
-                    .catch(error => console.error('Error al cargar el formulario de creación:', error));
-            }
-
-            function closeEditExamenModal() {
-              document.getElementById('editExamenModal').style.display = 'none';
-             document.getElementById('editExamenBody').innerHTML = '';
-            }
-       </script>
-       ";
-        // line 96
-        yield from $this->yieldParentBlock("javascripts", $context, $blocks);
-        yield "
-       <script>
-          document.addEventListener('DOMContentLoaded', function() {
-              var errorAlert = document.querySelector('.alert-danger');
-              if (errorAlert) {
-                  var link = document.querySelector(\"link[rel~='icon']\");
-                  if (!link) {
-                        link = document.createElement('link');
-                        link.rel = 'icon';
-                        document.head.appendChild(link);
-                    }
-                  link.href = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle fill=%22red%22 cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>';
-                  document.title = '3RR00r' + document.title;
-                }
-            });
-      </script>
-  ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -309,7 +366,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
      */
     public function getDebugInfo(): array
     {
-        return array (  264 => 96,  246 => 81,  232 => 70,  228 => 68,  215 => 67,  203 => 112,  201 => 67,  175 => 43,  166 => 39,  164 => 42,  154 => 33,  148 => 30,  144 => 29,  138 => 26,  133 => 24,  129 => 23,  125 => 22,  122 => 21,  117 => 20,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  314 => 142,  305 => 138,  303 => 141,  293 => 132,  287 => 129,  283 => 128,  277 => 125,  272 => 123,  268 => 122,  264 => 121,  261 => 120,  256 => 119,  242 => 107,  233 => 104,  230 => 103,  226 => 102,  223 => 101,  210 => 100,  178 => 78,  152 => 55,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -318,9 +375,108 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
 
 {% block title %}ExamenFinal index{% endblock %}
 
+  {% block javascripts %}
+     
+     <script>
+         function handleExamenFinalFormSubmit(modalId, bodyId) {
+             const modalBody = document.getElementById(bodyId);
+             modalBody.addEventListener('submit', function(e) {
+                 if (e.target.tagName === 'FORM') {
+                     if (e.target.querySelector('button[type=\"submit\"].btn-danger')) {
+                         e.preventDefault();
+                         const form = e.target;
+                         const formData = new FormData(form);
+                         fetch(form.action, {
+                             method: form.method,
+                             body: formData,
+                            })
+                         .then(() => {
+                             window.location.reload();
+                           })
+                         .catch(error => {
+                             alert('Ocurrió un error al eliminar el examen final.');
+                             console.error(error);
+                           });
+                         return;
+                        }
+                     e.preventDefault();
+                     const form = e.target;
+                     const formData = new FormData(form);
+                     fetch(form.action, {
+                         method: form.method,
+                         body: formData,
+                       })
+                     .then(response => response.text())
+                     .then(html => {
+                         if (html.includes('<form')) {
+                             modalBody.innerHTML = html;
+                        } else {
+                             window.location.reload();
+                           }
+                        })
+                     .catch(error => {
+                         alert('Ocurrió un error al guardar el examen final.');
+                         console.error(error);
+                        });
+                   }
+              });
+           }
+     </script>
+
+     <script>
+         function openEditExamenModal(examenId) {
+             const url = \"{{ path('app_examen_final_edit', {'id': '__id__'}) }}\".replace('__id__', examenId);
+             fetch(url, {
+                 headers: {
+                     'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+             .then(response => response.text())
+             .then(html => {
+                 document.getElementById('editExamenBody').innerHTML = html;
+                 document.getElementById('editExamenModal').style.display = 'block';
+                 handleExamenFinalFormSubmit('editExamenModal', 'editExamenBody');
+                })
+             .catch(error => console.error('Error al cargar el formulario de edición:', error));
+            }
+
+           function closeEditExamenModal() {
+             document.getElementById('editExamenModal').style.display = 'none';
+             document.getElementById('editExamenBody').innerHTML = '';
+            }
+      </script>
+
+      <script>
+         function openNewExamenModal() {
+             const url = \"{{ path('app_examen_final_new') }}\";
+             fetch(url, {
+                 headers: {
+                     'X-Requested-With': 'XMLHttpRequest'
+                    }
+               })
+             .then(response => response.text())
+             .then(html => {
+                 document.getElementById('newExamenBody').innerHTML = html;
+                 document.getElementById('newExamenModal').style.display = 'block';
+                 handleExamenFinalFormSubmit('newExamenModal', 'newExamenBody');
+                })
+             .catch(error => console.error('Error al cargar el formulario de creación:', error));
+            }
+
+         function closeNewExamenModal() {
+             document.getElementById('newExamenModal').style.display = 'none';
+             document.getElementById('newExamenBody').innerHTML = '';
+            }
+     </script>
+ {% endblock %}  
+
 {% block body %}
     <h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
-
+    {% for message in app.flashes('error') %}
+    <div class=\"alert alert-danger\">
+        {{ message }}
+    </div>
+{% endfor %}
     <table class=\"tabla_home\">
         <thead>
             <tr>
@@ -363,69 +519,23 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
        <button class=\"buttonn\" onclick=\"openNewExamenModal()\">Crear Nuevo Examen Final</button>
   </div>
 
-    
- <!-- Modal para edición -->
-   <div id=\"editExamenModal\" class=\"modal\" style=\"display: none;\">
-      <div class=\"modal-content\">
-         <span class=\"close\" onclick=\"closeEditExamenModal()\">&times;</span>
-         <div id=\"editExamenBody\" class=\"submodal\"></div>
-     </div>
- </div>
+  <!-- Modal para editar -->
+  <div id=\"editExamenModal\" class=\"modal\" style=\"display: none;\">
+     <div class=\"modal-content\">
+          <span class=\"close\" onclick=\"closeEditExamenModal()\">&times;</span>
+          <div id=\"editExamenBody\" class=\"submodal\"></div>
+      </div>
+  </div>
 
- <!-- Modal para creación -->
-   <div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
-      <div class=\"modal-content\">
+  <!-- Modal para crear -->
+  <div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
+     <div class=\"modal-content\">
          <span class=\"close\" onclick=\"closeNewExamenModal()\">&times;</span>
          <div id=\"newExamenBody\" class=\"submodal\"></div>
      </div>
- </div>
+  </div>
 
- {% block javascripts %}
-     <script>
-         function openEditExamenModal(examenId) {
-              const url = \"{{ path('app_examen_final_edit', {'id': '__id__'}) }}\".replace('__id__', examenId);
-             fetch(url)
-              .then(response => response.text())
-              .then(html => {
-                   document.getElementById('editExamenBody').innerHTML = html;
-                   document.getElementById('editExamenModal').style.display = 'block';
-                })
-              .catch(error => console.error('Error al cargar el formulario de edición:', error));
-            }
-
-            function openNewExamenModal() {
-                const url = \"{{ path('app_examen_final_new') }}\";
-                fetch(url)
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById('newExamenBody').innerHTML = html;
-                        document.getElementById('newExamenModal').style.display = 'block';
-                    })
-                    .catch(error => console.error('Error al cargar el formulario de creación:', error));
-            }
-
-            function closeEditExamenModal() {
-              document.getElementById('editExamenModal').style.display = 'none';
-             document.getElementById('editExamenBody').innerHTML = '';
-            }
-       </script>
-       {{ parent() }}
-       <script>
-          document.addEventListener('DOMContentLoaded', function() {
-              var errorAlert = document.querySelector('.alert-danger');
-              if (errorAlert) {
-                  var link = document.querySelector(\"link[rel~='icon']\");
-                  if (!link) {
-                        link = document.createElement('link');
-                        link.rel = 'icon';
-                        document.head.appendChild(link);
-                    }
-                  link.href = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle fill=%22red%22 cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>';
-                  document.title = '3RR00r' + document.title;
-                }
-            });
-      </script>
-  {% endblock %}  
+  
 {% endblock %} ", "examen_final/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_final\\index.html.twig");
     }
 }

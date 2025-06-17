@@ -1,7 +1,5 @@
 {% block title %} <h1>Crear Nuevo Examen Final</h1>{% endblock %}
 
 {% block body %}
-   
-    {{ include('examen_final/_form.html.twig') }}
-
+    {{ include('examen_final/_form.html.twig', {'form': form, 'button_label': 'Guardar'}) }}
 {% endblock %}

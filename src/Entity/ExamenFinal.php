@@ -19,21 +19,23 @@ class ExamenFinal
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $fecha = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+   #[ORM\ManyToOne(targetEntity: Docente::class)]
+   #[ORM\JoinColumn(nullable: false)]
+   private ?Docente $presidente_id = null;
+
+   #[ORM\ManyToOne(targetEntity: Docente::class)]
+   private ?Docente $Vocal1_id = null;
+
+   #[ORM\ManyToOne(targetEntity: Docente::class)]
+   private ?Docente $Vocal2_id = null;
+
+   
+    #[ORM\ManyToOne(targetEntity: Asignatura::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Docente $presidente_id = null;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Docente $Vocal1_id = null;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Docente $Vocal2_id = null;
+    private ?Asignatura $asignatura_id = null;
 
     #[ORM\OneToMany(mappedBy: 'examenFinal_id', targetEntity: ExamenAlumno::class)]
     private Collection $examenAlumnos;
-
-    #[ORM\ManyToOne(inversedBy: 'examenFinals')]
-    private ?Asignatura $asignatura_id = null;
 
     public function __construct()
     {

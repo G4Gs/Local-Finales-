@@ -10,8 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ExamenAlumnoRepository;
-//obliga a que no envia a la pagina de error de synfony
+//obliga a que no envie a la pagina de error de synfony
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 
 #[Route('/examen/final')]
 class ExamenFinalController extends AbstractController
@@ -24,54 +25,65 @@ class ExamenFinalController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_examen_final_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ExamenFinalRepository $examenFinalRepository): Response
-    {
-        $examenFinal = new ExamenFinal();
-        $form = $this->createForm(ExamenFinalType::class, $examenFinal);
-        $form->handleRequest($request);
+  #[Route('/new', name: 'app_examen_final_new', methods: ['GET', 'POST'])]
+  public function new(Request $request, ExamenFinalRepository $examenFinalRepository): Response{
+    $examenFinal = new ExamenFinal();
+    $form = $this->createForm(ExamenFinalType::class, $examenFinal);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+    if ($form->isSubmitted() && $form->isValid()) {
+        try {
             $examenFinalRepository->save($examenFinal, true);
-
-            return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_examen_final_index');
+       } catch (\Doctrine\DBAL\Exception\UniqueConstraintViolationException $e) {
+          $this->addFlash('error', 'Error inesperado al guardar el examen final.');
+          return $this->redirectToRoute('app_examen_final_index');
         }
-
-        return $this->renderForm('examen_final/new.html.twig', [
-            'examen_final' => $examenFinal,
-            'form' => $form,
-        ]);
     }
 
-    #[Route('/{id}', name: 'app_examen_final_show', methods: ['GET'])]
-    public function show(ExamenFinal $examenFinal): Response
-    {
-        return $this->render('examen_final/show.html.twig', [
+    if ($request->isXmlHttpRequest()) {
+        return $this->render('examen_final/_form.html.twig', [
+            'form' => $form->createView(),
+            'button_label' => 'Guardar',
             'examen_final' => $examenFinal,
         ]);
     }
+    return $this->renderForm('examen_final/new.html.twig', [
+        'examen_final' => $examenFinal,
+        'form' => $form,
+    ]);
+ }
 
-    #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
-    {
-        $form = $this->createForm(ExamenFinalType::class, $examenFinal);
-        $form->handleRequest($request);
+ #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
+ public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response{
+    $form = $this->createForm(ExamenFinalType::class, $examenFinal);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+    if ($form->isSubmitted() && $form->isValid()) {
+        try {
             $examenFinalRepository->save($examenFinal, true);
-
-            return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_examen_final_index');
+        } catch (\Doctrine\DBAL\Exception\UniqueConstraintViolationException $e) {
+          $this->addFlash('error', 'Error inesperado al guardar el examen final.');
+          return $this->redirectToRoute('app_examen_final_index');
         }
+    }
 
-        return $this->renderForm('examen_final/edit.html.twig', [
+    if ($request->isXmlHttpRequest()) {
+        return $this->render('examen_final/_form.html.twig', [
+            'form' => $form->createView(),
+            'button_label' => 'Actualizar',
             'examen_final' => $examenFinal,
-            'form' => $form,
         ]);
     }
+    return $this->renderForm('examen_final/edit.html.twig', [
+        'examen_final' => $examenFinal,
+        'form' => $form,
+    ]);
+ }
 
  #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
-public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
-{
+ public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response{
     $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal_id' => $examenFinal]);
 
     if (count($alumnosAsociados) > 0) {
@@ -100,5 +112,5 @@ public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRe
     }
 
     return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
-}
+ }
 }
