@@ -1,18 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ExamenFinal index{% endblock %}
+{% block title %}Examen Final index{% endblock %}
 
 {% block body %}
-    <h1 style="text-align: center;">Listado de Llamados a Exámenes Finales</h1>
+    <div id="body-vistas2" style="display: block;">
+    <h1 class="datos-filtered" id="titulo-pre">Listado de Exámenes Finales</h1>
 
-    <table class="tabla_home">
+    <table class="tabla_home" id="copied-table" border="1">
         <thead>
             <tr>
+                <th colspan="3">
+                Buscar por : Tecnicatura
+                <input type="text" id="searchTecnicatura" onkeyup="filterTable()" placeholder="Buscar Tecnicatura...">
+                </th>
+                <th colspan="3">
+                Buscar por : Asignatura
+                <input type="text" id="searchAsignatura" onkeyup="filterTable()" placeholder="Buscar Asignatura...">
+                </th>
+                <th colspan="4">
+                Buscar por : Presidente de Mesa
+                <input type="text" id="searchPresidente" onkeyup="filterTable()" placeholder="Buscar Presidente de Mesa...">
+                </th>
+            </tr>
+            <tr>
                 <th>ID</th>
-                <th>Materia</th>
-                <th style="width: 180px;">Fecha</th>
-                <th>Presidente</th>
-                <th>Vocales </th>
+                <th>Tecnicatura</th>
+                <th>Asignatura</th>
+                <th>Fecha</th>
+                <th>Horario</th>
+                <th>Presidente de Mesa</th>
+                <th>Vocal 1</th>
+                <th>Vocal 2</th>
+                <th>Condición</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -20,8 +39,10 @@
         {% for examen_final in examen_finals %}
             <tr>
                 <td>{{ examen_final.id }}</td>
+                <td>{{ examen_final.tecnicaturaId ? examen_final.tecnicaturaId.nombre : '' }}</td>
                 <td>{{ examen_final.asignaturaId ? examen_final.asignaturaId.nombre : '' }}</td>
-                <td style="width: 180px;">{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ examen_final.horario ? examen_final.horario|date('H:i') : '' }}</td>                
                 <td>
                     {{ examen_final.presidenteId ? examen_final.presidenteId.persona : '' }}
                 </td>
@@ -29,19 +50,59 @@
                     {{ examen_final.vocal1Id ? examen_final.vocal1Id.persona : '' }}<br>
                     {{ examen_final.vocal2Id ? examen_final.vocal2Id.persona : '' }}
                 </td>
+                <td>{{ examen_final.condicion }}</td>
                 <td>
                     <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}" class="buttonn">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">No se encontraron registros</td>
+                <td colspan="10">No se encontraron registros</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    </div> 
     <div style="text-align: center;">
       <a href="{{ path('app_examen_final_new') }}" class="buttonn">Crear Nuevo Examen Final</a>
    </div>  
-   
+ <script>
+function filterTable() {
+    const inputTec = document.getElementById("searchTecnicatura").value.toUpperCase();
+    const inputAsig = document.getElementById("searchAsignatura").value.toUpperCase();
+    const inputPres = document.getElementById("searchPresidente").value.toUpperCase();
+    const table = document.getElementById("copied-table");
+    const tr = table.getElementsByTagName("tr");
+
+    for (let i = 2; i < tr.length; i++) { // dos filas encabezado antes de datos
+        const tdTec = tr[i].getElementsByTagName("td")[1];
+        const tdAsig = tr[i].getElementsByTagName("td")[2];
+        const tdPres = tr[i].getElementsByTagName("td")[5];
+
+        if (tdTec && tdAsig && tdPres) {
+            const tecText = tdTec.textContent || tdTec.innerText;
+            const asigText = tdAsig.textContent || tdAsig.innerText;
+            const presText = tdPres.textContent || tdPres.innerText;
+
+            if (
+                tecText.toUpperCase().includes(inputTec) &&
+                asigText.toUpperCase().includes(inputAsig) &&
+                presText.toUpperCase().includes(inputPres)
+            ) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+function clearFilters() {
+    document.getElementById("searchTecnicatura").value = "";
+    document.getElementById("searchAsignatura").value = "";
+    document.getElementById("searchPresidente").value = "";
+    filterTable();
+}
+</script>
+  
 {% endblock %}  

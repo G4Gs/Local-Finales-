@@ -21,19 +21,19 @@ class ExamenFinal
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Docente $presidente_id = null;
+    private ?Docente $presidenteId = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Docente $Vocal1_id = null;
+    private ?Docente $vocal1Id = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Docente $Vocal2_id = null;
-
-    #[ORM\OneToMany(mappedBy: 'examenFinal_id', targetEntity: ExamenAlumno::class)]
-    private Collection $examenAlumnos;
+    private ?Docente $vocal2Id = null;
 
     #[ORM\ManyToOne(inversedBy: 'examenFinals')]
-    private ?Asignatura $asignatura_id = null;
+    private ?Asignatura $asignaturaId = null;
+
+    #[ORM\OneToMany(mappedBy: 'examenFinalId', targetEntity: ExamenAlumno::class)]
+    private Collection $examenAlumnos;
 
     public function __construct()
     {
@@ -50,113 +50,43 @@ class ExamenFinal
         return $this->fecha;
     }
 
-    public function setFecha(\DateTimeInterface $fecha): static
+    public function setFecha(\DateTimeInterface $fecha): self
     {
         $this->fecha = $fecha;
-
         return $this;
     }
 
-
     public function getPresidenteId(): ?Docente
     {
-        return $this->presidente_id;
+        return $this->presidenteId;
     }
 
-    public function setPresidenteId(Docente $presidente_id): static
+    public function setPresidenteId(Docente $presidenteId): self
     {
-        $this->presidente_id = $presidente_id;
-
+        $this->presidenteId = $presidenteId;
         return $this;
     }
 
     public function getVocal1Id(): ?Docente
     {
-        return $this->Vocal1_id;
+        return $this->vocal1Id;
     }
 
-    public function setVocal1Id(?Docente $Vocal1_id): static
+    public function setVocal1Id(?Docente $vocal1Id): self
     {
-        $this->Vocal1_id = $Vocal1_id;
-
+        $this->vocal1Id = $vocal1Id;
         return $this;
     }
 
     public function getVocal2Id(): ?Docente
     {
-        return $this->Vocal2_id;
+        return $this->vocal2Id;
     }
 
-    public function setVocal2Id(?Docente $Vocal2_id): static
+    public function setVocal2Id(?Docente $vocal2Id): self
     {
-        $this->Vocal2_id = $Vocal2_id;
-
+        $this->vocal2Id = $vocal2Id;
         return $this;
     }
 
-    public function getAsignaturaId(): ?Asignatura
-    {
-        return $this->asignatura_id;
-    }
-
-    public function setAsignaturaId(?Asignatura $asignatura_id): static
-    {
-        $this->asignatura_id = $asignatura_id;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, ExamenAlumno>
-     */
-    public function getExamenAlumnos(): Collection
-    {
-        return $this->examenAlumnos;
-    }
-
-    public function addExamenAlumno(ExamenAlumno $examenAlumno): static
-    {
-        if (!$this->examenAlumnos->contains($examenAlumno)) {
-            $this->examenAlumnos->add($examenAlumno);
-            $examenAlumno->setExamenFinalId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeExamenAlumno(ExamenAlumno $examenAlumno): static
-    {
-        if ($this->examenAlumnos->removeElement($examenAlumno)) {
-            // set the owning side to null (unless already changed)
-            if ($examenAlumno->getExamenFinalId() === $this) {
-                $examenAlumno->setExamenFinalId(null);
-            }
-        }
-
-        return $this;
-    }
-
-
-    public function __toString(): string
-    {
-        $asignatura = $this->getAsignaturaId();
-        $tecnicatura = $asignatura ? $asignatura->getTecnicatura() : 'Sin Tecnicatura';
-        $asignaturaNombre = $asignatura ? $asignatura->getNombre() : 'Sin Asignatura';
-        
-        $presidente = $this->getPresidenteId();
-        $vocal1 = $this->getVocal1Id();
-        $vocal2 = $this->getVocal2Id();
-    
-        $presidenteNombre = $presidente ? $presidente->getPersona() : 'Sin Presidente';
-        $vocal1Nombre = $vocal1 ? $vocal1->getPersona() : 'Sin Vocal 1';
-        $vocal2Nombre = $vocal2 ? $vocal2->getPersona() : 'Sin Vocal 2';
-    
-        return sprintf('%s - %s | Presidente: %s | Vocal 1: %s | Vocal 2: %s', 
-                       $asignaturaNombre, 
-                       $tecnicatura, 
-                       $presidenteNombre, 
-                       $vocal1Nombre, 
-                       $vocal2Nombre);
-    }
-
-}
+    public function getAsignaturaId(): ?Asign

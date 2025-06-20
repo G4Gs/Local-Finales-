@@ -39,28 +39,29 @@ class ExamenFinalRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return ExamenFinal[] Returns an array of ExamenFinal objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    // Ejemplo: método para buscar por fecha (opcional)
+    /*
+    public function findByFecha(\DateTimeInterface $fecha): array
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.fecha = :fecha')
+            ->setParameter('fecha', $fecha)
+            ->orderBy('e.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+    */
 
-//    public function findOneBySomeField($value): ?ExamenFinal
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    // Ejemplo: método para buscar por asignatura (opcional)
+    /*
+    public function findByAsignatura($asignaturaId): array
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.asignatura_id = :asignaturaId')
+            ->setParameter('asignaturaId', $asignaturaId)
+            ->orderBy('e.fecha', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+    */
 }

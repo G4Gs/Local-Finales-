@@ -147,3 +147,13 @@ d49721,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775287,
 4abc0d,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775789,,200
 a258a6,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775792,,200
 bd30a6,::1,GET,http://localhost/local/public/index.php/examen/final/,1749775845,,200
+6fb9da,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/,1750376331,,500
+065148,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/,1750376331,6fb9da,500
+829c01,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/,1750376394,,404
+2ccc8e,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/index.php/,1750376410,,404
+e2b9db,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/index.php/login,1750376444,,302
+a2541f,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/index.php/home,1750376449,,200
+91b723,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/index.php/examen/final/,1750376474,e0a670,500
+e0a670,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/index.php/examen/final/,1750376474,,500
+cce4f8,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/index.php/examen/final/,1750377203,0a3d85,500
+0a3d85,127.0.0.1,GET,http://localhost/local/Local-Finales-/public/index.php/examen/final/,1750377203,,500

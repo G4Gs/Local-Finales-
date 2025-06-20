@@ -9,17 +9,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-//obliga a que no envia a la pagina de error de synfony
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 
 #[Route('/examen/final')]
 class ExamenFinalController extends AbstractController
 {
     #[Route('/', name: 'app_examen_final_index', methods: ['GET'])]
-    public function index(ExamenFinalRepository $examenFinalRepository): Response
+    public function index(Request $request, ExamenFinalRepository $examenFinalRepository): Response
     {
+        $tecnicatura = $request->query->get('tecnicatura');
+        $asignatura = $request->query->get('asignatura');
+        $presidente = $request->query->get('presidente');
+
+        $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $presidente);
+
         return $this->render('examen_final/index.html.twig', [
-            'examen_finals' => $examenFinalRepository->findAll(),
+            'examen_finals' => $examen_finals,
         ]);
     }
 
@@ -68,20 +73,20 @@ class ExamenFinalController extends AbstractController
         ]);
     }
 
- #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
-public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
-{
-    $id = $examenFinal->getId(); // Guarda el ID antes de eliminar
+    #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
+    public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
+    {
+        $id = $examenFinal->getId();
 
-    if ($this->isCsrfTokenValid('delete'.$id, $request->request->get('_token'))) {
-        try {
-            $examenFinalRepository->remove($examenFinal, true);
-        } catch (ForeignKeyConstraintViolationException $e) {
-            $this->addFlash('error', 'No puedes eliminar el examen final porque tiene alumnos asociados. Elimina primero los registros de alumnos vinculados a este examen.');
-            return $this->redirectToRoute('app_examen_final_edit', ['id' => $id]);
+        if ($this->isCsrfTokenValid('delete'.$id, $request->request->get('_token'))) {
+            try {
+                $examenFinalRepository->remove($examenFinal, true);
+            } catch (ForeignKeyConstraintViolationException $e) {
+                $this->addFlash('error', 'No puedes eliminar el examen final porque tiene alumnos asociados. Elimina primero los registros de alumnos vinculados a este examen.');
+                return $this->redirectToRoute('app_examen_final_edit', ['id' => $id]);
+            }
         }
-    }
 
-    return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
-}
+        return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+    }
 }
