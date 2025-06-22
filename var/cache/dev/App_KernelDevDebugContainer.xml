@@ -8549,7 +8549,11 @@
         <argument key="personaRepository" type="service_closure" id="App\Repository\PersonaRepository"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.a8m97QQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+    <service id=".service_locator.bB0I0V2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+>>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AlumnoController::delete" type="service_closure" id=".service_locator.7MymQPJ"/>
@@ -9922,12 +9926,20 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
+<<<<<<< HEAD
       <argument type="service" id=".service_locator.a8m97QQ"/>
+=======
+      <argument type="service" id=".service_locator.bB0I0V2"/>
+>>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
+<<<<<<< HEAD
       <argument type="service" id=".service_locator.a8m97QQ"/>
+=======
+      <argument type="service" id=".service_locator.bB0I0V2"/>
+>>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -10966,7 +10978,11 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
+<<<<<<< HEAD
     <service id="argument_resolver.controller_locator" alias=".service_locator.a8m97QQ"/>
+=======
+    <service id="argument_resolver.controller_locator" alias=".service_locator.bB0I0V2"/>
+>>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -11009,7 +11025,11 @@
     <service id=".service_locator.8g3mun1" alias=".service_locator.q4LbOCZ"/>
     <service id=".service_locator.rSnBo0F" alias=".service_locator.E4CDJlE"/>
     <service id=".service_locator.lYeQ6ry" alias=".service_locator.omZi5k."/>
+<<<<<<< HEAD
     <service id=".service_locator.o7SiTV7" alias=".service_locator.a8m97QQ"/>
+=======
+    <service id=".service_locator.Qr68EtF" alias=".service_locator.bB0I0V2"/>
+>>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
     <service id=".service_locator.vOwA1I0" alias=".service_locator.SSQnsG8"/>
     <service id=".service_locator.EiLRmSZ" alias=".service_locator.Vtu2h8e"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
