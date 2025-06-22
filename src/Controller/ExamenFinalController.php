@@ -41,13 +41,6 @@ class ExamenFinalController extends AbstractController
         }
     }
 
-<<<<<<< HEAD
-    #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
-    {
-        $form = $this->createForm(ExamenFinalType::class, $examenFinal);
-        $form->handleRequest($request);
-=======
     if ($request->isXmlHttpRequest()) {
         return $this->render('examen_final/_form.html.twig', [
             'form' => $form->createView(),
@@ -65,7 +58,6 @@ class ExamenFinalController extends AbstractController
  public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response{
     $form = $this->createForm(ExamenFinalType::class, $examenFinal);
     $form->handleRequest($request);
->>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
 
     if ($form->isSubmitted() && $form->isValid()) {
         try {
