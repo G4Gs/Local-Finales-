@@ -82,12 +82,19 @@ class ExamenFinalController extends AbstractController
     ]);
  }
 
- #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
- public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response{
+
+<?php
+#[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
+public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
+{
     $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal_id' => $examenFinal]);
 
-        return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+    // Si hay alumnos asociados, puedes mostrar un mensaje y evitar el borrado
+    if (count($alumnosAsociados) > 0) {
+        $this->addFlash('error', 'No se puede eliminar el examen final porque tiene alumnos asociados.');
+        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
     }
+
     try {
         $examenFinalRepository->remove($examenFinal, true);
     } catch (ForeignKeyConstraintViolationException $e) {
@@ -101,4 +108,6 @@ class ExamenFinalController extends AbstractController
     }
 
     return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+}
+
  }
