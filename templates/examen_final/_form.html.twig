@@ -1,4 +1,5 @@
-{{ form_start(form) }}
+{{ form_start(form, { action: path('app_examen_final_new') }) }}
+{{ form_errors(form) }}
 {{ form_widget(form) }}
 <button class="btn">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}

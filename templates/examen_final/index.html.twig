@@ -9,10 +9,13 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Materia</th>
-                <th style="width: 180px;">Fecha</th>
-                <th>PresidenteDM</th>
-                <th>Vocales </th>
+                <th>Fecha</th>
+                <th>Presidente</th>
+                <th>Vocal 1</th>
+                <th>Vocal 2</th>
+                <th>Estado de Mesa</th>
+                <th>Tecnicatura</th>
+                <th>Asignatura</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -20,94 +23,136 @@
         {% for examen_final in examen_finals %}
             <tr>
                 <td>{{ examen_final.id }}</td>
-                <td>{{ examen_final.asignaturaId ? examen_final.asignaturaId.nombre : '' }}</td>
-                <td style="width: 180px;">{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
+                <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
+                <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
+                <td>{{ examen_final.estadoMesa }}</td>
+                <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : '' }}</td>
+                <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : '' }}</td>
                 <td>
-                    {{ examen_final.presidenteId ? examen_final.presidenteId.persona : '' }}
+                    <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">
+                        Editar
+                    </button>
                 </td>
-                <td>
-                    {{ examen_final.vocal1Id ? examen_final.vocal1Id.persona : '' }}<br>
-                    {{ examen_final.vocal2Id ? examen_final.vocal2Id.persona : '' }}
-                </td>
-               <td>
-                 <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">
-                      Editar
-                 </button>
-               </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">No se encontraron registros</td>
+                <td colspan="9">No se encontraron registros</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     
-   <div style="text-align: center;">
-       <button class="buttonn" onclick="openNewExamenModal()">Crear Nuevo Examen Final</button>
-  </div>
+    <div style="text-align: center;">
+        <button class="buttonn" onclick="openNewExamenModal()">Crear Nuevo Examen Final</button>
+    </div>
 
-    
- <!-- Modal para edición -->
-   <div id="editExamenModal" class="modal" style="display: none;">
-      <div class="modal-content">
-         <span class="close" onclick="closeEditExamenModal()">&times;</span>
-         <div id="editExamenBody" class="submodal"></div>
-     </div>
- </div>
+    <!-- Modal para edición -->
+    <div id="editExamenModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditExamenModal()">&times;</span>
+            <div id="editExamenBody" class="submodal"></div>
+        </div>
+    </div>
 
- <!-- Modal para creación -->
-   <div id="newExamenModal" class="modal" style="display: none;">
-      <div class="modal-content">
-         <span class="close" onclick="closeNewExamenModal()">&times;</span>
-         <div id="newExamenBody" class="submodal"></div>
-     </div>
- </div>
+    <!-- Modal para creación -->
+    <div id="newExamenModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeNewExamenModal()">&times;</span>
+            <div id="newExamenBody" class="submodal"></div>
+        </div>
+    </div>
+{% endblock %}
 
- {% block javascripts %}
-     <script>
-         function openEditExamenModal(examenId) {
-              const url = "{{ path('app_examen_final_edit', {'id': '__id__'}) }}".replace('__id__', examenId);
-             fetch(url)
-              .then(response => response.text())
-              .then(html => {
-                   document.getElementById('editExamenBody').innerHTML = html;
-                   document.getElementById('editExamenModal').style.display = 'block';
-                })
-              .catch(error => console.error('Error al cargar el formulario de edición:', error));
-            }
-
-            function openNewExamenModal() {
-                const url = "{{ path('app_examen_final_new') }}";
-                fetch(url)
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById('newExamenBody').innerHTML = html;
-                        document.getElementById('newExamenModal').style.display = 'block';
-                    })
-                    .catch(error => console.error('Error al cargar el formulario de creación:', error));
-            }
-
-            function closeEditExamenModal() {
-              document.getElementById('editExamenModal').style.display = 'none';
-             document.getElementById('editExamenBody').innerHTML = '';
-            }
-       </script>
-       {{ parent() }}
-       <script>
-          document.addEventListener('DOMContentLoaded', function() {
-              var errorAlert = document.querySelector('.alert-danger');
-              if (errorAlert) {
-                  var link = document.querySelector("link[rel~='icon']");
-                  if (!link) {
-                        link = document.createElement('link');
-                        link.rel = 'icon';
-                        document.head.appendChild(link);
-                    }
-                  link.href = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle fill=%22red%22 cx=%2250%22 cy=%2250%22 r=%2250%22/></svg>';
-                  document.title = '3RR00r' + document.title;
+{% block javascripts %}
+<script>
+function handleExamenFinalFormSubmit(modalId, bodyId) {
+    const modalBody = document.getElementById(bodyId);
+    modalBody.addEventListener('submit', function(e) {
+        if (e.target.tagName === 'FORM') {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(html => {
+                if (html.includes('<form')) {
+                    modalBody.innerHTML = html;
+                } else {
+                    window.location.reload();
                 }
+            })
+            .catch(error => {
+                alert('Ocurrió un error al guardar el examen final.');
+                console.error(error);
             });
-      </script>
-  {% endblock %}  
-{% endblock %} 
+        }
+    });
+}
+
+function openEditExamenModal(examenId) {
+    const url = "{{ path('app_examen_final_edit', {'id': '__id__'}) }}".replace('__id__', examenId);
+    fetch(url, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById('editExamenBody').innerHTML = html;
+        document.getElementById('editExamenModal').style.display = 'block';
+        handleExamenFinalFormSubmit('editExamenModal', 'editExamenBody');
+        const deleteForm = document.getElementById('editExamenBody').querySelector('form[action*="delete"]');
+        if (deleteForm) {
+            deleteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(deleteForm);
+                fetch(deleteForm.action, {
+                    method: deleteForm.method,
+                    body: formData,
+                })
+                .then(() => {
+                    window.location.reload();
+                })
+                .catch(error => {
+                    alert('Ocurrió un error al eliminar el examen final.');
+                    console.error(error);
+                });
+            });
+        }
+    })
+    .catch(error => console.error('Error al cargar el formulario de edición:', error));
+}
+
+function closeEditExamenModal() {
+    document.getElementById('editExamenModal').style.display = 'none';
+    document.getElementById('editExamenBody').innerHTML = '';
+}
+
+function openNewExamenModal() {
+    const url = "{{ path('app_examen_final_new') }}";
+    fetch(url, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById('newExamenBody').innerHTML = html;
+        document.getElementById('newExamenModal').style.display = 'block';
+        handleExamenFinalFormSubmit('newExamenModal', 'newExamenBody');
+    })
+    .catch(error => console.error('Error al cargar el formulario de creación:', error));
+}
+
+function closeNewExamenModal() {
+    document.getElementById('newExamenModal').style.display = 'none';
+    document.getElementById('newExamenBody').innerHTML = '';
+}
+</script>
+{{ parent() }}
+{% endblock %}

@@ -38,6 +38,7 @@ class ExamenFinalRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+}
 
 //    /**
 //     * @return ExamenFinal[] Returns an array of ExamenFinal objects
@@ -63,4 +64,3 @@ class ExamenFinalRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}

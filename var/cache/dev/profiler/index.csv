@@ -1,0 +1,9 @@
+b2218a,::1,GET,http://localhost/local/public/index.php/examen/alumno/,1750632355,1c1a5b,500
+1c1a5b,::1,GET,http://localhost/local/public/index.php/examen/alumno/,1750632355,,500
+aca3e7,::1,GET,http://localhost/local/public/index.php/examen/alumno/,1750632531,,200
+2ab32c,::1,GET,http://localhost/local/public/index.php/examen/alumno/new,1750632536,a99207,500
+a99207,::1,GET,http://localhost/local/public/index.php/examen/alumno/new,1750632536,,500
+226f7d,::1,GET,http://localhost/local/public/index.php/examen/alumno/new,1750632686,e3ee8e,500
+e3ee8e,::1,GET,http://localhost/local/public/index.php/examen/alumno/new,1750632686,,500
+705c41,::1,GET,http://localhost/local/public/index.php/examen/alumno/new,1750632845,,200
+6cea3a,::1,GET,http://localhost/local/public/index.php/examen/alumno/,1750632848,,200
