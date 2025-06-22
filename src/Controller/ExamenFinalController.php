@@ -82,23 +82,12 @@ class ExamenFinalController extends AbstractController
     ]);
  }
 
-<<<<<<< HEAD
-    #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
-    public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$examenFinal->getId(), $request->request->get('_token'))) {
-            $examenFinalRepository->remove($examenFinal, true);
-        }
-=======
  #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
  public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response{
     $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal_id' => $examenFinal]);
->>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
 
         return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
     }
-<<<<<<< HEAD
-=======
     try {
         $examenFinalRepository->remove($examenFinal, true);
     } catch (ForeignKeyConstraintViolationException $e) {
@@ -113,5 +102,3 @@ class ExamenFinalController extends AbstractController
 
     return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
  }
->>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
-}
