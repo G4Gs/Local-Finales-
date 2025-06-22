@@ -83,7 +83,7 @@ class ExamenFinalController extends AbstractController
  }
 
 
-<?php
+
 #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
 public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
 {
