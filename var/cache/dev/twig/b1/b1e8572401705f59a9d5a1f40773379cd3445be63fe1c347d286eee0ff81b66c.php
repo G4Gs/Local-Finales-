@@ -243,6 +243,6 @@ class __TwigTemplate_4ff4ae512740ca2f39e836708d4f4f6c20335b3b444be691afee218309f
 
     <a href=\"{{ path('app_alumno_new') }}\"> Crear Nuevo Estudiante </a>
 {% endblock %}
-", "alumno/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\alumno\\index.html.twig");
+", "alumno/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\alumno\\index.html.twig");
     }
 }

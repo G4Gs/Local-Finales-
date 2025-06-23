@@ -171,6 +171,6 @@ class __TwigTemplate_3b8a3aca315fdb91c1648f3e22a77be4ec380dce65a65551e042cb12845
     </ul>
 {% endblock %}
 {# este modelo se creo para test, mapea el dbs region y trae todo en archivos csv,
-! no se utiliza en el sistema !, solo TEST, no borrar#}", "vistaspreinscriptos/list.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspreinscriptos\\list.html.twig");
+! no se utiliza en el sistema !, solo TEST, no borrar#}", "vistaspreinscriptos/list.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspreinscriptos\\list.html.twig");
     }
 }

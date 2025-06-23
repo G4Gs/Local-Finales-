@@ -155,6 +155,6 @@ class __TwigTemplate_7180e0a1f23d90e7e9a3608cd9af1757efb2559f6fb41dbd25c9f50a3f1
 
     <a href=\"{{ path('app_revista_index') }}\"> Regresar </a>
 {% endblock %}
-", "revista/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\revista\\new.html.twig");
+", "revista/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\revista\\new.html.twig");
     }
 }

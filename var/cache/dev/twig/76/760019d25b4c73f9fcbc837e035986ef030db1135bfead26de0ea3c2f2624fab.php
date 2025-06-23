@@ -155,6 +155,6 @@ class __TwigTemplate_eef836ca69ffffd494cef71d696b4e98a7b63f754dda9a4da9aa3bd1180
 
     <a href=\"{{ path('app_asignatura_index') }}\">Regresar</a>
 {% endblock %}
-", "asignatura/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\asignatura\\new.html.twig");
+", "asignatura/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\asignatura\\new.html.twig");
     }
 }

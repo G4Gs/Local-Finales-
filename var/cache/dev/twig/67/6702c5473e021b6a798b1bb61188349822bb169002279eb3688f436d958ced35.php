@@ -155,6 +155,6 @@ class __TwigTemplate_4dfe11e4376fe220da89731be5f2800c946f7db79975f04eabf58d78304
 
     <a href=\"{{ path('app_tecnicatura_index') }}\">Regresar</a>
 {% endblock %}
-", "tecnicatura/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\tecnicatura\\new.html.twig");
+", "tecnicatura/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\tecnicatura\\new.html.twig");
     }
 }

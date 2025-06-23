@@ -155,6 +155,6 @@ class __TwigTemplate_641182a7f01508c1ce96c9b3f7701fd0931b61946c3d9f6baba0476e96f
 
     <a href=\"{{ path('app_comision_index') }}\">Regresar</a>
 {% endblock %}
-", "comision/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\comision\\new.html.twig");
+", "comision/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\comision\\new.html.twig");
     }
 }

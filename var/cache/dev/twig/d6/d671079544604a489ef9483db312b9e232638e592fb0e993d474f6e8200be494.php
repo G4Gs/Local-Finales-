@@ -228,6 +228,6 @@ class __TwigTemplate_6bf3da00cc2cb00295616ab1d57c3339f12a59372234611658ab4def5ac
 
     <a href=\"{{ path('app_turno_new') }}\">Crear Nuevo Turno</a>
 {% endblock %}
-", "turno/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\turno\\index.html.twig");
+", "turno/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\turno\\index.html.twig");
     }
 }

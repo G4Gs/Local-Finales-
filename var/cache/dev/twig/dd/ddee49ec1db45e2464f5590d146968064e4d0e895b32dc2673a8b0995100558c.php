@@ -195,6 +195,6 @@ class __TwigTemplate_47a8a176d81af72cbb14316dce23396c7abdc1df33529910b23256148a0
     <button type=\"submit\">Guardar</button>
 {{ form_end(form) }}
 
-", "vistaspersona/create_persona_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\create_persona_form.html.twig");
+", "vistaspersona/create_persona_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\create_persona_form.html.twig");
     }
 }

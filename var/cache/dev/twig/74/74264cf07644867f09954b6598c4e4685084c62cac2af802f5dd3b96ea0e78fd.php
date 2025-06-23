@@ -99,6 +99,6 @@ class __TwigTemplate_2bf6fabd5446bb0b9760887e9ea35fad7ff040c9ce62ec66dabdbb18671
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "instituto/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\instituto\\_form.html.twig");
+", "instituto/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\instituto\\_form.html.twig");
     }
 }

@@ -99,6 +99,6 @@ class __TwigTemplate_b25debaa127ca8c3a18bde5f6c29e8f1ab151ce44e22823863524b19c15
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "revista/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\revista\\_form.html.twig");
+", "revista/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\revista\\_form.html.twig");
     }
 }

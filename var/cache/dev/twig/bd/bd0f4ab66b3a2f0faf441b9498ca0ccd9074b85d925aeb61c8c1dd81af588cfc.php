@@ -114,6 +114,6 @@ class __TwigTemplate_25daa6dd1365906430c021410271378db31a1acb691042e78a3aab103d7
     {{ form_row(form.inicio, {'label': 'Fecha de Inicio'}) }}
     {{ form_row(form.fin, {'label': 'Fecha de Finalización'}) }} 
     <button type=\"submit\" id=\"guarda-modal-edit\"class:\"button\">Guardar</button>
-{{ form_end(form) }}  ", "vistaspersona/edit_carreras.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\edit_carreras.html.twig");
+{{ form_end(form) }}  ", "vistaspersona/edit_carreras.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\edit_carreras.html.twig");
     }
 }

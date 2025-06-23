@@ -118,6 +118,6 @@ class __TwigTemplate_1561e8b8901aedc287cf0f4308759db4573f0cc264ae9ad7251d9ace275
 
     <button type=\"submit\" id=\"guarda-modal-edit\"class=\"button\">Guardar</button>
 
-{{ form_end(form) }} ", "vistascursada/edit_form_cursada.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistascursada\\edit_form_cursada.html.twig");
+{{ form_end(form) }} ", "vistascursada/edit_form_cursada.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistascursada\\edit_form_cursada.html.twig");
     }
 }

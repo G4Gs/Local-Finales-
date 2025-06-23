@@ -103,6 +103,6 @@ class __TwigTemplate_7f84f302bf088e5a243d8a45d10a34736b95c748cddf99161daf65b5c4f
         {{ form_row(form.alumno_id, {'label': 'Alumno'}) }}
         {{ form_row(form.asignatura_id, {'label': 'Asignatura'}) }}
     <button type=\"submit\"class:\"button\">Guardar</button>
-{{ form_end(form) }}", "vistasestudiante/create_form_final.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasestudiante\\create_form_final.html.twig");
+{{ form_end(form) }}", "vistasestudiante/create_form_final.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasestudiante\\create_form_final.html.twig");
     }
 }

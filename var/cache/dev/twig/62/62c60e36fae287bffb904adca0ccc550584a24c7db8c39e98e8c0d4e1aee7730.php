@@ -222,6 +222,6 @@ class __TwigTemplate_2fb4cca3b077c23446d5a6f669b19024bcf424c54caa88c9243786a3552
         {{ include('user/_delete_form.html.twig') }}
     </table>
 {% endblock %}
-", "user/show.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\user\\show.html.twig");
+", "user/show.html.twig", "C:\\xampp\\htdocs\\local\\templates\\user\\show.html.twig");
     }
 }

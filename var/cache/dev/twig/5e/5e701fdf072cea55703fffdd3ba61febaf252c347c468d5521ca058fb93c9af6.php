@@ -242,6 +242,6 @@ class __TwigTemplate_655f68f1cf717ec564e41bfecbeaac681029351d131d5abe96ac2d2ada5
 
     <a href=\"{{ path('app_cursada_docente_new') }}\">Crear Nueva Cursada Docente</a>
 {% endblock %}
-", "cursada_docente/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\cursada_docente\\index.html.twig");
+", "cursada_docente/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\cursada_docente\\index.html.twig");
     }
 }

@@ -228,6 +228,6 @@ class __TwigTemplate_d83a90c954d914abd7c41601a7b0fc1bb8c26208a9a73b7f357b789d0a5
 
     <a href=\"{{ path('app_rol_new') }}\">Create new</a>
 {% endblock %}
-", "rol/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\rol\\index.html.twig");
+", "rol/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\rol\\index.html.twig");
     }
 }

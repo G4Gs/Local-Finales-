@@ -655,6 +655,6 @@ async function EditarSeleccionados() {
 </script>
 
 {% endblock %}
-", "vistasdocente/lista.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasdocente\\lista.html.twig");
+", "vistasdocente/lista.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasdocente\\lista.html.twig");
     }
 }

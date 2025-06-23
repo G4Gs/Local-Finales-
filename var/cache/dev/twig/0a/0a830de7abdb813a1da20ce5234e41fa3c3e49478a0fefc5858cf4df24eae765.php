@@ -107,6 +107,6 @@ class __TwigTemplate_56d4244fa29f345af28d34a0f0b5e6fd54ca1fa57e725c16d17dbe5f676
 
 
 
-", "vistaspersona/create_docente_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\create_docente_form.html.twig");
+", "vistaspersona/create_docente_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\create_docente_form.html.twig");
     }
 }

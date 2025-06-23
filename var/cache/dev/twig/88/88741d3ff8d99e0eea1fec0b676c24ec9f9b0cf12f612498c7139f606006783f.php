@@ -29,16 +29,12 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
 
         $this->source = $this->getSourceContext();
 
+        $this->parent = false;
+
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
-    }
-
-    protected function doGetParent(array $context): bool|string|Template|TemplateWrapper
-    {
-        // line 1
-        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = []): iterable
@@ -50,17 +46,23 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "examen_final/edit.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "examen_final/edit.html.twig", 1);
-        yield from $this->parent->unwrap()->yield($context, array_merge($this->blocks, $blocks));
+        // line 1
+        yield from $this->unwrap()->yieldBlock('title', $context, $blocks);
+        // line 2
+        yield "
+";
+        // line 3
+        yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
+        yield from [];
     }
 
-    // line 3
+    // line 1
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -73,7 +75,7 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Edit ExamenFinal";
+        yield " <h1>Editar Examen Final</h1> ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -83,7 +85,7 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
         yield from [];
     }
 
-    // line 5
+    // line 3
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -96,7 +98,14 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 4
+        yield "    ";
+        yield Twig\Extension\CoreExtension::include($this->env, $context, "examen_final/_form.html.twig", ["form" => (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 4, $this->source); })()), "button_label" => "Actualizar"]);
+        yield "
+
+    <form method=\"post\" action=\"";
         // line 6
+<<<<<<< HEAD
         yield "   <h1>Editar Examen Final</h1>
 
     ";
@@ -134,6 +143,16 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
         yield "
 
  
+=======
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_delete", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 6, $this->source); })()), "id", [], "any", false, false, false, 6)]), "html", null, true);
+        yield "\" onsubmit=\"return confirm('¿Estás seguro de eliminar este examen final?');\">
+        <input type=\"hidden\" name=\"_token\" value=\"";
+        // line 7
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . CoreExtension::getAttribute($this->env, $this->source, (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 7, $this->source); })()), "id", [], "any", false, false, false, 7))), "html", null, true);
+        yield "\">
+        <button class=\"btn btn-danger\">Eliminar</button>
+    </form>
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -155,26 +174,21 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
     /**
      * @codeCoverageIgnore
      */
-    public function isTraitable(): bool
-    {
-        return false;
-    }
-
-    /**
-     * @codeCoverageIgnore
-     */
     public function getDebugInfo(): array
     {
+<<<<<<< HEAD
         return array (  133 => 18,  128 => 16,  123 => 14,  120 => 13,  112 => 11,  109 => 10,  104 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+=======
+        return array (  112 => 7,  108 => 6,  102 => 4,  89 => 3,  66 => 1,  55 => 3,  52 => 2,  50 => 1,);
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
     }
 
     public function getSourceContext(): Source
     {
-        return new Source("{% extends 'base.html.twig' %}
-
-{% block title %}Edit ExamenFinal{% endblock %}
+        return new Source("{% block title %} <h1>Editar Examen Final</h1> {% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
    <h1>Editar Examen Final</h1>
 
     {# Mostrar mensajes de error #}
@@ -192,5 +206,14 @@ class __TwigTemplate_afb60047ff280bc67fc2c0d81abda0b59c8ef51718167c6430216b894e3
  
 {% endblock %}
 ", "examen_final/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_final\\edit.html.twig");
+=======
+    {{ include('examen_final/_form.html.twig', {'form': form, 'button_label': 'Actualizar'}) }}
+
+    <form method=\"post\" action=\"{{ path('app_examen_final_delete', {'id': examen_final.id}) }}\" onsubmit=\"return confirm('¿Estás seguro de eliminar este examen final?');\">
+        <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ examen_final.id) }}\">
+        <button class=\"btn btn-danger\">Eliminar</button>
+    </form>
+{% endblock %}", "examen_final/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_final\\edit.html.twig");
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
     }
 }

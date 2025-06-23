@@ -116,6 +116,6 @@ class __TwigTemplate_f6bf006b66c9baef1bb3ccb2a0e73c286d1ecd69760eb0aa7aa83f2abdb
     {{ form_row(form.fin, {'label': 'Fecha de Finalización'}) }} 
     <button type=\"submit\"class:\"button\">Guardar</button>
 {{ form_end(form) }}
-", "vistaspersona/create_carreras_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\create_carreras_form.html.twig");
+", "vistaspersona/create_carreras_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\create_carreras_form.html.twig");
     }
 }

@@ -155,6 +155,6 @@ class __TwigTemplate_ea280ac18f4e63203d26a7de4a84d2102dbea2230c02d1a19e87b08a29e
 
     <a href=\"{{ path('app_nota_index') }}\">Regresar</a>
 {% endblock %}
-", "nota/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\nota\\new.html.twig");
+", "nota/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\nota\\new.html.twig");
     }
 }

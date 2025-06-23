@@ -162,6 +162,6 @@ class __TwigTemplate_6834a900cc9bc0c807bb5b2bf2e36e539eb9d961fea492361ffb9d6f5a2
 
     {{ include('tecnicatura/_delete_form.html.twig') }}
 {% endblock %}
-", "tecnicatura/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\tecnicatura\\edit.html.twig");
+", "tecnicatura/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\tecnicatura\\edit.html.twig");
     }
 }

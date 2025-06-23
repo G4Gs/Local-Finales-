@@ -94,6 +94,6 @@ class __TwigTemplate_1cdbea311305e009b3a540d7a1172d8396e2a84896aa9ec64797577ec38
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ calendario_clase.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "calendario_clase/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\calendario_clase\\_delete_form.html.twig");
+", "calendario_clase/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\calendario_clase\\_delete_form.html.twig");
     }
 }

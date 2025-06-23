@@ -235,6 +235,6 @@ class __TwigTemplate_61e733a5c90771e56cd0623ab2ef9fce1dd693135b735767b17aadd2fd1
 
     <a href=\"{{ path('app_habilitante_new') }}\">Crear Nueva Habilitante</a>
 {% endblock %}
-", "habilitante/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\habilitante\\index.html.twig");
+", "habilitante/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\habilitante\\index.html.twig");
     }
 }

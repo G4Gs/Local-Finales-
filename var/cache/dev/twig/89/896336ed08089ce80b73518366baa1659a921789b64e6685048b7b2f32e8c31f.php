@@ -175,6 +175,6 @@ class __TwigTemplate_f911b8e4902d250b7e9ac3b0c73ce6f90bf403a1961022a1af8db97263c
     </tbody>
 </table>
 {% endblock %}
-", "vistas/view_correlativas.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistas\\view_correlativas.html.twig");
+", "vistas/view_correlativas.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistas\\view_correlativas.html.twig");
     }
 }

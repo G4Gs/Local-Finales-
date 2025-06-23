@@ -94,6 +94,6 @@ class __TwigTemplate_7b07a4f7652078885c2c17271a2ed4fbef057f38b47f037e037310e06aa
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ revistum.id) }}\">
     <button class=\"btn\">Eliminar</button>
 </form>
-", "revista/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\revista\\_delete_form.html.twig");
+", "revista/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\revista\\_delete_form.html.twig");
     }
 }

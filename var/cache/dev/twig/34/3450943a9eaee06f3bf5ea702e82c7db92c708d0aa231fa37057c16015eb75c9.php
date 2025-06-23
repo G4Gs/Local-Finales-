@@ -162,6 +162,6 @@ class __TwigTemplate_03496aa4675628500f050f54f0e7e50b4a5af39b242c6190b6e010ce41f
 
     {{ include('turno/_delete_form.html.twig') }}
 {% endblock %}
-", "turno/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\turno\\edit.html.twig");
+", "turno/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\turno\\edit.html.twig");
     }
 }

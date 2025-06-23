@@ -94,6 +94,6 @@ class __TwigTemplate_04663dd31a80735734632538e25662961d7196216d27d78ac0fa0e24c16
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ asistencium.id) }}\">
     <button class=\"btn\">Eliminar</button>
 </form>
-", "asistencia/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\asistencia\\_delete_form.html.twig");
+", "asistencia/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\asistencia\\_delete_form.html.twig");
     }
 }

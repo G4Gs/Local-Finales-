@@ -3760,6 +3760,6 @@ document.getElementById('guardarModalidadBtn').addEventListener('click', () => {
     
    
     
-{% endblock %}", "vistasdocente/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasdocente\\index.html.twig");
+{% endblock %}", "vistasdocente/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasdocente\\index.html.twig");
     }
 }

@@ -109,6 +109,6 @@ class __TwigTemplate_0d03e8cf46927cffc4e05fdcb752e49f26b2b1cbe73531e034f18396f37
         {{ form_row(form.parcial2, {'label': 'Segundo Parcial'}) }}
         {{ form_row(form.recuperatorio2, {'label': 'Segundo Recuperatorio'}) }}
     <button type=\"submit\" id=\"guarda-modal-edit\"class:\"button\">Guardar</button>
-{{ form_end(form) }}             ", "vistasdocente/edit_nota.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasdocente\\edit_nota.html.twig");
+{{ form_end(form) }}             ", "vistasdocente/edit_nota.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasdocente\\edit_nota.html.twig");
     }
 }

@@ -162,6 +162,6 @@ class __TwigTemplate_5a8fd4483f50a5b4db58bc06d8fc27c4eea28c776673d7203b993433b16
 
     {{ include('docente/_delete_form.html.twig') }}
 {% endblock %}
-", "docente/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\docente\\edit.html.twig");
+", "docente/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\docente\\edit.html.twig");
     }
 }

@@ -906,6 +906,6 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
 
 
 {% endblock %}
-", "vistasmesas/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasmesas\\index.html.twig");
+", "vistasmesas/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasmesas\\index.html.twig");
     }
 }

@@ -162,6 +162,6 @@ class __TwigTemplate_e3352a9ac54631fe66d1d2c0eae88bcfd28129217bb33e587039e7ef2ce
 
     {{ include('horario/_delete_form.html.twig') }}
 {% endblock %}
-", "horario/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\horario\\edit.html.twig");
+", "horario/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\horario\\edit.html.twig");
     }
 }

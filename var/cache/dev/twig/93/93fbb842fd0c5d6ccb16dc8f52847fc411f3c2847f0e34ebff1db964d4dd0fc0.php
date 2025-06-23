@@ -194,6 +194,6 @@ class __TwigTemplate_9d94727099eb98c46eb701dd3334bd50e5477873e7e301f0a294621538c
 
     {{ include('inscripcion_final/_delete_form.html.twig') }}
 {% endblock %}
-", "inscripcion_final/show.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\inscripcion_final\\show.html.twig");
+", "inscripcion_final/show.html.twig", "C:\\xampp\\htdocs\\local\\templates\\inscripcion_final\\show.html.twig");
     }
 }

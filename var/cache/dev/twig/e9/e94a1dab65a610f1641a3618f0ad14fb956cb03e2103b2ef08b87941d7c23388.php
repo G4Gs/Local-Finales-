@@ -242,6 +242,6 @@ class __TwigTemplate_b826b58c6a75d1bc8d39c60e73f3b0a3a4feaf3c85540203f9e76a14a0e
 
     <a href=\"{{ path('app_examen_alumno_new') }}\">Crear Nuevo Examen de Alumno</a>
 {% endblock %}
-", "examen_alumno/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\examen_alumno\\index.html.twig");
+", "examen_alumno/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_alumno\\index.html.twig");
     }
 }

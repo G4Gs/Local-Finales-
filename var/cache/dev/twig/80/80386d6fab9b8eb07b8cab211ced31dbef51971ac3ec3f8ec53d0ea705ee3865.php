@@ -228,6 +228,6 @@ class __TwigTemplate_7445699b916af3a634888a6800843005ce8ed791086491b3e6dad564904
 
     <a href=\"{{ path('app_modalidad_new') }}\">Crear Nueva Modalidad</a>
 {% endblock %}
-", "modalidad/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\modalidad\\index.html.twig");
+", "modalidad/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\modalidad\\index.html.twig");
     }
 }

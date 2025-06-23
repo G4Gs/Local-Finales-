@@ -162,6 +162,6 @@ class __TwigTemplate_1102862404b720d5515d6e14d4658fe617d267a634aa83fd1f3a06c2194
 
     {{ include('instituto/_delete_form.html.twig') }}
 {% endblock %}
-", "instituto/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\instituto\\edit.html.twig");
+", "instituto/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\instituto\\edit.html.twig");
     }
 }

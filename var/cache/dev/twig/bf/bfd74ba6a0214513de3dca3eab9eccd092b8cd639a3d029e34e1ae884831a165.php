@@ -94,6 +94,6 @@ class __TwigTemplate_377c23fc25425431847426453ec063bc55a4b55487fa94d170a743e1ba3
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ tecnicatura.id) }}\">
     <button class=\"btn\">Eliminar</button>
 </form>
-", "tecnicatura/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\tecnicatura\\_delete_form.html.twig");
+", "tecnicatura/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\tecnicatura\\_delete_form.html.twig");
     }
 }

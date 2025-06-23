@@ -221,6 +221,6 @@ class __TwigTemplate_49626304c1cf9a290a1cf3c1abe873e8c52122f6e8bae94bc9e440e8b0d
 
     <a href=\"{{ path('app_correlativa_new') }}\">Crear Nueva Correlativa</a>
 {% endblock %}
-", "correlativa/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\correlativa\\index.html.twig");
+", "correlativa/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\correlativa\\index.html.twig");
     }
 }

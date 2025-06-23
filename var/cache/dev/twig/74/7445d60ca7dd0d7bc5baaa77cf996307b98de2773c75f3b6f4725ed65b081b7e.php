@@ -116,6 +116,6 @@ class __TwigTemplate_14af337aaccbb071293078e9377531928f0bcd24ace6fee6995097da5b9
         {{ form_row(form.Vocal2_id, {'label': 'Segundo Vocal'}) }}
     <button type=\"submit\"class:\"button\">Guardar</button>
 {{ form_end(form) }}
-", "vistasmesas/crear_mesa_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasmesas\\crear_mesa_form.html.twig");
+", "vistasmesas/crear_mesa_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasmesas\\crear_mesa_form.html.twig");
     }
 }

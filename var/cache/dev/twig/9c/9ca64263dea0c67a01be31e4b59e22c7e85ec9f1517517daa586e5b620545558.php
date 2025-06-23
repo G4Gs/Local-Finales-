@@ -277,6 +277,6 @@ class __TwigTemplate_344595b7576fb537cc4424f4b8c99ce8f60bf10b4f2330e26cd156605e8
 
     <a href=\"{{ path('app_curso_new') }}\">Crear Nuevo Curso</a>
 {% endblock %}
-", "curso/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\curso\\index.html.twig");
+", "curso/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\curso\\index.html.twig");
     }
 }

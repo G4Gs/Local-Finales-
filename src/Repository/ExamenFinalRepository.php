@@ -38,6 +38,7 @@ class ExamenFinalRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+}
 
     // Ejemplo: método para buscar por fecha (opcional)
     /*
@@ -52,6 +53,7 @@ class ExamenFinalRepository extends ServiceEntityRepository
     }
     */
 
+<<<<<<< HEAD
     // Ejemplo: método para buscar por asignatura (opcional)
     /*
     public function findByAsignatura($asignaturaId): array
@@ -65,3 +67,14 @@ class ExamenFinalRepository extends ServiceEntityRepository
     }
     */
 }
+=======
+//    public function findOneBySomeField($value): ?ExamenFinal
+//    {
+//        return $this->createQueryBuilder('e')
+//            ->andWhere('e.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8

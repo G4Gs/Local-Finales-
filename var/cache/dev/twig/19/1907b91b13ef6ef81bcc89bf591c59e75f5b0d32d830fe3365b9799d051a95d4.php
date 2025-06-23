@@ -228,6 +228,6 @@ class __TwigTemplate_9e89fc435ad403e7cf7fbcdb0a7564b4ab6cb79c346109d6474a5ba4971
 
     <a href=\"{{ path('app_revista_new') }}\">Crear Nueva Revista</a>
 {% endblock %}
-", "revista/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\revista\\index.html.twig");
+", "revista/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\revista\\index.html.twig");
     }
 }

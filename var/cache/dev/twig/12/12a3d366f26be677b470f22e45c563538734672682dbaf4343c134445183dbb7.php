@@ -238,6 +238,6 @@ class __TwigTemplate_742a6210b53fd0719962b4d8900c6d0356914c3a621f1539f6c19500ebb
 
     {{ include('asignatura/_delete_form.html.twig') }}
 {% endblock %}
-", "asignatura/show.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\asignatura\\show.html.twig");
+", "asignatura/show.html.twig", "C:\\xampp\\htdocs\\local\\templates\\asignatura\\show.html.twig");
     }
 }

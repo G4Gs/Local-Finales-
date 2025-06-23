@@ -228,6 +228,6 @@ class __TwigTemplate_2c74c8bd20df0030b11c1e06b9bcb2dc4f022e6d94b71e91ac0b84afce8
 
     <a href=\"{{ path('app_region_new') }}\">Crear Nueva Región</a>
 {% endblock %}
-", "region/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\region\\index.html.twig");
+", "region/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\region\\index.html.twig");
     }
 }

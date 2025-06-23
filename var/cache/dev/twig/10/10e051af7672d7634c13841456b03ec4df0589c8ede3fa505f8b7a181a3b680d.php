@@ -1704,6 +1704,6 @@ class __TwigTemplate_05fa7aeb09b1952158ae2dd7ae983451a25c2738d6bfe4124b29915ed3e
         <button id=\"backButton\" style=\"display: none;\" class=\"btn-primary\">Regresar</button>
     </div>
 {% endblock %}
-", "vistaspersona/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\index.html.twig");
+", "vistaspersona/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\index.html.twig");
     }
 }

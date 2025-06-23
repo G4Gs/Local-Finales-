@@ -118,6 +118,6 @@ class __TwigTemplate_cffd2de1cb2f63000b8171c45c03571a690c74be8ec0b97a2f74a2491f8
     <button type=\"submit\"class:\"button\">Guardar</button>
 {{ form_end(form) }}       
         
-", "vistasestudiante/editar_usuario.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasestudiante\\editar_usuario.html.twig");
+", "vistasestudiante/editar_usuario.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasestudiante\\editar_usuario.html.twig");
     }
 }

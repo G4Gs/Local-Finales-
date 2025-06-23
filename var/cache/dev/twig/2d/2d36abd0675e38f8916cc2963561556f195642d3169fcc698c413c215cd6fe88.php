@@ -94,6 +94,6 @@ class __TwigTemplate_6f75cae41c2df554d3d9a1ceb23ab991eddeff9a10ac8e675f0ce26d7b7
     <input type=\"hidden\" name=\"tecnicatura_id\" value=\"{{ tecnicatura.id }}\">
     <input type=\"file\" name=\"pdf_file\" accept=\"application/pdf\" required>
     <button type=\"submit\"class=\"button\">Subir PDF</button>
-</form>", "vistas/form_pdf.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistas\\form_pdf.html.twig");
+</form>", "vistas/form_pdf.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistas\\form_pdf.html.twig");
     }
 }

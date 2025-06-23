@@ -162,6 +162,6 @@ class __TwigTemplate_b7ca0535d4c4c669b7ff4a877b7568a17b20efb00943707adde5f6eb0b5
 
     {{ include('revista/_delete_form.html.twig') }}
 {% endblock %}
-", "revista/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\revista\\edit.html.twig");
+", "revista/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\revista\\edit.html.twig");
     }
 }

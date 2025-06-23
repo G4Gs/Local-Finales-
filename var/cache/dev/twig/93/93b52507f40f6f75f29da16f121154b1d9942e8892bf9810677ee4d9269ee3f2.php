@@ -99,6 +99,6 @@ class __TwigTemplate_cf1dab03c217298b586b20b3519c00c1a42656e91d52ccc512c01caa9c1
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-", "rol/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\rol\\_form.html.twig");
+", "rol/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\rol\\_form.html.twig");
     }
 }

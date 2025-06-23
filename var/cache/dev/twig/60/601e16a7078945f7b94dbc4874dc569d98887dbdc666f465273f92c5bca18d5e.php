@@ -162,6 +162,6 @@ class __TwigTemplate_7d3f575d908a5d849d0ef163919cd2aea49562c231489eb1bf48b4a3684
 
     {{ include('cursada/_delete_form.html.twig') }}
 {% endblock %}
-", "cursada/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\cursada\\edit.html.twig");
+", "cursada/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\cursada\\edit.html.twig");
     }
 }

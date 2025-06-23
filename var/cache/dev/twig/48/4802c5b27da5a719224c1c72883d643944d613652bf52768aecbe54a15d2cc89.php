@@ -109,6 +109,6 @@ class __TwigTemplate_c047b4ff99885ae4d03cf70503f53ee1a1f7350cfd2afcbd82d7347172c
         {{ form_row(form.observacion, {'label': 'Observación'}) }}
         {{ form_row(form.cursada, {'label': 'Cursada'}) }}
     <button type=\"submit\"class:\"button\">Guardar</button>
-{{ form_end(form) }}    ", "vistasdocente/editar_asistencias.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasdocente\\editar_asistencias.html.twig");
+{{ form_end(form) }}    ", "vistasdocente/editar_asistencias.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasdocente\\editar_asistencias.html.twig");
     }
 }

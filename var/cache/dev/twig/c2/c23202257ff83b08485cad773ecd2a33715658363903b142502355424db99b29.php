@@ -155,6 +155,6 @@ class __TwigTemplate_1ddb4560a2fd27ead364a0930b820001bcc8b181af2e8f1a35d66c16a83
 
     <a href=\"{{ path('app_inscripcion_final_index') }}\">Regresar</a>
 {% endblock %}
-", "inscripcion_final/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\inscripcion_final\\new.html.twig");
+", "inscripcion_final/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\inscripcion_final\\new.html.twig");
     }
 }

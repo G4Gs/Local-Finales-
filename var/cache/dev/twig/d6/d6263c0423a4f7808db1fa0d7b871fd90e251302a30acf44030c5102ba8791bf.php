@@ -284,6 +284,6 @@ class __TwigTemplate_4a1aae22a1f1990c7c5a7802145a8a9fe48e87c1033a50fcdf1c1dfe226
 
     <a href=\"{{ path('app_instituto_new') }}\">Crear Nuevo Instituto</a>
 {% endblock %}
-", "instituto/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\instituto\\index.html.twig");
+", "instituto/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\instituto\\index.html.twig");
     }
 }

@@ -65,7 +65,6 @@ return [
     'app_examen_alumno_delete' => [['id'], ['_controller' => 'App\\Controller\\ExamenAlumnoController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/examen/alumno']], [], [], []],
     'app_examen_final_index' => [[], ['_controller' => 'App\\Controller\\ExamenFinalController::index'], [], [['text', '/examen/final/']], [], [], []],
     'app_examen_final_new' => [[], ['_controller' => 'App\\Controller\\ExamenFinalController::new'], [], [['text', '/examen/final/new']], [], [], []],
-    'app_examen_final_show' => [['id'], ['_controller' => 'App\\Controller\\ExamenFinalController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/examen/final']], [], [], []],
     'app_examen_final_edit' => [['id'], ['_controller' => 'App\\Controller\\ExamenFinalController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/examen/final']], [], [], []],
     'app_examen_final_delete' => [['id'], ['_controller' => 'App\\Controller\\ExamenFinalController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/examen/final']], [], [], []],
     'app_habilitante_index' => [[], ['_controller' => 'App\\Controller\\HabilitanteController::index'], [], [['text', '/habilitante/']], [], [], []],

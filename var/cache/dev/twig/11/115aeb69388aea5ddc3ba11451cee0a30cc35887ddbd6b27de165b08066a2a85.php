@@ -194,6 +194,6 @@ class __TwigTemplate_f66e8a0bd776aa6341bad291ae2c67ee98a72e7ad2e90120e298641bac1
 
     {{ include('pais/_delete_form.html.twig') }}
 {% endblock %}
-", "pais/show.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\pais\\show.html.twig");
+", "pais/show.html.twig", "C:\\xampp\\htdocs\\local\\templates\\pais\\show.html.twig");
     }
 }

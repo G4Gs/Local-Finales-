@@ -155,6 +155,6 @@ class __TwigTemplate_f57ddb35df381058cc2ee9864379600065fea8c1816c4a707bfd7f0cb67
 
     <a href=\"{{ path('app_curso_index') }}\">Regresar</a>
 {% endblock %}
-", "curso/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\curso\\new.html.twig");
+", "curso/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\curso\\new.html.twig");
     }
 }

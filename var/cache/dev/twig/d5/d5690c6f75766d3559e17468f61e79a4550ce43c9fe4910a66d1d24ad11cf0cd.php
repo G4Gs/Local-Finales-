@@ -116,6 +116,6 @@ class __TwigTemplate_282931bb07b85d574ce081f5ae077f03dce02332828c83b0f6d2179c72a
         {{ form_row(form.curso, {'label': 'Curso'}) }} 
     <button type=\"submit\"class:\"button\">Guardar</button>
 {{ form_end(form) }}
-", "vistasestudiante/create_form_cursada.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasestudiante\\create_form_cursada.html.twig");
+", "vistasestudiante/create_form_cursada.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasestudiante\\create_form_cursada.html.twig");
     }
 }

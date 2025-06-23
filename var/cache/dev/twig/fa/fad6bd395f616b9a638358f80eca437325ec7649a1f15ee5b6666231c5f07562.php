@@ -228,6 +228,6 @@ class __TwigTemplate_b5b2c9f5cac00074b55ac9477387abfc635f194446f82574476b7f39423
 
     <a href=\"{{ path('app_provincia_new') }}\">Incorporar Nueva Provincia</a>
 {% endblock %}
-", "provincia/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\provincia\\index.html.twig");
+", "provincia/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\provincia\\index.html.twig");
     }
 }

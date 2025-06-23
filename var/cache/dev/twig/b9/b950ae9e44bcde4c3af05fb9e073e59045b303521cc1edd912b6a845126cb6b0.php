@@ -1730,6 +1730,6 @@ class __TwigTemplate_3fecea783e25f259c080486af4994867ce5b52e1baa22fe1c370619bcb3
  
  
  
-", "vistas/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistas\\index.html.twig");
+", "vistas/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistas\\index.html.twig");
     }
 }

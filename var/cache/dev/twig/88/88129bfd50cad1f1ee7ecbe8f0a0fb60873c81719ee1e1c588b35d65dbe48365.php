@@ -249,6 +249,6 @@ class __TwigTemplate_767c76946a9bd70c5a2b709ab55ccabf7c6778612276b1f859468ece92a
 
     <a href=\"{{ path('app_horario_new') }}\">Create new</a>
 {% endblock %}
-", "horario/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\horario\\index.html.twig");
+", "horario/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\horario\\index.html.twig");
     }
 }

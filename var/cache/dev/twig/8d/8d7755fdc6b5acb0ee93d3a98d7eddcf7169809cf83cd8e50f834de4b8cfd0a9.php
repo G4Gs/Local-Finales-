@@ -162,6 +162,6 @@ class __TwigTemplate_c886bdbfb6a3d02245d92d38d7587a591a18655d8ecb9218329d23a4ab0
 
     {{ include('rol/_delete_form.html.twig') }}
 {% endblock %}
-", "rol/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\rol\\edit.html.twig");
+", "rol/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\rol\\edit.html.twig");
     }
 }

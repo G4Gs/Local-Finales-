@@ -99,6 +99,6 @@ class __TwigTemplate_b2028c0410c20a9b1a89fbf70587e8e37e95198039945ca7d0cf72fff9a
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-", "calendario_clase/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\calendario_clase\\_form.html.twig");
+", "calendario_clase/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\calendario_clase\\_form.html.twig");
     }
 }

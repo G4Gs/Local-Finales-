@@ -183,6 +183,6 @@ class __TwigTemplate_443e81f85b76a7cb09a5ccea567844cebdb699a57d3db7d85311fd54ad5
 
     {{ include('correlativa/_delete_form.html.twig') }}
 {% endblock %}
-", "correlativa/show.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\correlativa\\show.html.twig");
+", "correlativa/show.html.twig", "C:\\xampp\\htdocs\\local\\templates\\correlativa\\show.html.twig");
     }
 }

@@ -155,6 +155,6 @@ class __TwigTemplate_0bf3dfa590fe78f71859d769c6fef4992cde0472c37727d17e4a7b1d438
 
     <a href=\"{{ path('app_correlativa_index') }}\">Regresar</a>
 {% endblock %}
-", "correlativa/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\correlativa\\new.html.twig");
+", "correlativa/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\correlativa\\new.html.twig");
     }
 }

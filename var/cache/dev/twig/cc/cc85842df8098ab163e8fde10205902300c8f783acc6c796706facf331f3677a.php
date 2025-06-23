@@ -2927,6 +2927,6 @@ $context["row"], "new_field", [], "any", false, false, false, 66) == "4")) {
         });*/
     </script> 
      
-{% endblock %}", "vistaspreinscriptos/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspreinscriptos\\index.html.twig");
+{% endblock %}", "vistaspreinscriptos/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspreinscriptos\\index.html.twig");
     }
 }

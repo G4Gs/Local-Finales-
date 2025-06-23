@@ -16,11 +16,12 @@ class ExamenFinal
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: 'date')]
     private ?\DateTimeInterface $fecha = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(targetEntity: Docente::class)]
     #[ORM\JoinColumn(nullable: false)]
+<<<<<<< HEAD
     private ?Docente $presidenteId = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
@@ -34,22 +35,35 @@ class ExamenFinal
 
     #[ORM\OneToMany(mappedBy: 'examenFinalId', targetEntity: ExamenAlumno::class)]
     private Collection $examenAlumnos;
+=======
+    private ?Docente $presidente = null;
 
-    public function __construct()
-    {
-        $this->examenAlumnos = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(targetEntity: Docente::class)]
+    private ?Docente $vocal1 = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    #[ORM\ManyToOne(targetEntity: Docente::class)]
+    private ?Docente $vocal2 = null;
 
-    public function getFecha(): ?\DateTimeInterface
-    {
-        return $this->fecha;
-    }
+    #[ORM\Column(length: 10)]
+    private ?string $estadoMesa = null; 
 
+    #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Tecnicatura $tecnicatura = null;
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+
+    #[ORM\ManyToOne(targetEntity: Asignatura::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Asignatura $asignatura = null;
+
+    public function getId(): ?int { return $this->id; }
+    public function getFecha(): ?\DateTimeInterface { return $this->fecha; }
+    public function setFecha(\DateTimeInterface $fecha): static { $this->fecha = $fecha; return $this; }
+
+    public function getPresidente(): ?Docente { return $this->presidente; }
+    public function setPresidente(?Docente $presidente): static { $this->presidente = $presidente; return $this; }
+
+<<<<<<< HEAD
     public function setFecha(\DateTimeInterface $fecha): self
     {
         $this->fecha = $fecha;
@@ -90,3 +104,20 @@ class ExamenFinal
     }
 
     public function getAsignaturaId(): ?Asign
+=======
+    public function getVocal1(): ?Docente { return $this->vocal1; }
+    public function setVocal1(?Docente $vocal1): static { $this->vocal1 = $vocal1; return $this; }
+
+    public function getVocal2(): ?Docente { return $this->vocal2; }
+    public function setVocal2(?Docente $vocal2): static { $this->vocal2 = $vocal2; return $this; }
+
+    public function getEstadoMesa(): ?string { return $this->estadoMesa; }
+    public function setEstadoMesa(string $estadoMesa): static { $this->estadoMesa = $estadoMesa; return $this; }
+
+    public function getTecnicatura(): ?Tecnicatura { return $this->tecnicatura; }
+    public function setTecnicatura(?Tecnicatura $tecnicatura): static { $this->tecnicatura = $tecnicatura; return $this; }
+
+    public function getAsignatura(): ?Asignatura { return $this->asignatura; }
+    public function setAsignatura(?Asignatura $asignatura): static { $this->asignatura = $asignatura; return $this; }
+}
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8

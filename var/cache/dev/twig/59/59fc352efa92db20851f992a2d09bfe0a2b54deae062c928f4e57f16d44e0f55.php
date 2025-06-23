@@ -1348,6 +1348,6 @@ document.addEventListener(\"DOMContentLoaded\", function() {
 \t\t\t\t{% endblock %}
 \t\t\t</body>
 \t\t</body>
-\t</html>", "base2.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\base2.html.twig");
+\t</html>", "base2.html.twig", "C:\\xampp\\htdocs\\local\\templates\\base2.html.twig");
     }
 }

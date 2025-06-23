@@ -104,6 +104,6 @@ class __TwigTemplate_ad0ff21ee77f4cfe89fc5719bbee22b899cb918d9d8ec65fcba1409b64a
     {{ form_row(form.correlativa, {'label': 'Correlativas'}) }}
     {{ form_row(form.motivo, {'label': 'Motivo'}) }}
     <button type=\"submit\"class=\"button\">Guardar</button>
-{{ form_end(form) }}", "vistas/create3_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistas\\create3_form.html.twig");
+{{ form_end(form) }}", "vistas/create3_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistas\\create3_form.html.twig");
     }
 }

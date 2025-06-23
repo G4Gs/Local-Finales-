@@ -249,6 +249,6 @@ class __TwigTemplate_0b464fc172ff4c6995994e9d436ec742b27029e5a54cddc780a91724b00
 
     <a href=\"{{ path('app_tecnicatura_new') }}\">Crear Nueva Tecnicatura</a>
 {% endblock %}
-", "tecnicatura/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\tecnicatura\\index.html.twig");
+", "tecnicatura/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\tecnicatura\\index.html.twig");
     }
 }

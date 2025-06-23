@@ -122,6 +122,6 @@ class __TwigTemplate_9bfe9736e83f2965487033fd1c3868b45e88ee5c234a2df3ec9eba31601
     {{ form_row(form.duracion, {'label': 'Duración'}) }}
     <button type=\"submit\" id=\"guarda-modal-edit\"class=\"button\">Guardar</button>
 {{ form_end(form) }} 
-", "vistas/edit_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistas\\edit_form.html.twig");
+", "vistas/edit_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistas\\edit_form.html.twig");
     }
 }

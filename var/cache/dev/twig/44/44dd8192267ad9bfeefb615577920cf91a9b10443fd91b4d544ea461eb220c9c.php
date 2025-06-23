@@ -221,6 +221,6 @@ class __TwigTemplate_15463ef9b040cb12bc6fb708a0350e349ff59f28fbe9771027a5b87d913
 
     {{ form_end(form) }}
 {% endblock %}
-", "user/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\user\\_form.html.twig");
+", "user/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\user\\_form.html.twig");
     }
 }

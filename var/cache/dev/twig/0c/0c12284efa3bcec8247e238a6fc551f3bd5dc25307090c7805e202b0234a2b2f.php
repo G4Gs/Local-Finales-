@@ -108,6 +108,6 @@ class __TwigTemplate_2ecdc77550d5f3e7fb56236dd9e0723ce909d3c9a63efac884c56337617
     {{ form_row(form.anio_egreso) }} 
     {{ form_row(form.persona) }} 
     <button type=\"submit\"class:\"button\">Siguiente</button>
-{{ form_end(form) }}", "vistaspreinscriptos/create_alumno_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspreinscriptos\\create_alumno_form.html.twig");
+{{ form_end(form) }}", "vistaspreinscriptos/create_alumno_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspreinscriptos\\create_alumno_form.html.twig");
     }
 }

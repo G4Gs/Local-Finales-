@@ -155,6 +155,6 @@ class __TwigTemplate_bf165d45360e1cd70e0b9edfbbe245271793f6747a5060db722d91dc32f
 
     <a href=\"{{ path('app_calendario_clase_index') }}\">back to list</a>
 {% endblock %}
-", "calendario_clase/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\calendario_clase\\new.html.twig");
+", "calendario_clase/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\calendario_clase\\new.html.twig");
     }
 }

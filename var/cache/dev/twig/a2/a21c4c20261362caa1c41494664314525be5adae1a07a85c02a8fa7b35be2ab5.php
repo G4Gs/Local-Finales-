@@ -108,6 +108,6 @@ class __TwigTemplate_49b0b07f411738affd8236be8c4d0e8b66139f4e0adaefd1be3d20f17c9
     {{ form_row(form.anio_egreso, {'label': 'Año de Egreso'}) }} 
     {{ form_row(form.persona, {'label': 'Persona'}) }} 
     <button type=\"submit\"class:\"button\">Guardar</button>
-{{ form_end(form) }}", "vistaspersona/create_alumno_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\create_alumno_form.html.twig");
+{{ form_end(form) }}", "vistaspersona/create_alumno_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\create_alumno_form.html.twig");
     }
 }

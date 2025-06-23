@@ -155,6 +155,6 @@ class __TwigTemplate_0b11aa4bdbe9d243163f862a661b114ad1f2cff506f5918734bbeef23b5
 
     <a href=\"{{ path('app_horario_index') }}\">back to list</a>
 {% endblock %}
-", "horario/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\horario\\new.html.twig");
+", "horario/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\horario\\new.html.twig");
     }
 }

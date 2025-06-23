@@ -165,6 +165,6 @@ class __TwigTemplate_3ccc0bf648d882573bddbe73fe078ed536bbf70b9abcf22a0c5dda00ad1
     {% endif %} 
 </div>
 {% endblock %}  
-", "home/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\home\\index.html.twig");
+", "home/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\home\\index.html.twig");
     }
 }

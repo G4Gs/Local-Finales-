@@ -162,6 +162,6 @@ class __TwigTemplate_1d8b130d1d36e77b16c43f596062be31d0e5c5d57bb4d2086e2f176dbac
 
     {{ include('persona/_delete_form.html.twig') }}
 {% endblock %}
-", "persona/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\persona\\edit.html.twig");
+", "persona/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\persona\\edit.html.twig");
     }
 }

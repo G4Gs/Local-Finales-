@@ -116,6 +116,6 @@ class __TwigTemplate_126f413e49550d2a3c5ee87ce1c153a54ca8f823b6215b12661bcc1737e
         {{ form_row(form.examenFinal_id, {'label': 'Examen Final'}) }}
     <button type=\"submit\">Guardar</button>
 {{ form_end(form) }}
-", "vistasmesas/nueva_notafinal_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasmesas\\nueva_notafinal_form.html.twig");
+", "vistasmesas/nueva_notafinal_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasmesas\\nueva_notafinal_form.html.twig");
     }
 }

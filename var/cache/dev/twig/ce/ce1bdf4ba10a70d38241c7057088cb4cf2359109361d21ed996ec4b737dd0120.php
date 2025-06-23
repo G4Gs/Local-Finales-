@@ -155,6 +155,6 @@ class __TwigTemplate_e390c51260c4bb616db7ba1323b9171412ef393b3b95c70cd983bfa387d
 
     <a href=\"{{ path('app_pais_index') }}\">Regresar</a>
 {% endblock %}
-", "pais/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\pais\\new.html.twig");
+", "pais/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\pais\\new.html.twig");
     }
 }

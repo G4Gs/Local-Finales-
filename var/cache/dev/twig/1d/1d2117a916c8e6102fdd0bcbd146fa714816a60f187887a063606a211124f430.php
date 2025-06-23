@@ -99,6 +99,6 @@ class __TwigTemplate_da311e14231ed5a91c2e6dbf0d585b4d9482ee3f3e9a697ee215c5f45f6
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "tecnicatura/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\tecnicatura\\_form.html.twig");
+", "tecnicatura/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\tecnicatura\\_form.html.twig");
     }
 }

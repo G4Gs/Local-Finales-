@@ -162,6 +162,6 @@ class __TwigTemplate_ca5e8ad768ff92b9f25a183c1b39cfaf2c276d499282237f5b7f1d795c4
 
     {{ include('provincia/_delete_form.html.twig') }}
 {% endblock %}
-", "provincia/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\provincia\\edit.html.twig");
+", "provincia/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\provincia\\edit.html.twig");
     }
 }

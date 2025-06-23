@@ -99,6 +99,6 @@ class __TwigTemplate_bbe81a0474cfecc6a8d9701e0db0d1d3fc4bfc914d45b8a9bf8488eba53
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "turno/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\turno\\_form.html.twig");
+", "turno/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\turno\\_form.html.twig");
     }
 }

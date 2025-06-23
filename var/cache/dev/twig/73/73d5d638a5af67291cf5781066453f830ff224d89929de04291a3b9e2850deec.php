@@ -99,6 +99,6 @@ class __TwigTemplate_f4651b2de24bbc7e246c4bca278b4f1bdc655d4ae5f1a181544bc049d1c
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "correlativa/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\correlativa\\_form.html.twig");
+", "correlativa/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\correlativa\\_form.html.twig");
     }
 }

@@ -72,6 +72,6 @@ class __TwigTemplate_26d70ba068a71129aba440d65e2d53de68af24e3db95608b2f27e1423f5
     public function getSourceContext(): Source
     {
         return new Source("{# crear toda la logioca para examen fianl asignatruas del alumno y cuales puede inscribir si cumple condiciones junto con la vista
-luego pasar la info al modal de inscripcion y ocultar selector, solo dejar el ok para afirmar la inscripcion  #}", "vistasestudiante/modal_final.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasestudiante\\modal_final.html.twig");
+luego pasar la info al modal de inscripcion y ocultar selector, solo dejar el ok para afirmar la inscripcion  #}", "vistasestudiante/modal_final.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasestudiante\\modal_final.html.twig");
     }
 }

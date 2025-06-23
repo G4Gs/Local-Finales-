@@ -155,6 +155,6 @@ class __TwigTemplate_b165aa16775a9e7aaa25f1975788281021d0ef6094febd45f26567e6016
 
     <a href=\"{{ path('app_localidad_index') }}\">Regresar</a>
 {% endblock %}
-", "localidad/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\localidad\\new.html.twig");
+", "localidad/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\localidad\\new.html.twig");
     }
 }

@@ -168,6 +168,6 @@ class __TwigTemplate_8b46d737dd1621bde98daffb3bd5407136e7e3b738dda76f30a93fea3df
     </table>
 </div>
 {% endblock %}
-", "user/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\user\\edit.html.twig");
+", "user/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\user\\edit.html.twig");
     }
 }

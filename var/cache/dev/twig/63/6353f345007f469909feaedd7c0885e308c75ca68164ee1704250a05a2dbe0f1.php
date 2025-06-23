@@ -228,6 +228,6 @@ class __TwigTemplate_a2689c48161d6196997b1f6ed7e77e3ed7c9ae1b7cef2f96d2347ad532e
 
     <a href=\"{{ path('app_telefono_new') }}\">Crear Nuevo Teléfono</a>
 {% endblock %}
-", "telefono/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\telefono\\index.html.twig");
+", "telefono/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\telefono\\index.html.twig");
     }
 }

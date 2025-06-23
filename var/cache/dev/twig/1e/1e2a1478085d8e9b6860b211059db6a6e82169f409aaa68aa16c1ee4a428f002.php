@@ -118,6 +118,6 @@ class __TwigTemplate_806558e65759d3f50d4a2f77baeda446b0134e6991ddf4ea6754cf5fcf0
     <button type=\"submit\"class=\"button\">Guardar</button>
 {{ form_end(form) }}
 
-", "vistas/create2_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistas\\create2_form.html.twig");
+", "vistas/create2_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistas\\create2_form.html.twig");
     }
 }

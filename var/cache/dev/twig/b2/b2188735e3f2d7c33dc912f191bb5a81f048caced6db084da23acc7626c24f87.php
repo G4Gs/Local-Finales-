@@ -186,6 +186,6 @@ class __TwigTemplate_85fd41b4fc21eca7212b6a2cc77004457b204d57d735905d63701a9c889
     </script>
 {% endblock %}
 
-", "vistaspreinscriptos/edit2.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspreinscriptos\\edit2.html.twig");
+", "vistaspreinscriptos/edit2.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspreinscriptos\\edit2.html.twig");
     }
 }

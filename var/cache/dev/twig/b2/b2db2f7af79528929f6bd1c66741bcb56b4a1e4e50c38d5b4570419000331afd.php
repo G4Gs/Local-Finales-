@@ -242,6 +242,6 @@ class __TwigTemplate_3205284c3a049dece5386097f767ff24a22f48feb8fdc47d8605ff7075a
 
     <a href=\"{{ path('app_comision_new') }}\">Crear Nueva Comisión</a>
 {% endblock %}
-", "comision/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\comision\\index.html.twig");
+", "comision/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\comision\\index.html.twig");
     }
 }

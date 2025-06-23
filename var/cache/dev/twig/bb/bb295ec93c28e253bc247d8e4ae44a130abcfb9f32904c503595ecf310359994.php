@@ -235,6 +235,6 @@ class __TwigTemplate_e9a15895e8afd7a5b5967ca044c8e9be98d46e3753c0c629e8b290c8618
 
     <a href=\"{{ path('app_titulo_new') }}\">Agregar Nuevo Título</a>
 {% endblock %}
-", "titulo/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\titulo\\index.html.twig");
+", "titulo/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\titulo\\index.html.twig");
     }
 }

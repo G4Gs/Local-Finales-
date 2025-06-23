@@ -155,6 +155,6 @@ class __TwigTemplate_47eadcb4142bc9f1fe4a5309f9a67f8e759fdd7e029576bcd6fcf43ccd1
 
     <a href=\"{{ path('app_carreras_index') }}\">Regresar</a>
 {% endblock %}
-", "carreras/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\carreras\\new.html.twig");
+", "carreras/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\carreras\\new.html.twig");
     }
 }

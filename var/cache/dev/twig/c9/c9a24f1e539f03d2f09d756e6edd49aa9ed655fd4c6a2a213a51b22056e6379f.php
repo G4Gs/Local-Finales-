@@ -155,6 +155,6 @@ class __TwigTemplate_cf3658f90c03f4c7d006df4a5afbd9b200c7074425572295e8b796c51cb
 
     <a href=\"{{ path('app_asistencia_index') }}\">Regresar</a>
 {% endblock %}
-", "asistencia/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\asistencia\\new.html.twig");
+", "asistencia/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\asistencia\\new.html.twig");
     }
 }

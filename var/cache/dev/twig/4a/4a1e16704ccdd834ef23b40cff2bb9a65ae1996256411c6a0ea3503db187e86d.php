@@ -99,6 +99,6 @@ class __TwigTemplate_7336de99c78949a09158d21c59a60b526fc0d5f1d1bb40b0bbcac2c4967
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
-", "provincia/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\provincia\\_form.html.twig");
+", "provincia/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\provincia\\_form.html.twig");
     }
 }

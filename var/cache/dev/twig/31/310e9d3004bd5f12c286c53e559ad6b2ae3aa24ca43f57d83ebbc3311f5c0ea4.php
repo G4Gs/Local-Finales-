@@ -205,6 +205,6 @@ class __TwigTemplate_96b18815b1a4c3be0ed1b4f27d2374d413006478854550bd698c3834cac
 
     {{ include('habilitante/_delete_form.html.twig') }}
 {% endblock %}
-", "habilitante/show.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\habilitante\\show.html.twig");
+", "habilitante/show.html.twig", "C:\\xampp\\htdocs\\local\\templates\\habilitante\\show.html.twig");
     }
 }

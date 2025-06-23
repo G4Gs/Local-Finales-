@@ -134,6 +134,6 @@ class __TwigTemplate_7a42b3319c113d148293f8a0ea61f5d4390b771ab7f06d2944bb6be3328
 
 
     <button type=\"submit\"class=\"button\">Guardar</button>
-{{ form_end(form) }}", "vistascursada/create_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistascursada\\create_form.html.twig");
+{{ form_end(form) }}", "vistascursada/create_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistascursada\\create_form.html.twig");
     }
 }

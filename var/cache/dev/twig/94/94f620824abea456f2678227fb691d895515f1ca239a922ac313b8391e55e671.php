@@ -168,6 +168,6 @@ class __TwigTemplate_e8721dda9ba9bbe0b9d2c9b894f9992f10725b89d51276418cf54ece101
     <button type=\"submit\" id=\"siguientePer\">Siguiente</button>
 {{ form_end(form) }}
 
-", "vistaspreinscriptos/create_persona_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspreinscriptos\\create_persona_form.html.twig");
+", "vistaspreinscriptos/create_persona_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspreinscriptos\\create_persona_form.html.twig");
     }
 }

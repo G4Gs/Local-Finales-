@@ -125,6 +125,6 @@ class __TwigTemplate_5104fd74780579e85cf98b87eda35bea7ae8f29c62fed829fa388186d38
 {{ form_end(form) }}
 
 
-", "vistaspreinscriptos/create_cursada_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspreinscriptos\\create_cursada_form.html.twig");
+", "vistaspreinscriptos/create_cursada_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspreinscriptos\\create_cursada_form.html.twig");
     }
 }

@@ -249,6 +249,6 @@ class __TwigTemplate_338d51acaf0dc8ec1c8e684775fed9d014ab82e5679d3aa7a281e760dcf
 
     <a href=\"{{ path('app_nota_new') }}\">Crear Nueva Nota</a>
 {% endblock %}
-", "nota/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\nota\\index.html.twig");
+", "nota/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\nota\\index.html.twig");
     }
 }

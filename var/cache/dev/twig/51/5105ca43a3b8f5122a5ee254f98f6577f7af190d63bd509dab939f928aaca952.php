@@ -242,6 +242,6 @@ class __TwigTemplate_433f0ecf64ff97eb682fc2a4f3665b7b34c01069e420d690f5b2bf34941
 
     <a href=\"{{ path('app_carreras_new') }}\">Crear Nueva Carrera</a>
 {% endblock %}
-", "carreras/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\carreras\\index.html.twig");
+", "carreras/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\carreras\\index.html.twig");
     }
 }

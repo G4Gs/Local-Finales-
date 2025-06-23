@@ -162,6 +162,6 @@ class __TwigTemplate_200b804f93079f315a25d4e0a3c623d199464bb89d2c6b51d2e3bbbc523
 
     {{ include('comision/_delete_form.html.twig') }}
 {% endblock %}
-", "comision/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\comision\\edit.html.twig");
+", "comision/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\comision\\edit.html.twig");
     }
 }

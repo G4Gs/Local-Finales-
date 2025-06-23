@@ -256,6 +256,6 @@ class __TwigTemplate_6321fa81bb38a1a553774db17d888aca7cb7f369afc03bcdea3157d7e71
 
     <a href=\"{{ path('app_asignatura_new') }}\"> Crear Nueva Asignatura </a>
 {% endblock %}
-", "asignatura/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\asignatura\\index.html.twig");
+", "asignatura/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\asignatura\\index.html.twig");
     }
 }

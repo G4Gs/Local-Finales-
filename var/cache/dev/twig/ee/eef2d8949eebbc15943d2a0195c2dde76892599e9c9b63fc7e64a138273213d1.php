@@ -113,6 +113,6 @@ class __TwigTemplate_886326a9ea46076eafa1ec3792b4131f832d7929caeb3eed8e94f16d562
 
     <button class=\"btn btn-primary\">Guardar</button>
 {{ form_end(form) }}
-", "horario/_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\horario\\_form.html.twig");
+", "horario/_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\horario\\_form.html.twig");
     }
 }

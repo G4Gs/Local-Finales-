@@ -164,6 +164,6 @@ class __TwigTemplate_4ed2eb1f1de0ef535236051700bee917bfc78d7e6e2eed363ad8e55a620
     {{ form_row(form.pais, {'label': 'Nacionalidad'}) }} 
     {{ form_row(form.localidad, {'label': 'Localidad'}) }} 
     <button type=\"submit\" id=\"guarda-modal-edit\">Guardar</button>
-{{ form_end(form) }}  ", "vistaspersona/edit_persona.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\edit_persona.html.twig");
+{{ form_end(form) }}  ", "vistaspersona/edit_persona.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\edit_persona.html.twig");
     }
 }

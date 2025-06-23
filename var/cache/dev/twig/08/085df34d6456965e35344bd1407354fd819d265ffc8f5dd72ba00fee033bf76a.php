@@ -109,6 +109,6 @@ class __TwigTemplate_b64ac524721a8a20ed0319f8bd8fc8b183aa129e746c8f0b5bfc711450a
         {{ form_row(form.anio_egreso, {'label': 'Año de Egreso'}) }}
         {{ form_row(form.persona, {'label': 'Persona'}) }}
     <button type=\"submit\" id=\"guarda-modal-edit\"class:\"button\">Guardar</button>
-{{ form_end(form) }}  ", "vistaspersona/edit_alumno.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\edit_alumno.html.twig");
+{{ form_end(form) }}  ", "vistaspersona/edit_alumno.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\edit_alumno.html.twig");
     }
 }

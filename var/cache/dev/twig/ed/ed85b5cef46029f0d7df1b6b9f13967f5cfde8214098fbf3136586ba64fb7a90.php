@@ -242,6 +242,6 @@ class __TwigTemplate_b8d03ddcbe399714c6410ba55cdff65b5091a5d21b063a1a999f7ef666c
 
     <a href=\"{{ path('app_asistencia_new') }}\">Crear Nueva Asistencia</a>
 {% endblock %}
-", "asistencia/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\asistencia\\index.html.twig");
+", "asistencia/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\asistencia\\index.html.twig");
     }
 }

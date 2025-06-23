@@ -94,6 +94,6 @@ class __TwigTemplate_0ddfe5723a5de16aabcd33979047ecc001161c70f93cac7d479ff37ba65
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ carrera.id) }}\">
     <button class=\"btn\">Eliminar</button>
 </form>
-", "carreras/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\carreras\\_delete_form.html.twig");
+", "carreras/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\carreras\\_delete_form.html.twig");
     }
 }

@@ -236,6 +236,6 @@ class __TwigTemplate_aad234becb3c0d7b48e085dfd889068af86facef694712a876281973f71
 
     <a href=\"{{ path('app_docente_new') }}\">Crear Nuevo Docente</a>
 {% endblock %}
-", "docente/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\docente\\index.html.twig");
+", "docente/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\docente\\index.html.twig");
     }
 }

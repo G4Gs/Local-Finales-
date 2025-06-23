@@ -235,6 +235,6 @@ class __TwigTemplate_6f9aa482e35ea85ec478b631d5cc35524701acbdd938007acb06b5e8e92
 
     <a href=\"{{ path('app_localidad_new') }}\">Incorporar Nueva Localidad</a>
 {% endblock %}
-", "localidad/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\localidad\\index.html.twig");
+", "localidad/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\localidad\\index.html.twig");
     }
 }

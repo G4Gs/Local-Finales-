@@ -123,6 +123,6 @@ class __TwigTemplate_b5098df60e4970016561938f1e5fd7a5ee7b1a6285e50f74241f04e6425
         {{ form_row(form.cant_mod, {'label': 'Cantidad de Módulos'}) }}
         {{ form_row(form.duracion, {'label': 'Duración'}) }}
     <button type=\"submit\" class=\"button\">Guardar</button>
-{{ form_end(form) }}", "vistas/create_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistas\\create_form.html.twig");
+{{ form_end(form) }}", "vistas/create_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistas\\create_form.html.twig");
     }
 }

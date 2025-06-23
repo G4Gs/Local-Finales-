@@ -124,6 +124,6 @@ class __TwigTemplate_4cac5fe455e2e4c67c9241cced53278a00f20170f043f8d7361b84064fd
 
 {{ form_end(form) }} 
 
-", "vistascursada/edit_form_comision.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistascursada\\edit_form_comision.html.twig");
+", "vistascursada/edit_form_comision.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistascursada\\edit_form_comision.html.twig");
     }
 }

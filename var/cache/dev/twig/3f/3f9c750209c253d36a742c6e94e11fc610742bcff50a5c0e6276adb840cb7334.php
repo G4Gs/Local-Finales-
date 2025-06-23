@@ -162,6 +162,6 @@ class __TwigTemplate_0c917e12f62e2551ce4d6bf1067abfe344cc4e9868fb6cccda3310ddd7a
 
     {{ include('examen_alumno/_delete_form.html.twig') }}
 {% endblock %}
-", "examen_alumno/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\examen_alumno\\edit.html.twig");
+", "examen_alumno/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\examen_alumno\\edit.html.twig");
     }
 }

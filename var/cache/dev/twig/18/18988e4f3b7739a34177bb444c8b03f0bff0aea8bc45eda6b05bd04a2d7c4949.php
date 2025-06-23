@@ -155,6 +155,6 @@ class __TwigTemplate_053da8d84c05c368656c4fcd81fa2f2bce1277217610c7d0921952a823d
 
     <a href=\"{{ path('app_modalidad_index') }}\">Regresar</a>
 {% endblock %}
-", "modalidad/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\modalidad\\new.html.twig");
+", "modalidad/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\modalidad\\new.html.twig");
     }
 }

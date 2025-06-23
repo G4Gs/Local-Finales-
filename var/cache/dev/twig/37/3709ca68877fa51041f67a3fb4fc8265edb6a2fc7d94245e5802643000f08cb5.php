@@ -228,6 +228,6 @@ class __TwigTemplate_ecb825532777c821bb6a1c484297afb1ed77ef6c14574835d5e141f6e5e
 
     <a href=\"{{ path('app_pais_new') }}\">Introducir Nueva Nacionalidad</a>
 {% endblock %}
-", "pais/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\pais\\index.html.twig");
+", "pais/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\pais\\index.html.twig");
     }
 }

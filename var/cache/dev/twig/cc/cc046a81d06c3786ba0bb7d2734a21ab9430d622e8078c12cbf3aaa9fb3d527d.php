@@ -265,6 +265,6 @@ class __TwigTemplate_a0a751d8d9db773f23877cbe6544ec5cd1192fcaec0f649db943fc997f1
 
     <a class=\"button\" href=\"{{ path('app_user_new') }}\">Crear Nuevo Usuario</a>
 {% endblock %}
-", "user/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\user\\index.html.twig");
+", "user/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\user\\index.html.twig");
     }
 }

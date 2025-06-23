@@ -155,6 +155,6 @@ class __TwigTemplate_4b25f4b4e858202852760c16f07df0980ebe98f7b3a6b01887d8a1dd960
 
     <a href=\"{{ path('app_cursada_index') }}\">Regresar</a>
 {% endblock %}
-", "cursada/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\cursada\\new.html.twig");
+", "cursada/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\cursada\\new.html.twig");
     }
 }

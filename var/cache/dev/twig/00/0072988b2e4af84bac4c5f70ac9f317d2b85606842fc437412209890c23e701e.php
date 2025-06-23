@@ -155,6 +155,6 @@ class __TwigTemplate_98c7ba0fd5bae263d0e0be95b6536bdd20fcb66cad39dfc520c1ce96817
 
     <a href=\"{{ path('app_rol_index') }}\">back to list</a>
 {% endblock %}
-", "rol/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\rol\\new.html.twig");
+", "rol/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\rol\\new.html.twig");
     }
 }

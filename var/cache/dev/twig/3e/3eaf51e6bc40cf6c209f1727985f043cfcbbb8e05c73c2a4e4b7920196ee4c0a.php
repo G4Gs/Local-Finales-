@@ -94,6 +94,6 @@ class __TwigTemplate_b24629ccbb47f3f5aa117118043fccf84a5f4d92d38d3d67348c960e5e4
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ horario.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "horario/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\horario\\_delete_form.html.twig");
+", "horario/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\horario\\_delete_form.html.twig");
     }
 }

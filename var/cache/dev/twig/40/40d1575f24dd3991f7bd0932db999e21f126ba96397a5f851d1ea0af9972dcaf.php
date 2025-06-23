@@ -180,6 +180,6 @@ class __TwigTemplate_019c552100ef41c7a07c5ed26b1f29945672b35c783e14541fef2b9491f
 </table>
 
 
-", "vistasestudiante/modal_cursos_disponibles.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasestudiante\\modal_cursos_disponibles.html.twig");
+", "vistasestudiante/modal_cursos_disponibles.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasestudiante\\modal_cursos_disponibles.html.twig");
     }
 }

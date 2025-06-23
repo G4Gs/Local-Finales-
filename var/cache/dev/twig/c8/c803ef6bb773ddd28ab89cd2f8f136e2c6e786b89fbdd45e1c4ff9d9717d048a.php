@@ -94,6 +94,6 @@ class __TwigTemplate_a1a6e29ec2d67b9987e9030469ee206ce9cb0b0392499eba12cc2b1dd48
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ correlativa.id) }}\">
     <button class=\"btn\">Eliminar</button>
 </form>
-", "correlativa/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\correlativa\\_delete_form.html.twig");
+", "correlativa/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\correlativa\\_delete_form.html.twig");
     }
 }

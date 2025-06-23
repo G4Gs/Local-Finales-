@@ -162,6 +162,6 @@ class __TwigTemplate_a8b582a572c6fefb6e58bd9fd20e252435034330a1dce93c52dc3cb6e59
 
     {{ include('carreras/_delete_form.html.twig') }}
 {% endblock %}
-", "carreras/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\carreras\\edit.html.twig");
+", "carreras/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\carreras\\edit.html.twig");
     }
 }

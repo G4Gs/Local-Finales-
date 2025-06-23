@@ -155,6 +155,6 @@ class __TwigTemplate_98b678af46ccaf44dce84151ecd02ca07de86b62056e237ba77e4e0a341
 
     <a href=\"{{ path('app_provincia_index') }}\">Regresar</a>
 {% endblock %}
-", "provincia/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\provincia\\new.html.twig");
+", "provincia/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\provincia\\new.html.twig");
     }
 }

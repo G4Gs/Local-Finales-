@@ -310,6 +310,6 @@ class __TwigTemplate_e92b2914817119f2e25dbc07dfb4e19ae795d93bdd64d1b79f11feedb62
 
     <a href=\"{{ path('app_persona_new') }}\">Crear Nueva Persona</a>
 {% endblock %}
-", "persona/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\persona\\index.html.twig");
+", "persona/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\persona\\index.html.twig");
     }
 }

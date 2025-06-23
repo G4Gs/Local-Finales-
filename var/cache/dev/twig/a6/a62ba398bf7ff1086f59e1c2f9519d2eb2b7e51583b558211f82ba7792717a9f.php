@@ -94,6 +94,6 @@ class __TwigTemplate_6e9fc02f8d877e0f8e57847704f09a3aa725f97c07fd7cc01845f802cf2
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ modalidad.id) }}\">
     <button class=\"btn\">Eliminar</button>
 </form>
-", "modalidad/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\modalidad\\_delete_form.html.twig");
+", "modalidad/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\modalidad\\_delete_form.html.twig");
     }
 }

@@ -3392,6 +3392,6 @@ document.addEventListener(\"DOMContentLoaded\", function() {
         <button id=\"backButton\" style=\"display: none;\" class=\"btn-primary\">Regresar</button>
 
     </div>
-{% endblock %}", "vistascursada/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistascursada\\index.html.twig");
+{% endblock %}", "vistascursada/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistascursada\\index.html.twig");
     }
 }

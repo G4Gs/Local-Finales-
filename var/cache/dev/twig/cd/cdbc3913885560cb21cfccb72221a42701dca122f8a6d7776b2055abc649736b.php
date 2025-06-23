@@ -125,6 +125,6 @@ class __TwigTemplate_567e801cea23dc24fc903255aee913e2c7e4f1b41f5bcd3fc3cf6f5c4fe
 {{ form_end(form) }}
 
 
-", "vistascursada/create_form2.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistascursada\\create_form2.html.twig");
+", "vistascursada/create_form2.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistascursada\\create_form2.html.twig");
     }
 }

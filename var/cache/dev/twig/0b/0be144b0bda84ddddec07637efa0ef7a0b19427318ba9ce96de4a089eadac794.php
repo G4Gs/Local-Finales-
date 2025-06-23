@@ -94,6 +94,6 @@ class __TwigTemplate_d36cce2fef38e2af3793a62659844c2a5ac3897808031a9fbce863ed149
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ turno.id) }}\">
     <button class=\"btn\">Eliminar</button>
 </form>
-", "turno/_delete_form.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\turno\\_delete_form.html.twig");
+", "turno/_delete_form.html.twig", "C:\\xampp\\htdocs\\local\\templates\\turno\\_delete_form.html.twig");
     }
 }

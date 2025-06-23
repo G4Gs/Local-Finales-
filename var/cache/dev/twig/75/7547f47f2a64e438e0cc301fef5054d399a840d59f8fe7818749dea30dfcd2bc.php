@@ -155,6 +155,6 @@ class __TwigTemplate_cab108d3618404720d12a7b7d9e284668d9da2d21fbe60cc36ac98dee5a
 
     <a href=\"{{ path('app_telefono_index') }}\">Regresar</a>
 {% endblock %}
-", "telefono/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\telefono\\new.html.twig");
+", "telefono/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\telefono\\new.html.twig");
     }
 }

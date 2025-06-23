@@ -216,6 +216,6 @@ class __TwigTemplate_bab607fbe365d30bb2b90488e8aabd4cf1d4f3e08987c662d2ac0d4cfaa
 
     {{ include('asistencia/_delete_form.html.twig') }}
 {% endblock %}
-", "asistencia/show.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\asistencia\\show.html.twig");
+", "asistencia/show.html.twig", "C:\\xampp\\htdocs\\local\\templates\\asistencia\\show.html.twig");
     }
 }

@@ -228,6 +228,6 @@ class __TwigTemplate_4127c471ae54dc52f42cd2526cb937b96a0f9c53f895b245529d5ed2e2d
 
     <a href=\"{{ path('app_cursada_new') }}\">Crear Nueva Cursada</a>
 {% endblock %}
-", "cursada/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\cursada\\index.html.twig");
+", "cursada/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\cursada\\index.html.twig");
     }
 }

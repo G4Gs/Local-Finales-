@@ -1701,6 +1701,6 @@ class __TwigTemplate_6c595202259c9449abc1781489a48ead96ec4ad082ce7c39fc61301a5c2
     </div>
 {% endblock %}
 
-", "vistasestudiante/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistasestudiante\\index.html.twig");
+", "vistasestudiante/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasestudiante\\index.html.twig");
     }
 }

@@ -162,6 +162,6 @@ class __TwigTemplate_ec9700db9d9b66f6e8f17143f899aeb1d3a55373cf1f6590ae8054eb9ab
 
     {{ include('telefono/_delete_form.html.twig') }}
 {% endblock %}
-", "telefono/edit.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\telefono\\edit.html.twig");
+", "telefono/edit.html.twig", "C:\\xampp\\htdocs\\local\\templates\\telefono\\edit.html.twig");
     }
 }

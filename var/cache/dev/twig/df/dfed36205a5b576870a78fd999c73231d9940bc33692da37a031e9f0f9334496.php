@@ -235,6 +235,6 @@ class __TwigTemplate_b803fa7c07af2a0d2371391e3a276acf72f147c24d21c740a0bd730daf9
 
     <a href=\"{{ path('app_calendario_clase_new') }}\">Create new</a>
 {% endblock %}
-", "calendario_clase/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\calendario_clase\\index.html.twig");
+", "calendario_clase/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\calendario_clase\\index.html.twig");
     }
 }

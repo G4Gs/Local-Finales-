@@ -99,6 +99,6 @@ class __TwigTemplate_f25f9c124059c5c72907d32b91f0ab2332e258c3d1e3f1467c870c97eb4
         {{ form_row(form.persona, {'label': 'Persona'}) }}
         {{ form_row(form.foja, {'label': 'Foja'}) }}
     <button type=\"submit\" id=\"guarda-modal-edit\"class:\"button\">Guardar</button>
-{{ form_end(form) }}  ", "vistaspersona/edit_docente.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\vistaspersona\\edit_docente.html.twig");
+{{ form_end(form) }}  ", "vistaspersona/edit_docente.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistaspersona\\edit_docente.html.twig");
     }
 }

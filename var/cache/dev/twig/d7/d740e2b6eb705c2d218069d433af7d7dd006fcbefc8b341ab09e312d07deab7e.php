@@ -228,6 +228,6 @@ class __TwigTemplate_c7888c96bfccfdc9681e0e176706f3cba54123414df3900410fb147b614
 
     <a href=\"{{ path('app_inscripcion_final_new') }}\">Crear Nueva Inscripción a Final</a>
 {% endblock %}
-", "inscripcion_final/index.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\inscripcion_final\\index.html.twig");
+", "inscripcion_final/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\inscripcion_final\\index.html.twig");
     }
 }

@@ -205,6 +205,6 @@ class __TwigTemplate_14b010c71abeb94f16fd0ac61530f45abc21a83664b8a18baacf4e3ad71
 
     {{ include('calendario_clase/_delete_form.html.twig') }}
 {% endblock %}
-", "calendario_clase/show.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\calendario_clase\\show.html.twig");
+", "calendario_clase/show.html.twig", "C:\\xampp\\htdocs\\local\\templates\\calendario_clase\\show.html.twig");
     }
 }

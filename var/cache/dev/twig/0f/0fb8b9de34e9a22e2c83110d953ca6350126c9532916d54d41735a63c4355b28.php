@@ -155,6 +155,6 @@ class __TwigTemplate_0511e400bb72912a5cc7c7f67f67a6e029fec4dfd9e0f7ecacbe2bc76b3
 
     <a href=\"{{ path('app_turno_index') }}\">Regresar</a>
 {% endblock %}
-", "turno/new.html.twig", "C:\\xampp\\htdocs\\Local 9-6\\local\\templates\\turno\\new.html.twig");
+", "turno/new.html.twig", "C:\\xampp\\htdocs\\local\\templates\\turno\\new.html.twig");
     }
 }
