@@ -74,7 +74,7 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Mesas de Finales!";
+        yield "Mesas de Finales";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -101,184 +101,70 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
         yield "    ";
         yield from $this->yieldParentBlock("javascripts", $context, $blocks);
         yield "
-    ";
-        // line 8
-        yield "    <script>
+
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Evaluar si `comId` está definido y no es nulo
-            ";
-        // line 11
-        if ((array_key_exists("alumnoId", $context) &&  !(null === (isset($context["alumnoId"]) || array_key_exists("alumnoId", $context) ? $context["alumnoId"] : (function () { throw new RuntimeError('Variable "alumnoId" does not exist.', 11, $this->source); })())))) {
-            // line 12
-            yield "                // Llamar a showCursada con los IDs de cursada y tecnicatura
-                showTable('tablaalumno');
-            ";
-        } else {
-            // line 15
-            yield "            ";
-        }
-        // line 16
-        yield "
-            ";
-        // line 17
-        if ((array_key_exists("docenteId", $context) &&  !(null === (isset($context["docenteId"]) || array_key_exists("docenteId", $context) ? $context["docenteId"] : (function () { throw new RuntimeError('Variable "docenteId" does not exist.', 17, $this->source); })())))) {
-            // line 18
-            yield "                showTable('tablaDocentes');
-            ";
-        } else {
-            // line 20
-            yield "            ";
-        }
-        // line 21
-        yield "
-            ";
-        // line 22
-        if ((array_key_exists("carrerasId", $context) &&  !(null === (isset($context["carrerasId"]) || array_key_exists("carrerasId", $context) ? $context["carrerasId"] : (function () { throw new RuntimeError('Variable "carrerasId" does not exist.', 22, $this->source); })())))) {
-            // line 23
-            yield "                showTable('tablacarrera');
-            ";
-        } else {
-            // line 25
-            yield "            ";
-        }
-        // line 26
-        yield "        });
+            showTable('tablaPrincipal');
+        });
 
         function showTable(tableId) {
             const tables = document.querySelectorAll('.tabla_home');
             tables.forEach(table => {
-                if (table.id === tableId) {
-                    table.style.display = '';
-                } else {
-                    table.style.display = 'none';
-                }
+                table.style.display = (table.id === tableId) ? '' : 'none';
             });
-            
+
             const backButton = document.getElementById('backButton');
-            if (tableId === 'tablaPrincipal') {
-                backButton.style.display = 'none';
-            } else {
-                backButton.style.display = '';
+            backButton.style.display = (tableId === 'tablaPrincipal') ? 'none' : '';
+        }
+    </script>
+
+    ";
+        // line 25
+        yield "    <script>
+        function filterTable(inputId, columnIndex) {
+            let input = document.getElementById(inputId);
+            let filter = input.value.toLowerCase();
+            let table = document.getElementById(\"tablaInscriptos\");
+            let rows = table.getElementsByTagName(\"tr\");
+
+            for (let i = 2; i < rows.length; i++) { // Empieza en 2 para saltar encabezados
+                let cell = rows[i].getElementsByTagName(\"td\")[columnIndex];
+                if (cell) {
+                    let textValue = cell.textContent || cell.innerText;
+                    rows[i].style.display = textValue.toLowerCase().includes(filter) ? \"\" : \"none\";
+                }
             }
         }
     </script>
 
-
-    ";
-        // line 48
-        yield "    
     <script>
-        function filterFecha() {
-            let searchFecha = document.getElementById(\"searchFecha\").value.toLowerCase();
-            let table = document.getElementById(\"tablaInscriptos\");
-            let rows = table.getElementsByTagName(\"tr\");
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName(\"td\");
-                if (cells.length > 0) {
-                    let fecha = cells[0].textContent.toLowerCase();
-                    if (fecha.includes(searchFecha)) {
-                        rows[i].style.display = \"\";
-                    } else {
-                        rows[i].style.display = \"none\";
-                    }
-                }
-            }
-        }
-        function filterEstudiante() {
-            let searchEstudiante = document.getElementById(\"searchEstudiante\").value.toLowerCase();
-            let table = document.getElementById(\"tablaInscriptos\");
-            let rows = table.getElementsByTagName(\"tr\");
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName(\"td\");
-                if (cells.length > 0) {
-                    let estudiante = cells[1].textContent.toLowerCase();
-                    if (estudiante.includes(searchEstudiante)) {
-                        rows[i].style.display = \"\";
-                    } else {
-                        rows[i].style.display = \"none\";
-                    }
-                }
-            }
-        }
-        function filterTecnicatura() {
-            let searchTecnicatura = document.getElementById(\"searchTecnicatura\").value.toLowerCase();
-            let table = document.getElementById(\"tablaInscriptos\");
-            let rows = table.getElementsByTagName(\"tr\");
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName(\"td\");
-                if (cells.length > 0) {
-                    let tecnicatura = cells[2].textContent.toLowerCase();
-                    if (tecnicatura.includes(searchTecnicatura)) {
-                        rows[i].style.display = \"\";
-                    } else {
-                        rows[i].style.display = \"none\";
-                    }
-                }
-            }
-        }
-
-        function filterAsignatura() {
-            let searchAsignatura = document.getElementById(\"searchAsignatura\").value.toLowerCase();
-            let table = document.getElementById(\"tablaInscriptos\");
-            let rows = table.getElementsByTagName(\"tr\");
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName(\"td\");
-                if (cells.length > 0) {
-                    let asignatura = cells[2].textContent.toLowerCase();
-                    if (asignatura.includes(searchAsignatura)) {
-                        rows[i].style.display = \"\";
-                    } else {
-                        rows[i].style.display = \"none\";
-                    }
-                }
-            }
-        }
-    </script> 
-
-    <script>
-        function openModal(action, asignaturaId = null, tecnicaturaId = null) {
+        function openModal(action) {
             let url = '';
-            //!!!!!!!!!Crear modal mesa de final
             if (action === 'mesa') {
                 url = \"";
-        // line 122
+        // line 46
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("nueva_mesa");
-        yield "\"
-                    ;
-                fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('modalMesa').innerHTML = html;
-                    document.getElementById('MesaModal').style.display = 'block';
-                })
-                .catch(error => console.error('Error al cargar el contenido del modal:', error));    
-            }     
-
-            //!!!!!!Crear modtal nota final
-            if (action === 'notaFinal') {
+        yield "\";
+            } else if (action === 'notaFinal') {
                 url = \"";
-        // line 135
+        // line 48
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("nueva_notaFinal");
-        yield "\"
-                    ;
-                fetch(url)
+        yield "\";
+            }
+            fetch(url)
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('modalMesa').innerHTML = html;
                     document.getElementById('MesaModal').style.display = 'block';
                 })
-                .catch(error => console.error('Error al cargar el contenido del modal:', error));    
-            }     
+                .catch(err => console.error('Error al cargar modal:', err));
         }
 
         function closeMesaModal() {
             document.getElementById('MesaModal').style.display = 'none';
             document.getElementById('modalMesa').innerHTML = '';
         }
-
-
     </script>
-
 
 ";
         
@@ -290,7 +176,7 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
         yield from [];
     }
 
-    // line 158
+    // line 67
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -303,10 +189,10 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 159
-        yield "
-    <div id=\"body-vistas\">
-        <h1 id=\"vistas\">Mesas de Finales</h1>
+        // line 68
+        yield "    <div id=\"body-vistas\">
+        <h1>Mesas de Finales</h1>
+
         <table class=\"tabla_home\" id=\"tablaPrincipal\" border=\"1\">
             <thead>
                 <tr>
@@ -317,42 +203,34 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
             </thead>
             <tbody>
                 <tr>
+                    <td><button onclick=\"showTable('tablaInscriptos')\">Ver</button></td>
                     <td>
-                        <button class:\"button\" onclick=\"showTable('tablaInscriptos')\">Ver</button>
+                        <button onclick=\"showTable('tablaMesas')\">Ver</button>
+                        <button onclick=\"openModal('mesa')\">Establecer fecha</button>
                     </td>
                     <td>
-                        <button class:\"button\" onclick=\"showTable('tablaMesas')\">Ver</button>
-                        <button onclick=\"openModal('mesa')\"class:\"button\">Establecer fecha</button>
+                        <button onclick=\"showTable('tablaNotasFinales')\">Ver</button>
+                        <button onclick=\"openModal('notaFinal')\">Cargar Nota</button>
                     </td>
-                    <td>
-                        <buttonclass:\"button\" onclick=\"showTable('tablaNotasFinales')\">Ver</button>
-                        <button onclick=\"openModal('notaFinal')\" class:\"button\">Cargar Nota</button>
-                    </td>
-
-
                 </tr>
-
             </tbody>
         </table>
 
-        ";
-        // line 191
-        yield "        <button id=\"backButton\" class=\"btn-primary\" onclick=\"showTable('tablaPrincipal')\" style=\"display: none;\">Regresar</button>
-
+        <button id=\"backButton\" onclick=\"showTable('tablaPrincipal')\" style=\"display:none;\">Regresar</button>
 
         ";
-        // line 195
-        yield "        <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+        // line 97
+        yield "        <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
             <thead>
                 <tr>
                     <th colspan=\"4\">Inscriptos</th>
                 </tr>
                 <tr>
                     <th colspan=\"4\">
-                        <input type=\"text\" id=\"searchFecha\" onkeyup=\"filterFecha()\" placeholder=\"Buscar Fecha...\">
-                        <input type=\"text\" id=\"searchEstudiante\" onkeyup=\"filterEstudiante()\" placeholder=\"Buscar Estudiante...\">
-                        <input type=\"text\" id=\"searchTecnicatura\" onkeyup=\"filterTecnicatura()\" placeholder=\"Buscar Tecnicatura...\">
-                        <input type=\"text\" id=\"searchAsignatura\" onkeyup=\"filterAsignatura()\" placeholder=\"Buscar Asignatura...\">
+                        <input type=\"text\" id=\"searchFecha\" onkeyup=\"filterTable('searchFecha', 0)\" placeholder=\"Buscar Fecha...\">
+                        <input type=\"text\" id=\"searchEstudiante\" onkeyup=\"filterTable('searchEstudiante', 1)\" placeholder=\"Buscar Estudiante...\">
+                        <input type=\"text\" id=\"searchTecnicatura\" onkeyup=\"filterTable('searchTecnicatura', 2)\" placeholder=\"Buscar Tecnicatura...\">
+                        <input type=\"text\" id=\"searchAsignatura\" onkeyup=\"filterTable('searchAsignatura', 3)\" placeholder=\"Buscar Asignatura...\">
                     </th>
                 </tr>
                 <tr>
@@ -364,52 +242,49 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
             </thead>
             <tbody>
                 ";
-        // line 216
+        // line 118
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["inscripcion_finals"]) || array_key_exists("inscripcion_finals", $context) ? $context["inscripcion_finals"] : (function () { throw new RuntimeError('Variable "inscripcion_finals" does not exist.', 216, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["inscripcion_finals"]) || array_key_exists("inscripcion_finals", $context) ? $context["inscripcion_finals"] : (function () { throw new RuntimeError('Variable "inscripcion_finals" does not exist.', 118, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["inscripcion_final"]) {
-            // line 217
+            // line 119
             yield "                    <tr>
                         <td>";
-            // line 218
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 218)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 218), "Y-m-d"), "html", null, true)) : (""));
+            // line 120
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 120)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 120), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
                         <td>";
-            // line 219
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAlumnoId", [], "method", false, false, false, 219), "html", null, true);
+            // line 121
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 121)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 121), "persona", [], "any", false, false, false, 121), "nombre", [], "any", false, false, false, 121) . " ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 121), "persona", [], "any", false, false, false, 121), "apellido", [], "any", false, false, false, 121)), "html", null, true)) : ("N/A"));
             yield "</td>
                         <td>";
-            // line 220
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAsignaturaId", [], "method", false, false, false, 220), "tecnicatura", [], "any", false, false, false, 220), "html", null, true);
+            // line 122
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura", [], "any", false, false, false, 122)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura", [], "any", false, false, false, 122), "tecnicatura", [], "any", false, false, false, 122), "html", null, true)) : ("N/A"));
             yield "</td>
                         <td>";
-            // line 221
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAsignaturaId", [], "method", false, false, false, 221), "html", null, true);
+            // line 123
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura", [], "any", false, false, false, 123)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura", [], "any", false, false, false, 123), "nombre", [], "any", false, false, false, 123), "html", null, true)) : ("N/A"));
             yield "</td>
                     </tr>
                 ";
             $context['_iterated'] = true;
         }
-        // line 227
+        // line 127
         if (!$context['_iterated']) {
-            // line 224
-            yield "                    <tr>
-                        <td colspan=\"3\">No se encontraron registros</td>
-                    </tr>
+            // line 126
+            yield "                    <tr><td colspan=\"4\">No se encontraron registros</td></tr>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['inscripcion_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 227
-        yield ">
-            </tbody>
-        </table>       
+        // line 128
+        yield "            </tbody>
+        </table>
 
         ";
-        // line 232
-        yield "        <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+        // line 132
+        yield "        <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
             <thead>
                 <tr>
                     <th colspan=\"6\">Mesas de Finales</th>
@@ -424,64 +299,103 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
                 </tr>
             </thead>
             <tbody>
-            ";
-        // line 247
+                ";
+        // line 147
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 247, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 147, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_final"]) {
-            // line 248
-            yield "                <tr>
-                    <td>";
-            // line 249
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "getAsignaturaId", [], "method", false, false, false, 249), "html", null, true);
+            // line 148
+            yield "                    <tr>
+                        <td>";
+            // line 149
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 149)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 149), "nombre", [], "any", false, false, false, 149), "html", null, true)) : ("N/A"));
             yield "</td>
-                    <td>";
-            // line 250
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 250)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 250), "Y-m-d"), "html", null, true)) : (""));
+                        <td>";
+            // line 150
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 150)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 150), "Y-m-d"), "html", null, true)) : ("N/A"));
             yield "</td>
-                    <td>";
-            // line 251
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "getPresidenteId", [], "method", false, false, false, 251), "html", null, true);
+                        <td>
+                            ";
+            // line 152
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 152) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 152), "persona", [], "any", false, false, false, 152))) {
+                // line 153
+                yield "                                ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 153), "persona", [], "any", false, false, false, 153), "nombre", [], "any", false, false, false, 153), "html", null, true);
+                yield " ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 153), "persona", [], "any", false, false, false, 153), "apellido", [], "any", false, false, false, 153), "html", null, true);
+                yield "
+                            ";
+            } else {
+                // line 155
+                yield "                                N/A
+                            ";
+            }
+            // line 157
+            yield "                        </td>
+                        <td>
+                            ";
+            // line 159
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 159) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 159), "persona", [], "any", false, false, false, 159))) {
+                // line 160
+                yield "                                ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 160), "persona", [], "any", false, false, false, 160), "nombre", [], "any", false, false, false, 160), "html", null, true);
+                yield " ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 160), "persona", [], "any", false, false, false, 160), "apellido", [], "any", false, false, false, 160), "html", null, true);
+                yield "
+                            ";
+            } else {
+                // line 162
+                yield "                                N/A
+                            ";
+            }
+            // line 164
+            yield "                        </td>
+                        <td>
+                            ";
+            // line 166
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 166) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 166), "persona", [], "any", false, false, false, 166))) {
+                // line 167
+                yield "                                ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 167), "persona", [], "any", false, false, false, 167), "nombre", [], "any", false, false, false, 167), "html", null, true);
+                yield " ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 167), "persona", [], "any", false, false, false, 167), "apellido", [], "any", false, false, false, 167), "html", null, true);
+                yield "
+                            ";
+            } else {
+                // line 169
+                yield "                                N/A
+                            ";
+            }
+            // line 171
+            yield "                        </td>
+                        <td>";
+            // line 172
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 172)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 172), "nombre", [], "any", false, false, false, 172), "html", null, true)) : ("N/A"));
             yield "</td>
-                    <td>";
-            // line 252
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "getVocal1Id", [], "method", false, false, false, 252), "html", null, true);
-            yield "</td>
-                    <td>";
-            // line 253
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "getVocal2Id", [], "method", false, false, false, 253), "html", null, true);
-            yield "</td>
-                    <td>";
-            // line 254
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "getAsignaturaId", [], "method", false, false, false, 254), "tecnicatura", [], "any", false, false, false, 254), "html", null, true);
-            yield "</td>
-                </tr>
-            ";
+                    </tr>
+                ";
             $context['_iterated'] = true;
         }
-        // line 260
+        // line 176
         if (!$context['_iterated']) {
-            // line 257
-            yield "                <tr>
-                    <td colspan=\"3\">No se encontraron registros</td>
-                </tr>
-            ";
+            // line 175
+            yield "                    <tr><td colspan=\"6\">No se encontraron registros</td></tr>
+                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 261
+        // line 177
         yield "            </tbody>
         </table>
 
-
         ";
-        // line 266
-        yield "        <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+        // line 181
+        yield "        <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
             <thead>
                 <tr>
-                    <th colspan=\"6\">Nota de los Finales</th>
+                    <th colspan=\"6\">Notas de los Finales</th>
                 </tr>
                 <tr>
                     <th>Estudiante</th>
@@ -493,71 +407,101 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
                 </tr>
             </thead>
             <tbody>
-            ";
-        // line 281
+                ";
+        // line 196
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_alumnos"]) || array_key_exists("examen_alumnos", $context) ? $context["examen_alumnos"] : (function () { throw new RuntimeError('Variable "examen_alumnos" does not exist.', 281, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_alumnos"]) || array_key_exists("examen_alumnos", $context) ? $context["examen_alumnos"] : (function () { throw new RuntimeError('Variable "examen_alumnos" does not exist.', 196, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_alumno"]) {
-            // line 282
-            yield "                <tr>
-                    <td>";
-            // line 283
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getAlumnoId", [], "any", false, false, false, 283), "html", null, true);
+            // line 197
+            yield "                    <tr>
+                        <td>
+                            ";
+            // line 199
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno", [], "any", false, false, false, 199) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno", [], "any", false, false, false, 199), "persona", [], "any", false, false, false, 199))) {
+                // line 200
+                yield "                                ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno", [], "any", false, false, false, 200), "persona", [], "any", false, false, false, 200), "nombre", [], "any", false, false, false, 200), "html", null, true);
+                yield " ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno", [], "any", false, false, false, 200), "persona", [], "any", false, false, false, 200), "apellido", [], "any", false, false, false, 200), "html", null, true);
+                yield "
+                            ";
+            } else {
+                // line 202
+                yield "                                N/A
+                            ";
+            }
+            // line 204
+            yield "                        </td>
+                        <td>";
+            // line 205
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "nota", [], "any", false, false, false, 205), "html", null, true);
             yield "</td>
-                    <td>";
-            // line 284
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "nota", [], "any", false, false, false, 284), "html", null, true);
+                        <td>";
+            // line 206
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "tomo", [], "any", false, false, false, 206), "html", null, true);
             yield "</td>
-                    <td>";
-            // line 285
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "tomo", [], "any", false, false, false, 285), "html", null, true);
+                        <td>";
+            // line 207
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "folio", [], "any", false, false, false, 207), "html", null, true);
             yield "</td>
-                    <td>";
-            // line 286
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "folio", [], "any", false, false, false, 286), "html", null, true);
-            yield "</td>
-                    <td>";
-            // line 287
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getExamenFinalId", [], "method", false, false, false, 287), "getAsignaturaId", [], "method", false, false, false, 287), "tecnicatura", [], "any", false, false, false, 287), "html", null, true);
-            yield "</td>
-                    <td>";
-            // line 288
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getExamenFinalId", [], "method", false, false, false, 288), "getAsignaturaId", [], "method", false, false, false, 288), "html", null, true);
-            yield "</td>
-                </tr>
-            ";
+                        <td>
+                            ";
+            // line 209
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 209) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 209), "tecnicatura", [], "any", false, false, false, 209))) {
+                // line 210
+                yield "                                ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 210), "tecnicatura", [], "any", false, false, false, 210), "nombre", [], "any", false, false, false, 210), "html", null, true);
+                yield "
+                            ";
+            } else {
+                // line 212
+                yield "                                N/A
+                            ";
+            }
+            // line 214
+            yield "                        </td>
+                        <td>
+                            ";
+            // line 216
+            if ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 216) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 216), "asignatura", [], "any", false, false, false, 216))) {
+                // line 217
+                yield "                                ";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 217), "asignatura", [], "any", false, false, false, 217), "nombre", [], "any", false, false, false, 217), "html", null, true);
+                yield "
+                            ";
+            } else {
+                // line 219
+                yield "                                N/A
+                            ";
+            }
+            // line 221
+            yield "                        </td>
+                    </tr>
+                ";
             $context['_iterated'] = true;
         }
-        // line 294
+        // line 225
         if (!$context['_iterated']) {
-            // line 291
-            yield "                <tr>
-                    <td colspan=\"5\">No se encontraron registros</td>
-                </tr>
-            ";
+            // line 224
+            yield "                    <tr><td colspan=\"6\">No se encontraron registros</td></tr>
+                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_alumno'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 295
+        // line 226
         yield "            </tbody>
         </table>
-    </div>    
+    </div>
 
-    <!-- Modal  Mesas Final -->
-    <div id=\"MesaModal\" class=\"modal\" style=\"display: none;\">
+    <!-- Modal -->
+    <div id=\"MesaModal\" class=\"modal\" style=\"display:none;\">
         <div class=\"modal-content\">
             <span class=\"close\" onclick=\"closeMesaModal()\">&times;</span>
             <div id=\"modalMesa\" class=\"submodal\"></div>
         </div>
     </div>
-
-
-
-
-
-
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -589,172 +533,81 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  544 => 295,  535 => 291,  533 => 294,  526 => 288,  522 => 287,  518 => 286,  514 => 285,  510 => 284,  506 => 283,  503 => 282,  498 => 281,  481 => 266,  475 => 261,  466 => 257,  464 => 260,  457 => 254,  453 => 253,  449 => 252,  445 => 251,  441 => 250,  437 => 249,  434 => 248,  429 => 247,  412 => 232,  406 => 227,  397 => 224,  395 => 227,  388 => 221,  384 => 220,  380 => 219,  376 => 218,  373 => 217,  368 => 216,  345 => 195,  340 => 191,  307 => 159,  294 => 158,  261 => 135,  245 => 122,  169 => 48,  145 => 26,  142 => 25,  138 => 23,  136 => 22,  133 => 21,  130 => 20,  126 => 18,  124 => 17,  121 => 16,  118 => 15,  113 => 12,  111 => 11,  106 => 8,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  494 => 226,  487 => 224,  485 => 225,  479 => 221,  475 => 219,  469 => 217,  467 => 216,  463 => 214,  459 => 212,  453 => 210,  451 => 209,  446 => 207,  442 => 206,  438 => 205,  435 => 204,  431 => 202,  423 => 200,  421 => 199,  417 => 197,  412 => 196,  395 => 181,  390 => 177,  383 => 175,  381 => 176,  374 => 172,  371 => 171,  367 => 169,  359 => 167,  357 => 166,  353 => 164,  349 => 162,  341 => 160,  339 => 159,  335 => 157,  331 => 155,  323 => 153,  321 => 152,  316 => 150,  312 => 149,  309 => 148,  304 => 147,  287 => 132,  282 => 128,  275 => 126,  273 => 127,  266 => 123,  262 => 122,  258 => 121,  254 => 120,  251 => 119,  246 => 118,  223 => 97,  193 => 68,  180 => 67,  151 => 48,  146 => 46,  123 => 25,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Mesas de Finales!{% endblock %}
+{% block title %}Mesas de Finales{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    {# showtable para mostrar tablas #}
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Evaluar si `comId` está definido y no es nulo
-            {% if alumnoId is defined and alumnoId is not null %}
-                // Llamar a showCursada con los IDs de cursada y tecnicatura
-                showTable('tablaalumno');
-            {% else %}
-            {% endif %}
-
-            {% if docenteId is defined and docenteId is not null %}
-                showTable('tablaDocentes');
-            {% else %}
-            {% endif %}
-
-            {% if carrerasId is defined and carrerasId is not null %}
-                showTable('tablacarrera');
-            {% else %}
-            {% endif %}
+            showTable('tablaPrincipal');
         });
 
         function showTable(tableId) {
             const tables = document.querySelectorAll('.tabla_home');
             tables.forEach(table => {
-                if (table.id === tableId) {
-                    table.style.display = '';
-                } else {
-                    table.style.display = 'none';
-                }
+                table.style.display = (table.id === tableId) ? '' : 'none';
             });
-            
+
             const backButton = document.getElementById('backButton');
-            if (tableId === 'tablaPrincipal') {
-                backButton.style.display = 'none';
-            } else {
-                backButton.style.display = '';
+            backButton.style.display = (tableId === 'tablaPrincipal') ? 'none' : '';
+        }
+    </script>
+
+    {# Filtros para tabla inscriptos #}
+    <script>
+        function filterTable(inputId, columnIndex) {
+            let input = document.getElementById(inputId);
+            let filter = input.value.toLowerCase();
+            let table = document.getElementById(\"tablaInscriptos\");
+            let rows = table.getElementsByTagName(\"tr\");
+
+            for (let i = 2; i < rows.length; i++) { // Empieza en 2 para saltar encabezados
+                let cell = rows[i].getElementsByTagName(\"td\")[columnIndex];
+                if (cell) {
+                    let textValue = cell.textContent || cell.innerText;
+                    rows[i].style.display = textValue.toLowerCase().includes(filter) ? \"\" : \"none\";
+                }
             }
         }
     </script>
 
-
-    {#Busquedas en la tabla Inscriptos#}    
     <script>
-        function filterFecha() {
-            let searchFecha = document.getElementById(\"searchFecha\").value.toLowerCase();
-            let table = document.getElementById(\"tablaInscriptos\");
-            let rows = table.getElementsByTagName(\"tr\");
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName(\"td\");
-                if (cells.length > 0) {
-                    let fecha = cells[0].textContent.toLowerCase();
-                    if (fecha.includes(searchFecha)) {
-                        rows[i].style.display = \"\";
-                    } else {
-                        rows[i].style.display = \"none\";
-                    }
-                }
-            }
-        }
-        function filterEstudiante() {
-            let searchEstudiante = document.getElementById(\"searchEstudiante\").value.toLowerCase();
-            let table = document.getElementById(\"tablaInscriptos\");
-            let rows = table.getElementsByTagName(\"tr\");
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName(\"td\");
-                if (cells.length > 0) {
-                    let estudiante = cells[1].textContent.toLowerCase();
-                    if (estudiante.includes(searchEstudiante)) {
-                        rows[i].style.display = \"\";
-                    } else {
-                        rows[i].style.display = \"none\";
-                    }
-                }
-            }
-        }
-        function filterTecnicatura() {
-            let searchTecnicatura = document.getElementById(\"searchTecnicatura\").value.toLowerCase();
-            let table = document.getElementById(\"tablaInscriptos\");
-            let rows = table.getElementsByTagName(\"tr\");
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName(\"td\");
-                if (cells.length > 0) {
-                    let tecnicatura = cells[2].textContent.toLowerCase();
-                    if (tecnicatura.includes(searchTecnicatura)) {
-                        rows[i].style.display = \"\";
-                    } else {
-                        rows[i].style.display = \"none\";
-                    }
-                }
-            }
-        }
-
-        function filterAsignatura() {
-            let searchAsignatura = document.getElementById(\"searchAsignatura\").value.toLowerCase();
-            let table = document.getElementById(\"tablaInscriptos\");
-            let rows = table.getElementsByTagName(\"tr\");
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName(\"td\");
-                if (cells.length > 0) {
-                    let asignatura = cells[2].textContent.toLowerCase();
-                    if (asignatura.includes(searchAsignatura)) {
-                        rows[i].style.display = \"\";
-                    } else {
-                        rows[i].style.display = \"none\";
-                    }
-                }
-            }
-        }
-    </script> 
-
-    <script>
-        function openModal(action, asignaturaId = null, tecnicaturaId = null) {
+        function openModal(action) {
             let url = '';
-            //!!!!!!!!!Crear modal mesa de final
             if (action === 'mesa') {
-                url = \"{{ path('nueva_mesa', ) }}\"
-                    ;
-                fetch(url)
+                url = \"{{ path('nueva_mesa') }}\";
+            } else if (action === 'notaFinal') {
+                url = \"{{ path('nueva_notaFinal') }}\";
+            }
+            fetch(url)
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('modalMesa').innerHTML = html;
                     document.getElementById('MesaModal').style.display = 'block';
                 })
-                .catch(error => console.error('Error al cargar el contenido del modal:', error));    
-            }     
-
-            //!!!!!!Crear modtal nota final
-            if (action === 'notaFinal') {
-                url = \"{{ path('nueva_notaFinal', ) }}\"
-                    ;
-                fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('modalMesa').innerHTML = html;
-                    document.getElementById('MesaModal').style.display = 'block';
-                })
-                .catch(error => console.error('Error al cargar el contenido del modal:', error));    
-            }     
+                .catch(err => console.error('Error al cargar modal:', err));
         }
 
         function closeMesaModal() {
             document.getElementById('MesaModal').style.display = 'none';
             document.getElementById('modalMesa').innerHTML = '';
         }
-
-
     </script>
-
 
 {% endblock %}
 
 {% block body %}
-
     <div id=\"body-vistas\">
-        <h1 id=\"vistas\">Mesas de Finales</h1>
+        <h1>Mesas de Finales</h1>
+
         <table class=\"tabla_home\" id=\"tablaPrincipal\" border=\"1\">
             <thead>
                 <tr>
@@ -765,40 +618,33 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
             </thead>
             <tbody>
                 <tr>
+                    <td><button onclick=\"showTable('tablaInscriptos')\">Ver</button></td>
                     <td>
-                        <button class:\"button\" onclick=\"showTable('tablaInscriptos')\">Ver</button>
+                        <button onclick=\"showTable('tablaMesas')\">Ver</button>
+                        <button onclick=\"openModal('mesa')\">Establecer fecha</button>
                     </td>
                     <td>
-                        <button class:\"button\" onclick=\"showTable('tablaMesas')\">Ver</button>
-                        <button onclick=\"openModal('mesa')\"class:\"button\">Establecer fecha</button>
+                        <button onclick=\"showTable('tablaNotasFinales')\">Ver</button>
+                        <button onclick=\"openModal('notaFinal')\">Cargar Nota</button>
                     </td>
-                    <td>
-                        <buttonclass:\"button\" onclick=\"showTable('tablaNotasFinales')\">Ver</button>
-                        <button onclick=\"openModal('notaFinal')\" class:\"button\">Cargar Nota</button>
-                    </td>
-
-
                 </tr>
-
             </tbody>
         </table>
 
-        {# Botón de regreso #}
-        <button id=\"backButton\" class=\"btn-primary\" onclick=\"showTable('tablaPrincipal')\" style=\"display: none;\">Regresar</button>
+        <button id=\"backButton\" onclick=\"showTable('tablaPrincipal')\" style=\"display:none;\">Regresar</button>
 
-
-        {# Inscriptos Vistas #}
-        <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+        {# Tabla Inscriptos #}
+        <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
             <thead>
                 <tr>
                     <th colspan=\"4\">Inscriptos</th>
                 </tr>
                 <tr>
                     <th colspan=\"4\">
-                        <input type=\"text\" id=\"searchFecha\" onkeyup=\"filterFecha()\" placeholder=\"Buscar Fecha...\">
-                        <input type=\"text\" id=\"searchEstudiante\" onkeyup=\"filterEstudiante()\" placeholder=\"Buscar Estudiante...\">
-                        <input type=\"text\" id=\"searchTecnicatura\" onkeyup=\"filterTecnicatura()\" placeholder=\"Buscar Tecnicatura...\">
-                        <input type=\"text\" id=\"searchAsignatura\" onkeyup=\"filterAsignatura()\" placeholder=\"Buscar Asignatura...\">
+                        <input type=\"text\" id=\"searchFecha\" onkeyup=\"filterTable('searchFecha', 0)\" placeholder=\"Buscar Fecha...\">
+                        <input type=\"text\" id=\"searchEstudiante\" onkeyup=\"filterTable('searchEstudiante', 1)\" placeholder=\"Buscar Estudiante...\">
+                        <input type=\"text\" id=\"searchTecnicatura\" onkeyup=\"filterTable('searchTecnicatura', 2)\" placeholder=\"Buscar Tecnicatura...\">
+                        <input type=\"text\" id=\"searchAsignatura\" onkeyup=\"filterTable('searchAsignatura', 3)\" placeholder=\"Buscar Asignatura...\">
                     </th>
                 </tr>
                 <tr>
@@ -812,20 +658,18 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
                 {% for inscripcion_final in inscripcion_finals %}
                     <tr>
                         <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
-                        <td>{{ inscripcion_final.getAlumnoId() }}</td>
-                        <td>{{ inscripcion_final.getAsignaturaId().tecnicatura }}</td>
-                        <td>{{ inscripcion_final.getAsignaturaId() }}</td>
+                        <td>{{ inscripcion_final.alumno ? inscripcion_final.alumno.persona.nombre ~ ' ' ~ inscripcion_final.alumno.persona.apellido : 'N/A' }}</td>
+                        <td>{{ inscripcion_final.asignatura ? inscripcion_final.asignatura.tecnicatura : 'N/A' }}</td>
+                        <td>{{ inscripcion_final.asignatura ? inscripcion_final.asignatura.nombre : 'N/A' }}</td>
                     </tr>
                 {% else %}
-                    <tr>
-                        <td colspan=\"3\">No se encontraron registros</td>
-                    </tr>
-                {% endfor %}>
+                    <tr><td colspan=\"4\">No se encontraron registros</td></tr>
+                {% endfor %}
             </tbody>
-        </table>       
+        </table>
 
-        {# Mesas Vistas #}
-        <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+        {# Tabla Mesas #}
+        <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
             <thead>
                 <tr>
                     <th colspan=\"6\">Mesas de Finales</th>
@@ -840,29 +684,44 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
                 </tr>
             </thead>
             <tbody>
-            {% for examen_final in examen_finals %}
-                <tr>
-                    <td>{{ examen_final.getAsignaturaId() }}</td>
-                    <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
-                    <td>{{ examen_final.getPresidenteId()}}</td>
-                    <td>{{ examen_final.getVocal1Id() }}</td>
-                    <td>{{ examen_final.getVocal2Id() }}</td>
-                    <td>{{ examen_final.getAsignaturaId().tecnicatura }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan=\"3\">No se encontraron registros</td>
-                </tr>
-            {% endfor %}
+                {% for examen_final in examen_finals %}
+                    <tr>
+                        <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : 'N/A' }}</td>
+                        <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : 'N/A' }}</td>
+                        <td>
+                            {% if examen_final.presidente and examen_final.presidente.persona %}
+                                {{ examen_final.presidente.persona.nombre }} {{ examen_final.presidente.persona.apellido }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if examen_final.vocal1 and examen_final.vocal1.persona %}
+                                {{ examen_final.vocal1.persona.nombre }} {{ examen_final.vocal1.persona.apellido }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if examen_final.vocal2 and examen_final.vocal2.persona %}
+                                {{ examen_final.vocal2.persona.nombre }} {{ examen_final.vocal2.persona.apellido }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : 'N/A' }}</td>
+                    </tr>
+                {% else %}
+                    <tr><td colspan=\"6\">No se encontraron registros</td></tr>
+                {% endfor %}
             </tbody>
         </table>
 
-
-        {# Notas Finales Vistas #}
-        <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+        {# Tabla Notas Finales #}
+        <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
             <thead>
                 <tr>
-                    <th colspan=\"6\">Nota de los Finales</th>
+                    <th colspan=\"6\">Notas de los Finales</th>
                 </tr>
                 <tr>
                     <th>Estudiante</th>
@@ -874,37 +733,47 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
                 </tr>
             </thead>
             <tbody>
-            {% for examen_alumno in examen_alumnos %}
-                <tr>
-                    <td>{{ examen_alumno.getAlumnoId }}</td>
-                    <td>{{ examen_alumno.nota }}</td>
-                    <td>{{ examen_alumno.tomo }}</td>
-                    <td>{{ examen_alumno.folio }}</td>
-                    <td>{{ examen_alumno.getExamenFinalId().getAsignaturaId().tecnicatura }}</td>
-                    <td>{{ examen_alumno.getExamenFinalId().getAsignaturaId() }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan=\"5\">No se encontraron registros</td>
-                </tr>
-            {% endfor %}
+                {% for examen_alumno in examen_alumnos %}
+                    <tr>
+                        <td>
+                            {% if examen_alumno.alumno and examen_alumno.alumno.persona %}
+                                {{ examen_alumno.alumno.persona.nombre }} {{ examen_alumno.alumno.persona.apellido }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>{{ examen_alumno.nota }}</td>
+                        <td>{{ examen_alumno.tomo }}</td>
+                        <td>{{ examen_alumno.folio }}</td>
+                        <td>
+                            {% if examen_alumno.examenFinal and examen_alumno.examenFinal.tecnicatura %}
+                                {{ examen_alumno.examenFinal.tecnicatura.nombre }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if examen_alumno.examenFinal and examen_alumno.examenFinal.asignatura %}
+                                {{ examen_alumno.examenFinal.asignatura.nombre }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr><td colspan=\"6\">No se encontraron registros</td></tr>
+                {% endfor %}
             </tbody>
         </table>
-    </div>    
+    </div>
 
-    <!-- Modal  Mesas Final -->
-    <div id=\"MesaModal\" class=\"modal\" style=\"display: none;\">
+    <!-- Modal -->
+    <div id=\"MesaModal\" class=\"modal\" style=\"display:none;\">
         <div class=\"modal-content\">
             <span class=\"close\" onclick=\"closeMesaModal()\">&times;</span>
             <div id=\"modalMesa\" class=\"submodal\"></div>
         </div>
     </div>
-
-
-
-
-
-
 {% endblock %}
 ", "vistasmesas/index.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\vistasmesas\\index.html.twig");
     }
