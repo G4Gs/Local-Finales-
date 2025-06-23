@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerLxcwixx/getExamenFinalService.php
-namespace ContainerLxcwixx;
-========
 namespace ContainerPx58x1J;
->>>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30:var/cache/dev/ContainerPx58x1J/getExamenFinalService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -15,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getExamenFinalService extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.u2fciAB.App\Entity\ExamenFinal' shared service.
+     * Gets the private '.errored..service_locator.4EHAhEc.App\Entity\ExamenFinal' shared service.
      *
      * @return \App\Entity\ExamenFinal
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.u2fciAB": it references class "App\\Entity\\ExamenFinal" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.4EHAhEc": it references class "App\\Entity\\ExamenFinal" but no such service exists.');
     }
 }

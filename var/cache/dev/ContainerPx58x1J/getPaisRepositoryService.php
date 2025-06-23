@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerLxcwixx/getPaisRepositoryService.php
-namespace ContainerLxcwixx;
-========
 namespace ContainerPx58x1J;
->>>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30:var/cache/dev/ContainerPx58x1J/getPaisRepositoryService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;

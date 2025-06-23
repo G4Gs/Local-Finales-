@@ -19,20 +19,15 @@ class ExamenFinal
     #[ORM\Column(type: 'date')]
     private ?\DateTimeInterface $fecha = null;
 
-   #[ORM\ManyToOne(targetEntity: Docente::class)]
-   #[ORM\JoinColumn(nullable: false)]
-   private ?Docente $presidente_id = null;
-
-   #[ORM\ManyToOne(targetEntity: Docente::class)]
-   private ?Docente $Vocal1_id = null;
-
-   #[ORM\ManyToOne(targetEntity: Docente::class)]
-   private ?Docente $Vocal2_id = null;
-
-   
-    #[ORM\ManyToOne(targetEntity: Asignatura::class)]
+    #[ORM\ManyToOne(targetEntity: Docente::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Asignatura $asignatura_id = null;
+    private ?Docente $presidente = null;
+
+    #[ORM\ManyToOne(targetEntity: Docente::class)]
+    private ?Docente $vocal1 = null;
+
+    #[ORM\ManyToOne(targetEntity: Docente::class)]
+    private ?Docente $vocal2 = null;
 
     #[ORM\Column(length: 10)]
     private ?string $estadoMesa = null; // "Libre" o "Regular"
