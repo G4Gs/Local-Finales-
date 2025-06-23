@@ -1,5 +1,12 @@
-{{ form_start(form, { action: path('app_examen_final_new') }) }}
+{{ form_start(form, { action: examen_final.id ? path('app_examen_final_edit', {'id': examen_final.id}) : path('app_examen_final_new') }) }}
 {{ form_errors(form) }}
 {{ form_widget(form) }}
 <button class="btn">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
+
+{% if examen_final.id %}
+    <form method="post" action="{{ path('app_examen_final_delete', {'id': examen_final.id}) }}" onsubmit="return confirm('¿Estás seguro de eliminar este examen final?');" style="margin-top: 1em;">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ examen_final.id) }}">
+        <button class="btn btn-danger" type="submit">Eliminar</button>
+    </form>
+{% endif %}
