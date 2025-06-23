@@ -19,17 +19,6 @@ class ExamenFinal
     #[ORM\Column(type: 'date')]
     private ?\DateTimeInterface $fecha = null;
 
-<<<<<<< HEAD
-    #[ORM\ManyToOne(targetEntity: Docente::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Docente $presidente = null;
-
-    #[ORM\ManyToOne(targetEntity: Docente::class)]
-    private ?Docente $vocal1 = null;
-
-    #[ORM\ManyToOne(targetEntity: Docente::class)]
-    private ?Docente $vocal2 = null;
-=======
    #[ORM\ManyToOne(targetEntity: Docente::class)]
    #[ORM\JoinColumn(nullable: false)]
    private ?Docente $presidente_id = null;
@@ -44,12 +33,10 @@ class ExamenFinal
     #[ORM\ManyToOne(targetEntity: Asignatura::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Asignatura $asignatura_id = null;
->>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
 
     #[ORM\Column(length: 10)]
     private ?string $estadoMesa = null; // "Libre" o "Regular"
 
-<<<<<<< HEAD
     #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Tecnicatura $tecnicatura = null;
@@ -57,12 +44,6 @@ class ExamenFinal
     #[ORM\ManyToOne(targetEntity: Asignatura::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Asignatura $asignatura = null;
-=======
-    public function __construct()
-    {
-        $this->examenAlumnos = new ArrayCollection();
-    }
->>>>>>> 14397690d78e5c4d99a6bfbe6f9721f530690f30
 
     public function getId(): ?int { return $this->id; }
     public function getFecha(): ?\DateTimeInterface { return $this->fecha; }
