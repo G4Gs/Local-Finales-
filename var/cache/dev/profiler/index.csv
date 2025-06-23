@@ -65,3 +65,5 @@ bbfa3f,::1,GET,http://localhost/local/public/index.php/examen/final/new,17507211
 779625,::1,GET,http://localhost/local/public/index.php/examen/final/new,1750721133,,200
 43c4c6,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750721267,aaf72c,500
 aaf72c,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750721267,,500
+79821f,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750722130,,200
+908493,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750722144,,200
