@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('app_examen_final_delete', {'id': examen_final.id}) }}" onsubmit="return confirm('Confirmar Eliminación');">
+<form class="form-eliminar-examen" method="post" action="{{ path('app_examen_final_delete', {'id': examen_final.id}) }}" onsubmit="return confirm('¿Estás seguro de eliminar este examen final?');" style="margin-top: 1em;">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ examen_final.id) }}">
-    <button class="btn">Eliminar</button>
+    <button class="btn btn-danger" type="submit">Eliminar</button>
 </form>

@@ -29,49 +29,38 @@
       }
     }
 
-    function handleExamenFinalFormSubmit(modalId, bodyId) {
-      const modalBody = document.getElementById(bodyId);
-      modalBody.addEventListener('submit', function(e) {
-        if (e.target.tagName === 'FORM') {
-          if (e.target.querySelector('button[type="submit"].btn-danger')) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            fetch(form.action, {
-              method: form.method,
-              body: formData,
-            })
-            .then(() => {
-              window.location.reload();
-            })
-            .catch(error => {
-              alert('Ocurrió un error al eliminar el examen final.');
-              console.error(error);
-            });
-            return;
-          }
-          e.preventDefault();
-          const form = e.target;
-          const formData = new FormData(form);
-          fetch(form.action, {
-            method: form.method,
-            body: formData,
-          })
-          .then(response => response.text())
-          .then(html => {
-            if (html.includes('<form')) {
-              modalBody.innerHTML = html;
-            } else {
-              window.location.reload();
-            }
-          })
-          .catch(error => {
-            alert('Ocurrió un error al guardar el examen final.');
-            console.error(error);
-          });
+function handleExamenFinalFormSubmit(modalId, bodyId) {
+  const modalBody = document.getElementById(bodyId);
+  // Elimina listeners anteriores
+  modalBody.replaceWith(modalBody.cloneNode(true));
+  const newModalBody = document.getElementById(bodyId);
+  newModalBody.addEventListener('submit', function(e) {
+    if (e.target.tagName === 'FORM') {
+      if (e.target.classList.contains('form-eliminar-examen')) {
+        return;
+      }
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+      })
+      .then(response => response.text())
+      .then(html => {
+        if (html.includes('<form')) {
+          newModalBody.innerHTML = html;
+        } else {
+          window.location.reload();
         }
+      })
+      .catch(error => {
+        alert('Ocurrió un error al guardar el examen final.');
+        console.error(error);
       });
     }
+  });
+}
 
     function openEditExamenModal(examenId) {
       const url = "{{ path('app_examen_final_edit', {'id': '__id__'}) }}".replace('__id__', examenId);
@@ -118,10 +107,15 @@
 {% endblock %}
 
 {% block body %}
-  <h1 class= "datos-filtered" style="text-align: center;">Listado de Llamados a Exámenes Finales</h1>
+  <h1 class="datos-filtered" style="text-align: center;">Listado de Llamados a Exámenes Finales</h1>
 
   {% for message in app.flashes('error') %}
     <div class="alert alert-danger">
+      {{ message }}
+    </div>
+  {% endfor %}
+  {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
       {{ message }}
     </div>
   {% endfor %}
@@ -169,6 +163,7 @@
             <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">
               Editar
             </button>
+            <!-- Eliminar solo desde el modal de edición -->
           </td>
         </tr>
       {% else %}

@@ -91,29 +91,45 @@ class ExamenFinalController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
-    public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
-    {
-        // Cambié 'examenFinal_id' por 'examenFinal' que es correcto
-        $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal' => $examenFinal]);
-
-        if (count($alumnosAsociados) > 0) {
-            $this->addFlash('error', 'No se puede eliminar el examen final porque tiene alumnos asociados.');
-            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
-        }
-
-        try {
-            $examenFinalRepository->remove($examenFinal, true);
-        } catch (ForeignKeyConstraintViolationException $e) {
-            if ($examenFinal->getId()) {
-                $this->addFlash('error', 'Error inesperado al eliminar el examen final, por favor borrelos desde la BD.');
-                return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
-            } else {
-                $this->addFlash('error', 'No se encontró el examen final.');
-                return $this->redirectToRoute('app_examen_final_index');
-            }
-        }
-
-        return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+#[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
+public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
+{
+    if (!$this->isCsrfTokenValid('delete' . $examenFinal->getId(), $request->request->get('_token'))) {
+        $this->addFlash('error', 'Token CSRF inválido.');
+        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
     }
+
+    // Usa el nombre correcto de la propiedad de la relación
+    $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal_id' => $examenFinal]);
+
+    if (count($alumnosAsociados) > 0) {
+        $this->addFlash('error', 'No se puede eliminar el examen final porque tiene alumnos asociados.');
+        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+    }
+
+    try {
+        $examenFinalRepository->remove($examenFinal, true);
+        $this->addFlash('success', 'Examen final eliminado correctamente.');
+    } catch (\Exception $e) {
+        $this->addFlash('error', 'Error al eliminar: ' . $e->getMessage());
+        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+    }
+
+    return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+   
+        if (count($alumnosAsociados) > 0) {
+        $this->addFlash('error', 'No se puede eliminar el examen final porque tiene alumnos asociados.');
+        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+    }
+
+    try {
+        $examenFinalRepository->remove($examenFinal, true);
+        $this->addFlash('success', 'Examen final eliminado correctamente.');
+    } catch (\Exception $e) {
+        $this->addFlash('error', 'Error al eliminar: ' . $e->getMessage());
+        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+    }
+
+    return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+}
 }
