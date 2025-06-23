@@ -165,6 +165,6 @@ class __TwigTemplate_b962a34a6333f637dbc3d97afb0b7b98 extends Template
     {% endif %} 
 </div>
 {% endblock %}  
-", "home/index.html.twig", "C:\\xampp\\htdocs\\local\\Local-Finales-\\templates\\home\\index.html.twig");
+", "home/index.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\home\\index.html.twig");
     }
 }

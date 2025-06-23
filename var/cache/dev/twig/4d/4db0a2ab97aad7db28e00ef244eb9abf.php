@@ -14,7 +14,7 @@ use Twig\Source;
 use Twig\Template;
 use Twig\TemplateWrapper;
 
-/* vistasmesas/nueva_notaFinal_form.html.twig */
+/* vistasmesas/nueva_notafinal_form.html.twig */
 class __TwigTemplate_0eadb14b07ba90896199816f38b66f27 extends Template
 {
     private Source $source;
@@ -39,10 +39,10 @@ class __TwigTemplate_0eadb14b07ba90896199816f38b66f27 extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "vistasmesas/nueva_notaFinal_form.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "vistasmesas/nueva_notafinal_form.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "vistasmesas/nueva_notaFinal_form.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "vistasmesas/nueva_notafinal_form.html.twig"));
 
         // line 1
         yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 1, $this->source); })()), 'form_start', ["attr" => ["id" => "form-crea-MiNotaFinal"], "action" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("nueva_notaFinal")]);
@@ -87,7 +87,7 @@ class __TwigTemplate_0eadb14b07ba90896199816f38b66f27 extends Template
      */
     public function getTemplateName(): string
     {
-        return "vistasmesas/nueva_notaFinal_form.html.twig";
+        return "vistasmesas/nueva_notafinal_form.html.twig";
     }
 
     /**
@@ -116,6 +116,6 @@ class __TwigTemplate_0eadb14b07ba90896199816f38b66f27 extends Template
         {{ form_row(form.examenFinal_id, {'label': 'Examen Final'}) }}
     <button type=\"submit\">Guardar</button>
 {{ form_end(form) }}
-", "vistasmesas/nueva_notaFinal_form.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\vistasmesas\\nueva_notafinal_form.html.twig");
+", "vistasmesas/nueva_notafinal_form.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\vistasmesas\\nueva_notafinal_form.html.twig");
     }
 }

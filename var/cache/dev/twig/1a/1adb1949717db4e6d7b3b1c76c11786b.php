@@ -240,7 +240,7 @@ class __TwigTemplate_aef49e4075bc6aefa4b0e5b4dcc050e0 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 121
-        yield "  <h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
+        yield "  <h1 class= \"datos-filtered\" style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
 
   ";
         // line 123
@@ -532,7 +532,7 @@ class __TwigTemplate_aef49e4075bc6aefa4b0e5b4dcc050e0 extends Template
 {% endblock %}
 
 {% block body %}
-  <h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
+  <h1 class= \"datos-filtered\" style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
 
   {% for message in app.flashes('error') %}
     <div class=\"alert alert-danger\">
