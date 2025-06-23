@@ -11,6 +11,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 class ExamenFinalType extends AbstractType
 {
@@ -18,6 +19,11 @@ class ExamenFinalType extends AbstractType
     {
         $builder
             ->add('fecha')
+             ->add('hora', TimeType::class, [
+                  'widget' => 'single_text',
+                  'required' => false,
+                  'label' => 'Hora',
+            ])
             ->add('presidente', EntityType::class, [
                 'class' => Docente::class,
                 'choice_label' => 'persona',
