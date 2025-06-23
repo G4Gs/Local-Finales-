@@ -53,21 +53,6 @@ class ExamenFinalRepository extends ServiceEntityRepository
     }
     */
 
-<<<<<<< HEAD
-    // Ejemplo: método para buscar por asignatura (opcional)
-    /*
-    public function findByAsignatura($asignaturaId): array
-    {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.asignatura_id = :asignaturaId')
-            ->setParameter('asignaturaId', $asignaturaId)
-            ->orderBy('e.fecha', 'DESC')
-            ->getQuery()
-            ->getResult();
-    }
-    */
-}
-=======
 //    public function findOneBySomeField($value): ?ExamenFinal
 //    {
 //        return $this->createQueryBuilder('e')
@@ -77,4 +62,3 @@ class ExamenFinalRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
->>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8

@@ -21,21 +21,6 @@ class ExamenFinal
 
     #[ORM\ManyToOne(targetEntity: Docente::class)]
     #[ORM\JoinColumn(nullable: false)]
-<<<<<<< HEAD
-    private ?Docente $presidenteId = null;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Docente $vocal1Id = null;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Docente $vocal2Id = null;
-
-    #[ORM\ManyToOne(inversedBy: 'examenFinals')]
-    private ?Asignatura $asignaturaId = null;
-
-    #[ORM\OneToMany(mappedBy: 'examenFinalId', targetEntity: ExamenAlumno::class)]
-    private Collection $examenAlumnos;
-=======
     private ?Docente $presidente = null;
 
     #[ORM\ManyToOne(targetEntity: Docente::class)]
@@ -50,7 +35,6 @@ class ExamenFinal
     #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Tecnicatura $tecnicatura = null;
->>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
 
     #[ORM\ManyToOne(targetEntity: Asignatura::class)]
     #[ORM\JoinColumn(nullable: false)]
@@ -63,48 +47,6 @@ class ExamenFinal
     public function getPresidente(): ?Docente { return $this->presidente; }
     public function setPresidente(?Docente $presidente): static { $this->presidente = $presidente; return $this; }
 
-<<<<<<< HEAD
-    public function setFecha(\DateTimeInterface $fecha): self
-    {
-        $this->fecha = $fecha;
-        return $this;
-    }
-
-    public function getPresidenteId(): ?Docente
-    {
-        return $this->presidenteId;
-    }
-
-    public function setPresidenteId(Docente $presidenteId): self
-    {
-        $this->presidenteId = $presidenteId;
-        return $this;
-    }
-
-    public function getVocal1Id(): ?Docente
-    {
-        return $this->vocal1Id;
-    }
-
-    public function setVocal1Id(?Docente $vocal1Id): self
-    {
-        $this->vocal1Id = $vocal1Id;
-        return $this;
-    }
-
-    public function getVocal2Id(): ?Docente
-    {
-        return $this->vocal2Id;
-    }
-
-    public function setVocal2Id(?Docente $vocal2Id): self
-    {
-        $this->vocal2Id = $vocal2Id;
-        return $this;
-    }
-
-    public function getAsignaturaId(): ?Asign
-=======
     public function getVocal1(): ?Docente { return $this->vocal1; }
     public function setVocal1(?Docente $vocal1): static { $this->vocal1 = $vocal1; return $this; }
 
@@ -120,4 +62,3 @@ class ExamenFinal
     public function getAsignatura(): ?Asignatura { return $this->asignatura; }
     public function setAsignatura(?Asignatura $asignatura): static { $this->asignatura = $asignatura; return $this; }
 }
->>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
