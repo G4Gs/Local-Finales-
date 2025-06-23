@@ -30,7 +30,7 @@ class ExamenFinal
     private ?Docente $vocal2 = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $estadoMesa = null; // "Libre" o "Regular"
+    private ?string $estadoMesa = null; 
 
     #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
     #[ORM\JoinColumn(nullable: false)]
