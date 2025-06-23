@@ -56,7 +56,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t";
         // line 6
         yield from $this->unwrap()->yieldBlock('stylesheets', $context, $blocks);
-        // line 14
+        // line 13
         yield "\t</head>
 \t<body
 \t\tid=\"page-top\">
@@ -70,12 +70,12 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 
 \t\t\t\t<!-- Sidebar - Brand -->
 \t\t\t\t<a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"";
-        // line 26
+        // line 25
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
         yield "\">
 \t\t\t\t\t<div class=\"sidebar-brand-icon rotate-n-15\">
 <img src=\"";
-        // line 28
+        // line 27
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/ISFT-12.jpg"), "html", null, true);
         yield "\" alt=\"Logo\" width=\"60\" class=\"logo-circular\">
 \t\t\t\t\t</div>
@@ -99,14 +99,14 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 
 
 \t\t\t\t";
-        // line 49
+        // line 48
         if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN"))) {
-            // line 50
+            // line 49
             yield "\t\t\t\t<!-- Nav Item - Charts -->
 \t\t\t\t
 \t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t<a class=\"nav-link\" href=\"";
-            // line 53
+            // line 52
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vistaspreinscriptos");
             yield "\">
 \t\t\t\t\t\t<i class=\"fas fa-fw fa-folder\"></i>
@@ -115,7 +115,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t</li>
 \t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t<a class=\"nav-link\" href=\"";
-            // line 59
+            // line 58
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vistasestudiante");
             yield "\" >
 \t\t\t\t\t\t<i class=\"fas fa-fw fa-folder\"></i>
@@ -131,7 +131,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t</li>\t
 \t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t<a class=\"nav-link\" href=\"";
-            // line 72
+            // line 71
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vistasmesas");
             yield "\" >
 \t\t\t\t\t\t<i class=\"fas fa-fw fa-folder\"></i>
@@ -140,13 +140,13 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t</li>
 \t\t\t\t";
         }
-        // line 78
+        // line 77
         yield "
 \t\t\t\t
 \t\t\t\t";
-        // line 80
+        // line 79
         if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_DOCENTE"))) {
-            // line 81
+            // line 80
             yield "\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t<a class=\"nav-link\" href=\"#\" onclick=\"clearSessionDocentes(); return false;\">
 \t\t\t\t\t\t<i class=\"fas fa-fw fa-folder\"></i>
@@ -167,7 +167,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t</li>
 \t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t<a class=\"nav-link\" href=\"";
-            // line 100
+            // line 99
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_index");
             yield "\">
 \t\t\t\t\t\t<i class=\"fas fa-fw fa-folder\"></i>
@@ -176,14 +176,14 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t</li>
 \t\t\t\t";
         }
-        // line 106
+        // line 105
         yield "
 \t\t
 \t\t\t\t<!-- Nav Item - Charts -->
 \t\t\t\t";
-        // line 109
+        // line 108
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
-            // line 110
+            // line 109
             yield "\t\t\t\t<!-- Nav Item - Pages Collapse Menu -->
 \t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t<a class=\"nav-link collapsed\" href=\"#\" data-toggle=\"collapse\" data-target=\"#collapseTwo\" aria-expanded=\"true\" aria-controls=\"collapseTwo\">
@@ -194,67 +194,67 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t\t\t<div class=\"bg-white py-2 collapse-inner rounded\">
 \t\t\t\t\t\t\t<h6 class=\"collapse-header\">Datos de carreras</h6>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 119
+            // line 118
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_carreras_index");
             yield "\">Estudiante Por Carrera</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 120
+            // line 119
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tecnicatura_index");
             yield "\">Tecnicatura</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 121
+            // line 120
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_asignatura_index");
             yield "\">Asignatura</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 122
+            // line 121
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_comision_index");
             yield "\">Comisiones</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 123
+            // line 122
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_correlativa_index");
             yield "\">Correlativas</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 124
+            // line 123
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cursada_index");
             yield "\">Cursadas</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 125
+            // line 124
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_curso_index");
             yield "\">Curso</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 126
+            // line 125
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_alumno_index");
             yield "\">Examen Alumno</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 127
+            // line 126
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_index");
             yield "\">Examen Final</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 128
+            // line 127
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_habilitante_index");
             yield "\">Habilitante</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 129
+            // line 128
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_inscripcion_final_index");
             yield "\">Inscripción a Final</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 130
+            // line 129
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_alumno_new");
             yield "\">Ingreso de Examen Alumno</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 131
+            // line 130
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_nota_index");
             yield "\">Nota Anual de Alumno</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 132
+            // line 131
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cursada_docente_index");
             yield "\">Cursadas Por Docentes</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 133
+            // line 132
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revista_index");
             yield "\">Revista</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 134
+            // line 133
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_titulo_index");
             yield "\">Título</a>
 
@@ -263,13 +263,13 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t</li>
 \t\t\t\t";
         }
-        // line 140
+        // line 139
         yield "\t\t\t\t
                 <!-- Nav Item - Pages Collapse Menu -->
 \t\t\t\t ";
-        // line 142
+        // line 141
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
-            // line 143
+            // line 142
             yield "\t\t\t\t  <li class=\"nav-item\">
 \t\t\t\t\t<a class=\"nav-link collapsed\" href=\"#\" data-toggle=\"collapse\" data-target=\"#collapseTree\" aria-expanded=\"true\" aria-controls=\"collapseTree\">
 \t\t\t\t\t\t<i class=\"fas fa-fw fa-folder\"></i>
@@ -279,15 +279,15 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t\t\t<div class=\"bg-white py-2 collapse-inner rounded\">
 \t\t\t\t\t\t\t<h6 class=\"collapse-header\">Datos de Personas</h6>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 151
+            // line 150
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_alumno_index");
             yield "\">Estudiantes</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 152
+            // line 151
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_docente_index");
             yield "\">Docentes</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 153
+            // line 152
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_persona_index");
             yield "\">Personas</a>
 \t\t\t\t\t\t
@@ -296,14 +296,14 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t </li>
 \t\t\t\t";
         }
-        // line 159
+        // line 158
         yield "
 
 \t\t\t\t<!-- Nav Item - Pages Collapse Menu -->
 \t\t\t\t";
-        // line 162
+        // line 161
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
-            // line 163
+            // line 162
             yield "\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t<a class=\"nav-link collapsed\" href=\"#\" data-toggle=\"collapse\" data-target=\"#collapsePages\" aria-expanded=\"true\" aria-controls=\"collapsePages\">
 \t\t\t\t\t\t<i class=\"fas fa-fw fa-folder\"></i>
@@ -313,35 +313,35 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t\t\t<div class=\"bg-white py-2 collapse-inner rounded\">
 \t\t\t\t\t\t\t<h6 class=\"collapse-header\">Datos Institucionales</h6>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 171
+            // line 170
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_instituto_index");
             yield "\">Instituto</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 172
+            // line 171
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_telefono_index");
             yield "\">Teléfono</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 173
+            // line 172
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_localidad_index");
             yield "\">Localidad</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 174
+            // line 173
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_region_index");
             yield "\">Región</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 175
+            // line 174
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_provincia_index");
             yield "\">Provincia</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 176
+            // line 175
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_pais_index");
             yield "\">Nacionalidad</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 177
+            // line 176
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_turno_index");
             yield "\">Turnos</a>
 \t\t\t\t\t\t\t<a class=\"collapse-item\" href=\"";
-            // line 178
+            // line 177
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_modalidad_index");
             yield "\">Modalidad</a>\t\t\t\t\t
 \t\t\t\t\t\t</div>
@@ -350,7 +350,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t</li>
 \t\t\t\t";
         }
-        // line 184
+        // line 183
         yield "
 \t\t\t\t<!-- Divider -->
 \t\t\t\t<hr
@@ -383,7 +383,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t\t\t</button>
 \t\t\t\t  <div class=\"super\" style=\"position: absolute; left: 25%; top: 44%; transform: translateY(-50%); display: flex; align-items: center;\">
 \t\t\t\t     \t<img class=\"super\" src=";
-        // line 215
+        // line 214
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/logo.jpeg"), "html", null, true);
         yield " alt=\"...\"style=\"width: 65px; height: auto;\" >
 \t\t\t\t</div>
@@ -424,37 +424,37 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t\t\t\t<!-- Nav Item - User Information -->
 \t\t\t\t\t\t\t<li class=\"nav-item dropdown no-arrow\">
 \t\t\t\t\t\t\t\t";
-        // line 257
+        // line 256
         yield "
 \t\t\t\t\t\t<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"userDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
     <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\">
         ";
-        // line 260
-        if ((CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 260, $this->source); })()), "user", [], "any", false, false, false, 260) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 260, $this->source); })()), "user", [], "any", false, false, false, 260), "persona", [], "any", false, false, false, 260))) {
-            // line 261
+        // line 259
+        if ((CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 259, $this->source); })()), "user", [], "any", false, false, false, 259) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 259, $this->source); })()), "user", [], "any", false, false, false, 259), "persona", [], "any", false, false, false, 259))) {
+            // line 260
             yield "            ";
             if (((($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_DOCENTE")) || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ESTUDIANTE"))) {
-                // line 262
+                // line 261
                 yield "                ";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 262, $this->source); })()), "user", [], "any", false, false, false, 262), "persona", [], "any", false, false, false, 262), "nombre", [], "any", false, false, false, 262), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 261, $this->source); })()), "user", [], "any", false, false, false, 261), "persona", [], "any", false, false, false, 261), "nombre", [], "any", false, false, false, 261), "html", null, true);
                 yield "
             ";
             } else {
-                // line 264
+                // line 263
                 yield "                Invitado
             ";
             }
-            // line 266
+            // line 265
             yield "        ";
         } else {
-            // line 267
+            // line 266
             yield "            Invitado
         ";
         }
-        // line 269
+        // line 268
         yield "    </span>
     <img class=\"img-profile rounded-circle\" src=\"";
-        // line 270
+        // line 269
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/undraw_profile.svg"), "html", null, true);
         yield "\">
 </a>
@@ -477,7 +477,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t\t\t\t\t\t<div class=\"dropdown-divider\" style=\"display: flex; justify-content: center !important; align-items: center;\"></div>
                                         <p style=\"display: flex !important ; justify-content: center !important; align-items: center !important;\">
 \t\t\t\t\t\t\t\t\t    <a class=\"buttonn\" styles=\"margin: 0 auto !important; text-align: center !important; display: block;\" href=\"";
-        // line 290
+        // line 289
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         yield "\">Salir</a>
 \t\t\t\t\t\t\t\t\t\t</p>
@@ -490,9 +490,9 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t\t\t<!-- End of Topbar -->\t\t\t\t
 \t\t\t\t\t<!-- Begin Page Content -->
 \t\t\t\t\t<div class=\"container_X\"> ";
-        // line 300
+        // line 299
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 301
+        // line 300
         yield "\t\t\t\t\t\t</div> \t\t\t\t\t\t\t\t\t\t\t 
 \t\t\t\t\t\t</div>\t\t
 \t\t\t\t\t\t
@@ -508,9 +508,9 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 
 
 \t\t\t\t";
-        // line 315
+        // line 314
         yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
-        // line 400
+        // line 399
         yield "\t\t\t</body>
 \t\t</body>
 \t</html>
@@ -553,8 +553,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
         // line 10
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/styles.css"), "html", null, true);
         yield "\">
-\t\t\t
-\t\t\t\t
+\t\t    
 \t\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -565,7 +564,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
         yield from [];
     }
 
-    // line 300
+    // line 299
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -588,7 +587,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
         yield from [];
     }
 
-    // line 315
+    // line 314
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -601,12 +600,12 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 316
+        // line 315
         yield "\t\t\t\t\t<script>
 \t\t\t\t\t\tfunction clearSessionTecnicaturas() {  //Al abrir la vista personalizada de TECNICATURAS limpia la sesiones anteriores. 
 \t\t\t\t\t\t\t// URL a la que redirigir
 \t\t\t\t\t\t\tvar url = '";
-        // line 319
+        // line 318
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vistas");
         yield "';
 \t\t\t\t\t\t\t// Redirigir dos veces
@@ -618,7 +617,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 
 \t\t\t\t\t\tfunction clearSessionCursos() {  
 \t\t\t\t\t\t\tvar url1 = '";
-        // line 328
+        // line 327
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vistascursada");
         yield "';
 \t\t\t\t\t\t\t// Redirigir dos veces
@@ -630,7 +629,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 
 \t\t\t\t\t\tfunction clearSessionPersonas() {  
 \t\t\t\t\t\t\tvar url1 = '";
-        // line 337
+        // line 336
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vistaspersona");
         yield "';
 \t\t\t\t\t\t\t// Redirigir dos veces
@@ -642,7 +641,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 
 \t\t\t\t\t\tfunction clearSessionDocentes() {  
 \t\t\t\t\t\t\tvar url1 = '";
-        // line 346
+        // line 345
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vistasdocente");
         yield "';
 \t\t\t\t\t\t\t// Redirigir dos veces
@@ -728,7 +727,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  646 => 346,  634 => 337,  622 => 328,  610 => 319,  605 => 316,  592 => 315,  569 => 300,  554 => 10,  550 => 9,  546 => 8,  541 => 7,  528 => 6,  514 => 400,  512 => 315,  496 => 301,  494 => 300,  481 => 290,  458 => 270,  455 => 269,  451 => 267,  448 => 266,  444 => 264,  438 => 262,  435 => 261,  433 => 260,  428 => 257,  387 => 215,  354 => 184,  345 => 178,  341 => 177,  337 => 176,  333 => 175,  329 => 174,  325 => 173,  321 => 172,  317 => 171,  307 => 163,  305 => 162,  300 => 159,  291 => 153,  287 => 152,  283 => 151,  273 => 143,  271 => 142,  267 => 140,  258 => 134,  254 => 133,  250 => 132,  246 => 131,  242 => 130,  238 => 129,  234 => 128,  230 => 127,  226 => 126,  222 => 125,  218 => 124,  214 => 123,  210 => 122,  206 => 121,  202 => 120,  198 => 119,  187 => 110,  185 => 109,  180 => 106,  171 => 100,  150 => 81,  148 => 80,  144 => 78,  135 => 72,  119 => 59,  110 => 53,  105 => 50,  103 => 49,  79 => 28,  74 => 26,  60 => 14,  58 => 6,  51 => 1,);
+        return array (  645 => 345,  633 => 336,  621 => 327,  609 => 318,  604 => 315,  591 => 314,  568 => 299,  554 => 10,  550 => 9,  546 => 8,  541 => 7,  528 => 6,  514 => 399,  512 => 314,  496 => 300,  494 => 299,  481 => 289,  458 => 269,  455 => 268,  451 => 266,  448 => 265,  444 => 263,  438 => 261,  435 => 260,  433 => 259,  428 => 256,  387 => 214,  354 => 183,  345 => 177,  341 => 176,  337 => 175,  333 => 174,  329 => 173,  325 => 172,  321 => 171,  317 => 170,  307 => 162,  305 => 161,  300 => 158,  291 => 152,  287 => 151,  283 => 150,  273 => 142,  271 => 141,  267 => 139,  258 => 133,  254 => 132,  250 => 131,  246 => 130,  242 => 129,  238 => 128,  234 => 127,  230 => 126,  226 => 125,  222 => 124,  218 => 123,  214 => 122,  210 => 121,  206 => 120,  202 => 119,  198 => 118,  187 => 109,  185 => 108,  180 => 105,  171 => 99,  150 => 80,  148 => 79,  144 => 77,  135 => 71,  119 => 58,  110 => 52,  105 => 49,  103 => 48,  79 => 27,  74 => 25,  60 => 13,  58 => 6,  51 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -743,8 +742,7 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t<link rel=\"stylesheet\" href=\"{{asset('css/oter.css')}}\">
 \t\t\t<link rel=\"stylesheet\" href=\"{{asset('css/container.css')}}\">
 \t\t\t<link rel=\"stylesheet\" href=\"{{asset('css/styles.css')}}\">
-\t\t\t
-\t\t\t\t
+\t\t    
 \t\t{% endblock %}
 \t</head>
 \t<body
@@ -1135,6 +1133,6 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t</body>
 \t\t</body>
 \t</html>
-", "base.html.twig", "C:\\xampp\\htdocs\\local\\Local-Finales-\\templates\\base.html.twig");
+", "base.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\base.html.twig");
     }
 }

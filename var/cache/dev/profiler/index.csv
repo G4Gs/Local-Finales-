@@ -201,3 +201,21 @@ e28e20,::1,GET,http://localhost/local/public/index.php/examen/final/3/edit,17506
 5375ff,::1,GET,http://localhost/local/public/index.php/examen/final/,1750640791,,200
 a6d254,::1,GET,http://localhost/local/public/index.php/examen/final/,1750640792,,200
 >>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+9923bb,127.0.0.1,GET,http://localhost/Local-Finales-/public/,1750650939,,404
+c38d55,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/,1750651090,,404
+878c88,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1750651118,,200
+599aeb,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750651121,144abd,404
+144abd,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750651121,,404
+ddbcf8,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1750651193,,302
+848186,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750651200,,200
+861641,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750651329,61385b,500
+61385b,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750651329,,500
+7e069e,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750652476,,200
+f89a03,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/vistasmesas,1750652513,fc4a37,500
+fc4a37,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/vistasmesas,1750652513,,500
+e07c23,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750652523,,200
+f4b0c7,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750652535,,200
+51081d,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/new,1750652596,,200
+f3f048,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/user/,1750652693,,200
+63243d,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/alumno/,1750652703,,200
+0d34ec,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750652731,,200

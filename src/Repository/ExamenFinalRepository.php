@@ -38,27 +38,30 @@ class ExamenFinalRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-}
 
-    // Ejemplo: método para buscar por fecha (opcional)
-    /*
-    public function findByFecha(\DateTimeInterface $fecha): array
+    public function findByFilters(?string $tecnicatura, ?string $asignatura, ?string $presidente): array
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.fecha = :fecha')
-            ->setParameter('fecha', $fecha)
-            ->orderBy('e.id', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
-    */
+        $qb = $this->createQueryBuilder('e')
+            ->leftJoin('e.tecnicatura', 't')
+            ->leftJoin('e.asignatura', 'a')
+            ->leftJoin('e.presidente', 'p')
+            ->leftJoin('p.persona', 'pp');
 
-//    public function findOneBySomeField($value): ?ExamenFinal
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        if ($tecnicatura) {
+            $qb->andWhere('LOWER(t.nombre) LIKE :tecnicatura')
+               ->setParameter('tecnicatura', '%' . strtolower($tecnicatura) . '%');
+        }
+
+        if ($asignatura) {
+            $qb->andWhere('LOWER(a.nombre) LIKE :asignatura')
+               ->setParameter('asignatura', '%' . strtolower($asignatura) . '%');
+        }
+
+        if ($presidente) {
+            $qb->andWhere('LOWER(pp.nombre) LIKE :presidente')
+               ->setParameter('presidente', '%' . strtolower($presidente) . '%');
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+}
