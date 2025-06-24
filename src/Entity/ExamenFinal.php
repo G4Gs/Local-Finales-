@@ -32,6 +32,9 @@ class ExamenFinal
     #[ORM\Column(length: 10)]
     private ?string $estadoMesa = null; 
 
+    #[ORM\Column(type: 'time', nullable: true)]
+    private ?\DateTimeInterface $hora = null;
+
     #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Tecnicatura $tecnicatura = null;
@@ -55,6 +58,17 @@ class ExamenFinal
 
     public function getEstadoMesa(): ?string { return $this->estadoMesa; }
     public function setEstadoMesa(string $estadoMesa): static { $this->estadoMesa = $estadoMesa; return $this; }
+
+    public function getHora(): ?\DateTimeInterface
+    {
+      return $this->hora;
+    }
+
+   public function setHora(?\DateTimeInterface $hora): static
+    {
+      $this->hora = $hora;
+     return $this;
+    }
 
     public function getTecnicatura(): ?Tecnicatura { return $this->tecnicatura; }
     public function setTecnicatura(?Tecnicatura $tecnicatura): static { $this->tecnicatura = $tecnicatura; return $this; }
