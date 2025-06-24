@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\InscripcionFinalRepository;
 //obliga a que no envie a la pagina de error de synfony
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
@@ -18,21 +19,22 @@ use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 class ExamenFinalController extends AbstractController
 {
     #[Route('/', name: 'app_examen_final_index', methods: ['GET'])]
-    public function index(Request $request, ExamenFinalRepository $examenFinalRepository): Response
+    public function index(Request $request,ExamenFinalRepository $examenFinalRepository,ExamenAlumnoRepository $examenAlumnoRepository,InscripcionFinalRepository $inscripcionFinalRepository): Response
     {
         $tecnicatura = $request->query->get('tecnicatura');
         $asignatura = $request->query->get('asignatura');
         $presidente = $request->query->get('presidente');
 
-        $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $presidente);
-        $examen_alumnos = $examenAlumnoRepository->findAll();
-        $inscripcion_finals = $inscripcionFinalRepository->findAll();
-        return $this->render('examen_final/index.html.twig', [
+    $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $presidente);
+    $examen_alumnos = $examenAlumnoRepository->findAll();
+    $inscripcion_finals = $inscripcionFinalRepository->findAll();
+
+    return $this->render('examen_final/index.html.twig', [
         'examen_finals' => $examen_finals,
         'examen_alumnos' => $examen_alumnos,
         'inscripcion_finals' => $inscripcion_finals,
-      ]);
-    }
+    ]);
+}
 
     #[Route('/new', name: 'app_examen_final_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ExamenFinalRepository $examenFinalRepository): Response
