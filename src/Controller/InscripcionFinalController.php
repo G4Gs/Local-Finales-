@@ -23,23 +23,33 @@ class InscripcionFinalController extends AbstractController
     }
 
     #[Route('/new', name: 'app_inscripcion_final_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, InscripcionFinalRepository $inscripcionFinalRepository): Response
-    {
-        $inscripcionFinal = new InscripcionFinal();
-        $form = $this->createForm(InscripcionFinalType::class, $inscripcionFinal);
-        $form->handleRequest($request);
+public function new(Request $request, InscripcionFinalRepository $inscripcionFinalRepository): Response
+{
+    $inscripcionFinal = new InscripcionFinal();
+    $form = $this->createForm(InscripcionFinalType::class, $inscripcionFinal);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $inscripcionFinalRepository->save($inscripcionFinal, true);
+    if ($form->isSubmitted() && $form->isValid()) {
+        $inscripcionFinalRepository->save($inscripcionFinal, true);
 
-            return $this->redirectToRoute('app_inscripcion_final_index', [], Response::HTTP_SEE_OTHER);
+        if ($request->isXmlHttpRequest()) {
+            return new Response('', 200);
         }
+        return $this->redirectToRoute('app_inscripcion_final_index', [], Response::HTTP_SEE_OTHER);
+    }
 
-        return $this->renderForm('inscripcion_final/new.html.twig', [
-            'inscripcion_final' => $inscripcionFinal,
-            'form' => $form,
+    if ($request->isXmlHttpRequest()) {
+        // Usamos una vista simple SOLO con el formulario
+        return $this->render('vistasmesas/Crear_Inscripto.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
+
+    return $this->renderForm('inscripcion_final/new.html.twig', [
+        'inscripcion_final' => $inscripcionFinal,
+        'form' => $form,
+    ]);
+}
 
     #[Route('/{id}', name: 'app_inscripcion_final_show', methods: ['GET'])]
     public function show(InscripcionFinal $inscripcionFinal): Response
@@ -49,23 +59,29 @@ class InscripcionFinalController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_inscripcion_final_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, InscripcionFinal $inscripcionFinal, InscripcionFinalRepository $inscripcionFinalRepository): Response
-    {
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+   #[Route('/{id}/edit', name: 'app_inscripcion_final_edit', methods: ['GET', 'POST'])]
+public function edit(Request $request, InscripcionFinal $inscripcionFinal, InscripcionFinalRepository $inscripcionFinalRepository): Response
+{
+    $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-     $form = $this->createForm(InscripcionFinalType::class, $inscripcionFinal);
-     $form->handleRequest($request);
+    $form = $this->createForm(InscripcionFinalType::class, $inscripcionFinal);
+    $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
         $inscripcionFinalRepository->save($inscripcionFinal, true);
-        return $this->redirectToRoute('app_inscripcion_final_index', [], Response::HTTP_SEE_OTHER);
+        return $this->json(['success' => true]);
+    }
+
+    if ($request->isXmlHttpRequest()) {
+        return $this->render('vistasmesas/Super_Editar.html.twig', [
+            'form_inscripcion' => $form->createView(),
+        ]);
     }
 
     return $this->render('vistasmesas/Super_Editar.html.twig', [
         'form_inscripcion' => $form->createView(),
     ]);
-   }
+}
 
 
     #[Route('/{id}', name: 'app_inscripcion_final_delete', methods: ['POST'])]
