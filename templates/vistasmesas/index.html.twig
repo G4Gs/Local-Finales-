@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mesas de Finales!{% endblock %}
+{% block title %}<h1 style="text-align: center;">Mesas de Finales</h1>{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -47,7 +47,54 @@
            }
         }
  </script>
+  <script>
+        function openInscripcionFinalModal() {
+            fetch("{{ path('app_inscripcion_final_new') }}", {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('inscripcionFinalBody').innerHTML = html;
+                document.getElementById('inscripcionFinalModal').style.display = 'block';
+                handleInscripcionFinalFormSubmit();
+            })
+            .catch(error => console.error('Error al cargar el formulario:', error));
+        }
 
+        function closeInscripcionFinalModal() {
+            document.getElementById('inscripcionFinalModal').style.display = 'none';
+            document.getElementById('inscripcionFinalBody').innerHTML = '';
+        }
+
+        function handleInscripcionFinalFormSubmit() {
+            const modalBody = document.getElementById('inscripcionFinalBody');
+            modalBody.addEventListener('submit', function(e) {
+                if (e.target.tagName === 'FORM') {
+                    e.preventDefault();
+                    const form = e.target;
+                    const formData = new FormData(form);
+                    fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                    })
+                    .then(response => response.text())
+                    .then(html => {
+                        if (html.includes('<form')) {
+                            modalBody.innerHTML = html;
+                        } else {
+                            window.location.reload();
+                        }
+                    })
+                    .catch(error => {
+                        alert('Ocurrió un error al guardar el inscripto.');
+                        console.error(error);
+                    });
+                }
+            }, { once: true });
+        }
+    </script>
 
     {#Busquedas en la tabla Inscriptos#}    
     <script>
@@ -152,7 +199,7 @@
             document.getElementById('MesaModal').style.display = 'none';
             document.getElementById('modalMesa').innerHTML = '';
         }
-
+       
 
     </script>
 
@@ -176,6 +223,9 @@
                   <td>
                      <div>
                         <button class:"buttonn" onclick="showTable('tablaInscriptos')">Ver</button>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                          <button onclick="openInscripcionFinalModal()">crear Inscripto</button>
+                        {% endif %}
                      </div>
                   </td>
                     <td>
@@ -199,10 +249,10 @@
         <table id="tablaInscriptos" class="tabla_home" style="display: none;" border="1">
             <thead>
                 <tr>
-                    <th colspan="5">Inscriptos</th>
+                    <th colspan="6">Inscriptos</th>
                 </tr>
                 <tr>
-                    <th colspan="5">
+                    <th colspan="6">
                         <input type="text" id="searchFecha" onkeyup="filterFecha()" placeholder="Buscar Fecha...">
                         <input type="text" id="searchEstudiante" onkeyup="filterEstudiante()" placeholder="Buscar Estudiante...">
                         <input type="text" id="searchTecnicatura" onkeyup="filterTecnicatura()" placeholder="Buscar Tecnicatura...">
@@ -215,6 +265,7 @@
                     <th>Estudiante</th>
                     <th>Tecnicatura</th>
                     <th>Asignatura</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -225,12 +276,17 @@
                         <td>{{ inscripcion_final.getAlumnoId() }}</td>
                         <td>{{ inscripcion_final.getAsignaturaId().tecnicatura }}</td>
                         <td>{{ inscripcion_final.getAsignaturaId() }}</td>
+                        <td>
+                          {% if is_granted('ROLE_SUPER_ADMIN') %}
+                             <button  onclick="openEditInscripcionFinalModal({{ inscripcion_final.id }})">Editar</button>
+                          {% endif %}
+                        </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="5">No se encontraron registros</td>
+                        <td colspan="6">No se encontraron registros</td>
                     </tr>
-                {% endfor %}>
+                {% endfor %}
             </tbody>
         </table> 
         <div style="text-align: center; margin-top: 1em;">
@@ -241,7 +297,7 @@
        <table id="tablaMesas" class="tabla_home" style="display: none;" border="1">
           <thead>
              <tr>
-                 <th colspan="7">Mesas de Finales</th>
+                 <th colspan="8">Fechas de Finales</th>
              </tr>
               <tr>
                  <th>Asignatura</th>
@@ -251,6 +307,7 @@
                  <th>Primer Vocal</th>
                  <th>Segundo Vocal</th>
                  <th>Tecnicatura</th>
+                 <th>Acciones</th>
              </tr>
          </thead>
          <tbody>
@@ -263,10 +320,15 @@
                      <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
                      <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
                      <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : '' }}</td>
+                     <td>
+                      {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <button onclick="openEditExamenFinalModal({{ examen_final.id }})">Editar</button>
+                      {% endif %}
+                     </td>
                  </tr>
              {% else %}
                  <tr>
-                     <td colspan="6">No se encontraron registros</td>
+                     <td colspan="7">No se encontraron registros</td>
                   </tr>
              {% endfor %}
          </tbody>
@@ -280,7 +342,7 @@
         <table id="tablaNotasFinales" class="tabla_home" style="display: none;" border="1">
             <thead>
                 <tr>
-                    <th colspan="6">Nota de los Finales</th>
+                    <th colspan="7">Nota de los Finales</th>
                 </tr>
                 <tr>
                     <th>Estudiante</th>
@@ -289,6 +351,7 @@
                     <th>Folio</th>
                     <th>Tecnicatura</th>
                     <th>Asignatura</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -300,10 +363,15 @@
                     <td>{{ examen_alumno.folio }}</td>
                     <td>{{ examen_alumno.getExamenFinalId().getAsignaturaId().tecnicatura }}</td>
                     <td>{{ examen_alumno.getExamenFinalId().getAsignaturaId() }}</td>
+                    <td>
+                     {% if is_granted('ROLE_SUPER_ADMIN') %}
+                          <button onclick="openEditExamenAlumnoModal({{ examen_alumno.id }})">Editar</button>
+                     {% endif %}
+                   </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">No se encontraron registros</td>
+                    <td colspan="7">No se encontraron registros</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -322,9 +390,37 @@
         </div>
     </div>
 
-
-
-
-
+    <!-- Modal  inscriptos -->
+    <div id="inscripcionFinalModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close" onclick="closeInscripcionFinalModal()">&times;</span>
+        <div id="inscripcionFinalBody"></div>
+      </div>
+    </div>
+   
+ <!-- Modal para editar Inscripto -->
+  <div id="editInscripcionFinalModal" class="modal" style="display: none;">
+     <div class="modal-content">
+        <span class="close" onclick="closeEditInscripcionFinalModal()">&times;</span>
+        <div id="editInscripcionFinalBody"></div>
+     </div>
+ </div>
+ <script>
+     function openEditInscripcionFinalModal(id) {
+      fetch("{{ path('app_inscripcion_final_edit', {'id': '__id__'}) }}".replace('__id__', id), {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+       })
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('editInscripcionFinalBody').innerHTML = html;
+        document.getElementById('editInscripcionFinalModal').style.display = 'block';
+        // Puedes agregar aquí el handle para el submit AJAX si lo necesitas
+      });
+       }
+     function closeEditInscripcionFinalModal() {
+        document.getElementById('editInscripcionFinalModal').style.display = 'none';
+        document.getElementById('editInscripcionFinalBody').innerHTML = '';
+       }
+ </script>
 
 {% endblock %}

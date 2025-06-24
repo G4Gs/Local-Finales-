@@ -54,8 +54,11 @@ class ExamenFinalController extends AbstractController
     ]);
  }
 
- #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
- public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response{
+  #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
+  public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
+  {
+      $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
     $form = $this->createForm(ExamenFinalType::class, $examenFinal);
     $form->handleRequest($request);
 
@@ -63,25 +66,16 @@ class ExamenFinalController extends AbstractController
         try {
             $examenFinalRepository->save($examenFinal, true);
             return $this->redirectToRoute('app_examen_final_index');
-        } catch (\Doctrine\DBAL\Exception\UniqueConstraintViolationException $e) {
-          $this->addFlash('error', 'Error inesperado al guardar el examen final.');
-          return $this->redirectToRoute('app_examen_final_index');
+        } catch (UniqueConstraintViolationException $e) {
+            $this->addFlash('error', 'Error inesperado al guardar el examen final.');
+            return $this->redirectToRoute('app_examen_final_index');
         }
     }
 
-    if ($request->isXmlHttpRequest()) {
-        return $this->render('examen_final/_form.html.twig', [
-            'form' => $form->createView(),
-            'button_label' => 'Actualizar',
-            'examen_final' => $examenFinal,
-        ]);
-    }
-    return $this->renderForm('examen_final/edit.html.twig', [
-        'examen_final' => $examenFinal,
-        'form' => $form,
+    return $this->render('vistasmesas/Super_Editar.html.twig', [
+        'form_examen_final' => $form->createView(),
     ]);
- }
-
+}
 
 
 #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]

@@ -19,6 +19,7 @@ class InscripcionFinalController extends AbstractController
         return $this->render('inscripcion_final/index.html.twig', [
             'inscripcion_finals' => $inscripcionFinalRepository->findAll(),
         ]);
+
     }
 
     #[Route('/new', name: 'app_inscripcion_final_new', methods: ['GET', 'POST'])]
@@ -51,20 +52,21 @@ class InscripcionFinalController extends AbstractController
     #[Route('/{id}/edit', name: 'app_inscripcion_final_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, InscripcionFinal $inscripcionFinal, InscripcionFinalRepository $inscripcionFinalRepository): Response
     {
-        $form = $this->createForm(InscripcionFinalType::class, $inscripcionFinal);
-        $form->handleRequest($request);
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $inscripcionFinalRepository->save($inscripcionFinal, true);
+     $form = $this->createForm(InscripcionFinalType::class, $inscripcionFinal);
+     $form->handleRequest($request);
 
-            return $this->redirectToRoute('app_inscripcion_final_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('inscripcion_final/edit.html.twig', [
-            'inscripcion_final' => $inscripcionFinal,
-            'form' => $form,
-        ]);
+    if ($form->isSubmitted() && $form->isValid()) {
+        $inscripcionFinalRepository->save($inscripcionFinal, true);
+        return $this->redirectToRoute('app_inscripcion_final_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    return $this->render('vistasmesas/Super_Editar.html.twig', [
+        'form_inscripcion' => $form->createView(),
+    ]);
+   }
+
 
     #[Route('/{id}', name: 'app_inscripcion_final_delete', methods: ['POST'])]
     public function delete(Request $request, InscripcionFinal $inscripcionFinal, InscripcionFinalRepository $inscripcionFinalRepository): Response

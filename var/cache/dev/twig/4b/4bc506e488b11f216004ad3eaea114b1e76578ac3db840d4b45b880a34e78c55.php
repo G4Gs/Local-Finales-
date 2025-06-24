@@ -74,7 +74,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Mesas de Finales!";
+        yield "<h1 style=\"text-align: center;\">Mesas de Finales</h1>";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -166,10 +166,60 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
            }
         }
  </script>
+  <script>
+        function openInscripcionFinalModal() {
+            fetch(\"";
+        // line 52
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_inscripcion_final_new");
+        yield "\", {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('inscripcionFinalBody').innerHTML = html;
+                document.getElementById('inscripcionFinalModal').style.display = 'block';
+                handleInscripcionFinalFormSubmit();
+            })
+            .catch(error => console.error('Error al cargar el formulario:', error));
+        }
 
+        function closeInscripcionFinalModal() {
+            document.getElementById('inscripcionFinalModal').style.display = 'none';
+            document.getElementById('inscripcionFinalBody').innerHTML = '';
+        }
+
+        function handleInscripcionFinalFormSubmit() {
+            const modalBody = document.getElementById('inscripcionFinalBody');
+            modalBody.addEventListener('submit', function(e) {
+                if (e.target.tagName === 'FORM') {
+                    e.preventDefault();
+                    const form = e.target;
+                    const formData = new FormData(form);
+                    fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                    })
+                    .then(response => response.text())
+                    .then(html => {
+                        if (html.includes('<form')) {
+                            modalBody.innerHTML = html;
+                        } else {
+                            window.location.reload();
+                        }
+                    })
+                    .catch(error => {
+                        alert('Ocurrió un error al guardar el inscripto.');
+                        console.error(error);
+                    });
+                }
+            }, { once: true });
+        }
+    </script>
 
     ";
-        // line 52
+        // line 99
         yield "    
     <script>
         function filterFecha() {
@@ -245,7 +295,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
             //!!!!!!!!!Crear modal mesa de final
             if (action === 'mesa') {
                 url = \"";
-        // line 126
+        // line 173
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("nueva_mesa");
         yield "\"
                     ;
@@ -261,7 +311,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
             //!!!!!!Crear modtal nota final
             if (action === 'notaFinal') {
                 url = \"";
-        // line 139
+        // line 186
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("nueva_notaFinal");
         yield "\"
                     ;
@@ -279,7 +329,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
             document.getElementById('MesaModal').style.display = 'none';
             document.getElementById('modalMesa').innerHTML = '';
         }
-
+       
 
     </script>
 
@@ -294,7 +344,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
         yield from [];
     }
 
-    // line 162
+    // line 209
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -307,7 +357,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 163
+        // line 210
         yield "
     <div id=\"body-vistas\">
         <h1 id=\"vistas\">Mesas de Finales</h1>
@@ -324,7 +374,15 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                   <td>
                      <div>
                         <button class:\"buttonn\" onclick=\"showTable('tablaInscriptos')\">Ver</button>
-                     </div>
+                        ";
+        // line 226
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
+            // line 227
+            yield "                          <button onclick=\"openInscripcionFinalModal()\">crear Inscripto</button>
+                        ";
+        }
+        // line 229
+        yield "                     </div>
                   </td>
                     <td>
                      <div>
@@ -344,14 +402,14 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
 
 
         ";
-        // line 199
+        // line 249
         yield "        <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
             <thead>
                 <tr>
-                    <th colspan=\"5\">Inscriptos</th>
+                    <th colspan=\"6\">Inscriptos</th>
                 </tr>
                 <tr>
-                    <th colspan=\"5\">
+                    <th colspan=\"6\">
                         <input type=\"text\" id=\"searchFecha\" onkeyup=\"filterFecha()\" placeholder=\"Buscar Fecha...\">
                         <input type=\"text\" id=\"searchEstudiante\" onkeyup=\"filterEstudiante()\" placeholder=\"Buscar Estudiante...\">
                         <input type=\"text\" id=\"searchTecnicatura\" onkeyup=\"filterTecnicatura()\" placeholder=\"Buscar Tecnicatura...\">
@@ -364,66 +422,78 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                     <th>Estudiante</th>
                     <th>Tecnicatura</th>
                     <th>Asignatura</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 ";
-        // line 221
+        // line 272
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["inscripcion_finals"]) || array_key_exists("inscripcion_finals", $context) ? $context["inscripcion_finals"] : (function () { throw new RuntimeError('Variable "inscripcion_finals" does not exist.', 221, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["inscripcion_finals"]) || array_key_exists("inscripcion_finals", $context) ? $context["inscripcion_finals"] : (function () { throw new RuntimeError('Variable "inscripcion_finals" does not exist.', 272, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["inscripcion_final"]) {
-            // line 222
+            // line 273
             yield "                    <tr>
                         <td>";
-            // line 223
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 223)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 223), "Y-m-d"), "html", null, true)) : (""));
+            // line 274
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 274)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 274), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
                         <td>";
-            // line 224
-            yield ((CoreExtension::getAttribute($this->env, $this->source, (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 224, $this->source); })()), "hora", [], "any", false, false, false, 224)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 224, $this->source); })()), "hora", [], "any", false, false, false, 224), "H:i"), "html", null, true)) : (""));
+            // line 275
+            yield ((CoreExtension::getAttribute($this->env, $this->source, (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 275, $this->source); })()), "hora", [], "any", false, false, false, 275)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 275, $this->source); })()), "hora", [], "any", false, false, false, 275), "H:i"), "html", null, true)) : (""));
             yield "</td>
                         <td>";
-            // line 225
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAlumnoId", [], "method", false, false, false, 225), "html", null, true);
+            // line 276
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAlumnoId", [], "method", false, false, false, 276), "html", null, true);
             yield "</td>
                         <td>";
-            // line 226
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAsignaturaId", [], "method", false, false, false, 226), "tecnicatura", [], "any", false, false, false, 226), "html", null, true);
+            // line 277
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAsignaturaId", [], "method", false, false, false, 277), "tecnicatura", [], "any", false, false, false, 277), "html", null, true);
             yield "</td>
                         <td>";
-            // line 227
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAsignaturaId", [], "method", false, false, false, 227), "html", null, true);
+            // line 278
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "getAsignaturaId", [], "method", false, false, false, 278), "html", null, true);
             yield "</td>
+                        <td>
+                          ";
+            // line 280
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
+                // line 281
+                yield "                             <button  onclick=\"openEditInscripcionFinalModal(";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "id", [], "any", false, false, false, 281), "html", null, true);
+                yield ")\">Editar</button>
+                          ";
+            }
+            // line 283
+            yield "                        </td>
                     </tr>
                 ";
             $context['_iterated'] = true;
         }
-        // line 233
+        // line 289
         if (!$context['_iterated']) {
-            // line 230
+            // line 286
             yield "                    <tr>
-                        <td colspan=\"5\">No se encontraron registros</td>
+                        <td colspan=\"6\">No se encontraron registros</td>
                     </tr>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['inscripcion_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 233
-        yield ">
-            </tbody>
+        // line 290
+        yield "            </tbody>
         </table> 
         <div style=\"text-align: center; margin-top: 1em;\">
          <button id=\"backButtonInscriptos\" class=\"btn btn-primary\" onclick=\"showTable('tablaPrincipal')\" style=\"display: none;\">Regresar</button>
        </div>      
 
        ";
-        // line 241
+        // line 297
         yield "       <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
           <thead>
              <tr>
-                 <th colspan=\"7\">Mesas de Finales</th>
+                 <th colspan=\"8\">Fechas de Finales</th>
              </tr>
               <tr>
                  <th>Asignatura</th>
@@ -433,61 +503,74 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                  <th>Primer Vocal</th>
                  <th>Segundo Vocal</th>
                  <th>Tecnicatura</th>
+                 <th>Acciones</th>
              </tr>
          </thead>
          <tbody>
              ";
-        // line 257
+        // line 314
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 257, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 314, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_final"]) {
-            // line 258
+            // line 315
             yield "                 <tr>
                      <td>";
-            // line 259
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 259)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 259), "nombre", [], "any", false, false, false, 259), "html", null, true)) : (""));
+            // line 316
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 316)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 316), "nombre", [], "any", false, false, false, 316), "html", null, true)) : (""));
             yield "</td>
                      <td>";
-            // line 260
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 260)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 260), "Y-m-d"), "html", null, true)) : (""));
+            // line 317
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 317)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 317), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
                      <td>";
-            // line 261
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 261)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 261), "H:i"), "html", null, true)) : (""));
+            // line 318
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 318)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 318), "H:i"), "html", null, true)) : (""));
             yield "</td>
                      <td>";
-            // line 262
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 262)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 262), "persona", [], "any", false, false, false, 262), "html", null, true)) : (""));
+            // line 319
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 319)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 319), "persona", [], "any", false, false, false, 319), "html", null, true)) : (""));
             yield "</td>
                      <td>";
-            // line 263
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 263)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 263), "persona", [], "any", false, false, false, 263), "html", null, true)) : (""));
+            // line 320
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 320)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 320), "persona", [], "any", false, false, false, 320), "html", null, true)) : (""));
             yield "</td>
                      <td>";
-            // line 264
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 264)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 264), "persona", [], "any", false, false, false, 264), "html", null, true)) : (""));
+            // line 321
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 321)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 321), "persona", [], "any", false, false, false, 321), "html", null, true)) : (""));
             yield "</td>
                      <td>";
-            // line 265
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 265)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 265), "nombre", [], "any", false, false, false, 265), "html", null, true)) : (""));
+            // line 322
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 322)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 322), "nombre", [], "any", false, false, false, 322), "html", null, true)) : (""));
             yield "</td>
+                     <td>
+                      ";
+            // line 324
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
+                // line 325
+                yield "                        <button onclick=\"openEditExamenFinalModal(";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 325), "html", null, true);
+                yield ")\">Editar</button>
+                      ";
+            }
+            // line 327
+            yield "                     </td>
                  </tr>
              ";
             $context['_iterated'] = true;
         }
-        // line 271
+        // line 333
         if (!$context['_iterated']) {
-            // line 268
+            // line 330
             yield "                 <tr>
-                     <td colspan=\"6\">No se encontraron registros</td>
+                     <td colspan=\"7\">No se encontraron registros</td>
                   </tr>
              ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 272
+        // line 334
         yield "         </tbody>
      </table>
      <div style=\"text-align: center; margin-top: 1em;\">
@@ -496,11 +579,11 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
 
 
         ";
-        // line 280
+        // line 342
         yield "        <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
             <thead>
                 <tr>
-                    <th colspan=\"6\">Nota de los Finales</th>
+                    <th colspan=\"7\">Nota de los Finales</th>
                 </tr>
                 <tr>
                     <th>Estudiante</th>
@@ -509,57 +592,70 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                     <th>Folio</th>
                     <th>Tecnicatura</th>
                     <th>Asignatura</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
             ";
-        // line 295
+        // line 358
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_alumnos"]) || array_key_exists("examen_alumnos", $context) ? $context["examen_alumnos"] : (function () { throw new RuntimeError('Variable "examen_alumnos" does not exist.', 295, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_alumnos"]) || array_key_exists("examen_alumnos", $context) ? $context["examen_alumnos"] : (function () { throw new RuntimeError('Variable "examen_alumnos" does not exist.', 358, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_alumno"]) {
-            // line 296
+            // line 359
             yield "                <tr>
                     <td>";
-            // line 297
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getAlumnoId", [], "any", false, false, false, 297), "html", null, true);
+            // line 360
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getAlumnoId", [], "any", false, false, false, 360), "html", null, true);
             yield "</td>
                     <td>";
-            // line 298
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "nota", [], "any", false, false, false, 298), "html", null, true);
+            // line 361
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "nota", [], "any", false, false, false, 361), "html", null, true);
             yield "</td>
                     <td>";
-            // line 299
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "tomo", [], "any", false, false, false, 299), "html", null, true);
+            // line 362
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "tomo", [], "any", false, false, false, 362), "html", null, true);
             yield "</td>
                     <td>";
-            // line 300
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "folio", [], "any", false, false, false, 300), "html", null, true);
+            // line 363
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "folio", [], "any", false, false, false, 363), "html", null, true);
             yield "</td>
                     <td>";
-            // line 301
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getExamenFinalId", [], "method", false, false, false, 301), "getAsignaturaId", [], "method", false, false, false, 301), "tecnicatura", [], "any", false, false, false, 301), "html", null, true);
+            // line 364
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getExamenFinalId", [], "method", false, false, false, 364), "getAsignaturaId", [], "method", false, false, false, 364), "tecnicatura", [], "any", false, false, false, 364), "html", null, true);
             yield "</td>
                     <td>";
-            // line 302
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getExamenFinalId", [], "method", false, false, false, 302), "getAsignaturaId", [], "method", false, false, false, 302), "html", null, true);
+            // line 365
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "getExamenFinalId", [], "method", false, false, false, 365), "getAsignaturaId", [], "method", false, false, false, 365), "html", null, true);
             yield "</td>
+                    <td>
+                     ";
+            // line 367
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
+                // line 368
+                yield "                          <button onclick=\"openEditExamenAlumnoModal(";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "id", [], "any", false, false, false, 368), "html", null, true);
+                yield ")\">Editar</button>
+                     ";
+            }
+            // line 370
+            yield "                   </td>
                 </tr>
             ";
             $context['_iterated'] = true;
         }
-        // line 308
+        // line 376
         if (!$context['_iterated']) {
-            // line 305
+            // line 373
             yield "                <tr>
-                    <td colspan=\"5\">No se encontraron registros</td>
+                    <td colspan=\"7\">No se encontraron registros</td>
                 </tr>
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_alumno'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 309
+        // line 377
         yield "            </tbody>
         </table>
         </table>
@@ -576,10 +672,41 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
         </div>
     </div>
 
-
-
-
-
+    <!-- Modal  inscriptos -->
+    <div id=\"inscripcionFinalModal\" class=\"modal\" style=\"display: none;\">
+      <div class=\"modal-content\">
+        <span class=\"close\" onclick=\"closeInscripcionFinalModal()\">&times;</span>
+        <div id=\"inscripcionFinalBody\"></div>
+      </div>
+    </div>
+   
+ <!-- Modal para editar Inscripto -->
+  <div id=\"editInscripcionFinalModal\" class=\"modal\" style=\"display: none;\">
+     <div class=\"modal-content\">
+        <span class=\"close\" onclick=\"closeEditInscripcionFinalModal()\">&times;</span>
+        <div id=\"editInscripcionFinalBody\"></div>
+     </div>
+ </div>
+ <script>
+     function openEditInscripcionFinalModal(id) {
+      fetch(\"";
+        // line 410
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_inscripcion_final_edit", ["id" => "__id__"]);
+        yield "\".replace('__id__', id), {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+       })
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('editInscripcionFinalBody').innerHTML = html;
+        document.getElementById('editInscripcionFinalModal').style.display = 'block';
+        // Puedes agregar aquí el handle para el submit AJAX si lo necesitas
+      });
+       }
+     function closeEditInscripcionFinalModal() {
+        document.getElementById('editInscripcionFinalModal').style.display = 'none';
+        document.getElementById('editInscripcionFinalBody').innerHTML = '';
+       }
+ </script>
 
 ";
         
@@ -612,14 +739,14 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
      */
     public function getDebugInfo(): array
     {
-        return array (  563 => 309,  554 => 305,  552 => 308,  545 => 302,  541 => 301,  537 => 300,  533 => 299,  529 => 298,  525 => 297,  522 => 296,  517 => 295,  500 => 280,  491 => 272,  482 => 268,  480 => 271,  473 => 265,  469 => 264,  465 => 263,  461 => 262,  457 => 261,  453 => 260,  449 => 259,  446 => 258,  441 => 257,  423 => 241,  414 => 233,  405 => 230,  403 => 233,  396 => 227,  392 => 226,  388 => 225,  384 => 224,  380 => 223,  377 => 222,  372 => 221,  348 => 199,  311 => 163,  298 => 162,  265 => 139,  249 => 126,  173 => 52,  145 => 26,  142 => 25,  138 => 23,  136 => 22,  133 => 21,  130 => 20,  126 => 18,  124 => 17,  121 => 16,  118 => 15,  113 => 12,  111 => 11,  106 => 8,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  694 => 410,  659 => 377,  650 => 373,  648 => 376,  642 => 370,  636 => 368,  634 => 367,  629 => 365,  625 => 364,  621 => 363,  617 => 362,  613 => 361,  609 => 360,  606 => 359,  601 => 358,  583 => 342,  574 => 334,  565 => 330,  563 => 333,  557 => 327,  551 => 325,  549 => 324,  544 => 322,  540 => 321,  536 => 320,  532 => 319,  528 => 318,  524 => 317,  520 => 316,  517 => 315,  512 => 314,  493 => 297,  485 => 290,  476 => 286,  474 => 289,  468 => 283,  462 => 281,  460 => 280,  455 => 278,  451 => 277,  447 => 276,  443 => 275,  439 => 274,  436 => 273,  431 => 272,  406 => 249,  385 => 229,  381 => 227,  379 => 226,  361 => 210,  348 => 209,  315 => 186,  299 => 173,  223 => 99,  173 => 52,  145 => 26,  142 => 25,  138 => 23,  136 => 22,  133 => 21,  130 => 20,  126 => 18,  124 => 17,  121 => 16,  118 => 15,  113 => 12,  111 => 11,  106 => 8,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Mesas de Finales!{% endblock %}
+{% block title %}<h1 style=\"text-align: center;\">Mesas de Finales</h1>{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -666,7 +793,54 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
            }
         }
  </script>
+  <script>
+        function openInscripcionFinalModal() {
+            fetch(\"{{ path('app_inscripcion_final_new') }}\", {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('inscripcionFinalBody').innerHTML = html;
+                document.getElementById('inscripcionFinalModal').style.display = 'block';
+                handleInscripcionFinalFormSubmit();
+            })
+            .catch(error => console.error('Error al cargar el formulario:', error));
+        }
 
+        function closeInscripcionFinalModal() {
+            document.getElementById('inscripcionFinalModal').style.display = 'none';
+            document.getElementById('inscripcionFinalBody').innerHTML = '';
+        }
+
+        function handleInscripcionFinalFormSubmit() {
+            const modalBody = document.getElementById('inscripcionFinalBody');
+            modalBody.addEventListener('submit', function(e) {
+                if (e.target.tagName === 'FORM') {
+                    e.preventDefault();
+                    const form = e.target;
+                    const formData = new FormData(form);
+                    fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                    })
+                    .then(response => response.text())
+                    .then(html => {
+                        if (html.includes('<form')) {
+                            modalBody.innerHTML = html;
+                        } else {
+                            window.location.reload();
+                        }
+                    })
+                    .catch(error => {
+                        alert('Ocurrió un error al guardar el inscripto.');
+                        console.error(error);
+                    });
+                }
+            }, { once: true });
+        }
+    </script>
 
     {#Busquedas en la tabla Inscriptos#}    
     <script>
@@ -771,7 +945,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
             document.getElementById('MesaModal').style.display = 'none';
             document.getElementById('modalMesa').innerHTML = '';
         }
-
+       
 
     </script>
 
@@ -795,6 +969,9 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                   <td>
                      <div>
                         <button class:\"buttonn\" onclick=\"showTable('tablaInscriptos')\">Ver</button>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                          <button onclick=\"openInscripcionFinalModal()\">crear Inscripto</button>
+                        {% endif %}
                      </div>
                   </td>
                     <td>
@@ -818,10 +995,10 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
         <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
             <thead>
                 <tr>
-                    <th colspan=\"5\">Inscriptos</th>
+                    <th colspan=\"6\">Inscriptos</th>
                 </tr>
                 <tr>
-                    <th colspan=\"5\">
+                    <th colspan=\"6\">
                         <input type=\"text\" id=\"searchFecha\" onkeyup=\"filterFecha()\" placeholder=\"Buscar Fecha...\">
                         <input type=\"text\" id=\"searchEstudiante\" onkeyup=\"filterEstudiante()\" placeholder=\"Buscar Estudiante...\">
                         <input type=\"text\" id=\"searchTecnicatura\" onkeyup=\"filterTecnicatura()\" placeholder=\"Buscar Tecnicatura...\">
@@ -834,6 +1011,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                     <th>Estudiante</th>
                     <th>Tecnicatura</th>
                     <th>Asignatura</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -844,12 +1022,17 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                         <td>{{ inscripcion_final.getAlumnoId() }}</td>
                         <td>{{ inscripcion_final.getAsignaturaId().tecnicatura }}</td>
                         <td>{{ inscripcion_final.getAsignaturaId() }}</td>
+                        <td>
+                          {% if is_granted('ROLE_SUPER_ADMIN') %}
+                             <button  onclick=\"openEditInscripcionFinalModal({{ inscripcion_final.id }})\">Editar</button>
+                          {% endif %}
+                        </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan=\"5\">No se encontraron registros</td>
+                        <td colspan=\"6\">No se encontraron registros</td>
                     </tr>
-                {% endfor %}>
+                {% endfor %}
             </tbody>
         </table> 
         <div style=\"text-align: center; margin-top: 1em;\">
@@ -860,7 +1043,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
        <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
           <thead>
              <tr>
-                 <th colspan=\"7\">Mesas de Finales</th>
+                 <th colspan=\"8\">Fechas de Finales</th>
              </tr>
               <tr>
                  <th>Asignatura</th>
@@ -870,6 +1053,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                  <th>Primer Vocal</th>
                  <th>Segundo Vocal</th>
                  <th>Tecnicatura</th>
+                 <th>Acciones</th>
              </tr>
          </thead>
          <tbody>
@@ -882,10 +1066,15 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                      <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
                      <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
                      <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : '' }}</td>
+                     <td>
+                      {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <button onclick=\"openEditExamenFinalModal({{ examen_final.id }})\">Editar</button>
+                      {% endif %}
+                     </td>
                  </tr>
              {% else %}
                  <tr>
-                     <td colspan=\"6\">No se encontraron registros</td>
+                     <td colspan=\"7\">No se encontraron registros</td>
                   </tr>
              {% endfor %}
          </tbody>
@@ -899,7 +1088,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
         <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
             <thead>
                 <tr>
-                    <th colspan=\"6\">Nota de los Finales</th>
+                    <th colspan=\"7\">Nota de los Finales</th>
                 </tr>
                 <tr>
                     <th>Estudiante</th>
@@ -908,6 +1097,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                     <th>Folio</th>
                     <th>Tecnicatura</th>
                     <th>Asignatura</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -919,10 +1109,15 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
                     <td>{{ examen_alumno.folio }}</td>
                     <td>{{ examen_alumno.getExamenFinalId().getAsignaturaId().tecnicatura }}</td>
                     <td>{{ examen_alumno.getExamenFinalId().getAsignaturaId() }}</td>
+                    <td>
+                     {% if is_granted('ROLE_SUPER_ADMIN') %}
+                          <button onclick=\"openEditExamenAlumnoModal({{ examen_alumno.id }})\">Editar</button>
+                     {% endif %}
+                   </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan=\"5\">No se encontraron registros</td>
+                    <td colspan=\"7\">No se encontraron registros</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -941,12 +1136,39 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
         </div>
     </div>
 
+    <!-- Modal  inscriptos -->
+    <div id=\"inscripcionFinalModal\" class=\"modal\" style=\"display: none;\">
+      <div class=\"modal-content\">
+        <span class=\"close\" onclick=\"closeInscripcionFinalModal()\">&times;</span>
+        <div id=\"inscripcionFinalBody\"></div>
+      </div>
+    </div>
+   
+ <!-- Modal para editar Inscripto -->
+  <div id=\"editInscripcionFinalModal\" class=\"modal\" style=\"display: none;\">
+     <div class=\"modal-content\">
+        <span class=\"close\" onclick=\"closeEditInscripcionFinalModal()\">&times;</span>
+        <div id=\"editInscripcionFinalBody\"></div>
+     </div>
+ </div>
+ <script>
+     function openEditInscripcionFinalModal(id) {
+      fetch(\"{{ path('app_inscripcion_final_edit', {'id': '__id__'}) }}\".replace('__id__', id), {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+       })
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('editInscripcionFinalBody').innerHTML = html;
+        document.getElementById('editInscripcionFinalModal').style.display = 'block';
+        // Puedes agregar aquí el handle para el submit AJAX si lo necesitas
+      });
+       }
+     function closeEditInscripcionFinalModal() {
+        document.getElementById('editInscripcionFinalModal').style.display = 'none';
+        document.getElementById('editInscripcionFinalBody').innerHTML = '';
+       }
+ </script>
 
-
-
-
-
-{% endblock %}
-", "vistasmesas/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasmesas\\index.html.twig");
+{% endblock %}", "vistasmesas/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasmesas\\index.html.twig");
     }
 }
