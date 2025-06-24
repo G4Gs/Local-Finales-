@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+//obliga a que no envie a la pagina de error de synfony
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 
@@ -89,11 +90,13 @@ class ExamenFinalController extends AbstractController
             'examen_final' => $examenFinal,
             'form' => $form,
         ]);
-    }
+}
 
-#[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
-public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
-{
+
+
+  #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
+ public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
+ {
     if (!$this->isCsrfTokenValid('delete' . $examenFinal->getId(), $request->request->get('_token'))) {
         $this->addFlash('error', 'Token CSRF inválido.');
         return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
@@ -131,5 +134,5 @@ public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRe
     }
 
     return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
-}
+  }
 }
