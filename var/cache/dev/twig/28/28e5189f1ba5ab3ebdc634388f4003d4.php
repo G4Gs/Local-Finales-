@@ -203,7 +203,7 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
                   <td>
                      <div>
                         <button class=\"buttonn\" onclick=\"showTable('tablaMesas')\">Ver</button>
-                        <button onclick=\"openModal('mesa')\" class=\"button\">Establecer fecha</button>
+                        
                      </div>
                   </td>
                   <td>
@@ -609,7 +609,7 @@ class __TwigTemplate_546ca48f847713d304d98c869fb9b486 extends Template
                   <td>
                      <div>
                         <button class=\"buttonn\" onclick=\"showTable('tablaMesas')\">Ver</button>
-                        <button onclick=\"openModal('mesa')\" class=\"button\">Establecer fecha</button>
+                        
                      </div>
                   </td>
                   <td>
