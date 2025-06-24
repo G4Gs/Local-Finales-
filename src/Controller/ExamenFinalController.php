@@ -91,12 +91,7 @@ class ExamenFinalController extends AbstractController
             'examen_final' => $examenFinal,
             'form' => $form,
         ]);
-    }
-    return $this->renderForm('examen_final/edit.html.twig', [
-        'examen_final' => $examenFinal,
-        'form' => $form,
-    ]);
- 
+}
 
 
 

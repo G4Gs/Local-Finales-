@@ -2,7 +2,6 @@
 
 {% block title %}Examen Final index{% endblock %}
 
-<<<<<<< HEAD
   {% block javascripts %}
      
      <script>
@@ -50,14 +49,6 @@
               });
            }
      </script>
-=======
-{% block javascripts %}
-  <script>
-    function filterTable() {
-      const inputTec = document.getElementById('searchTecnicatura').value.toLowerCase();
-      const inputAsig = document.getElementById('searchAsignatura').value.toLowerCase();
-      const inputPres = document.getElementById('searchPresidente').value.toLowerCase();
->>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
       const table = document.querySelector('.tabla_home tbody');
       const rows = table.getElementsByTagName('tr');
@@ -163,7 +154,6 @@ function handleExamenFinalFormSubmit(modalId, bodyId) {
     <div class="alert alert-danger">
       {{ message }}
     </div>
-<<<<<<< HEAD
 {% endfor %}
     <table class="tabla_home">
         <thead>
@@ -208,12 +198,6 @@ function handleExamenFinalFormSubmit(modalId, bodyId) {
     
     <div style="text-align: center;">
         <button class="buttonn" onclick="openNewExamenModal()">Crear Nuevo Examen Final</button>
-=======
-  {% endfor %}
-  {% for message in app.flashes('success') %}
-    <div class="alert alert-success">
-      {{ message }}
->>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
     </div>
   {% endfor %}
 
@@ -290,10 +274,6 @@ function handleExamenFinalFormSubmit(modalId, bodyId) {
       <div id="newExamenBody" class="submodal"></div>
     </div>
   </div>
-<<<<<<< HEAD
 
   
 {% endblock %} 
-=======
-{% endblock %}
->>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
