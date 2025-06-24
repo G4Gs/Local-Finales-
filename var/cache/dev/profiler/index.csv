@@ -133,3 +133,10 @@ b63abb,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,175
 92df71,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1750731670,,200
 79be9d,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750731681,5ef4d5,404
 5ef4d5,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750731681,,404
+573736,127.0.0.1,GET,http://localhost/Local-Finales-/public/,1750764569,,404
+bce140,127.0.0.1,GET,http://localhost/Local-Finales-/public/,1750764576,,404
+d9fae3,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/,1750764631,,404
+32ad5d,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1750764656,,200
+7d588b,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750764660,0cdbb8,404
+0cdbb8,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750764660,,404
+6b63b8,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1750764727,,302
