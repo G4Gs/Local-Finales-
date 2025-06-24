@@ -48,8 +48,8 @@
 
 <button id="verListaButton" class="btn-primary">Volver</button>
 
-{# Mostrar botón Guardar solo para admins #}
-{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
+{# Mostrar botón Guardar solo para admins, preceptores o superadmins #}
+{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PRECEPTOR') or is_granted('ROLE_SUPER_ADMIN') %}
     <button id="guardarCambiosButton" class="btn-success">Guardar Cambios</button>
 {% endif %}
 
@@ -61,12 +61,12 @@ const rutaCalendarioFechas = "{{ path('api_calendario_fechas', {'cursoId': curso
 const rutaAsistenciasPorFecha = "{{ path('asistencias_por_fecha', {'cursoId': curso.id}) }}";
 const rutaGuardarAsistencia = "{{ path('guardar_asistencia') }}";
 
-const puedeEditar = {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN')) ? 'true' : 'false' }};
+const puedeEditar = {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_PRECEPTOR') or is_granted('ROLE_SUPER_ADMIN')) ? 'true' : 'false' }};
 
 const theadRow = document.querySelector('#fechas-header');
 const tbody = document.querySelector('#EstadisticasModal tbody');
 
-const opciones = ['P', 'A', 'T', 'J', 'N']; // Presente, Ausente, Media falta (T), Justificada, No marcado
+const opciones = ['P', 'A', 'T', 'J', 'N']; // Presente, Ausente, Media falta, Justificada, No marcado
 
 function crearSelect(valorSeleccionado) {
     const select = document.createElement('select');
