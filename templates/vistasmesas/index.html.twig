@@ -26,23 +26,27 @@
         });
 
         function showTable(tableId) {
-            const tables = document.querySelectorAll('.tabla_home');
-            tables.forEach(table => {
-                if (table.id === tableId) {
-                    table.style.display = '';
-                } else {
-                    table.style.display = 'none';
-                }
+           const tables = document.querySelectorAll('.tabla_home');
+           tables.forEach(table => {
+             if (table.id === tableId) {
+                 table.style.display = '';
+             } else {
+                 table.style.display = 'none';
+               }
             });
-            
-            const backButton = document.getElementById('backButton');
-            if (tableId === 'tablaPrincipal') {
-                backButton.style.display = 'none';
-            } else {
-                backButton.style.display = '';
-            }
+           document.getElementById('backButtonInscriptos').style.display = 'none';
+           document.getElementById('backButtonMesas').style.display = 'none';
+           document.getElementById('backButtonNotas').style.display = 'none';
+
+         if (tableId === 'tablaInscriptos') {
+             document.getElementById('backButtonInscriptos').style.display = '';
+         } else if (tableId === 'tablaMesas') {
+             document.getElementById('backButtonMesas').style.display = '';
+         } else if (tableId === 'tablaNotasFinales') {
+             document.getElementById('backButtonNotas').style.display = '';
+           }
         }
-    </script>
+ </script>
 
 
     {#Busquedas en la tabla Inscriptos#}    
@@ -188,7 +192,10 @@
         </table>
 
         {# Botón de regreso #}
-        <button id="backButton" class="btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
+        <div style="text-align: center; margin-top: 1em;">
+         <button id="backButton" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: center;">Regresar</button>
+       </div>
+      
 
 
         {# Inscriptos Vistas #}
@@ -207,6 +214,7 @@
                 </tr>
                 <tr>
                     <th>Fecha</th>
+                    <th>hora</th>
                     <th>Estudiante</th>
                     <th>Tecnicatura</th>
                     <th>Asignatura</th>
@@ -216,6 +224,7 @@
                 {% for inscripcion_final in inscripcion_finals %}
                     <tr>
                         <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
+                        <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
                         <td>{{ inscripcion_final.getAlumnoId() }}</td>
                         <td>{{ inscripcion_final.getAsignaturaId().tecnicatura }}</td>
                         <td>{{ inscripcion_final.getAsignaturaId() }}</td>
@@ -226,13 +235,16 @@
                     </tr>
                 {% endfor %}>
             </tbody>
-        </table>       
+        </table> 
+        <div style="text-align: center; margin-top: 1em;">
+         <button id="backButtonInscriptos" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
+       </div>      
 
        {# Mesas Vistas #}
        <table id="tablaMesas" class="tabla_home" style="display: none;" border="1">
           <thead>
              <tr>
-                 <th colspan="6">Mesas de Finales</th>
+                 <th colspan="7">Mesas de Finales</th>
              </tr>
               <tr>
                  <th>Asignatura</th>
@@ -249,6 +261,7 @@
                  <tr>
                      <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : '' }}</td>
                      <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                     <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
                      <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
                      <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
                      <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
@@ -261,6 +274,9 @@
              {% endfor %}
          </tbody>
      </table>
+     <div style="text-align: center; margin-top: 1em;">
+         <button id="backButtonMesas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
+     </div>
 
 
         {# Notas Finales Vistas #}
@@ -295,7 +311,11 @@
             {% endfor %}
             </tbody>
         </table>
-    </div>    
+        </table>
+        <div style="text-align: center; margin-top: 1em;">
+           <button id="backButtonNotas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
+       </div>
+ </div>    
 
     <!-- Modal  Mesas Final -->
     <div id="MesaModal" class="modal" style="display: none;">

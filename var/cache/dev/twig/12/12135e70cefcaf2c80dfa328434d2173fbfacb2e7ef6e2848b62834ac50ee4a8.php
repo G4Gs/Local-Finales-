@@ -244,7 +244,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
             <tr>
                 <th>ID</th>
                 <th>Fecha</th>
-                <th>Hora</th>
+                <th>hora</th>
                 <th>Presidente</th>
                 <th>Vocal 1</th>
                 <th>Vocal 2</th>
@@ -494,7 +494,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
             <tr>
                 <th>ID</th>
                 <th>Fecha</th>
-                <th>Hora</th>
+                <th>hora</th>
                 <th>Presidente</th>
                 <th>Vocal 1</th>
                 <th>Vocal 2</th>
