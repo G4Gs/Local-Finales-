@@ -25,10 +25,13 @@ class ExamenFinalController extends AbstractController
         $presidente = $request->query->get('presidente');
 
         $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $presidente);
-
+        $examen_alumnos = $examenAlumnoRepository->findAll();
+        $inscripcion_finals = $inscripcionFinalRepository->findAll();
         return $this->render('examen_final/index.html.twig', [
-            'examen_finals' => $examen_finals,
-        ]);
+        'examen_finals' => $examen_finals,
+        'examen_alumnos' => $examen_alumnos,
+        'inscripcion_finals' => $inscripcion_finals,
+      ]);
     }
 
     #[Route('/new', name: 'app_examen_final_new', methods: ['GET', 'POST'])]

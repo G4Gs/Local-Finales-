@@ -122,3 +122,17 @@ f26087,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/fin
 88ef45,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/examen/final/7,1750690171,,303
 ab7316,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750690176,,200
 bf4c76,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750690184,,200
+ebb506,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727180,6336ad,500
+6336ad,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727180,,500
+a24925,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727357,,200
+c217a3,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727372,,200
+8e3548,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727553,ab6dc5,500
+ab6dc5,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727553,,500
+16c3c5,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727557,784313,500
+784313,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727557,,500
+cdd308,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727733,016514,500
+016514,::1,GET,http://localhost/local/public/index.php/examen/final/,1750727733,,500
+3ed994,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750728182,2388d4,500
+2388d4,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750728182,,500
+543a7c,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750728214,1dcaaa,500
+1dcaaa,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750728214,,500
