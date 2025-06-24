@@ -17,15 +17,17 @@ use Symfony\Component\HttpFoundation\Request;
 class VistasmesasController extends AbstractController
 {
     #[Route('/vistasmesas', name: 'app_vistasmesas')]
-    public function index(ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository, InscripcionFinalRepository $inscripcionFinalRepository): Response
-    {
+    public function index(
+        ExamenFinalRepository $examenFinalRepository,
+        ExamenAlumnoRepository $examenAlumnoRepository,
+        InscripcionFinalRepository $inscripcionFinalRepository
+    ): Response {
         return $this->render('vistasmesas/index.html.twig', [
             'examen_finals' => $examenFinalRepository->findAll(),
             'examen_alumnos' => $examenAlumnoRepository->findAll(),
             'inscripcion_finals' => $inscripcionFinalRepository->findAll(),
         ]);
     }
-
 
     #[Route('/nuevamesa', name: 'nueva_mesa', methods: ['GET', 'POST'])]
     public function nuevaMesaFinal(Request $request, ExamenFinalRepository $examenFinalRepository): Response
@@ -64,5 +66,4 @@ class VistasmesasController extends AbstractController
             'form' => $form,
         ]);
     }
-
 }

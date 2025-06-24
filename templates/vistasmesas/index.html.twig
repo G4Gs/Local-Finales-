@@ -31,7 +31,7 @@
              document.getElementById('backButtonNotas').style.display = '';
            }
         }
- </script>
+    </script>
 
     <script>
         function openModal(action) {
@@ -55,12 +55,11 @@
             document.getElementById('modalMesa').innerHTML = '';
         }
     </script>
-
 {% endblock %}
 
 {% block body %}
     <div id="body-vistas">
-        <h1>Mesas de Finales</h1>
+        <h1 class="datos-filtered">Mesas de Finales</h1>
 
         <table class="tabla_home" id="tablaPrincipal" border="1">
             <thead>
@@ -74,19 +73,19 @@
                 <tr>
                   <td>
                      <div>
-                        <button class:"buttonn" onclick="showTable('tablaInscriptos')">Ver</button>
+                        <button class="buttonn" onclick="showTable('tablaInscriptos')">Ver</button>
                      </div>
                   </td>
-                    <td>
+                  <td>
                      <div>
-                        <button class:"buttonn" onclick="showTable('tablaMesas')">Ver</button>
-                        <button onclick="openModal('mesa')"class:"button">Establecer fecha</button>
+                        <button class="buttonn" onclick="showTable('tablaMesas')">Ver</button>
+                        <button onclick="openModal('mesa')" class="button">Establecer fecha</button>
                      </div>
-                    </td>
-                    <td>
+                  </td>
+                  <td>
                      <div>
-                       <button class:"buttonn" onclick="showTable('tablaNotasFinales')">Ver</button>
-                       <button onclick="openModal('notaFinal')" class:"buttonn">Cargar Nota</button>
+                       <button class="buttonn" onclick="showTable('tablaNotasFinales')">Ver</button>
+                       <button onclick="openModal('notaFinal')" class="buttonn">Cargar Nota</button>
                     </div>
                   </td>
              </tr>
@@ -119,62 +118,67 @@
                 {% for inscripcion_final in inscripcion_finals %}
                     <tr>
                         <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
-                        <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
-                        <td>{{ inscripcion_final.getAlumnoId() }}</td>
-                        <td>{{ inscripcion_final.getAsignaturaId().tecnicatura }}</td>
-                        <td>{{ inscripcion_final.getAsignaturaId() }}</td>
+                        <td>{{ inscripcion_final.examenFinal and inscripcion_final.examenFinal.hora ? inscripcion_final.examenFinal.hora|date('H:i') : '' }}</td>
+                        <td>
+                            {{ inscripcion_final.alumno ? inscripcion_final.alumno.persona.nombre ~ ' ' ~ inscripcion_final.alumno.persona.apellido : 'N/A' }}
+                        </td>
+                        <td>
+                            {{ inscripcion_final.asignatura and inscripcion_final.asignatura.tecnicatura ? inscripcion_final.asignatura.tecnicatura.nombre : 'N/A' }}
+                        </td>
+                        <td>
+                            {{ inscripcion_final.asignatura ? inscripcion_final.asignatura.nombre : 'N/A' }}
+                        </td>
                     </tr>
                 {% else %}
                     <tr>
                         <td colspan="5">No se encontraron registros</td>
                     </tr>
-                {% endfor %}>
+                {% endfor %}
             </tbody>
-        </table> 
+        </table>
         <div style="text-align: center; margin-top: 1em;">
-         <button id="backButtonInscriptos" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
-       </div>      
+            <button id="backButtonInscriptos" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
+        </div>
 
-       {# Mesas Vistas #}
-       <table id="tablaInscriptos" class="tabla_home" style="display:none;" border="1">
-          <thead>
-             <tr>
-               <th colspan="5">Inscriptos</th>
-             </tr>
-             <tr>
-               <th>Fecha</th>
-               <th>Hora</th>
-               <th>Estudiante</th>
-               <th>Tecnicatura</th>
-               <th>Asignatura</th>
-             </tr>
-         </thead>
-         <tbody>
-             {% for inscripcion_final in inscripcion_finals %}
-                 <tr>
-                   <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
-                     {{ inscripcion_final.examenFinal and inscripcion_final.examenFinal.hora ? inscripcion_final.examenFinal.hora|date('H:i') : '' }}
-                   </td>
-                   <td>
-                     {{ inscripcion_final.alumno ? inscripcion_final.alumno.persona.nombre ~ ' ' ~ inscripcion_final.alumno.persona.apellido : 'N/A' }}
-                   </td>
-                   <td>
-                     {{ inscripcion_final.asignatura and inscripcion_final.asignatura.tecnicatura ? inscripcion_final.asignatura.tecnicatura.nombre : 'N/A' }}
-                   </td>
-                   <td>
-                     {{ inscripcion_final.asignatura ? inscripcion_final.asignatura.nombre : 'N/A' }}
-                   </td>
-                 </tr>
-             {% else %}
-                 <tr>
-                  <td colspan="5">No se encontraron registros</td>
-                 </tr>
-             {% endfor %}
-          </tbody>
-     </table>
-     <div style="text-align: center; margin-top: 1em;">
-         <button id="backButtonMesas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
-     </div>
+        {# Tabla Mesas (ExamenFinal) #}
+        <table id="tablaMesas" class="tabla_home" style="display:none;" border="1">
+            <thead>
+                <tr>
+                    <th colspan="8">Fechas de Finales</th>
+                </tr>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Presidente</th>
+                    <th>Vocal 1</th>
+                    <th>Vocal 2</th>
+                    <th>Estado de Mesa</th>
+                    <th>Tecnicatura</th>
+                    <th>Asignatura</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for examen_final in examen_finals %}
+                    <tr>
+                        <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+                        <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
+                        <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
+                        <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
+                        <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
+                        <td>{{ examen_final.estadoMesa }}</td>
+                        <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : '' }}</td>
+                        <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : '' }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">No se encontraron mesas de examen final</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 1em;">
+            <button id="backButtonMesas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
+        </div>
 
         {# Tabla Notas Finales #}
         <table id="tablaNotasFinales" class="tabla_home" style="display:none;" border="1">
@@ -224,11 +228,10 @@
                 {% endfor %}
             </tbody>
         </table>
-        </table>
         <div style="text-align: center; margin-top: 1em;">
-           <button id="backButtonNotas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
-       </div>
- </div>    
+            <button id="backButtonNotas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
+        </div>
+    </div>
 
     <!-- Modal -->
     <div id="MesaModal" class="modal" style="display:none;">
