@@ -107,14 +107,18 @@ console.log("Curso seleccionado:", selectedCursoId);
 // Actualizar el link con el cursoId correcto
     const linkLista = document.getElementById('linkListaPorDia');
     if (linkLista) {
-        linkLista.href = `/local/public/index.php/lista/${cursoId}`;
+linkLista.href = `lista/${cursoId}`;
+
+
     }
 
     const listaProfesores = document.getElementById('tablaTecnicaturas');
     if (listaProfesores) listaProfesores.style.display = 'none';
 
     // Pedir datos actualizados al backend
-    fetch(`/local/public/index.php/actualizar-lista-alumnos/${cursoId}`)
+fetch(`actualizar-lista-alumnos/${cursoId}`)
+
+
         .then(response => {
             if (!response.ok) throw new Error('Error al obtener datos actualizados');
             return response.json();
@@ -606,7 +610,9 @@ console.log("Curso seleccionado:", selectedCursoId);
         document.querySelector('.Fechadehoy').textContent = fechaActual;
 
         // 🔄 Pedir datos actualizados al backend
-        fetch(`/local/public/index.php/estadisticas/${cursoId}`)
+fetch(`estadisticas/${cursoId}`)
+
+
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error en la respuesta del servidor');
@@ -1260,31 +1266,36 @@ console.log("Curso seleccionado:", selectedCursoId);
     return `${yyyy}-${mm}-${dd}`;
 }
 
-function guardarAsistencias() {
-    const urlCalendario = `/local/public/index.php/api/calendario-clase-del-dia/${selectedCursoId}`;
-    const urlGuardar = "{{ path('guardar_asistencia') }}";
+// Ruta para obtener calendario del día, esperando un parámetro cursoId que se concatena en JS
+    const rutaBaseCalendarioClaseDelDia = "{{ path('api_calendario_clase_del_dia', {'cursoId': 0})|slice(0, -1) }}"; 
+    // Explicación: path('api_calendario_clase_del_dia', {'cursoId': 0}) da '/api/calendario-clase-del-dia/0'
+    // con slice(0, -1) quitamos el último caracter '0', quedando '/api/calendario-clase-del-dia/'
 
-    // Paso 1: Obtener el CalendarioClase correspondiente al curso y día
+    // Ruta para actualizar lista alumnos (similar al anterior)
+    const rutaBaseActualizarListaAlumnos = "{{ path('actualizar_lista_alumnos', {'curso_id': 0})|slice(0, -1) }}";
+
+    // Ruta completa para guardar asistencia (no necesita concatenar)
+    const rutaGuardarAsistencia = "{{ path('guardar_asistencia') }}";
+
+function guardarAsistencias() {
+    const urlCalendario = rutaBaseCalendarioClaseDelDia + selectedCursoId;
+    const urlGuardar = rutaGuardarAsistencia;
+
     fetch(urlCalendario)
         .then(response => {
-            if (!response.ok) {
-                throw new Error('No se encontró CalendarioClase para este curso hoy');
-            }
+            if (!response.ok) throw new Error('No se encontró CalendarioClase para este curso hoy');
             return response.json();
         })
         .then(data => {
             const calendarioClaseId = data.id;
 
-            // Paso 2: Preparar los datos de asistencias con el ID del CalendarioClase
-            // Adaptamos la estructura para que tenga las claves que espera el backend
             const datosAEnviar = Object.values(asistenciasMarcadas).map(asistencia => ({
-                cursada_id: asistencia.cursada_id, // o asistencia.id, según cómo tengas
+                cursada_id: asistencia.cursada_id,
                 calendarioClase_id: calendarioClaseId,
-                estado: asistencia.estado,          // que sea 'presente', 'ausente', etc.
+                estado: asistencia.estado,
                 observacion: asistencia.observacion || null
             }));
 
-            // Paso 3: Enviar las asistencias al backend
             return fetch(urlGuardar, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1292,13 +1303,10 @@ function guardarAsistencias() {
             });
         })
         .then(response => {
-            if (!response.ok) {
-                return response.text().then(text => { throw new Error(text); });
-            }
+            if (!response.ok) return response.text().then(text => { throw new Error(text); });
             console.log('✅ Asistencias guardadas correctamente');
 
-            // Paso 4: Actualizar la lista de alumnos para reflejar cambios
-            return fetch(`/local/public/index.php/actualizar-lista-alumnos/${selectedCursoId}`);
+            return fetch(rutaBaseActualizarListaAlumnos + selectedCursoId);
         })
         .then(response => {
             if (!response.ok) throw new Error('Error al obtener los datos actualizados');
@@ -1352,6 +1360,7 @@ function guardarAsistencias() {
 
 
 
+
     function actualizarContadorPresentes() {
         const filas = document.querySelectorAll('.curso-tabla tbody .fila-alumno');
         let presentes = 0;
@@ -1368,7 +1377,7 @@ function guardarAsistencias() {
 
         const totalPresentes = document.querySelector('.total-presentes');
         if (totalPresentes) {
-            totalPresentes.textContent = `Alumnos presentes: ${presentes}`;
+            totalPresentes.textContent = `Alumnos presentes: ${presentes} + ${mediaFaltas}`;
         }
     }
     document.addEventListener('DOMContentLoaded', () => {
@@ -1533,7 +1542,8 @@ document.getElementById('guardarModalidadBtn').addEventListener('click', () => {
   };
 
   // Enviar la solicitud POST a Symfony
-  fetch('/local/public/index.php/newcalendario', {
+fetch('newcalendario', {
+
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

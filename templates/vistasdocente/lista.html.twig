@@ -10,10 +10,6 @@
 {% block body %}
 <h1>Lista de Asistencia</h1>
 
-
-
-
-
 <table id="EstadisticasModal" class="tablillacursada" border="1">
 
 <div class="cuadro-referencias-horizontal">
@@ -60,7 +56,11 @@
 <script>
 const cursoId = {{ curso.id }};
 
-// Aquí paso a JS si puede editar el usuario
+// Rutas relativas generadas con Symfony path()
+const rutaCalendarioFechas = "{{ path('api_calendario_fechas', {'cursoId': curso.id}) }}";
+const rutaAsistenciasPorFecha = "{{ path('asistencias_por_fecha', {'cursoId': curso.id}) }}";
+const rutaGuardarAsistencia = "{{ path('guardar_asistencia') }}";
+
 const puedeEditar = {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN')) ? 'true' : 'false' }};
 
 const theadRow = document.querySelector('#fechas-header');
@@ -82,7 +82,7 @@ function crearSelect(valorSeleccionado) {
 
 async function cargarDatos() {
     try {
-        const resFechas = await fetch(`/local/public/index.php/api/calendario-fechas/${cursoId}`);
+        const resFechas = await fetch(rutaCalendarioFechas);
         const fechas = await resFechas.json();
 
         // Limpiar columnas de fechas anteriores
@@ -100,7 +100,7 @@ async function cargarDatos() {
             theadRow.appendChild(th);
         });
 
-        const resAlumnos = await fetch(`/local/public/index.php/api/asistencias-por-fecha/${cursoId}`);
+        const resAlumnos = await fetch(rutaAsistenciasPorFecha);
         const alumnos = await resAlumnos.json();
         tbody.innerHTML = '';
 
@@ -125,7 +125,6 @@ async function cargarDatos() {
                 td.textContent = asistencia;
                 td.style.cursor = puedeEditar ? "pointer" : "default";
 
-                // Solo si puede editar, permito click para cambiar estado
                 if(puedeEditar) {
                     td.addEventListener('click', () => {
                         if (td.querySelector('select')) return;
@@ -174,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
 async function EditarSeleccionados() {
     const datos = [];
     const filas = tbody.querySelectorAll('tr');
-
     const fechas = Array.from(theadRow.children).slice(2);
 
     filas.forEach(fila => {
@@ -212,7 +210,7 @@ async function EditarSeleccionados() {
     }
 
     try {
-        const response = await fetch('/local/public/index.php/guardar-asistencia', {
+        const response = await fetch(rutaGuardarAsistencia, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
