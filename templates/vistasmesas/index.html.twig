@@ -365,49 +365,49 @@ function handleNotaFinalFormSubmit() {
     </div>
 
     {# Tabla Notas Finales #}
-    <table id="tablaNotasFinales" class="tabla_home" style="display: none;" border="1">
-        <thead>
+   <table id="tablaNotasFinales" class="tabla_home" style="display: none;" border="1">
+    <thead>
+        <tr>
+            <th colspan="7">Notas de los Finales</th>
+        </tr>
+        <tr>
+            <th>Estudiante</th>
+            <th>Nota</th>
+            <th>Tomo</th>
+            <th>Folio</th>
+            <th>Tecnicatura</th>
+            <th>Asignatura</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for examen_alumno in examen_alumnos %}
             <tr>
-                <th colspan="7">Notas de los Finales</th>
+                <td>
+                    {{ examen_alumno.alumnoId ? examen_alumno.alumnoId.persona.nombre ~ ' ' ~ examen_alumno.alumnoId.persona.apellido : 'N/A' }}
+                </td>
+                <td>{{ examen_alumno.nota }}</td>
+                <td>{{ examen_alumno.tomo }}</td>
+                <td>{{ examen_alumno.folio }}</td>
+                <td>
+                    {{ examen_alumno.examenFinalId and examen_alumno.examenFinalId.tecnicatura ? examen_alumno.examenFinalId.tecnicatura.nombre : 'N/A' }}
+                </td>
+                <td>
+                    {{ examen_alumno.examenFinalId and examen_alumno.examenFinalId.asignatura ? examen_alumno.examenFinalId.asignatura.nombre : 'N/A' }}
+                </td>
+                <td>
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <button onclick="openEditExamenAlumnoModal({{ examen_alumno.id }})">Editar</button>
+                    {% endif %}
+                </td>
             </tr>
+        {% else %}
             <tr>
-                <th>Estudiante</th>
-                <th>Nota</th>
-                <th>Tomo</th>
-                <th>Folio</th>
-                <th>Tecnicatura</th>
-                <th>Asignatura</th>
-                <th>Acciones</th>
+                <td colspan="7">No se encontraron registros</td>
             </tr>
-        </thead>
-        <tbody>
-            {% for examen_alumno in examen_alumnos %}
-                <tr>
-                    <td>
-                        {{ examen_alumno.alumno_id ? examen_alumno.alumno_id.persona.nombre ~ ' ' ~ examen_alumno.alumno_id.persona.apellido : 'N/A' }}
-                    </td>
-                    <td>{{ examen_alumno.nota }}</td>
-                    <td>{{ examen_alumno.tomo }}</td>
-                    <td>{{ examen_alumno.folio }}</td>
-                    <td>
-                        {{ examen_alumno.examenFinal_id and examen_alumno.examenFinal_id.tecnicatura ? examen_alumno.examenFinal_id.tecnicatura.nombre : 'N/A' }}
-                    </td>
-                    <td>
-                        {{ examen_alumno.examenFinal_id and examen_alumno.examenFinal_id.asignatura ? examen_alumno.examenFinal_id.asignatura.nombre : 'N/A' }}
-                    </td>
-                    <td>
-                        {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <button onclick="openEditExamenAlumnoModal({{ examen_alumno.id }})">Editar</button>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="7">No se encontraron registros</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        {% endfor %}
+    </tbody>
+ </table>
     <div style="text-align: center; margin-top: 1em;">
         <button id="backButtonNotas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
     </div>

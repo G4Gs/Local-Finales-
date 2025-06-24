@@ -591,90 +591,90 @@ function handleNotaFinalFormSubmit() {
 
     ";
         // line 368
-        yield "    <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
-        <thead>
-            <tr>
-                <th colspan=\"7\">Notas de los Finales</th>
-            </tr>
-            <tr>
-                <th>Estudiante</th>
-                <th>Nota</th>
-                <th>Tomo</th>
-                <th>Folio</th>
-                <th>Tecnicatura</th>
-                <th>Asignatura</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            ";
+        yield "   <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+    <thead>
+        <tr>
+            <th colspan=\"7\">Notas de los Finales</th>
+        </tr>
+        <tr>
+            <th>Estudiante</th>
+            <th>Nota</th>
+            <th>Tomo</th>
+            <th>Folio</th>
+            <th>Tecnicatura</th>
+            <th>Asignatura</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        ";
         // line 384
         $context['_parent'] = $context;
         $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_alumnos"]) || array_key_exists("examen_alumnos", $context) ? $context["examen_alumnos"] : (function () { throw new RuntimeError('Variable "examen_alumnos" does not exist.', 384, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_alumno"]) {
             // line 385
-            yield "                <tr>
-                    <td>
-                        ";
+            yield "            <tr>
+                <td>
+                    ";
             // line 387
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno_id", [], "any", false, false, false, 387)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno_id", [], "any", false, false, false, 387), "persona", [], "any", false, false, false, 387), "nombre", [], "any", false, false, false, 387) . " ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno_id", [], "any", false, false, false, 387), "persona", [], "any", false, false, false, 387), "apellido", [], "any", false, false, false, 387)), "html", null, true)) : ("N/A"));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumnoId", [], "any", false, false, false, 387)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumnoId", [], "any", false, false, false, 387), "persona", [], "any", false, false, false, 387), "nombre", [], "any", false, false, false, 387) . " ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumnoId", [], "any", false, false, false, 387), "persona", [], "any", false, false, false, 387), "apellido", [], "any", false, false, false, 387)), "html", null, true)) : ("N/A"));
             yield "
-                    </td>
-                    <td>";
+                </td>
+                <td>";
             // line 389
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "nota", [], "any", false, false, false, 389), "html", null, true);
             yield "</td>
-                    <td>";
+                <td>";
             // line 390
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "tomo", [], "any", false, false, false, 390), "html", null, true);
             yield "</td>
-                    <td>";
+                <td>";
             // line 391
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "folio", [], "any", false, false, false, 391), "html", null, true);
             yield "</td>
-                    <td>
-                        ";
+                <td>
+                    ";
             // line 393
-            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal_id", [], "any", false, false, false, 393) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal_id", [], "any", false, false, false, 393), "tecnicatura", [], "any", false, false, false, 393))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal_id", [], "any", false, false, false, 393), "tecnicatura", [], "any", false, false, false, 393), "nombre", [], "any", false, false, false, 393), "html", null, true)) : ("N/A"));
+            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 393) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 393), "tecnicatura", [], "any", false, false, false, 393))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 393), "tecnicatura", [], "any", false, false, false, 393), "nombre", [], "any", false, false, false, 393), "html", null, true)) : ("N/A"));
             yield "
-                    </td>
-                    <td>
-                        ";
+                </td>
+                <td>
+                    ";
             // line 396
-            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal_id", [], "any", false, false, false, 396) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal_id", [], "any", false, false, false, 396), "asignatura", [], "any", false, false, false, 396))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal_id", [], "any", false, false, false, 396), "asignatura", [], "any", false, false, false, 396), "nombre", [], "any", false, false, false, 396), "html", null, true)) : ("N/A"));
+            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 396) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 396), "asignatura", [], "any", false, false, false, 396))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 396), "asignatura", [], "any", false, false, false, 396), "nombre", [], "any", false, false, false, 396), "html", null, true)) : ("N/A"));
             yield "
-                    </td>
-                    <td>
-                        ";
+                </td>
+                <td>
+                    ";
             // line 399
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
                 // line 400
-                yield "                            <button onclick=\"openEditExamenAlumnoModal(";
+                yield "                        <button onclick=\"openEditExamenAlumnoModal(";
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "id", [], "any", false, false, false, 400), "html", null, true);
                 yield ")\">Editar</button>
-                        ";
+                    ";
             }
             // line 402
-            yield "                    </td>
-                </tr>
-            ";
+            yield "                </td>
+            </tr>
+        ";
             $context['_iterated'] = true;
         }
         // line 408
         if (!$context['_iterated']) {
             // line 405
-            yield "                <tr>
-                    <td colspan=\"7\">No se encontraron registros</td>
-                </tr>
-            ";
+            yield "            <tr>
+                <td colspan=\"7\">No se encontraron registros</td>
+            </tr>
+        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_alumno'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 409
-        yield "        </tbody>
-    </table>
+        yield "    </tbody>
+ </table>
     <div style=\"text-align: center; margin-top: 1em;\">
         <button id=\"backButtonNotas\" class=\"btn btn-primary\" onclick=\"showTable('tablaPrincipal')\" style=\"display: none;\">Regresar</button>
     </div>
@@ -1125,49 +1125,49 @@ function handleNotaFinalFormSubmit() {
     </div>
 
     {# Tabla Notas Finales #}
-    <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
-        <thead>
+   <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+    <thead>
+        <tr>
+            <th colspan=\"7\">Notas de los Finales</th>
+        </tr>
+        <tr>
+            <th>Estudiante</th>
+            <th>Nota</th>
+            <th>Tomo</th>
+            <th>Folio</th>
+            <th>Tecnicatura</th>
+            <th>Asignatura</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for examen_alumno in examen_alumnos %}
             <tr>
-                <th colspan=\"7\">Notas de los Finales</th>
+                <td>
+                    {{ examen_alumno.alumnoId ? examen_alumno.alumnoId.persona.nombre ~ ' ' ~ examen_alumno.alumnoId.persona.apellido : 'N/A' }}
+                </td>
+                <td>{{ examen_alumno.nota }}</td>
+                <td>{{ examen_alumno.tomo }}</td>
+                <td>{{ examen_alumno.folio }}</td>
+                <td>
+                    {{ examen_alumno.examenFinalId and examen_alumno.examenFinalId.tecnicatura ? examen_alumno.examenFinalId.tecnicatura.nombre : 'N/A' }}
+                </td>
+                <td>
+                    {{ examen_alumno.examenFinalId and examen_alumno.examenFinalId.asignatura ? examen_alumno.examenFinalId.asignatura.nombre : 'N/A' }}
+                </td>
+                <td>
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <button onclick=\"openEditExamenAlumnoModal({{ examen_alumno.id }})\">Editar</button>
+                    {% endif %}
+                </td>
             </tr>
+        {% else %}
             <tr>
-                <th>Estudiante</th>
-                <th>Nota</th>
-                <th>Tomo</th>
-                <th>Folio</th>
-                <th>Tecnicatura</th>
-                <th>Asignatura</th>
-                <th>Acciones</th>
+                <td colspan=\"7\">No se encontraron registros</td>
             </tr>
-        </thead>
-        <tbody>
-            {% for examen_alumno in examen_alumnos %}
-                <tr>
-                    <td>
-                        {{ examen_alumno.alumno_id ? examen_alumno.alumno_id.persona.nombre ~ ' ' ~ examen_alumno.alumno_id.persona.apellido : 'N/A' }}
-                    </td>
-                    <td>{{ examen_alumno.nota }}</td>
-                    <td>{{ examen_alumno.tomo }}</td>
-                    <td>{{ examen_alumno.folio }}</td>
-                    <td>
-                        {{ examen_alumno.examenFinal_id and examen_alumno.examenFinal_id.tecnicatura ? examen_alumno.examenFinal_id.tecnicatura.nombre : 'N/A' }}
-                    </td>
-                    <td>
-                        {{ examen_alumno.examenFinal_id and examen_alumno.examenFinal_id.asignatura ? examen_alumno.examenFinal_id.asignatura.nombre : 'N/A' }}
-                    </td>
-                    <td>
-                        {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <button onclick=\"openEditExamenAlumnoModal({{ examen_alumno.id }})\">Editar</button>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan=\"7\">No se encontraron registros</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        {% endfor %}
+    </tbody>
+ </table>
     <div style=\"text-align: center; margin-top: 1em;\">
         <button id=\"backButtonNotas\" class=\"btn btn-primary\" onclick=\"showTable('tablaPrincipal')\" style=\"display: none;\">Regresar</button>
     </div>

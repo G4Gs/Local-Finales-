@@ -52,6 +52,13 @@ class ExamenFinalController extends AbstractController
         'examen_final' => $examenFinal,
         'form' => $form,
     ]);
+    if ($request->isXmlHttpRequest()) {
+    return $this->render('examen_final/_form.html.twig', [
+        'form' => $form->createView(),
+        'button_label' => 'Guardar',
+        'examen_final' => $examenFinal,
+    ]);
+}
  }
 
   #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
