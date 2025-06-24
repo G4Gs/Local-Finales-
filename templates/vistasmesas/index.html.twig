@@ -191,21 +191,15 @@
             </tbody>
         </table>
 
-        {# Botón de regreso #}
-        <div style="text-align: center; margin-top: 1em;">
-         <button id="backButton" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: center;">Regresar</button>
-       </div>
-      
-
 
         {# Inscriptos Vistas #}
         <table id="tablaInscriptos" class="tabla_home" style="display: none;" border="1">
             <thead>
                 <tr>
-                    <th colspan="4">Inscriptos</th>
+                    <th colspan="5">Inscriptos</th>
                 </tr>
                 <tr>
-                    <th colspan="4">
+                    <th colspan="5">
                         <input type="text" id="searchFecha" onkeyup="filterFecha()" placeholder="Buscar Fecha...">
                         <input type="text" id="searchEstudiante" onkeyup="filterEstudiante()" placeholder="Buscar Estudiante...">
                         <input type="text" id="searchTecnicatura" onkeyup="filterTecnicatura()" placeholder="Buscar Tecnicatura...">
