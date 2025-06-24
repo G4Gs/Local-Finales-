@@ -161,3 +161,15 @@ a5acc3,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/fin
 c071c9,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/vistasmesas,1750766249,,200
 1edbef,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/vistasmesas,1750766551,,200
 09cf76,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/nuevamesa,1750766675,,200
+229418,127.0.0.1,GET,http://localhost/Local-Finales-/public/,1750769703,,404
+56fbdf,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/,1750769715,,404
+3ff2e2,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1750769724,,200
+a7cf43,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750769733,efb0a4,404
+efb0a4,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750769733,,404
+e49da0,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1750769759,,302
+9024d9,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750769760,,200
+b2bde8,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/alumno/,1750769812,,200
+92ea71,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/alumno/,1750770125,,200
+84dcb9,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/alumno/,1750770241,,200
+6dfa2a,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/alumno/,1750770391,,200
+644213,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/vistasmesas,1750770420,,200
