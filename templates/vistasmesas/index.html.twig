@@ -173,23 +173,26 @@
             </thead>
             <tbody>
                 <tr>
+                  <td>
+                     <div>
+                        <button class:"buttonn" onclick="showTable('tablaInscriptos')">Ver</button>
+                     </div>
+                  </td>
                     <td>
-                        <button class:"button" onclick="showTable('tablaInscriptos')">Ver</button>
-                    </td>
-                    <td>
-                        <button class:"button" onclick="showTable('tablaMesas')">Ver</button>
+                     <div>
+                        <button class:"buttonn" onclick="showTable('tablaMesas')">Ver</button>
                         <button onclick="openModal('mesa')"class:"button">Establecer fecha</button>
+                     </div>
                     </td>
                     <td>
-                        <buttonclass:"button" onclick="showTable('tablaNotasFinales')">Ver</button>
-                        <button onclick="openModal('notaFinal')" class:"button">Cargar Nota</button>
-                    </td>
-
-
-                </tr>
-
-            </tbody>
-        </table>
+                     <div>
+                       <button class:"buttonn" onclick="showTable('tablaNotasFinales')">Ver</button>
+                       <button onclick="openModal('notaFinal')" class:"buttonn">Cargar Nota</button>
+                    </div>
+                  </td>
+             </tr>
+         </tbody>
+     </table>
 
 
         {# Inscriptos Vistas #}
@@ -225,7 +228,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="3">No se encontraron registros</td>
+                        <td colspan="5">No se encontraron registros</td>
                     </tr>
                 {% endfor %}>
             </tbody>
