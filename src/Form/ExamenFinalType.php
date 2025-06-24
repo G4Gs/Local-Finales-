@@ -3,9 +3,15 @@
 namespace App\Form;
 
 use App\Entity\ExamenFinal;
+use App\Entity\Docente;
+use App\Entity\Tecnicatura;
+use App\Entity\Asignatura;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 class ExamenFinalType extends AbstractType
 {
@@ -13,10 +19,45 @@ class ExamenFinalType extends AbstractType
     {
         $builder
             ->add('fecha')
-            ->add('presidente_id')
-            ->add('Vocal1_id')
-            ->add('Vocal2_id')
-            ->add('asignatura_id')
+             ->add('hora', TimeType::class, [
+                  'widget' => 'single_text',
+                  'required' => false,
+                  'label' => 'Hora',
+            ])
+            ->add('presidente', EntityType::class, [
+                'class' => Docente::class,
+                'choice_label' => 'persona',
+                'label' => 'Presidente de Mesa',
+            ])
+            ->add('vocal1', EntityType::class, [
+                'class' => Docente::class,
+                'choice_label' => 'persona',
+                'label' => 'Vocal 1',
+                'required' => false,
+            ])
+            ->add('vocal2', EntityType::class, [
+                'class' => Docente::class,
+                'choice_label' => 'persona',
+                'label' => 'Vocal 2',
+                'required' => false,
+            ])
+            ->add('estadoMesa', ChoiceType::class, [
+                'choices' => [
+                    'Libre' => 'Libre',
+                    'Regular' => 'Regular',
+                ],
+                'label' => 'Estado de Mesa',
+            ])
+            ->add('tecnicatura', EntityType::class, [
+                'class' => Tecnicatura::class,
+                'choice_label' => 'nombre',
+                'label' => 'Tecnicatura',
+            ])
+            ->add('asignatura', EntityType::class, [
+                'class' => Asignatura::class,
+                'choice_label' => 'nombre',
+                'label' => 'Asignatura',
+            ])
         ;
     }
 
