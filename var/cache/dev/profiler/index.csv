@@ -140,3 +140,7 @@ d9fae3,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/,175076463
 7d588b,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750764660,0cdbb8,404
 0cdbb8,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750764660,,404
 6b63b8,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1750764727,,302
+44d6c2,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750764729,,200
+00e7e7,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750764790,b17d78,500
+b17d78,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750764790,,500
+f533d5,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750765034,,200
