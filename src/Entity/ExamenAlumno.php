@@ -41,7 +41,6 @@ class ExamenAlumno
     public function setNota(string $nota): static
     {
         $this->nota = $nota;
-
         return $this;
     }
 
@@ -53,7 +52,6 @@ class ExamenAlumno
     public function setTomo(string $tomo): static
     {
         $this->tomo = $tomo;
-
         return $this;
     }
 
@@ -65,7 +63,6 @@ class ExamenAlumno
     public function setFolio(int $folio): static
     {
         $this->folio = $folio;
-
         return $this;
     }
 
@@ -77,7 +74,6 @@ class ExamenAlumno
     public function setAlumnoId(?Alumno $alumno_id): static
     {
         $this->alumno_id = $alumno_id;
-
         return $this;
     }
 
@@ -89,7 +85,6 @@ class ExamenAlumno
     public function setExamenFinalId(?ExamenFinal $examenFinal_id): static
     {
         $this->examenFinal_id = $examenFinal_id;
-
         return $this;
     }
 }
