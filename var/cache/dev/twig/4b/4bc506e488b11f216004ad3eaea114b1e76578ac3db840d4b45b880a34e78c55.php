@@ -294,10 +294,10 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
 
        ";
         // line 139
-        yield "       <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
+        yield "       <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
           <thead>
              <tr>
-               <th colspan=\"5\">Inscriptos</th>
+               <th colspan=\"5\">Mesas</th>
              </tr>
              <tr>
                <th>Fecha</th>
@@ -481,6 +481,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
             <div id=\"modalMesa\" class=\"submodal\"></div>
         </div>
     </div>
+    //para joan//
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -655,10 +656,10 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
        </div>      
 
        {# Mesas Vistas #}
-       <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
+       <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display:none;\" border=\"1\">
           <thead>
              <tr>
-               <th colspan=\"5\">Inscriptos</th>
+               <th colspan=\"5\">Mesas</th>
              </tr>
              <tr>
                <th>Fecha</th>
@@ -756,6 +757,7 @@ class __TwigTemplate_380dab3fecb676ded31f9e3b97a07fd72ff411f5c43f0fd7017bc6b3b78
             <div id=\"modalMesa\" class=\"submodal\"></div>
         </div>
     </div>
+    //para joan//
 {% endblock %}
 ", "vistasmesas/index.html.twig", "C:\\xampp\\htdocs\\local\\templates\\vistasmesas\\index.html.twig");
     }
