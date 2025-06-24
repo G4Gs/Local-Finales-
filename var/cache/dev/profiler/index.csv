@@ -130,3 +130,6 @@ e9e913,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-f
 b63abb,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1750726389,,302
 872dc4,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750726418,,200
 489a0f,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/inscripcion/final/,1750726630,,200
+92df71,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1750731670,,200
+79be9d,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750731681,5ef4d5,404
+5ef4d5,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750731681,,404
