@@ -11,7 +11,6 @@
         });
 
         function showTable(tableId) {
-<<<<<<< HEAD
            const tables = document.querySelectorAll('.tabla_home');
            tables.forEach(table => {
              if (table.id === tableId) {
@@ -31,33 +30,6 @@
          } else if (tableId === 'tablaNotasFinales') {
              document.getElementById('backButtonNotas').style.display = '';
            }
-=======
-            const tables = document.querySelectorAll('.tabla_home');
-            tables.forEach(table => {
-                table.style.display = (table.id === tableId) ? '' : 'none';
-            });
-
-            const backButton = document.getElementById('backButton');
-            backButton.style.display = (tableId === 'tablaPrincipal') ? 'none' : '';
-        }
-    </script>
-
-    {# Filtros para tabla inscriptos #}
-    <script>
-        function filterTable(inputId, columnIndex) {
-            let input = document.getElementById(inputId);
-            let filter = input.value.toLowerCase();
-            let table = document.getElementById("tablaInscriptos");
-            let rows = table.getElementsByTagName("tr");
-
-            for (let i = 2; i < rows.length; i++) { // Empieza en 2 para saltar encabezados
-                let cell = rows[i].getElementsByTagName("td")[columnIndex];
-                if (cell) {
-                    let textValue = cell.textContent || cell.innerText;
-                    rows[i].style.display = textValue.toLowerCase().includes(filter) ? "" : "none";
-                }
-            }
->>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
         }
  </script>
 
@@ -100,7 +72,6 @@
             </thead>
             <tbody>
                 <tr>
-<<<<<<< HEAD
                   <td>
                      <div>
                         <button class:"buttonn" onclick="showTable('tablaInscriptos')">Ver</button>
@@ -121,22 +92,6 @@
              </tr>
          </tbody>
      </table>
-=======
-                    <td><button onclick="showTable('tablaInscriptos')">Ver</button></td>
-                    <td>
-                        <button onclick="showTable('tablaMesas')">Ver</button>
-                        <button onclick="openModal('mesa')">Establecer fecha</button>
-                    </td>
-                    <td>
-                        <button onclick="showTable('tablaNotasFinales')">Ver</button>
-                        <button onclick="openModal('notaFinal')">Cargar Nota</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <button id="backButton" onclick="showTable('tablaPrincipal')" style="display:none;">Regresar</button>
->>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
         {# Tabla Inscriptos #}
         <table id="tablaInscriptos" class="tabla_home" style="display:none;" border="1">
@@ -145,19 +100,11 @@
                     <th colspan="5">Inscriptos</th>
                 </tr>
                 <tr>
-<<<<<<< HEAD
                     <th colspan="5">
                         <input type="text" id="searchFecha" onkeyup="filterFecha()" placeholder="Buscar Fecha...">
                         <input type="text" id="searchEstudiante" onkeyup="filterEstudiante()" placeholder="Buscar Estudiante...">
                         <input type="text" id="searchTecnicatura" onkeyup="filterTecnicatura()" placeholder="Buscar Tecnicatura...">
                         <input type="text" id="searchAsignatura" onkeyup="filterAsignatura()" placeholder="Buscar Asignatura...">
-=======
-                    <th colspan="4">
-                        <input type="text" id="searchFecha" onkeyup="filterTable('searchFecha', 0)" placeholder="Buscar Fecha...">
-                        <input type="text" id="searchEstudiante" onkeyup="filterTable('searchEstudiante', 1)" placeholder="Buscar Estudiante...">
-                        <input type="text" id="searchTecnicatura" onkeyup="filterTable('searchTecnicatura', 2)" placeholder="Buscar Tecnicatura...">
-                        <input type="text" id="searchAsignatura" onkeyup="filterTable('searchAsignatura', 3)" placeholder="Buscar Asignatura...">
->>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
                     </th>
                 </tr>
                 <tr>
@@ -172,7 +119,6 @@
                 {% for inscripcion_final in inscripcion_finals %}
                     <tr>
                         <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
-<<<<<<< HEAD
                         <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
                         <td>{{ inscripcion_final.getAlumnoId() }}</td>
                         <td>{{ inscripcion_final.getAsignaturaId().tecnicatura }}</td>
@@ -190,102 +136,45 @@
        </div>      
 
        {# Mesas Vistas #}
-       <table id="tablaMesas" class="tabla_home" style="display: none;" border="1">
+       <table id="tablaInscriptos" class="tabla_home" style="display:none;" border="1">
           <thead>
              <tr>
-                 <th colspan="7">Mesas de Finales</th>
+               <th colspan="5">Inscriptos</th>
              </tr>
-              <tr>
-                 <th>Asignatura</th>
-                 <th>Fecha</th>
-                 <th>hora</th>
-                 <th>Presidente</th>
-                 <th>Primer Vocal</th>
-                 <th>Segundo Vocal</th>
-                 <th>Tecnicatura</th>
+             <tr>
+               <th>Fecha</th>
+               <th>Hora</th>
+               <th>Estudiante</th>
+               <th>Tecnicatura</th>
+               <th>Asignatura</th>
              </tr>
          </thead>
          <tbody>
-             {% for examen_final in examen_finals %}
+             {% for inscripcion_final in inscripcion_finals %}
                  <tr>
-                     <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : '' }}</td>
-                     <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
-                     <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
-                     <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
-                     <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
-                     <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
-                     <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : '' }}</td>
+                   <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
+                     {{ inscripcion_final.examenFinal and inscripcion_final.examenFinal.hora ? inscripcion_final.examenFinal.hora|date('H:i') : '' }}
+                   </td>
+                   <td>
+                     {{ inscripcion_final.alumno ? inscripcion_final.alumno.persona.nombre ~ ' ' ~ inscripcion_final.alumno.persona.apellido : 'N/A' }}
+                   </td>
+                   <td>
+                     {{ inscripcion_final.asignatura and inscripcion_final.asignatura.tecnicatura ? inscripcion_final.asignatura.tecnicatura.nombre : 'N/A' }}
+                   </td>
+                   <td>
+                     {{ inscripcion_final.asignatura ? inscripcion_final.asignatura.nombre : 'N/A' }}
+                   </td>
                  </tr>
              {% else %}
                  <tr>
-                     <td colspan="6">No se encontraron registros</td>
-                  </tr>
+                  <td colspan="5">No se encontraron registros</td>
+                 </tr>
              {% endfor %}
-         </tbody>
+          </tbody>
      </table>
      <div style="text-align: center; margin-top: 1em;">
          <button id="backButtonMesas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
      </div>
-=======
-                        <td>{{ inscripcion_final.alumno ? inscripcion_final.alumno.persona.nombre ~ ' ' ~ inscripcion_final.alumno.persona.apellido : 'N/A' }}</td>
-                        <td>{{ inscripcion_final.asignatura ? inscripcion_final.asignatura.tecnicatura : 'N/A' }}</td>
-                        <td>{{ inscripcion_final.asignatura ? inscripcion_final.asignatura.nombre : 'N/A' }}</td>
-                    </tr>
-                {% else %}
-                    <tr><td colspan="4">No se encontraron registros</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        {# Tabla Mesas #}
-        <table id="tablaMesas" class="tabla_home" style="display:none;" border="1">
-            <thead>
-                <tr>
-                    <th colspan="6">Mesas de Finales</th>
-                </tr>
-                <tr>
-                    <th>Asignatura</th>
-                    <th>Fecha</th>
-                    <th>Presidente</th>
-                    <th>Primer Vocal</th>
-                    <th>Segundo Vocal</th>
-                    <th>Tecnicatura</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for examen_final in examen_finals %}
-                    <tr>
-                        <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : 'N/A' }}</td>
-                        <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : 'N/A' }}</td>
-                        <td>
-                            {% if examen_final.presidente and examen_final.presidente.persona %}
-                                {{ examen_final.presidente.persona.nombre }} {{ examen_final.presidente.persona.apellido }}
-                            {% else %}
-                                N/A
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if examen_final.vocal1 and examen_final.vocal1.persona %}
-                                {{ examen_final.vocal1.persona.nombre }} {{ examen_final.vocal1.persona.apellido }}
-                            {% else %}
-                                N/A
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if examen_final.vocal2 and examen_final.vocal2.persona %}
-                                {{ examen_final.vocal2.persona.nombre }} {{ examen_final.vocal2.persona.apellido }}
-                            {% else %}
-                                N/A
-                            {% endif %}
-                        </td>
-                        <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : 'N/A' }}</td>
-                    </tr>
-                {% else %}
-                    <tr><td colspan="6">No se encontraron registros</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
->>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
         {# Tabla Notas Finales #}
         <table id="tablaNotasFinales" class="tabla_home" style="display:none;" border="1">
@@ -335,15 +224,11 @@
                 {% endfor %}
             </tbody>
         </table>
-<<<<<<< HEAD
         </table>
         <div style="text-align: center; margin-top: 1em;">
            <button id="backButtonNotas" class="btn btn-primary" onclick="showTable('tablaPrincipal')" style="display: none;">Regresar</button>
        </div>
  </div>    
-=======
-    </div>
->>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
     <!-- Modal -->
     <div id="MesaModal" class="modal" style="display:none;">

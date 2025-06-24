@@ -1,2 +1,5 @@
 409d9b,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750728740,6f2a7c,500
 6f2a7c,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750728740,,500
+fa73b2,::1,GET,http://localhost/local/public/index.php/vistasmesas,1750728998,,200
+55eb4e,::1,GET,http://localhost/local/public/index.php/examen/final/,1750729004,e66044,500
+e66044,::1,GET,http://localhost/local/public/index.php/examen/final/,1750729004,,500
