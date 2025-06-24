@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mesas de Finales{% endblock %}
+{% block title %}<div display: center; font-weight: bold;">
+     Mesas de Finales
+</div>{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -128,7 +130,7 @@
                     <tr>
                         <td colspan="5">No se encontraron registros</td>
                     </tr>
-                {% endfor %}>
+                {% endfor %}
             </tbody>
         </table> 
         <div style="text-align: center; margin-top: 1em;">
@@ -237,5 +239,4 @@
             <div id="modalMesa" class="submodal"></div>
         </div>
     </div>
-    //para joan//
 {% endblock %}
