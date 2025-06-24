@@ -122,3 +122,11 @@ f26087,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/fin
 88ef45,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/examen/final/7,1750690171,,303
 ab7316,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750690176,,200
 bf4c76,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750690184,,200
+850ea3,127.0.0.1,GET,http://localhost/Local-Finales-/public/,1750726212,,404
+6236,,404
+90ad21,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1750726259,,200
+e9e913,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750726282,043644,404
+043644,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750726282,,404
+b63abb,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1750726389,,302
+872dc4,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750726418,,200
+489a0f,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/inscripcion/final/,1750726630,,200
