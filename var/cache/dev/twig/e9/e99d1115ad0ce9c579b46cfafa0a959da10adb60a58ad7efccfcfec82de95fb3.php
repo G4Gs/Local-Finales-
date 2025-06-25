@@ -181,7 +181,7 @@ class __TwigTemplate_747e5ae9ea0ff0528dc3bc4d115442bf6fc995cedd8173c05a02a3dae14
 
 ";
         // line 52
-        if (($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN"))) {
+        if ((($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_PRECEPTOR")) || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN"))) {
             // line 53
             yield "    <button id=\"guardarCambiosButton\" class=\"btn-success\">Guardar Cambios</button>
 ";
@@ -210,13 +210,13 @@ const rutaGuardarAsistencia = \"";
 
 const puedeEditar = ";
         // line 64
-        yield ((($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN"))) ? ("true") : ("false"));
+        yield (((($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN") || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_PRECEPTOR")) || $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN"))) ? ("true") : ("false"));
         yield ";
 
 const theadRow = document.querySelector('#fechas-header');
 const tbody = document.querySelector('#EstadisticasModal tbody');
 
-const opciones = ['P', 'A', 'T', 'J', 'N']; // Presente, Ausente, Media falta (T), Justificada, No marcado
+const opciones = ['P', 'A', 'T', 'J', 'N']; // Presente, Ausente, Media falta, Justificada, No marcado
 
 function crearSelect(valorSeleccionado) {
     const select = document.createElement('select');
@@ -473,8 +473,8 @@ async function EditarSeleccionados() {
 
 <button id=\"verListaButton\" class=\"btn-primary\">Volver</button>
 
-{# Mostrar botón Guardar solo para admins #}
-{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
+{# Mostrar botón Guardar solo para admins, preceptores o superadmins #}
+{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PRECEPTOR') or is_granted('ROLE_SUPER_ADMIN') %}
     <button id=\"guardarCambiosButton\" class=\"btn-success\">Guardar Cambios</button>
 {% endif %}
 
@@ -486,12 +486,12 @@ const rutaCalendarioFechas = \"{{ path('api_calendario_fechas', {'cursoId': curs
 const rutaAsistenciasPorFecha = \"{{ path('asistencias_por_fecha', {'cursoId': curso.id}) }}\";
 const rutaGuardarAsistencia = \"{{ path('guardar_asistencia') }}\";
 
-const puedeEditar = {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN')) ? 'true' : 'false' }};
+const puedeEditar = {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_PRECEPTOR') or is_granted('ROLE_SUPER_ADMIN')) ? 'true' : 'false' }};
 
 const theadRow = document.querySelector('#fechas-header');
 const tbody = document.querySelector('#EstadisticasModal tbody');
 
-const opciones = ['P', 'A', 'T', 'J', 'N']; // Presente, Ausente, Media falta (T), Justificada, No marcado
+const opciones = ['P', 'A', 'T', 'J', 'N']; // Presente, Ausente, Media falta, Justificada, No marcado
 
 function crearSelect(valorSeleccionado) {
     const select = document.createElement('select');
