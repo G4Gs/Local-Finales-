@@ -40,12 +40,13 @@ class ExamenFinalController extends AbstractController
         'button_label' => 'Guardar',
         'examen_final' => $examenFinal,
     ]);
-}
- }
+   }
+
+  }
 
   #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
-public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
-{
+ public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
+ {
     $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
     $form = $this->createForm(ExamenFinalType::class, $examenFinal);
@@ -68,7 +69,7 @@ public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepo
     return $this->render('vistasmesas/Super_Editar.html.twig', [
         'form_examen_final' => $form->createView(),
     ]);
-}
+ }
 
 
   #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
@@ -112,4 +113,5 @@ public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepo
 
     return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
   }
+ }
 }
