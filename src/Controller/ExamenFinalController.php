@@ -34,6 +34,7 @@ class ExamenFinalController extends AbstractController
         'examen_alumnos' => $examen_alumnos,
         'inscripcion_finals' => $inscripcion_finals,
     ]);
+<<<<<<< HEAD
 }
 
     #[Route('/new', name: 'app_examen_final_new', methods: ['GET', 'POST'])]
@@ -51,8 +52,34 @@ class ExamenFinalController extends AbstractController
                 $this->addFlash('error', 'Error inesperado al guardar el examen final.');
                 return $this->redirectToRoute('app_examen_final_index');
             }
+=======
+    if ($request->isXmlHttpRequest()) {
+    return $this->render('examen_final/_form.html.twig', [
+        'form' => $form->createView(),
+        'button_label' => 'Guardar',
+        'examen_final' => $examenFinal,
+    ]);
+}
+ }
+
+  #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
+public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
+{
+    $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
+    $form = $this->createForm(ExamenFinalType::class, $examenFinal);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        try {
+            $examenFinalRepository->save($examenFinal, true);
+            return $this->json(['success' => true]);
+        } catch (UniqueConstraintViolationException $e) {
+            return $this->json(['success' => false, 'error' => 'Error inesperado al guardar el examen final.']);
+>>>>>>> gregy
         }
 
+<<<<<<< HEAD
         if ($request->isXmlHttpRequest()) {
             return $this->render('examen_final/_form.html.twig', [
                 'form' => $form->createView(),
@@ -96,7 +123,18 @@ class ExamenFinalController extends AbstractController
             'form' => $form,
         ]);
 }
+=======
+    if ($request->isXmlHttpRequest()) {
+        return $this->render('vistasmesas/Super_Editar.html.twig', [
+            'form_examen_final' => $form->createView(),
+        ]);
+    }
+>>>>>>> gregy
 
+    return $this->render('vistasmesas/Super_Editar.html.twig', [
+        'form_examen_final' => $form->createView(),
+    ]);
+}
 
 
   #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]

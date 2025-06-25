@@ -1,3 +1,7 @@
 <?php //%5BC%5DApp%255CEntity%255CExamenAlumno%2523getExamenFinalId
 
+<<<<<<< HEAD
 return [PHP_INT_MAX, 1750730196];
+=======
+return [PHP_INT_MAX, 1750767474];
+>>>>>>> gregy

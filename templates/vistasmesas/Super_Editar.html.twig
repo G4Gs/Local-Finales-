@@ -1,0 +1,35 @@
+{% block title %}<h1 style="text-align: center;">Edición de Datos</h1>{% endblock %}
+
+{% block body %}
+    <div style="max-width: 600px; margin: 0 auto;">
+        {% if form_inscripcion is defined %}
+            <h2 style="text-align: center;">Editar Inscripción a Final</h2>
+            {{ form_start(form_inscripcion) }}
+                {{ form_widget(form_inscripcion) }}
+                <div style="text-align: center;">
+                    <button class="btn btn-primary">Guardar cambios</button>
+                </div>
+            {{ form_end(form_inscripcion) }}
+        {% endif %}
+
+        {% if form_examen_final is defined %}
+            <h2 style="text-align: center;">Editar Fecha de Final</h2>
+            {{ form_start(form_examen_final) }}
+                {{ form_widget(form_examen_final) }}
+                <div style="text-align: center;">
+                    <button class="btn btn-primary">Guardar cambios</button>
+                </div>
+            {{ form_end(form_examen_final) }}
+        {% endif %}
+
+        {% if form_nota is defined %}
+            <h2 style="text-align: center;">Editar Nota de Final</h2>
+            {{ form_start(form_nota) }}
+                {{ form_widget(form_nota) }}
+                <div style="text-align: center;">
+                    <button class="btn btn-primary">Guardar cambios</button>
+                </div>
+            {{ form_end(form_nota) }}
+        {% endif %}
+    </div>
+{% endblock %}
