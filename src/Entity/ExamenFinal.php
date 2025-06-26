@@ -35,13 +35,9 @@ class ExamenFinal
     #[ORM\Column(type: 'time', nullable: true)]
     private ?\DateTimeInterface $hora = null;
 
-    #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
+    #[ORM\ManyToOne(targetEntity: Curso::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Tecnicatura $tecnicatura = null;
-
-    #[ORM\ManyToOne(targetEntity: Asignatura::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Asignatura $asignatura = null;
+    private ?Curso $curso = null;
 
     public function getId(): ?int { return $this->id; }
     public function getFecha(): ?\DateTimeInterface { return $this->fecha; }
@@ -69,10 +65,15 @@ class ExamenFinal
       $this->hora = $hora;
      return $this;
     }
+   public function getCurso(): ?Curso
+   {
+      return $this->curso;
+   }
 
-    public function getTecnicatura(): ?Tecnicatura { return $this->tecnicatura; }
-    public function setTecnicatura(?Tecnicatura $tecnicatura): static { $this->tecnicatura = $tecnicatura; return $this; }
-
-    public function getAsignatura(): ?Asignatura { return $this->asignatura; }
-    public function setAsignatura(?Asignatura $asignatura): static { $this->asignatura = $asignatura; return $this; }
+   public function setCurso(?Curso $curso): static
+    {
+      $this->curso = $curso;
+      return $this;
+    }
+   
 }

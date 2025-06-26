@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CNotaController%2523index
 
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1750728738];
-=======
-return [PHP_INT_MAX, 1750767702];
->>>>>>> gregy
+return [PHP_INT_MAX, 1750894155];

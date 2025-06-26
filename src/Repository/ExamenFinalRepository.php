@@ -39,29 +39,23 @@ class ExamenFinalRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByFilters(?string $tecnicatura, ?string $asignatura, ?string $presidente): array
-    {
-        $qb = $this->createQueryBuilder('e')
-            ->leftJoin('e.tecnicatura', 't')
-            ->leftJoin('e.asignatura', 'a')
-            ->leftJoin('e.presidente', 'p')
-            ->leftJoin('p.persona', 'pp');
+    public function findByFilters(?string $curso, ?string $presidente): array
+{
+    $qb = $this->createQueryBuilder('e')
+        ->leftJoin('e.curso', 'c')
+        ->leftJoin('e.presidente', 'p')
+        ->leftJoin('p.persona', 'pp');
 
-        if ($tecnicatura) {
-            $qb->andWhere('LOWER(t.nombre) LIKE :tecnicatura')
-               ->setParameter('tecnicatura', '%' . strtolower($tecnicatura) . '%');
-        }
-
-        if ($asignatura) {
-            $qb->andWhere('LOWER(a.nombre) LIKE :asignatura')
-               ->setParameter('asignatura', '%' . strtolower($asignatura) . '%');
-        }
-
-        if ($presidente) {
-            $qb->andWhere('LOWER(pp.nombre) LIKE :presidente')
-               ->setParameter('presidente', '%' . strtolower($presidente) . '%');
-        }
-
-        return $qb->getQuery()->getResult();
+    if ($curso) {
+        $qb->andWhere('c.id = :curso')
+           ->setParameter('curso', $curso);
     }
+
+    if ($presidente) {
+        $qb->andWhere('LOWER(pp.nombre) LIKE :presidente')
+           ->setParameter('presidente', '%' . strtolower($presidente) . '%');
+    }
+
+    return $qb->getQuery()->getResult();
+ }
 }

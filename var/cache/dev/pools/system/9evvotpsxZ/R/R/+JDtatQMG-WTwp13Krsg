@@ -1,7 +1,3 @@
 <?php //%5BC%5DSymfony%255CComponent%255CHttpKernel%255CKernel%2523getContainerLoader
 
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1750728740];
-=======
-return [PHP_INT_MAX, 1750765094];
->>>>>>> gregy
+return [PHP_INT_MAX, 1750894156];

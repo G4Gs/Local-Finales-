@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CExamenFinalController%2523edit
 
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1750762660];
-=======
-return [PHP_INT_MAX, 1750767702];
->>>>>>> gregy
+return [PHP_INT_MAX, 1750896591];

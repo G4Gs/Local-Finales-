@@ -246,56 +246,53 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
               <th>Vocal 1</th>
               <th>Vocal 2</th>
               <th>Estado de Mesa</th>
-              <th>Tecnicatura</th>
-              <th>Asignatura</th>
+              <th>Curso</th>
               <th>Acciones</th>
           </tr>
       </thead>
       <tbody>
       ";
-        // line 120
+        // line 119
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 120, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 119, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_final"]) {
-            // line 121
+            // line 120
             yield "          <tr>
               <td>";
+            // line 121
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 121), "html", null, true);
+            yield "</td>
+              <td>";
             // line 122
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 122), "html", null, true);
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 122)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 122), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
               <td>";
             // line 123
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 123)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 123), "Y-m-d"), "html", null, true)) : (""));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 123)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 123), "H:i"), "html", null, true)) : (""));
             yield "</td>
               <td>";
             // line 124
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 124)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 124), "H:i"), "html", null, true)) : (""));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 124)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 124), "persona", [], "any", false, false, false, 124), "html", null, true)) : (""));
             yield "</td>
               <td>";
             // line 125
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 125)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 125), "persona", [], "any", false, false, false, 125), "html", null, true)) : (""));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 125)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 125), "persona", [], "any", false, false, false, 125), "html", null, true)) : (""));
             yield "</td>
               <td>";
             // line 126
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 126)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 126), "persona", [], "any", false, false, false, 126), "html", null, true)) : (""));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 126)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 126), "persona", [], "any", false, false, false, 126), "html", null, true)) : (""));
             yield "</td>
               <td>";
             // line 127
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 127)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 127), "persona", [], "any", false, false, false, 127), "html", null, true)) : (""));
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "estadoMesa", [], "any", false, false, false, 127), "html", null, true);
             yield "</td>
-              <td>";
-            // line 128
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "estadoMesa", [], "any", false, false, false, 128), "html", null, true);
-            yield "</td>
-              <td>";
+              <td>
+                 ";
             // line 129
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 129)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 129), "nombre", [], "any", false, false, false, 129), "html", null, true)) : (""));
-            yield "</td>
-              <td>";
-            // line 130
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 130)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 130), "nombre", [], "any", false, false, false, 130), "html", null, true)) : (""));
-            yield "</td>
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 129)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 129), "asignatura", [], "any", false, false, false, 129), "nombre", [], "any", false, false, false, 129) . " - ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 129), "comision", [], "any", false, false, false, 129), "ciclolectivo", [], "any", false, false, false, 129)), "html", null, true)) : (""));
+            yield "
+              </td>
               <td>
                   <button type=\"button\" class=\"buttonn\" onclick=\"openEditExamenModal(";
             // line 132
@@ -312,7 +309,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
         if (!$context['_iterated']) {
             // line 138
             yield "          <tr>
-              <td colspan=\"10\">No se encontraron registros</td>
+              <td colspan=\"9\">No se encontraron registros</td>
           </tr>
       ";
         }
@@ -373,7 +370,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
      */
     public function getDebugInfo(): array
     {
-        return array (  323 => 142,  314 => 138,  312 => 141,  302 => 132,  297 => 130,  293 => 129,  289 => 128,  285 => 127,  281 => 126,  277 => 125,  273 => 124,  269 => 123,  265 => 122,  262 => 121,  257 => 120,  238 => 103,  229 => 100,  226 => 99,  222 => 98,  218 => 96,  205 => 95,  173 => 73,  149 => 52,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  320 => 142,  311 => 138,  309 => 141,  299 => 132,  293 => 129,  288 => 127,  284 => 126,  280 => 125,  276 => 124,  272 => 123,  268 => 122,  264 => 121,  261 => 120,  256 => 119,  238 => 103,  229 => 100,  226 => 99,  222 => 98,  218 => 96,  205 => 95,  173 => 73,  149 => 52,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -491,8 +488,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
               <th>Vocal 1</th>
               <th>Vocal 2</th>
               <th>Estado de Mesa</th>
-              <th>Tecnicatura</th>
-              <th>Asignatura</th>
+              <th>Curso</th>
               <th>Acciones</th>
           </tr>
       </thead>
@@ -506,8 +502,9 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
               <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
               <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
               <td>{{ examen_final.estadoMesa }}</td>
-              <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : '' }}</td>
-              <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : '' }}</td>
+              <td>
+                 {{ examen_final.curso ? examen_final.curso.asignatura.nombre ~ ' - ' ~ examen_final.curso.comision.ciclolectivo : '' }}
+              </td>
               <td>
                   <button type=\"button\" class=\"buttonn\" onclick=\"openEditExamenModal({{ examen_final.id }})\">
                       Editar
@@ -516,7 +513,7 @@ class __TwigTemplate_085758ccbbf1fc177fc5f9348528f61dfb09859f0bc1f1ad279f63a3f6d
           </tr>
       {% else %}
           <tr>
-              <td colspan=\"10\">No se encontraron registros</td>
+              <td colspan=\"9\">No se encontraron registros</td>
           </tr>
       {% endfor %}
       </tbody>

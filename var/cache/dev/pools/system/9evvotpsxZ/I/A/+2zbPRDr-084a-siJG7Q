@@ -1,7 +1,3 @@
 <?php //%5BC%5DSymfony%255CComponent%255CHttpKernel%255CController%255CErrorController
 
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1750728740];
-=======
-return [PHP_INT_MAX, 1750767081];
->>>>>>> gregy
+return [PHP_INT_MAX, 1750895449];

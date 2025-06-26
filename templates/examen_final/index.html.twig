@@ -111,8 +111,7 @@
               <th>Vocal 1</th>
               <th>Vocal 2</th>
               <th>Estado de Mesa</th>
-              <th>Tecnicatura</th>
-              <th>Asignatura</th>
+              <th>Curso</th>
               <th>Acciones</th>
           </tr>
       </thead>
@@ -126,8 +125,9 @@
               <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
               <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
               <td>{{ examen_final.estadoMesa }}</td>
-              <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : '' }}</td>
-              <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : '' }}</td>
+              <td>
+                 {{ examen_final.curso ? examen_final.curso.asignatura.nombre ~ ' - ' ~ examen_final.curso.comision.ciclolectivo : '' }}
+              </td>
               <td>
                   <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">
                       Editar
@@ -136,7 +136,7 @@
           </tr>
       {% else %}
           <tr>
-              <td colspan="10">No se encontraron registros</td>
+              <td colspan="9">No se encontraron registros</td>
           </tr>
       {% endfor %}
       </tbody>
