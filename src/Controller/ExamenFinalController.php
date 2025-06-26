@@ -18,7 +18,7 @@ class ExamenFinalController extends AbstractController
     #[Route('/', name: 'app_examen_final_index', methods: ['GET'])]
     public function index(Request $request, ExamenFinalRepository $examenFinalRepository): Response
     {
-        $curso = $request->query->get('curso');      // filtro opcional
+        $curso = $request->query->get('curso');
         $presidente = $request->query->get('presidente');
 
         $examen_finals = $examenFinalRepository->findByFilters($curso, $presidente);
@@ -38,34 +38,27 @@ class ExamenFinalController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $examenFinalRepository->save($examenFinal, true);
-                if ($request->isXmlHttpRequest()) {
-                    return new Response('OK');
-                }
+                $this->addFlash('success', 'Examen final creado correctamente.');
+
                 return $this->redirectToRoute('app_examen_final_index');
             } catch (UniqueConstraintViolationException $e) {
-                $this->addFlash('error', 'Error inesperado al guardar el examen final.');
-                if ($request->isXmlHttpRequest()) {
-                    return $this->render('examen_final/_form.html.twig', [
-                        'form' => $form->createView(),
-                        'button_label' => 'Guardar',
-                        'examen_final' => $examenFinal,
-                    ]);
-                }
-                return $this->redirectToRoute('app_examen_final_index');
+                $this->addFlash('error', 'Error: Ya existe un examen con esos datos.');
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Ocurrió un error inesperado.');
             }
         }
 
         if ($request->isXmlHttpRequest()) {
             return $this->render('examen_final/_form.html.twig', [
                 'form' => $form->createView(),
-                'button_label' => 'Guardar',
                 'examen_final' => $examenFinal,
+                'button_label' => 'Guardar',
             ]);
         }
 
         return $this->renderForm('examen_final/new.html.twig', [
-            'examen_final' => $examenFinal,
             'form' => $form,
+            'examen_final' => $examenFinal,
         ]);
     }
 
@@ -78,34 +71,27 @@ class ExamenFinalController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $examenFinalRepository->save($examenFinal, true);
-                if ($request->isXmlHttpRequest()) {
-                    return new Response('OK');
-                }
+                $this->addFlash('success', 'Examen final actualizado correctamente.');
+
                 return $this->redirectToRoute('app_examen_final_index');
             } catch (UniqueConstraintViolationException $e) {
-                $this->addFlash('error', 'Error inesperado al guardar el examen final.');
-                if ($request->isXmlHttpRequest()) {
-                    return $this->render('examen_final/_form.html.twig', [
-                        'form' => $form->createView(),
-                        'button_label' => 'Actualizar',
-                        'examen_final' => $examenFinal,
-                    ]);
-                }
-                return $this->redirectToRoute('app_examen_final_index');
+                $this->addFlash('error', 'Error: Ya existe un examen con esos datos.');
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Ocurrió un error inesperado.');
             }
         }
 
         if ($request->isXmlHttpRequest()) {
             return $this->render('examen_final/_form.html.twig', [
                 'form' => $form->createView(),
-                'button_label' => 'Actualizar',
                 'examen_final' => $examenFinal,
+                'button_label' => 'Actualizar',
             ]);
         }
 
         return $this->renderForm('examen_final/edit.html.twig', [
-            'examen_final' => $examenFinal,
             'form' => $form,
+            'examen_final' => $examenFinal,
         ]);
     }
 
@@ -114,24 +100,23 @@ class ExamenFinalController extends AbstractController
     {
         if (!$this->isCsrfTokenValid('delete' . $examenFinal->getId(), $request->request->get('_token'))) {
             $this->addFlash('error', 'Token CSRF inválido.');
-            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+            return $this->redirectToRoute('app_examen_final_index');
         }
 
-        $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal' => $examenFinal]);
+        $alumnos = $examenAlumnoRepository->findBy(['examenFinal' => $examenFinal]);
 
-        if (count($alumnosAsociados) > 0) {
-            $this->addFlash('error', 'No se puede eliminar el examen final porque tiene alumnos asociados.');
+        if (count($alumnos) > 0) {
+            $this->addFlash('error', 'No se puede eliminar el examen: tiene alumnos inscriptos.');
             return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
         }
 
         try {
             $examenFinalRepository->remove($examenFinal, true);
-            $this->addFlash('success', 'Examen final eliminado correctamente.');
+            $this->addFlash('success', 'Examen final eliminado.');
         } catch (\Exception $e) {
             $this->addFlash('error', 'Error al eliminar: ' . $e->getMessage());
-            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
         }
 
-        return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_examen_final_index');
     }
 }

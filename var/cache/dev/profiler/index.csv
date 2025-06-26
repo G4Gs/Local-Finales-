@@ -202,3 +202,13 @@ abfa4f,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,17509
 decff2,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750919264,,500
 28759c,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750919892,b73b27,500
 b73b27,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750919894,,500
+896f83,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1750923656,,200
+d18872,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750923679,8fe2a9,404
+8fe2a9,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750923682,,404
+427466,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1750923704,,302
+b8c90a,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750923705,,200
+99ea20,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750923761,6b08b0,500
+6b08b0,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750923761,,500
+21ec28,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1750933117,,302
+6a3b0b,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750933151,,200
+bca560,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1750933241,,200
