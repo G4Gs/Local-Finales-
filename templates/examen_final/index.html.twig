@@ -99,52 +99,52 @@
     <div class="alert alert-danger">
         {{ message }}
     </div>
-  {% endfor %}
+{% endfor %}
 
-  <table class="tabla_home">
-      <thead>
-          <tr>
-              <th>ID</th>
-              <th>Fecha</th>
-              <th>Hora</th>
-              <th>Presidente</th>
-              <th>Vocal 1</th>
-              <th>Vocal 2</th>
-              <th>Estado de Mesa</th>
-              <th>Curso</th>
-              <th>Acciones</th>
-          </tr>
-      </thead>
-      <tbody>
-      {% for examen_final in examen_finals %}
-          <tr>
-              <td>{{ examen_final.id }}</td>
-              <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
-              <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
-              <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
-              <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
-              <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
-              <td>{{ examen_final.estadoMesa }}</td>
-              <td>
-                 {{ examen_final.curso ? examen_final.curso.asignatura.nombre ~ ' - ' ~ examen_final.curso.comision.ciclolectivo : '' }}
-              </td>
-              <td>
-                  <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">
-                      Editar
-                  </button>
-              </td>
-          </tr>
-      {% else %}
-          <tr>
-              <td colspan="9">No se encontraron registros</td>
-          </tr>
-      {% endfor %}
-      </tbody>
-  </table>
+<table class="tabla_home">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Presidente</th>
+            <th>Vocal 1</th>
+            <th>Vocal 2</th>
+            <th>Estado de Mesa</th>
+            <th>Curso</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for examen_final in examen_finals %}
+        <tr>
+            <td>{{ examen_final.id }}</td>
+            <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+            <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
+            <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
+            <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
+            <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
+            <td>{{ examen_final.estadoMesa }}</td>
+            <td>
+                {{ examen_final.curso ? examen_final.curso.asignatura.nombre ~ ' - ' ~ examen_final.curso.comision.ciclo_lectivo : '' }}
+            </td>
+            <td>
+                <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">
+                    Editar
+                </button>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="9">No se encontraron registros</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
-  <div style="text-align: center;">
-      <button class="buttonn" onclick="openNewExamenModal()">Crear Nuevo Examen Final</button>
-  </div>
+<div style="text-align: center;">
+    <button class="buttonn" onclick="openNewExamenModal()">Crear Nuevo Examen Final</button>
+</div>
 
 <!-- Modal para editar -->
 <div id="editExamenModal" class="modal" style="display: none;">
@@ -160,5 +160,5 @@
         <span class="close" onclick="closeNewExamenModal()">&times;</span>
         <div id="newExamenBody" class="submodal"></div>
     </div>
-  </div>
+</div>
 {% endblock %}

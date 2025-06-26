@@ -19,7 +19,12 @@ final class Version20250617012414 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        // this up() migration is auto-generated, please modify it to your needs
+        // Elimina o comenta la siguiente línea si la columna curso_id ya existe en examen_final
+        // $this->addSql('ALTER TABLE examen_final ADD curso_id INT DEFAULT NULL');
+
+        // Si necesitas la foreign key y no existe, puedes agregarla así:
+        // $this->addSql('ALTER TABLE examen_final ADD CONSTRAINT FK_EXAMEN_FINAL_CURSO FOREIGN KEY (curso_id) REFERENCES curso (id)');
+
         $this->addSql('ALTER TABLE alumno CHANGE titulo_sec titulo_sec VARCHAR(100) DEFAULT NULL, CHANGE escuela_sec escuela_sec VARCHAR(100) DEFAULT NULL');
         $this->addSql('ALTER TABLE asignatura CHANGE programa programa VARCHAR(20) DEFAULT NULL, CHANGE duracion duracion VARCHAR(25) DEFAULT NULL');
         $this->addSql('ALTER TABLE asistencia CHANGE observacion observacion VARCHAR(100) DEFAULT NULL');
@@ -38,7 +43,6 @@ final class Version20250617012414 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE alumno CHANGE titulo_sec titulo_sec VARCHAR(100) DEFAULT \'NULL\', CHANGE escuela_sec escuela_sec VARCHAR(100) DEFAULT \'NULL\'');
         $this->addSql('ALTER TABLE asignatura CHANGE programa programa VARCHAR(20) DEFAULT \'NULL\', CHANGE duracion duracion VARCHAR(25) DEFAULT \'NULL\'');
         $this->addSql('ALTER TABLE asistencia CHANGE observacion observacion VARCHAR(100) DEFAULT \'NULL\'');

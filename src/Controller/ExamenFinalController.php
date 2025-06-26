@@ -6,13 +6,14 @@ use App\Entity\ExamenFinal;
 use App\Form\ExamenFinalType;
 use App\Repository\ExamenFinalRepository;
 use App\Repository\ExamenAlumnoRepository;
+use App\Repository\InscripcionFinalRepository;
+use App\Repository\CursoRepository;
+use App\Repository\ComisionRepository;
+use App\Repository\TecnicaturaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\InscripcionFinalRepository;
-//obliga a que no envie a la pagina de error de synfony
-use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 
 #[Route('/examen/final')]
@@ -38,46 +39,89 @@ class ExamenFinalController extends AbstractController
             'inscripcion_finals' => $inscripcion_finals,
         ]);
     }
-  #[Route('/new', name: 'app_examen_final_new', methods: ['GET', 'POST'])]
- public function new(Request $request, ExamenFinalRepository $examenFinalRepository): Response
- {
-    $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-    $examenFinal = new ExamenFinal();
-    $form = $this->createForm(ExamenFinalType::class, $examenFinal);
-    $form->handleRequest($request);
+    #[Route('/new', name: 'app_examen_final_new', methods: ['GET', 'POST'])]
+    public function new(
+        Request $request,
+        ExamenFinalRepository $examenFinalRepository,
+        CursoRepository $cursoRepository,
+        ComisionRepository $comisionRepository,
+        TecnicaturaRepository $tecnicaturaRepository
+    ): Response {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-    if ($form->isSubmitted() && $form->isValid()) {
-        $examenFinalRepository->save($examenFinal, true);
+        $examenFinal = new ExamenFinal();
+
+        // Filtrar cursos por ciclo lectivo actual (ajusta el filtro si lo necesitas)
+        $cicloLectivoActual = date('Y');
+        $cursos = $cursoRepository->createQueryBuilder('c')
+            ->join('c.comision', 'com')
+            ->where('com.ciclo_lectivo = :ciclo')
+            ->setParameter('ciclo', $cicloLectivoActual)
+            ->getQuery()
+            ->getResult();
+
+        $tecnicaturas = $tecnicaturaRepository->findAll();
+        $comisiones = $comisionRepository->findAll();
+
+        $form = $this->createForm(ExamenFinalType::class, $examenFinal, [
+            'tecnicaturas' => $tecnicaturas,
+            'comisiones' => $comisiones,
+            'cursos' => $cursos,
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $examenFinalRepository->save($examenFinal, true);
+
+            if ($request->isXmlHttpRequest()) {
+                return new Response('', 200);
+            }
+            return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+        }
 
         if ($request->isXmlHttpRequest()) {
-            return new Response('', 200);
+            return $this->render('examen_final/_form.html.twig', [
+                'form' => $form->createView(),
+                'button_label' => 'Guardar',
+                'examen_final' => $examenFinal,
+            ]);
         }
-        return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
-    }
 
-    if ($request->isXmlHttpRequest()) {
-        return $this->render('examen_final/_form.html.twig', [
+        return $this->render('examen_final/new.html.twig', [
             'form' => $form->createView(),
-            'button_label' => 'Guardar',
             'examen_final' => $examenFinal,
         ]);
     }
 
-    return $this->render('examen_final/new.html.twig', [
-        'form' => $form->createView(),
-        'examen_final' => $examenFinal,
-    ]);
- }
-
-
-
     #[Route('/{id}/edit', name: 'app_examen_final_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository): Response
-    {
+    public function edit(
+        Request $request,
+        ExamenFinal $examenFinal,
+        ExamenFinalRepository $examenFinalRepository,
+        CursoRepository $cursoRepository,
+        ComisionRepository $comisionRepository,
+        TecnicaturaRepository $tecnicaturaRepository
+    ): Response {
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-        $form = $this->createForm(ExamenFinalType::class, $examenFinal);
+        // Filtrar cursos por ciclo lectivo actual (ajusta el filtro si lo necesitas)
+        $cicloLectivoActual = date('Y');
+        $cursos = $cursoRepository->createQueryBuilder('c')
+            ->join('c.comision', 'com')
+            ->where('com.ciclo_lectivo = :ciclo')
+            ->setParameter('ciclo', $cicloLectivoActual)
+            ->getQuery()
+            ->getResult();
+
+        $tecnicaturas = $tecnicaturaRepository->findAll();
+        $comisiones = $comisionRepository->findAll();
+
+        $form = $this->createForm(ExamenFinalType::class, $examenFinal, [
+            'tecnicaturas' => $tecnicaturas,
+            'comisiones' => $comisiones,
+            'cursos' => $cursos,
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -91,15 +135,15 @@ class ExamenFinalController extends AbstractController
 
         if ($request->isXmlHttpRequest()) {
             return $this->render('vistasmesas/Super_Editar.html.twig', [
-             'form_examen_final' => $form->createView(),
-             'examen_final' => $examenFinal,
+                'form_examen_final' => $form->createView(),
+                'examen_final' => $examenFinal,
             ]);
         }
 
-       return $this->render('vistasmesas/Super_Editar.html.twig', [
-          'form_examen_final' => $form->createView(),
-         'examen_final' => $examenFinal,
-      ]);
+        return $this->render('vistasmesas/Super_Editar.html.twig', [
+            'form_examen_final' => $form->createView(),
+            'examen_final' => $examenFinal,
+        ]);
     }
 
     #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
