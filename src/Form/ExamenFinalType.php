@@ -4,15 +4,13 @@ namespace App\Form;
 
 use App\Entity\ExamenFinal;
 use App\Entity\Docente;
-use App\Entity\Tecnicatura;
-use App\Entity\Asignatura;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
+use App\Entity\Curso;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ExamenFinalType extends AbstractType
 {
@@ -20,10 +18,10 @@ class ExamenFinalType extends AbstractType
     {
         $builder
             ->add('fecha')
-             ->add('hora', TimeType::class, [
-                  'widget' => 'single_text',
-                  'required' => false,
-                  'label' => 'Hora',
+            ->add('hora', TimeType::class, [
+                'widget' => 'single_text',
+                'required' => false,
+                'label' => 'Hora',
             ])
             ->add('presidente', EntityType::class, [
                 'class' => Docente::class,
@@ -49,15 +47,12 @@ class ExamenFinalType extends AbstractType
                 ],
                 'label' => 'Estado de Mesa',
             ])
-            ->add('tecnicatura', EntityType::class, [
-                'class' => Tecnicatura::class,
-                'choice_label' => 'nombre',
-                'label' => 'Tecnicatura',
-            ])
-            ->add('asignatura', EntityType::class, [
-                'class' => Asignatura::class,
-                'choice_label' => 'nombre',
-                'label' => 'Asignatura',
+            ->add('curso', EntityType::class, [
+                'class' => Curso::class,
+                'choice_label' => function($curso) {
+                    return (string) $curso;
+                },
+                'label' => 'Curso',
             ])
         ;
     }

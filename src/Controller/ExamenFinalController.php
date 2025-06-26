@@ -10,8 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-//obliga a que no envie a la pagina de error de synfony
-use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 
 #[Route('/examen/final')]
@@ -20,11 +18,10 @@ class ExamenFinalController extends AbstractController
     #[Route('/', name: 'app_examen_final_index', methods: ['GET'])]
     public function index(Request $request, ExamenFinalRepository $examenFinalRepository): Response
     {
-        $tecnicatura = $request->query->get('tecnicatura');
-        $asignatura = $request->query->get('asignatura');
+        $curso = $request->query->get('curso');      // filtro opcional
         $presidente = $request->query->get('presidente');
 
-        $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $presidente);
+        $examen_finals = $examenFinalRepository->findByFilters($curso, $presidente);
 
         return $this->render('examen_final/index.html.twig', [
             'examen_finals' => $examen_finals,
@@ -41,9 +38,19 @@ class ExamenFinalController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $examenFinalRepository->save($examenFinal, true);
+                if ($request->isXmlHttpRequest()) {
+                    return new Response('OK');
+                }
                 return $this->redirectToRoute('app_examen_final_index');
             } catch (UniqueConstraintViolationException $e) {
                 $this->addFlash('error', 'Error inesperado al guardar el examen final.');
+                if ($request->isXmlHttpRequest()) {
+                    return $this->render('examen_final/_form.html.twig', [
+                        'form' => $form->createView(),
+                        'button_label' => 'Guardar',
+                        'examen_final' => $examenFinal,
+                    ]);
+                }
                 return $this->redirectToRoute('app_examen_final_index');
             }
         }
@@ -71,9 +78,19 @@ class ExamenFinalController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $examenFinalRepository->save($examenFinal, true);
+                if ($request->isXmlHttpRequest()) {
+                    return new Response('OK');
+                }
                 return $this->redirectToRoute('app_examen_final_index');
             } catch (UniqueConstraintViolationException $e) {
                 $this->addFlash('error', 'Error inesperado al guardar el examen final.');
+                if ($request->isXmlHttpRequest()) {
+                    return $this->render('examen_final/_form.html.twig', [
+                        'form' => $form->createView(),
+                        'button_label' => 'Actualizar',
+                        'examen_final' => $examenFinal,
+                    ]);
+                }
                 return $this->redirectToRoute('app_examen_final_index');
             }
         }
@@ -90,49 +107,31 @@ class ExamenFinalController extends AbstractController
             'examen_final' => $examenFinal,
             'form' => $form,
         ]);
-}
-
-
-
-  #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
- public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
- {
-    if (!$this->isCsrfTokenValid('delete' . $examenFinal->getId(), $request->request->get('_token'))) {
-        $this->addFlash('error', 'Token CSRF inválido.');
-        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
     }
 
-    // Usa el nombre correcto de la propiedad de la relación
-    $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal_id' => $examenFinal]);
+    #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]
+    public function delete(Request $request, ExamenFinal $examenFinal, ExamenFinalRepository $examenFinalRepository, ExamenAlumnoRepository $examenAlumnoRepository): Response
+    {
+        if (!$this->isCsrfTokenValid('delete' . $examenFinal->getId(), $request->request->get('_token'))) {
+            $this->addFlash('error', 'Token CSRF inválido.');
+            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+        }
 
-    if (count($alumnosAsociados) > 0) {
-        $this->addFlash('error', 'No se puede eliminar el examen final porque tiene alumnos asociados.');
-        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
-    }
+        $alumnosAsociados = $examenAlumnoRepository->findBy(['examenFinal' => $examenFinal]);
 
-    try {
-        $examenFinalRepository->remove($examenFinal, true);
-        $this->addFlash('success', 'Examen final eliminado correctamente.');
-    } catch (\Exception $e) {
-        $this->addFlash('error', 'Error al eliminar: ' . $e->getMessage());
-        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
-    }
-
-    return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
-   
         if (count($alumnosAsociados) > 0) {
-        $this->addFlash('error', 'No se puede eliminar el examen final porque tiene alumnos asociados.');
-        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
-    }
+            $this->addFlash('error', 'No se puede eliminar el examen final porque tiene alumnos asociados.');
+            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+        }
 
-    try {
-        $examenFinalRepository->remove($examenFinal, true);
-        $this->addFlash('success', 'Examen final eliminado correctamente.');
-    } catch (\Exception $e) {
-        $this->addFlash('error', 'Error al eliminar: ' . $e->getMessage());
-        return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
-    }
+        try {
+            $examenFinalRepository->remove($examenFinal, true);
+            $this->addFlash('success', 'Examen final eliminado correctamente.');
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'Error al eliminar: ' . $e->getMessage());
+            return $this->redirectToRoute('app_examen_final_edit', ['id' => $examenFinal->getId()]);
+        }
 
-    return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
-  }
+        return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+    }
 }

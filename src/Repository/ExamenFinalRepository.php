@@ -39,22 +39,32 @@ class ExamenFinalRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByFilters(?string $tecnicatura, ?string $asignatura, ?string $presidente): array
+    /**
+     * Busca ExamenFinal filtrando por curso y presidente.
+     * 
+     * @param string|null $curso Texto para buscar en tecnicatura, asignatura o comisión.
+     * @param string|null $presidente Texto para buscar en nombre del presidente.
+     * @return ExamenFinal[]
+     */
+    public function findByFilters(?string $curso, ?string $presidente): array
     {
         $qb = $this->createQueryBuilder('e')
-            ->leftJoin('e.tecnicatura', 't')
-            ->leftJoin('e.asignatura', 'a')
+            ->leftJoin('e.curso', 'c')
+            ->leftJoin('c.comision', 'com')
+            ->leftJoin('com.tecnicatura', 't')
+            ->leftJoin('c.asignatura', 'a')
             ->leftJoin('e.presidente', 'p')
             ->leftJoin('p.persona', 'pp');
 
-        if ($tecnicatura) {
-            $qb->andWhere('LOWER(t.nombre) LIKE :tecnicatura')
-               ->setParameter('tecnicatura', '%' . strtolower($tecnicatura) . '%');
-        }
-
-        if ($asignatura) {
-            $qb->andWhere('LOWER(a.nombre) LIKE :asignatura')
-               ->setParameter('asignatura', '%' . strtolower($asignatura) . '%');
+        if ($curso) {
+            $qb->andWhere(
+                $qb->expr()->orX(
+                    'LOWER(t.nombre) LIKE :curso',
+                    'LOWER(a.nombre) LIKE :curso',
+                    'LOWER(com.comision) LIKE :curso'
+                )
+            )
+            ->setParameter('curso', '%' . strtolower($curso) . '%');
         }
 
         if ($presidente) {
