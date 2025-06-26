@@ -5,7 +5,7 @@ namespace App\Form;
 use App\Entity\ExamenFinal;
 use App\Entity\Docente;
 use App\Entity\Curso;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -55,15 +55,14 @@ class ExamenFinalType extends AbstractType
                 'label' => 'Estado de la Mesa',
                 'placeholder' => 'Selecciona un estado',
             ])
-            ->add('curso', EntityType::class, [
+           ->add('curso', EntityType::class, [
                 'class' => Curso::class,
-                'choice_label' => function ($curso) {
-                    return (string) $curso; // Usa __toString() de Curso
-                },
-                'label' => 'Curso',
-                'placeholder' => 'Selecciona un curso',
-                'required' => true,
-            ]);
+                'choice_label' => function($curso) {
+                   return $curso->getId() . ' - ' . $curso->getAsignatura()->getNombre() . ' (' . $curso->getComision()->getCiclolectivo() . ')';
+               },
+               'label' => 'Curso',
+           ]) 
+     ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

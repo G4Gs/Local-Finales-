@@ -45,10 +45,16 @@
     {% for curso in cursos %}
         <tr>
             <td>{{ curso.id }}</td>
-            <td>{{ curso.cicloLectivo }}</td>
-            <td>{{ curso.horario }}</td>
-            <td>{{ curso.getAsignatura.nombre }}</td>
-            <td>{{ curso.getComision.comision }}</td>
+            <td>{{ curso.comision.ciclolectivo }}</td>
+            <td>
+              {% for horario in curso.horarios %}
+                 {{ horario }}{% if not loop.last %}, {% endif %}
+              {% else %}
+                 Sin horario
+             {% endfor %}
+            </td>
+            <td>{{ curso.asignatura.nombre }}</td>
+            <td>{{ curso.comision.comision }}</td>
             <td>
                 <a href="{{ path('app_curso_show', {'id': curso.id}) }}">Mostrar</a>
                 <a href="{{ path('app_curso_edit', {'id': curso.id}) }}">Editar</a>

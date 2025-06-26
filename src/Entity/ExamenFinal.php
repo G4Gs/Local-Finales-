@@ -36,11 +36,6 @@ class ExamenFinal
     #[ORM\JoinColumn(nullable: false)]
     private ?Curso $curso = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getFecha(): ?\DateTimeInterface
     {
         return $this->fecha;
@@ -106,15 +101,15 @@ class ExamenFinal
         $this->hora = $hora;
         return $this;
     }
+   public function getCurso(): ?Curso
+   {
+      return $this->curso;
+   }
 
-    public function getCurso(): ?Curso
+   public function setCurso(?Curso $curso): static
     {
-        return $this->curso;
+      $this->curso = $curso;
+      return $this;
     }
-
-    public function setCurso(?Curso $curso): static
-    {
-        $this->curso = $curso;
-        return $this;
-    }
+   
 }
