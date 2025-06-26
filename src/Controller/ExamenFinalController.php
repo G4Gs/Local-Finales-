@@ -91,13 +91,15 @@ class ExamenFinalController extends AbstractController
 
         if ($request->isXmlHttpRequest()) {
             return $this->render('vistasmesas/Super_Editar.html.twig', [
-                'form_examen_final' => $form->createView(),
+             'form_examen_final' => $form->createView(),
+             'examen_final' => $examenFinal,
             ]);
         }
 
-        return $this->render('vistasmesas/Super_Editar.html.twig', [
-            'form_examen_final' => $form->createView(),
-        ]);
+       return $this->render('vistasmesas/Super_Editar.html.twig', [
+          'form_examen_final' => $form->createView(),
+         'examen_final' => $examenFinal,
+      ]);
     }
 
     #[Route('/{id}', name: 'app_examen_final_delete', methods: ['POST'])]

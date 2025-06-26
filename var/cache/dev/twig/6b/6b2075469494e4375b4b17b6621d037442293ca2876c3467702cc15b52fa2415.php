@@ -124,53 +124,43 @@ class __TwigTemplate_9eb6171741b97799af3485aad1d00dea750432d3b13618447de69444b25
         }
         // line 14
         yield "
-        ";
+       ";
         // line 15
         if (array_key_exists("form_examen_final", $context)) {
             // line 16
-            yield "            <h2 style=\"text-align: center;\">Editar Fecha de Final</h2>
-            ";
+            yield "         <h2 style=\"text-align: center;\">Editar Fecha de Final</h2>
+         ";
             // line 17
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form_examen_final"]) || array_key_exists("form_examen_final", $context) ? $context["form_examen_final"] : (function () { throw new RuntimeError('Variable "form_examen_final" does not exist.', 17, $this->source); })()), 'form_start');
+            yield Twig\Extension\CoreExtension::include($this->env, $context, "examen_final/_form.html.twig", ["form" => (isset($context["form_examen_final"]) || array_key_exists("form_examen_final", $context) ? $context["form_examen_final"] : (function () { throw new RuntimeError('Variable "form_examen_final" does not exist.', 17, $this->source); })()), "examen_final" => (isset($context["examen_final"]) || array_key_exists("examen_final", $context) ? $context["examen_final"] : (function () { throw new RuntimeError('Variable "examen_final" does not exist.', 17, $this->source); })()), "button_label" => "Guardar"]);
             yield "
-                ";
-            // line 18
-            yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form_examen_final"]) || array_key_exists("form_examen_final", $context) ? $context["form_examen_final"] : (function () { throw new RuntimeError('Variable "form_examen_final" does not exist.', 18, $this->source); })()), 'widget');
-            yield "
-                <div style=\"text-align: center;\">
-                    <button class=\"btn btn-primary\">Guardar cambios</button>
-                </div>
-            ";
-            // line 22
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form_examen_final"]) || array_key_exists("form_examen_final", $context) ? $context["form_examen_final"] : (function () { throw new RuntimeError('Variable "form_examen_final" does not exist.', 22, $this->source); })()), 'form_end');
-            yield "
+       
         ";
         }
-        // line 24
+        // line 20
         yield "
         ";
-        // line 25
+        // line 21
         if (array_key_exists("form_nota", $context)) {
-            // line 26
+            // line 22
             yield "            <h2 style=\"text-align: center;\">Editar Nota de Final</h2>
             ";
-            // line 27
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form_nota"]) || array_key_exists("form_nota", $context) ? $context["form_nota"] : (function () { throw new RuntimeError('Variable "form_nota" does not exist.', 27, $this->source); })()), 'form_start');
+            // line 23
+            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form_nota"]) || array_key_exists("form_nota", $context) ? $context["form_nota"] : (function () { throw new RuntimeError('Variable "form_nota" does not exist.', 23, $this->source); })()), 'form_start');
             yield "
                 ";
-            // line 28
-            yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form_nota"]) || array_key_exists("form_nota", $context) ? $context["form_nota"] : (function () { throw new RuntimeError('Variable "form_nota" does not exist.', 28, $this->source); })()), 'widget');
+            // line 24
+            yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form_nota"]) || array_key_exists("form_nota", $context) ? $context["form_nota"] : (function () { throw new RuntimeError('Variable "form_nota" does not exist.', 24, $this->source); })()), 'widget');
             yield "
                 <div style=\"text-align: center;\">
                     <button class=\"btn btn-primary\">Guardar cambios</button>
                 </div>
             ";
-            // line 32
-            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form_nota"]) || array_key_exists("form_nota", $context) ? $context["form_nota"] : (function () { throw new RuntimeError('Variable "form_nota" does not exist.', 32, $this->source); })()), 'form_end');
+            // line 28
+            yield             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form_nota"]) || array_key_exists("form_nota", $context) ? $context["form_nota"] : (function () { throw new RuntimeError('Variable "form_nota" does not exist.', 28, $this->source); })()), 'form_end');
             yield "
         ";
         }
-        // line 34
+        // line 30
         yield "    </div>
 ";
         
@@ -195,7 +185,7 @@ class __TwigTemplate_9eb6171741b97799af3485aad1d00dea750432d3b13618447de69444b25
      */
     public function getDebugInfo(): array
     {
-        return array (  174 => 34,  169 => 32,  162 => 28,  158 => 27,  155 => 26,  153 => 25,  150 => 24,  145 => 22,  138 => 18,  134 => 17,  131 => 16,  129 => 15,  126 => 14,  121 => 12,  114 => 8,  110 => 7,  107 => 6,  105 => 5,  102 => 4,  89 => 3,  66 => 1,  55 => 3,  52 => 2,  50 => 1,);
+        return array (  164 => 30,  159 => 28,  152 => 24,  148 => 23,  145 => 22,  143 => 21,  140 => 20,  134 => 17,  131 => 16,  129 => 15,  126 => 14,  121 => 12,  114 => 8,  110 => 7,  107 => 6,  105 => 5,  102 => 4,  89 => 3,  66 => 1,  55 => 3,  52 => 2,  50 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -214,14 +204,10 @@ class __TwigTemplate_9eb6171741b97799af3485aad1d00dea750432d3b13618447de69444b25
             {{ form_end(form_inscripcion) }}
         {% endif %}
 
-        {% if form_examen_final is defined %}
-            <h2 style=\"text-align: center;\">Editar Fecha de Final</h2>
-            {{ form_start(form_examen_final) }}
-                {{ form_widget(form_examen_final) }}
-                <div style=\"text-align: center;\">
-                    <button class=\"btn btn-primary\">Guardar cambios</button>
-                </div>
-            {{ form_end(form_examen_final) }}
+       {% if form_examen_final is defined %}
+         <h2 style=\"text-align: center;\">Editar Fecha de Final</h2>
+         {{ include('examen_final/_form.html.twig', { form: form_examen_final, examen_final: examen_final, button_label: 'Guardar' }) }}
+       
         {% endif %}
 
         {% if form_nota is defined %}

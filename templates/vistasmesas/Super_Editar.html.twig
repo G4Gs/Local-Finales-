@@ -12,14 +12,10 @@
             {{ form_end(form_inscripcion) }}
         {% endif %}
 
-        {% if form_examen_final is defined %}
-            <h2 style="text-align: center;">Editar Fecha de Final</h2>
-            {{ form_start(form_examen_final) }}
-                {{ form_widget(form_examen_final) }}
-                <div style="text-align: center;">
-                    <button class="btn btn-primary">Guardar cambios</button>
-                </div>
-            {{ form_end(form_examen_final) }}
+       {% if form_examen_final is defined %}
+         <h2 style="text-align: center;">Editar Fecha de Final</h2>
+         {{ include('examen_final/_form.html.twig', { form: form_examen_final, examen_final: examen_final, button_label: 'Guardar' }) }}
+       
         {% endif %}
 
         {% if form_nota is defined %}
