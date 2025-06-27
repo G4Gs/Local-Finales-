@@ -32,10 +32,6 @@ class ExamenFinal
     #[ORM\Column(type: 'time', nullable: true)]
     private ?\DateTimeInterface $hora = null;
 
-    #[ORM\ManyToOne(targetEntity: Curso::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Curso $curso = null;
-
     // Relación con Tecnicatura (si tu tabla examen_final tiene tecnicatura_id)
     #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
     #[ORM\JoinColumn(nullable: false)]
@@ -117,17 +113,6 @@ class ExamenFinal
     public function setHora(?\DateTimeInterface $hora): static
     {
         $this->hora = $hora;
-        return $this;
-    }
-
-    public function getCurso(): ?Curso
-    {
-        return $this->curso;
-    }
-
-    public function setCurso(?Curso $curso): static
-    {
-        $this->curso = $curso;
         return $this;
     }
 

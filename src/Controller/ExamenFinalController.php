@@ -29,9 +29,12 @@ class ExamenFinalController extends AbstractController
         InscripcionFinalRepository $inscripcionFinalRepository
     ): Response {
         $curso = $request->query->get('curso');
+        $tecnicatura = $request->query->get('tecnicatura');
+        $asignatura = $request->query->get('asignatura');
+        $comision = $request->query->get('comision');
         $presidente = $request->query->get('presidente');
 
-        $examen_finals = $examenFinalRepository->findByFilters($curso, $presidente);
+        $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $comision, $presidente);
         $examen_alumnos = $examenAlumnoRepository->findAll();
         $inscripcion_finals = $inscripcionFinalRepository->findAll();
 

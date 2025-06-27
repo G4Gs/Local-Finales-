@@ -170,7 +170,7 @@
             <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
             <td>{{ examen_final.estadoMesa }}</td>
             <td>
-                {{ examen_final.tecnicatura.nombre ~ ' - ' ~ examen_final.asignatura.nombre ~ ' - ' ~ examen_final.comision.nombre }}
+                {{ examen_final.tecnicatura.nombre ~ ' - ' ~ examen_final.asignatura.nombre ~ ' - ' ~ examen_final.comision.comision ~ ' (' ~ examen_final.comision.cicloLectivo ~ ')' }}
             </td>
             <td>
                 <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">
