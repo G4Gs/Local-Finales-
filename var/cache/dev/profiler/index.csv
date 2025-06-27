@@ -159,3 +159,8 @@ e8e1c5,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1751
 582dfc,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751047750,35da39,500
 35da39,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751047750,,500
 615b4b,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751047865,,200
+a96a47,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751048005,,200
+fb9444,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/new,1751048046,,200
+9b3a04,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/new,1751048088,20ba15,500
+20ba15,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/examen/final/new,1751048088,,500
+c50d2b,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751048091,,200
