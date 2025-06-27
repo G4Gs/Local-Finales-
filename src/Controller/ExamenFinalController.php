@@ -72,8 +72,8 @@ class ExamenFinalController extends AbstractController
 
         $form = $this->createForm(ExamenFinalType::class, $examenFinal, [
             'tecnicaturas' => $tecnicaturas,
-            'asignaturas' => $asignaturas,
-            'comisiones' => $comisiones,
+            'asignaturas' => [], // <-- vacío al inicio
+            'comisiones' => [],
         ]);
         $form->handleRequest($request);
 
@@ -126,8 +126,8 @@ class ExamenFinalController extends AbstractController
 
         $form = $this->createForm(ExamenFinalType::class, $examenFinal, [
             'tecnicaturas' => $tecnicaturas,
-            'asignaturas' => $asignaturas,
-            'comisiones' => $comisiones,
+            'asignaturas' => [], // <-- vacío al inicio
+            'comisiones' => [],
         ]);
         $form->handleRequest($request);
 
@@ -186,12 +186,7 @@ class ExamenFinalController extends AbstractController
     #[Route('/asignaturas/by-tecnicatura/{id}', name: 'asignaturas_by_tecnicatura', methods: ['GET'])]
     public function asignaturasByTecnicatura(AsignaturaRepository $asignaturaRepository, $id): JsonResponse
     {
-        $asignaturas = $asignaturaRepository->createQueryBuilder('a')
-            ->where('a.tecnicatura = :tecnicatura')
-            ->setParameter('tecnicatura', $id)
-            ->getQuery()
-            ->getResult();
-
+        $asignaturas = $asignaturaRepository->findBy(['tecnicatura' => $id]);
         $data = [];
         foreach ($asignaturas as $asignatura) {
             $data[] = [

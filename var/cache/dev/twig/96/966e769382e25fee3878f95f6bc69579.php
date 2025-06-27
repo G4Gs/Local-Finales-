@@ -623,4 +623,11 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
 
 <!-- Modal para crear -->
 <div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
-    <div class=\"mo
+    <div class=\"modal-content\">
+        <span class=\"close\" onclick=\"closeNewExamenModal()\">&times;</span>
+        <div id=\"newExamenBody\" class=\"submodal\"></div>
+    </div>
+</div>
+{% endblock %}", "examen_final/index.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\examen_final\\index.html.twig");
+    }
+}

@@ -30,8 +30,7 @@ class Asignatura
     #[ORM\Column(length: 25, nullable: true)]
     private ?string $duracion = null;
 
-    #[ORM\ManyToOne(inversedBy: 'asignatura')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
     private ?Tecnicatura $tecnicatura = null;
 
     #[ORM\OneToMany(mappedBy: 'asignatura', targetEntity: Correlativa::class, orphanRemoval: true)]
