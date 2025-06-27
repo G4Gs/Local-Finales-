@@ -40,22 +40,22 @@ class ExamenFinalRepository extends ServiceEntityRepository
     }
 
     public function findByFilters(?string $curso, ?string $presidente): array
-{
-    $qb = $this->createQueryBuilder('e')
-        ->leftJoin('e.curso', 'c')
-        ->leftJoin('e.presidente', 'p')
-        ->leftJoin('p.persona', 'pp');
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->leftJoin('e.curso', 'c')
+            ->leftJoin('e.presidente', 'p')
+            ->leftJoin('p.persona', 'pp');
 
-    if ($curso) {
-        $qb->andWhere('c.id = :curso')
-           ->setParameter('curso', $curso);
+        if ($curso) {
+            $qb->andWhere('c.id = :curso')
+               ->setParameter('curso', $curso);
+        }
+
+        if ($presidente) {
+            $qb->andWhere('LOWER(pp.nombre) LIKE :presidente')
+               ->setParameter('presidente', '%' . strtolower($presidente) . '%');
+        }
+
+        return $qb->getQuery()->getResult();
     }
-
-    if ($presidente) {
-        $qb->andWhere('LOWER(pp.nombre) LIKE :presidente')
-           ->setParameter('presidente', '%' . strtolower($presidente) . '%');
-    }
-
-    return $qb->getQuery()->getResult();
- }
 }

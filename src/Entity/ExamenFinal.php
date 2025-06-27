@@ -1,4 +1,5 @@
 <?php
+<?php
 
 namespace App\Entity;
 
@@ -35,6 +36,11 @@ class ExamenFinal
     #[ORM\ManyToOne(targetEntity: Curso::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Curso $curso = null;
+
+    // Si tu base de datos tiene la FK tecnicatura_id, agrega esto:
+    // #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
+    // #[ORM\JoinColumn(nullable: false)]
+    // private ?Tecnicatura $tecnicatura = null;
 
     public function getId(): ?int
     {
@@ -117,4 +123,18 @@ class ExamenFinal
         $this->curso = $curso;
         return $this;
     }
+
+    // Si agregaste la relación con tecnicatura, agrega también los getters/setters:
+    /*
+    public function getTecnicatura(): ?Tecnicatura
+    {
+        return $this->tecnicatura;
+    }
+
+    public function setTecnicatura(?Tecnicatura $tecnicatura): static
+    {
+        $this->tecnicatura = $tecnicatura;
+        return $this;
+    }
+    */
 }
