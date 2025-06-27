@@ -164,3 +164,12 @@ fb9444,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/fin
 9b3a04,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/new,1751048088,20ba15,500
 20ba15,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/examen/final/new,1751048088,,500
 c50d2b,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751048091,,200
+d70d3c,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1751048510,,302
+f5137f,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1751048512,,200
+8cd073,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751048534,,200
+25b901,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/new,1751048549,,200
+92054b,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/new,1751048572,a30c57,500
+a30c57,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/examen/final/new,1751048572,,500
+b98c72,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751048576,,200
+f607e0,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1751049736,,302
+3353d2,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1751049738,,200

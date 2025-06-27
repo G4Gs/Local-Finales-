@@ -36,10 +36,10 @@ class ExamenFinal
     #[ORM\JoinColumn(nullable: false)]
     private ?Curso $curso = null;
 
-    // Si tu base de datos tiene la FK tecnicatura_id, agrega esto:
-    // #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
-    // #[ORM\JoinColumn(nullable: false)]
-    // private ?Tecnicatura $tecnicatura = null;
+    // Relación con Tecnicatura (si tu tabla examen_final tiene tecnicatura_id)
+    #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Tecnicatura $tecnicatura = null;
 
     public function getId(): ?int
     {
@@ -123,8 +123,6 @@ class ExamenFinal
         return $this;
     }
 
-    // Si agregaste la relación con tecnicatura, agrega también los getters/setters:
-    /*
     public function getTecnicatura(): ?Tecnicatura
     {
         return $this->tecnicatura;
@@ -135,5 +133,4 @@ class ExamenFinal
         $this->tecnicatura = $tecnicatura;
         return $this;
     }
-    */
 }

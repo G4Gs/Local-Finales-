@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\ExamenFinal;
 use App\Entity\Curso;
+use App\Entity\Tecnicatura;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -30,6 +31,12 @@ class ExamenFinalType extends AbstractType
                            $curso->getComision()->getTecnicatura()->getNombre();
                 },
                 'placeholder' => 'Seleccione un curso',
+                'required' => true,
+            ])
+            ->add('tecnicatura', EntityType::class, [
+                'class' => Tecnicatura::class,
+                'choices' => $options['tecnicaturas'],
+                'placeholder' => 'Seleccione una tecnicatura',
                 'required' => true,
             ]);
     }
