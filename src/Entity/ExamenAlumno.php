@@ -66,25 +66,25 @@ class ExamenAlumno
         return $this;
     }
 
-    public function getAlumnoId(): ?Alumno
+    public function getAlumno(): ?Alumno
     {
         return $this->alumno;
     }
 
-    public function setAlumnoId(?Alumno $alumno_id): static
+    public function setAlumno(?Alumno $alumno): static
     {
-        $this->alumno_id = $alumno;
+        $this->alumno = $alumno;
         return $this;
     }
 
-    public function getExamenFinalId(): ?ExamenFinal
+    public function getExamenFinal(): ?ExamenFinal
     {
         return $this->examenFinal;
     }
 
-    public function setExamenFinalId(?ExamenFinal $examenFinal_id): static
+    public function setExamenFinal(?ExamenFinal $examenFinal): static
     {
-        $this->examenFinal = $examenFinal_id;
+        $this->examenFinal = $examenFinal;
         return $this;
     }
 }

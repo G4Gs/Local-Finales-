@@ -417,13 +417,28 @@ function handleNotaFinalFormSubmit() {
     ";
         // line 277
         yield "    <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+         <form method=\"get\" action=\"\">
+             <input type=\"text\" name=\"inscripto_nombre\" placeholder=\"Buscar estudiante\" value=\"";
+        // line 279
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 279, $this->source); })()), "request", [], "any", false, false, false, 279), "get", ["inscripto_nombre"], "method", false, false, false, 279), "html", null, true);
+        yield "\">
+             <input type=\"text\" name=\"inscripto_tecnicatura\" placeholder=\"Buscar tecnicatura\" value=\"";
+        // line 280
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 280, $this->source); })()), "request", [], "any", false, false, false, 280), "get", ["inscripto_tecnicatura"], "method", false, false, false, 280), "html", null, true);
+        yield "\">
+             <input type=\"text\" name=\"inscripto_asignatura\" placeholder=\"Buscar asignatura\" value=\"";
+        // line 281
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 281, $this->source); })()), "request", [], "any", false, false, false, 281), "get", ["inscripto_asignatura"], "method", false, false, false, 281), "html", null, true);
+        yield "\">
+             <button type=\"submit\">Buscar</button>
+         </form>
         <thead>
             <tr>
                 <th colspan=\"6\">Inscriptos</th>
             </tr>
             <tr>
                 <th>Fecha</th>
-                <th>Hora</th>
+
                 <th>Estudiante</th>
                 <th>Tecnicatura</th>
                 <th>Asignatura</th>
@@ -432,58 +447,56 @@ function handleNotaFinalFormSubmit() {
         </thead>
         <tbody>
             ";
-        // line 292
+        // line 298
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["inscripcion_finals"]) || array_key_exists("inscripcion_finals", $context) ? $context["inscripcion_finals"] : (function () { throw new RuntimeError('Variable "inscripcion_finals" does not exist.', 292, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["inscripcion_finals"]) || array_key_exists("inscripcion_finals", $context) ? $context["inscripcion_finals"] : (function () { throw new RuntimeError('Variable "inscripcion_finals" does not exist.', 298, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["inscripcion_final"]) {
-            // line 293
+            // line 299
             yield "                <tr>
                     <td>";
-            // line 294
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 294)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 294), "Y-m-d"), "html", null, true)) : (""));
-            yield "</td>
-                    <td>";
-            // line 295
-            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "examenFinal", [], "any", false, false, false, 295) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "examenFinal", [], "any", false, false, false, 295), "hora", [], "any", false, false, false, 295))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "examenFinal", [], "any", false, false, false, 295), "hora", [], "any", false, false, false, 295), "H:i"), "html", null, true)) : (""));
-            yield "</td>
-                    <td>
-                        ";
-            // line 297
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno_id", [], "any", false, false, false, 297)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno_id", [], "any", false, false, false, 297), "persona", [], "any", false, false, false, 297), "nombre", [], "any", false, false, false, 297) . " ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno_id", [], "any", false, false, false, 297), "persona", [], "any", false, false, false, 297), "apellido", [], "any", false, false, false, 297)), "html", null, true)) : ("N/A"));
-            yield "
-                    </td>
-                    <td>
-                        ";
             // line 300
-            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura_id", [], "any", false, false, false, 300) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura_id", [], "any", false, false, false, 300), "tecnicatura", [], "any", false, false, false, 300))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura_id", [], "any", false, false, false, 300), "tecnicatura", [], "any", false, false, false, 300), "nombre", [], "any", false, false, false, 300), "html", null, true)) : ("N/A"));
-            yield "
-                    </td>
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 300)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "fecha", [], "any", false, false, false, 300), "Y-m-d"), "html", null, true)) : (""));
+            yield "</td>
                     <td>
-                        ";
-            // line 303
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura_id", [], "any", false, false, false, 303)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "asignatura_id", [], "any", false, false, false, 303), "nombre", [], "any", false, false, false, 303), "html", null, true)) : ("N/A"));
+                     ";
+            // line 302
+            yield ((((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "curso", [], "any", false, false, false, 302) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "curso", [], "any", false, false, false, 302), "comision", [], "any", false, false, false, 302)) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "curso", [], "any", false, false, false, 302), "comision", [], "any", false, false, false, 302), "tecnicatura", [], "any", false, false, false, 302))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source,             // line 303
+$context["inscripcion_final"], "curso", [], "any", false, false, false, 303), "comision", [], "any", false, false, false, 303), "tecnicatura", [], "any", false, false, false, 303), "nombre", [], "any", false, false, false, 303), "html", null, true)) : ("N/A"));
             yield "
-                    </td>
-                    <td>
-                        ";
+                   </td>
+                   <td>
+                      ";
             // line 306
+            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "curso", [], "any", false, false, false, 306) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "curso", [], "any", false, false, false, 306), "asignatura", [], "any", false, false, false, 306))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source,             // line 307
+$context["inscripcion_final"], "curso", [], "any", false, false, false, 307), "asignatura", [], "any", false, false, false, 307), "nombre", [], "any", false, false, false, 307), "html", null, true)) : ("N/A"));
+            yield "
+                 </td>
+                 <td>
+                  ";
+            // line 310
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 310)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 310), "persona", [], "any", false, false, false, 310), "nombre", [], "any", false, false, false, 310) . " ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 310), "persona", [], "any", false, false, false, 310), "apellido", [], "any", false, false, false, 310)), "html", null, true)) : ("N/A"));
+            yield "
+                 </td>
+                    <td>
+                        ";
+            // line 313
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
-                // line 307
+                // line 314
                 yield "                            <button onclick=\"openEditInscripcionFinalModal(";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "id", [], "any", false, false, false, 307), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "id", [], "any", false, false, false, 314), "html", null, true);
                 yield ")\">Editar</button>
                         ";
             }
-            // line 309
+            // line 316
             yield "                    </td>
                 </tr>
             ";
             $context['_iterated'] = true;
         }
-        // line 315
+        // line 322
         if (!$context['_iterated']) {
-            // line 312
+            // line 319
             yield "                <tr>
                     <td colspan=\"6\">No se encontraron registros</td>
                 </tr>
@@ -492,7 +505,7 @@ function handleNotaFinalFormSubmit() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['inscripcion_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 316
+        // line 323
         yield "        </tbody>
     </table>
     <div style=\"text-align: center; margin-top: 1em;\">
@@ -500,79 +513,100 @@ function handleNotaFinalFormSubmit() {
     </div>
 
     ";
-        // line 323
+        // line 330
         yield "    <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+       <form method=\"get\" action=\"\">
+         <input type=\"text\" name=\"mesa_asignatura\" placeholder=\"Buscar asignatura\" value=\"";
+        // line 332
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 332, $this->source); })()), "request", [], "any", false, false, false, 332), "get", ["mesa_asignatura"], "method", false, false, false, 332), "html", null, true);
+        yield "\">
+         <input type=\"text\" name=\"mesa_tecnicatura\" placeholder=\"Buscar tecnicatura\" value=\"";
+        // line 333
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 333, $this->source); })()), "request", [], "any", false, false, false, 333), "get", ["mesa_tecnicatura"], "method", false, false, false, 333), "html", null, true);
+        yield "\">
+         <input type=\"date\" name=\"mesa_fecha\" value=\"";
+        // line 334
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 334, $this->source); })()), "request", [], "any", false, false, false, 334), "get", ["mesa_fecha"], "method", false, false, false, 334), "html", null, true);
+        yield "\">
+         <button type=\"submit\">Buscar</button>
+     </form>
         <thead>
             <tr>
                 <th colspan=\"8\">Fechas de Finales</th>
             </tr>
             <tr>
-                <th>Asignatura</th>
                 <th>Fecha</th>
                 <th>Hora</th>
+                <th>Asignatura</th>
+                <th>Tecnicatura</th>
                 <th>Presidente</th>
                 <th>Primer Vocal</th>
                 <th>Segundo Vocal</th>
-                <th>Tecnicatura</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             ";
-        // line 340
+        // line 353
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 340, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 353, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_final"]) {
-            // line 341
-            yield "                <tr>
+            // line 354
+            yield "                <tr> 
                     <td>";
-            // line 342
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 342)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 342), "nombre", [], "any", false, false, false, 342), "html", null, true)) : (""));
+            // line 355
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 355)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 355), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
                     <td>";
-            // line 343
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 343)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 343), "Y-m-d"), "html", null, true)) : (""));
+            // line 356
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 356)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 356), "H:i"), "html", null, true)) : (""));
+            yield "</td>
+                    <td>
+                    ";
+            // line 358
+            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 358) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 358), "asignatura", [], "any", false, false, false, 358))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source,             // line 359
+$context["examen_final"], "curso", [], "any", false, false, false, 359), "asignatura", [], "any", false, false, false, 359), "nombre", [], "any", false, false, false, 359), "html", null, true)) : ("N/A"));
+            yield "
+                    </td>
+                    <td>
+                     ";
+            // line 362
+            yield ((((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 362) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 362), "comision", [], "any", false, false, false, 362)) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 362), "comision", [], "any", false, false, false, 362), "tecnicatura", [], "any", false, false, false, 362))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source,             // line 363
+$context["examen_final"], "curso", [], "any", false, false, false, 363), "comision", [], "any", false, false, false, 363), "tecnicatura", [], "any", false, false, false, 363), "nombre", [], "any", false, false, false, 363), "html", null, true)) : ("N/A"));
+            yield "
+                    </td>
+                    <td>";
+            // line 365
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 365)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 365), "persona", [], "any", false, false, false, 365), "html", null, true)) : (""));
             yield "</td>
                     <td>";
-            // line 344
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 344)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 344), "H:i"), "html", null, true)) : (""));
+            // line 366
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 366)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 366), "persona", [], "any", false, false, false, 366), "html", null, true)) : (""));
             yield "</td>
                     <td>";
-            // line 345
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 345)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 345), "persona", [], "any", false, false, false, 345), "html", null, true)) : (""));
-            yield "</td>
-                    <td>";
-            // line 346
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 346)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 346), "persona", [], "any", false, false, false, 346), "html", null, true)) : (""));
-            yield "</td>
-                    <td>";
-            // line 347
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 347)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 347), "persona", [], "any", false, false, false, 347), "html", null, true)) : (""));
-            yield "</td>
-                    <td>";
-            // line 348
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 348)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 348), "nombre", [], "any", false, false, false, 348), "html", null, true)) : (""));
+            // line 367
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 367)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 367), "persona", [], "any", false, false, false, 367), "html", null, true)) : (""));
             yield "</td>
                     <td>
                         ";
-            // line 350
+            // line 369
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
-                // line 351
+                // line 370
                 yield "                            <button onclick=\"openEditExamenFinalModal(";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 351), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 370), "html", null, true);
                 yield ")\">Editar</button>
                         ";
             }
-            // line 353
+            // line 372
             yield "                    </td>
                 </tr>
             ";
             $context['_iterated'] = true;
         }
-        // line 359
+        // line 378
         if (!$context['_iterated']) {
-            // line 356
+            // line 375
             yield "                <tr>
                     <td colspan=\"8\">No se encontraron registros</td>
                 </tr>
@@ -581,7 +615,7 @@ function handleNotaFinalFormSubmit() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 360
+        // line 379
         yield "        </tbody>
     </table>
     <div style=\"text-align: center; margin-top: 1em;\">
@@ -589,8 +623,19 @@ function handleNotaFinalFormSubmit() {
     </div>
 
     ";
-        // line 367
-        yield "   <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+        // line 386
+        yield "    <form method=\"get\" action=\"\">
+    <input type=\"text\" name=\"nota_estudiante\" placeholder=\"Buscar estudiante\" value=\"";
+        // line 387
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 387, $this->source); })()), "request", [], "any", false, false, false, 387), "get", ["nota_estudiante"], "method", false, false, false, 387), "html", null, true);
+        yield "\">
+    <input type=\"text\" name=\"nota_asignatura\" placeholder=\"Buscar asignatura\" value=\"";
+        // line 388
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 388, $this->source); })()), "request", [], "any", false, false, false, 388), "get", ["nota_asignatura"], "method", false, false, false, 388), "html", null, true);
+        yield "\">
+    <button type=\"submit\">Buscar</button>
+</form>
+   <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
     <thead>
         <tr>
             <th colspan=\"7\">Notas de los Finales</th>
@@ -607,62 +652,64 @@ function handleNotaFinalFormSubmit() {
     </thead>
     <tbody>
         ";
-        // line 383
+        // line 407
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_alumnos"]) || array_key_exists("examen_alumnos", $context) ? $context["examen_alumnos"] : (function () { throw new RuntimeError('Variable "examen_alumnos" does not exist.', 383, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_alumnos"]) || array_key_exists("examen_alumnos", $context) ? $context["examen_alumnos"] : (function () { throw new RuntimeError('Variable "examen_alumnos" does not exist.', 407, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_alumno"]) {
-            // line 384
+            // line 408
             yield "            <tr>
                 <td>
                     ";
-            // line 386
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumnoId", [], "any", false, false, false, 386)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumnoId", [], "any", false, false, false, 386), "persona", [], "any", false, false, false, 386), "nombre", [], "any", false, false, false, 386) . " ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumnoId", [], "any", false, false, false, 386), "persona", [], "any", false, false, false, 386), "apellido", [], "any", false, false, false, 386)), "html", null, true)) : ("N/A"));
+            // line 410
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno", [], "any", false, false, false, 410)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno", [], "any", false, false, false, 410), "persona", [], "any", false, false, false, 410), "nombre", [], "any", false, false, false, 410) . " ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "alumno", [], "any", false, false, false, 410), "persona", [], "any", false, false, false, 410), "apellido", [], "any", false, false, false, 410)), "html", null, true)) : ("N/A"));
             yield "
                 </td>
                 <td>";
-            // line 388
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "nota", [], "any", false, false, false, 388), "html", null, true);
+            // line 412
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "nota", [], "any", false, false, false, 412), "html", null, true);
             yield "</td>
                 <td>";
-            // line 389
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "tomo", [], "any", false, false, false, 389), "html", null, true);
+            // line 413
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "tomo", [], "any", false, false, false, 413), "html", null, true);
             yield "</td>
                 <td>";
-            // line 390
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "folio", [], "any", false, false, false, 390), "html", null, true);
+            // line 414
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "folio", [], "any", false, false, false, 414), "html", null, true);
             yield "</td>
                 <td>
-                    ";
-            // line 392
-            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 392) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 392), "tecnicatura", [], "any", false, false, false, 392))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 392), "tecnicatura", [], "any", false, false, false, 392), "nombre", [], "any", false, false, false, 392), "html", null, true)) : ("N/A"));
+                 ";
+            // line 416
+            yield (((((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 416) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 416), "curso", [], "any", false, false, false, 416)) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 416), "curso", [], "any", false, false, false, 416), "comision", [], "any", false, false, false, 416)) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 416), "curso", [], "any", false, false, false, 416), "comision", [], "any", false, false, false, 416), "tecnicatura", [], "any", false, false, false, 416))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source,             // line 417
+$context["examen_alumno"], "examenFinal", [], "any", false, false, false, 417), "curso", [], "any", false, false, false, 417), "comision", [], "any", false, false, false, 417), "tecnicatura", [], "any", false, false, false, 417), "nombre", [], "any", false, false, false, 417), "html", null, true)) : ("N/A"));
+            yield "
+                </td>
+                <td>
+                 ";
+            // line 420
+            yield ((((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 420) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 420), "curso", [], "any", false, false, false, 420)) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 420), "curso", [], "any", false, false, false, 420), "asignatura", [], "any", false, false, false, 420))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source,             // line 421
+$context["examen_alumno"], "examenFinal", [], "any", false, false, false, 421), "curso", [], "any", false, false, false, 421), "asignatura", [], "any", false, false, false, 421), "nombre", [], "any", false, false, false, 421), "html", null, true)) : ("N/A"));
             yield "
                 </td>
                 <td>
                     ";
-            // line 395
-            yield (((CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 395) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 395), "asignatura", [], "any", false, false, false, 395))) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "examenFinalId", [], "any", false, false, false, 395), "asignatura", [], "any", false, false, false, 395), "nombre", [], "any", false, false, false, 395), "html", null, true)) : ("N/A"));
-            yield "
-                </td>
-                <td>
-                    ";
-            // line 398
+            // line 424
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_ADMIN")) {
-                // line 399
+                // line 425
                 yield "                        <button onclick=\"openEditExamenAlumnoModal(";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "id", [], "any", false, false, false, 399), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_alumno"], "id", [], "any", false, false, false, 425), "html", null, true);
                 yield ")\">Editar</button>
                     ";
             }
-            // line 401
+            // line 427
             yield "                </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
-        // line 407
+        // line 433
         if (!$context['_iterated']) {
-            // line 404
+            // line 430
             yield "            <tr>
                 <td colspan=\"7\">No se encontraron registros</td>
             </tr>
@@ -671,7 +718,7 @@ function handleNotaFinalFormSubmit() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_alumno'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 408
+        // line 434
         yield "    </tbody>
  </table>
     <div style=\"text-align: center; margin-top: 1em;\">
@@ -752,7 +799,7 @@ function handleNotaFinalFormSubmit() {
      */
     public function getDebugInfo(): array
     {
-        return array (  675 => 408,  666 => 404,  664 => 407,  658 => 401,  652 => 399,  650 => 398,  644 => 395,  638 => 392,  633 => 390,  629 => 389,  625 => 388,  620 => 386,  616 => 384,  611 => 383,  593 => 367,  585 => 360,  576 => 356,  574 => 359,  568 => 353,  562 => 351,  560 => 350,  555 => 348,  551 => 347,  547 => 346,  543 => 345,  539 => 344,  535 => 343,  531 => 342,  528 => 341,  523 => 340,  504 => 323,  496 => 316,  487 => 312,  485 => 315,  479 => 309,  473 => 307,  471 => 306,  465 => 303,  459 => 300,  453 => 297,  448 => 295,  444 => 294,  441 => 293,  436 => 292,  419 => 277,  399 => 258,  395 => 256,  393 => 255,  376 => 240,  363 => 239,  274 => 160,  269 => 158,  211 => 103,  191 => 86,  171 => 69,  128 => 29,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  722 => 434,  713 => 430,  711 => 433,  705 => 427,  699 => 425,  697 => 424,  691 => 421,  690 => 420,  684 => 417,  683 => 416,  678 => 414,  674 => 413,  670 => 412,  665 => 410,  661 => 408,  656 => 407,  634 => 388,  630 => 387,  627 => 386,  619 => 379,  610 => 375,  608 => 378,  602 => 372,  596 => 370,  594 => 369,  589 => 367,  585 => 366,  581 => 365,  576 => 363,  575 => 362,  569 => 359,  568 => 358,  563 => 356,  559 => 355,  556 => 354,  551 => 353,  529 => 334,  525 => 333,  521 => 332,  517 => 330,  509 => 323,  500 => 319,  498 => 322,  492 => 316,  486 => 314,  484 => 313,  478 => 310,  472 => 307,  471 => 306,  465 => 303,  464 => 302,  459 => 300,  456 => 299,  451 => 298,  431 => 281,  427 => 280,  423 => 279,  419 => 277,  399 => 258,  395 => 256,  393 => 255,  376 => 240,  363 => 239,  274 => 160,  269 => 158,  211 => 103,  191 => 86,  171 => 69,  128 => 29,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -1034,13 +1081,19 @@ function handleNotaFinalFormSubmit() {
 
     {# Tabla Inscriptos #}
     <table id=\"tablaInscriptos\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+         <form method=\"get\" action=\"\">
+             <input type=\"text\" name=\"inscripto_nombre\" placeholder=\"Buscar estudiante\" value=\"{{ app.request.get('inscripto_nombre') }}\">
+             <input type=\"text\" name=\"inscripto_tecnicatura\" placeholder=\"Buscar tecnicatura\" value=\"{{ app.request.get('inscripto_tecnicatura') }}\">
+             <input type=\"text\" name=\"inscripto_asignatura\" placeholder=\"Buscar asignatura\" value=\"{{ app.request.get('inscripto_asignatura') }}\">
+             <button type=\"submit\">Buscar</button>
+         </form>
         <thead>
             <tr>
                 <th colspan=\"6\">Inscriptos</th>
             </tr>
             <tr>
                 <th>Fecha</th>
-                <th>Hora</th>
+
                 <th>Estudiante</th>
                 <th>Tecnicatura</th>
                 <th>Asignatura</th>
@@ -1051,16 +1104,17 @@ function handleNotaFinalFormSubmit() {
             {% for inscripcion_final in inscripcion_finals %}
                 <tr>
                     <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
-                    <td>{{ inscripcion_final.examenFinal and inscripcion_final.examenFinal.hora ? inscripcion_final.examenFinal.hora|date('H:i') : '' }}</td>
                     <td>
-                        {{ inscripcion_final.alumno_id ? inscripcion_final.alumno_id.persona.nombre ~ ' ' ~ inscripcion_final.alumno_id.persona.apellido : 'N/A' }}
-                    </td>
-                    <td>
-                        {{ inscripcion_final.asignatura_id and inscripcion_final.asignatura_id.tecnicatura ? inscripcion_final.asignatura_id.tecnicatura.nombre : 'N/A' }}
-                    </td>
-                    <td>
-                        {{ inscripcion_final.asignatura_id ? inscripcion_final.asignatura_id.nombre : 'N/A' }}
-                    </td>
+                     {{ inscripcion_final.curso and inscripcion_final.curso.comision and inscripcion_final.curso.comision.tecnicatura
+                       ? inscripcion_final.curso.comision.tecnicatura.nombre : 'N/A' }}
+                   </td>
+                   <td>
+                      {{ inscripcion_final.curso and inscripcion_final.curso.asignatura
+                     ? inscripcion_final.curso.asignatura.nombre : 'N/A' }}
+                 </td>
+                 <td>
+                  {{ inscripcion_final.alumno ? inscripcion_final.alumno.persona.nombre ~ ' ' ~ inscripcion_final.alumno.persona.apellido : 'N/A' }}
+                 </td>
                     <td>
                         {% if is_granted('ROLE_SUPER_ADMIN') %}
                             <button onclick=\"openEditInscripcionFinalModal({{ inscripcion_final.id }})\">Editar</button>
@@ -1080,31 +1134,43 @@ function handleNotaFinalFormSubmit() {
 
     {# Tabla Mesas (Fechas de Finales) #}
     <table id=\"tablaMesas\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+       <form method=\"get\" action=\"\">
+         <input type=\"text\" name=\"mesa_asignatura\" placeholder=\"Buscar asignatura\" value=\"{{ app.request.get('mesa_asignatura') }}\">
+         <input type=\"text\" name=\"mesa_tecnicatura\" placeholder=\"Buscar tecnicatura\" value=\"{{ app.request.get('mesa_tecnicatura') }}\">
+         <input type=\"date\" name=\"mesa_fecha\" value=\"{{ app.request.get('mesa_fecha') }}\">
+         <button type=\"submit\">Buscar</button>
+     </form>
         <thead>
             <tr>
                 <th colspan=\"8\">Fechas de Finales</th>
             </tr>
             <tr>
-                <th>Asignatura</th>
                 <th>Fecha</th>
                 <th>Hora</th>
+                <th>Asignatura</th>
+                <th>Tecnicatura</th>
                 <th>Presidente</th>
                 <th>Primer Vocal</th>
                 <th>Segundo Vocal</th>
-                <th>Tecnicatura</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             {% for examen_final in examen_finals %}
-                <tr>
-                    <td>{{ examen_final.asignatura ? examen_final.asignatura.nombre : '' }}</td>
+                <tr> 
                     <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
                     <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
+                    <td>
+                    {{ examen_final.curso and examen_final.curso.asignatura
+                    ? examen_final.curso.asignatura.nombre : 'N/A' }}
+                    </td>
+                    <td>
+                     {{ examen_final.curso and examen_final.curso.comision and examen_final.curso.comision.tecnicatura
+                      ? examen_final.curso.comision.tecnicatura.nombre : 'N/A' }}
+                    </td>
                     <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
                     <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
                     <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
-                    <td>{{ examen_final.tecnicatura ? examen_final.tecnicatura.nombre : '' }}</td>
                     <td>
                         {% if is_granted('ROLE_SUPER_ADMIN') %}
                             <button onclick=\"openEditExamenFinalModal({{ examen_final.id }})\">Editar</button>
@@ -1123,6 +1189,11 @@ function handleNotaFinalFormSubmit() {
     </div>
 
     {# Tabla Notas Finales #}
+    <form method=\"get\" action=\"\">
+    <input type=\"text\" name=\"nota_estudiante\" placeholder=\"Buscar estudiante\" value=\"{{ app.request.get('nota_estudiante') }}\">
+    <input type=\"text\" name=\"nota_asignatura\" placeholder=\"Buscar asignatura\" value=\"{{ app.request.get('nota_asignatura') }}\">
+    <button type=\"submit\">Buscar</button>
+</form>
    <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
     <thead>
         <tr>
@@ -1142,16 +1213,18 @@ function handleNotaFinalFormSubmit() {
         {% for examen_alumno in examen_alumnos %}
             <tr>
                 <td>
-                    {{ examen_alumno.alumnoId ? examen_alumno.alumnoId.persona.nombre ~ ' ' ~ examen_alumno.alumnoId.persona.apellido : 'N/A' }}
+                    {{ examen_alumno.alumno ? examen_alumno.alumno.persona.nombre ~ ' ' ~ examen_alumno.alumno.persona.apellido : 'N/A' }}
                 </td>
                 <td>{{ examen_alumno.nota }}</td>
                 <td>{{ examen_alumno.tomo }}</td>
                 <td>{{ examen_alumno.folio }}</td>
                 <td>
-                    {{ examen_alumno.examenFinalId and examen_alumno.examenFinalId.tecnicatura ? examen_alumno.examenFinalId.tecnicatura.nombre : 'N/A' }}
+                 {{ examen_alumno.examenFinal and examen_alumno.examenFinal.curso and examen_alumno.examenFinal.curso.comision and examen_alumno.examenFinal.curso.comision.tecnicatura
+                 ? examen_alumno.examenFinal.curso.comision.tecnicatura.nombre : 'N/A' }}
                 </td>
                 <td>
-                    {{ examen_alumno.examenFinalId and examen_alumno.examenFinalId.asignatura ? examen_alumno.examenFinalId.asignatura.nombre : 'N/A' }}
+                 {{ examen_alumno.examenFinal and examen_alumno.examenFinal.curso and examen_alumno.examenFinal.curso.asignatura
+                  ? examen_alumno.examenFinal.curso.asignatura.nombre : 'N/A' }}
                 </td>
                 <td>
                     {% if is_granted('ROLE_SUPER_ADMIN') %}

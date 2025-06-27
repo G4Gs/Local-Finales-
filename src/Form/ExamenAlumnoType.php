@@ -27,14 +27,14 @@ class ExamenAlumnoType extends AbstractType
             ])
             ->add('tomo')
             ->add('folio')
-            ->add('alumno_id', EntityType::class, [
+            ->add('alumno', EntityType::class, [
                 'class' => Alumno::class,
                 'choice_label' => function($alumno) {
                     return $alumno->getId() . ' - ' . $alumno->getPersona();
                 },
                 'label' => 'Alumno',
             ])
-            ->add('examenFinal_id', EntityType::class, [
+            ->add('examenFinal', EntityType::class, [
                 'class' => ExamenFinal::class,
                 'choice_label' => function($examenFinal) {
                     return $examenFinal->getId() . ' - ' . ($examenFinal->getFecha() ? $examenFinal->getFecha()->format('Y-m-d') : '');
