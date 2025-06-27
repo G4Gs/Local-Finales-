@@ -10,11 +10,13 @@ use App\Repository\InscripcionFinalRepository;
 use App\Repository\CursoRepository;
 use App\Repository\ComisionRepository;
 use App\Repository\TecnicaturaRepository;
+use App\Repository\AsignaturaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/examen/final')]
 class ExamenFinalController extends AbstractController
@@ -62,12 +64,13 @@ class ExamenFinalController extends AbstractController
             ->getResult();
 
         $tecnicaturas = $tecnicaturaRepository->findAll();
-        $comisiones = $comisionRepository->findAll();
+        $asignaturas = []; // o filtradas si editas
+        $comisiones = [];  // o filtradas si editas
 
         $form = $this->createForm(ExamenFinalType::class, $examenFinal, [
             'tecnicaturas' => $tecnicaturas,
+            'asignaturas' => $asignaturas,
             'comisiones' => $comisiones,
-            'cursos' => $cursos,
         ]);
         $form->handleRequest($request);
 
@@ -115,12 +118,13 @@ class ExamenFinalController extends AbstractController
             ->getResult();
 
         $tecnicaturas = $tecnicaturaRepository->findAll();
-        $comisiones = $comisionRepository->findAll();
+        $asignaturas = []; // o filtradas si editas
+        $comisiones = [];  // o filtradas si editas
 
         $form = $this->createForm(ExamenFinalType::class, $examenFinal, [
             'tecnicaturas' => $tecnicaturas,
+            'asignaturas' => $asignaturas,
             'comisiones' => $comisiones,
-            'cursos' => $cursos,
         ]);
         $form->handleRequest($request);
 
@@ -174,5 +178,43 @@ class ExamenFinalController extends AbstractController
         }
 
         return $this->redirectToRoute('app_examen_final_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/asignaturas/by-tecnicatura/{id}', name: 'asignaturas_by_tecnicatura', methods: ['GET'])]
+    public function asignaturasByTecnicatura(AsignaturaRepository $asignaturaRepository, $id): JsonResponse
+    {
+        $asignaturas = $asignaturaRepository->createQueryBuilder('a')
+            ->where('a.tecnicatura = :tecnicatura')
+            ->setParameter('tecnicatura', $id)
+            ->getQuery()
+            ->getResult();
+
+        $data = [];
+        foreach ($asignaturas as $asignatura) {
+            $data[] = [
+                'id' => $asignatura->getId(),
+                'nombre' => $asignatura->getNombre(),
+            ];
+        }
+        return new JsonResponse($data);
+    }
+
+    #[Route('/comisiones/by-asignatura/{id}', name: 'comisiones_by_asignatura', methods: ['GET'])]
+    public function comisionesByAsignatura(ComisionRepository $comisionRepository, $id): JsonResponse
+    {
+        $comisiones = $comisionRepository->createQueryBuilder('c')
+            ->where('c.asignatura = :asignatura')
+            ->setParameter('asignatura', $id)
+            ->getQuery()
+            ->getResult();
+
+        $data = [];
+        foreach ($comisiones as $comision) {
+            $data[] = [
+                'id' => $comision->getId(),
+                'nombre' => $comision->getNombre(),
+            ];
+        }
+        return new JsonResponse($data);
     }
 }

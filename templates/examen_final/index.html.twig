@@ -3,6 +3,7 @@
 {% block title %}Examen Final index{% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script>
         function handleExamenFinalFormSubmit(modalId, bodyId) {
             const modalBody = document.getElementById(bodyId);
@@ -89,6 +90,49 @@
             document.getElementById('newExamenModal').style.display = 'none';
             document.getElementById('newExamenBody').innerHTML = '';
         }
+
+        // Asignaturas por Tecnicatura
+        document.addEventListener('change', function(e) {
+            if (e.target && e.target.id === 'tecnicatura-select') {
+                const tecnicaturaId = e.target.value;
+                const asignaturaSelect = document.getElementById('asignatura-select');
+                const comisionSelect = document.getElementById('comision-select');
+                if (!tecnicaturaId) {
+                    asignaturaSelect.innerHTML = '<option value="">Seleccione una asignatura</option>';
+                    comisionSelect.innerHTML = '<option value="">Seleccione una comisión</option>';
+                    return;
+                }
+                fetch('/asignaturas/by-tecnicatura/' + tecnicaturaId)
+                    .then(response => response.json())
+                    .then(data => {
+                        asignaturaSelect.innerHTML = '<option value="">Seleccione una asignatura</option>';
+                        data.forEach(function(asignatura) {
+                            asignaturaSelect.innerHTML += `<option value="${asignatura.id}">${asignatura.nombre}</option>`;
+                        });
+                        comisionSelect.innerHTML = '<option value="">Seleccione una comisión</option>';
+                    });
+            }
+        });
+
+        // Comisiones por Asignatura
+        document.addEventListener('change', function(e) {
+            if (e.target && e.target.id === 'asignatura-select') {
+                const asignaturaId = e.target.value;
+                const comisionSelect = document.getElementById('comision-select');
+                if (!asignaturaId) {
+                    comisionSelect.innerHTML = '<option value="">Seleccione una comisión</option>';
+                    return;
+                }
+                fetch('/comisiones/by-asignatura/' + asignaturaId)
+                    .then(response => response.json())
+                    .then(data => {
+                        comisionSelect.innerHTML = '<option value="">Seleccione una comisión</option>';
+                        data.forEach(function(comision) {
+                            comisionSelect.innerHTML += `<option value="${comision.id}">${comision.nombre}</option>`;
+                        });
+                    });
+            }
+        });
     </script>
 {% endblock %}
 
@@ -126,7 +170,7 @@
             <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
             <td>{{ examen_final.estadoMesa }}</td>
             <td>
-                {{ examen_final.curso ? examen_final.curso.asignatura.nombre ~ ' - ' ~ examen_final.curso.comision.ciclo_lectivo : '' }}
+                {{ examen_final.tecnicatura.nombre ~ ' - ' ~ examen_final.asignatura.nombre ~ ' - ' ~ examen_final.comision.nombre }}
             </td>
             <td>
                 <button type="button" class="buttonn" onclick="openEditExamenModal({{ examen_final.id }})">

@@ -3,8 +3,9 @@
 namespace App\Form;
 
 use App\Entity\ExamenFinal;
-use App\Entity\Curso;
 use App\Entity\Tecnicatura;
+use App\Entity\Asignatura;
+use App\Entity\Comision;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,22 +22,22 @@ class ExamenFinalType extends AbstractType
             ->add('presidente')
             ->add('vocal1')
             ->add('vocal2')
-            ->add('curso', EntityType::class, [
-                'class' => Curso::class,
-                'choices' => $options['cursos'],
-                'choice_label' => function ($curso) {
-                    return $curso->getAsignatura()->getNombre() . ' - ' .
-                           $curso->getComision()->getCicloLectivo() . ' - ' .
-                           $curso->getComision()->getComision() . ' - ' .
-                           $curso->getComision()->getTecnicatura()->getNombre();
-                },
-                'placeholder' => 'Seleccione un curso',
-                'required' => true,
-            ])
             ->add('tecnicatura', EntityType::class, [
                 'class' => Tecnicatura::class,
                 'choices' => $options['tecnicaturas'],
                 'placeholder' => 'Seleccione una tecnicatura',
+                'required' => true,
+            ])
+            ->add('asignatura', EntityType::class, [
+                'class' => Asignatura::class,
+                'choices' => $options['asignaturas'],
+                'placeholder' => 'Seleccione una asignatura',
+                'required' => true,
+            ])
+            ->add('comision', EntityType::class, [
+                'class' => Comision::class,
+                'choices' => $options['comisiones'],
+                'placeholder' => 'Seleccione una comisión',
                 'required' => true,
             ]);
     }
@@ -45,8 +46,8 @@ class ExamenFinalType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => ExamenFinal::class,
-            'cursos' => [],
             'tecnicaturas' => [],
+            'asignaturas' => [],
             'comisiones' => [],
         ]);
     }

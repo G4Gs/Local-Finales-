@@ -41,6 +41,14 @@ class ExamenFinal
     #[ORM\JoinColumn(nullable: false)]
     private ?Tecnicatura $tecnicatura = null;
 
+    #[ORM\ManyToOne(targetEntity: Asignatura::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Asignatura $asignatura = null;
+
+    #[ORM\ManyToOne(targetEntity: Comision::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Comision $comision = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -131,6 +139,28 @@ class ExamenFinal
     public function setTecnicatura(?Tecnicatura $tecnicatura): static
     {
         $this->tecnicatura = $tecnicatura;
+        return $this;
+    }
+
+    public function getAsignatura(): ?Asignatura
+    {
+        return $this->asignatura;
+    }
+
+    public function setAsignatura(?Asignatura $asignatura): static
+    {
+        $this->asignatura = $asignatura;
+        return $this;
+    }
+
+    public function getComision(): ?Comision
+    {
+        return $this->comision;
+    }
+
+    public function setComision(?Comision $comision): static
+    {
+        $this->comision = $comision;
         return $this;
     }
 }
