@@ -68,6 +68,11 @@ class ExamenFinalRepository extends ServiceEntityRepository
                ->setParameter('presidente', '%' . strtolower($presidente) . '%');
         }
 
+        if ($curso) {
+        $qb->andWhere('c.id = :curso')
+           ->setParameter('curso', $curso);
+    }
+
         return $qb->getQuery()->getResult();
     }
 }

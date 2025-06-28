@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Curso;
 
 class InscripcionFinalType extends AbstractType
 {
@@ -19,6 +21,13 @@ class InscripcionFinalType extends AbstractType
             ])
             ->add('alumno')
             ->add('asignatura')
+            ->add('curso', EntityType::class, [
+            'class' => Curso::class,
+            'choice_label' => function($curso) {
+                return $curso->getId() . ' - ' . $curso->getAsignatura()->getNombre() . ' (' . $curso->getComision()->getCiclolectivo() . ')';
+            },
+            'label' => 'Curso',
+            ])
         ;
     }
 

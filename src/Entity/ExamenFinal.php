@@ -45,6 +45,10 @@ class ExamenFinal
     #[ORM\JoinColumn(nullable: false)]
     private ?Comision $comision = null;
 
+    #[ORM\ManyToOne(targetEntity: Curso::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Curso $curso = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -148,4 +152,16 @@ class ExamenFinal
         $this->comision = $comision;
         return $this;
     }
+
+public function getCurso(): ?Curso
+   {
+      return $this->curso;
+   }
+
+   public function setCurso(?Curso $curso): static
+    {
+      $this->curso = $curso;
+      return $this;
+    }
+
 }
