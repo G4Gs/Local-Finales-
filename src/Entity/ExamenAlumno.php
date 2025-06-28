@@ -23,11 +23,9 @@ class ExamenAlumno
     private ?int $folio = null;
 
     #[ORM\ManyToOne(inversedBy: 'examenAlumnos')]
-    #[ORM\JoinColumn(name: 'alumno_id_id', referencedColumnName: 'id')]
     private ?Alumno $alumno = null;
 
     #[ORM\ManyToOne(inversedBy: 'examenAlumnos')]
-    #[ORM\JoinColumn(name: 'examen_final_id_id', referencedColumnName: 'id')]
     private ?ExamenFinal $examenFinal = null;
 
     public function getId(): ?int
@@ -76,8 +74,6 @@ class ExamenAlumno
     public function setAlumno(?Alumno $alumno): static
     {
         $this->alumno = $alumno;
-<<<<<<< HEAD
-=======
         return $this;
     }
 
@@ -89,7 +85,6 @@ class ExamenAlumno
     public function setExamenFinal(?ExamenFinal $examenFinal): static
     {
         $this->examenFinal = $examenFinal;
->>>>>>> 82480ab6010721423d12f89a341c60c33df4d328
         return $this;
     }
 }
