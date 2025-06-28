@@ -60,9 +60,9 @@ class InscripcionFinal
         return $this->asignatura;
     }
 
-    public function setAsignaturaId(?Asignatura $asignatura): static
+    public function setAsignatura(?Asignatura $asignatura): static
     {
-        $this->asignatura_ = $asignatura;
+        $this->asignatura = $asignatura;
 
         return $this;
     }

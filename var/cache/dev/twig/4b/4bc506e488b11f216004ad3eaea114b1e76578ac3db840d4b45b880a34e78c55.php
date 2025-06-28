@@ -624,18 +624,18 @@ $context["examen_final"], "curso", [], "any", false, false, false, 363), "comisi
 
     ";
         // line 386
-        yield "    <form method=\"get\" action=\"\">
-    <input type=\"text\" name=\"nota_estudiante\" placeholder=\"Buscar estudiante\" value=\"";
-        // line 387
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 387, $this->source); })()), "request", [], "any", false, false, false, 387), "get", ["nota_estudiante"], "method", false, false, false, 387), "html", null, true);
-        yield "\">
-    <input type=\"text\" name=\"nota_asignatura\" placeholder=\"Buscar asignatura\" value=\"";
+        yield "   <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+   <form method=\"get\" action=\"\">
+     <input type=\"text\" name=\"nota_estudiante\" placeholder=\"Buscar estudiante\" value=\"";
         // line 388
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 388, $this->source); })()), "request", [], "any", false, false, false, 388), "get", ["nota_asignatura"], "method", false, false, false, 388), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 388, $this->source); })()), "request", [], "any", false, false, false, 388), "get", ["nota_estudiante"], "method", false, false, false, 388), "html", null, true);
         yield "\">
-    <button type=\"submit\">Buscar</button>
-</form>
-   <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+     <input type=\"text\" name=\"nota_asignatura\" placeholder=\"Buscar asignatura\" value=\"";
+        // line 389
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 389, $this->source); })()), "request", [], "any", false, false, false, 389), "get", ["nota_asignatura"], "method", false, false, false, 389), "html", null, true);
+        yield "\">
+     <button type=\"submit\">Buscar</button>
+    </form>
     <thead>
         <tr>
             <th colspan=\"7\">Notas de los Finales</th>
@@ -799,7 +799,7 @@ $context["examen_alumno"], "examenFinal", [], "any", false, false, false, 421), 
      */
     public function getDebugInfo(): array
     {
-        return array (  722 => 434,  713 => 430,  711 => 433,  705 => 427,  699 => 425,  697 => 424,  691 => 421,  690 => 420,  684 => 417,  683 => 416,  678 => 414,  674 => 413,  670 => 412,  665 => 410,  661 => 408,  656 => 407,  634 => 388,  630 => 387,  627 => 386,  619 => 379,  610 => 375,  608 => 378,  602 => 372,  596 => 370,  594 => 369,  589 => 367,  585 => 366,  581 => 365,  576 => 363,  575 => 362,  569 => 359,  568 => 358,  563 => 356,  559 => 355,  556 => 354,  551 => 353,  529 => 334,  525 => 333,  521 => 332,  517 => 330,  509 => 323,  500 => 319,  498 => 322,  492 => 316,  486 => 314,  484 => 313,  478 => 310,  472 => 307,  471 => 306,  465 => 303,  464 => 302,  459 => 300,  456 => 299,  451 => 298,  431 => 281,  427 => 280,  423 => 279,  419 => 277,  399 => 258,  395 => 256,  393 => 255,  376 => 240,  363 => 239,  274 => 160,  269 => 158,  211 => 103,  191 => 86,  171 => 69,  128 => 29,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  722 => 434,  713 => 430,  711 => 433,  705 => 427,  699 => 425,  697 => 424,  691 => 421,  690 => 420,  684 => 417,  683 => 416,  678 => 414,  674 => 413,  670 => 412,  665 => 410,  661 => 408,  656 => 407,  635 => 389,  631 => 388,  627 => 386,  619 => 379,  610 => 375,  608 => 378,  602 => 372,  596 => 370,  594 => 369,  589 => 367,  585 => 366,  581 => 365,  576 => 363,  575 => 362,  569 => 359,  568 => 358,  563 => 356,  559 => 355,  556 => 354,  551 => 353,  529 => 334,  525 => 333,  521 => 332,  517 => 330,  509 => 323,  500 => 319,  498 => 322,  492 => 316,  486 => 314,  484 => 313,  478 => 310,  472 => 307,  471 => 306,  465 => 303,  464 => 302,  459 => 300,  456 => 299,  451 => 298,  431 => 281,  427 => 280,  423 => 279,  419 => 277,  399 => 258,  395 => 256,  393 => 255,  376 => 240,  363 => 239,  274 => 160,  269 => 158,  211 => 103,  191 => 86,  171 => 69,  128 => 29,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -1189,12 +1189,12 @@ function handleNotaFinalFormSubmit() {
     </div>
 
     {# Tabla Notas Finales #}
-    <form method=\"get\" action=\"\">
-    <input type=\"text\" name=\"nota_estudiante\" placeholder=\"Buscar estudiante\" value=\"{{ app.request.get('nota_estudiante') }}\">
-    <input type=\"text\" name=\"nota_asignatura\" placeholder=\"Buscar asignatura\" value=\"{{ app.request.get('nota_asignatura') }}\">
-    <button type=\"submit\">Buscar</button>
-</form>
    <table id=\"tablaNotasFinales\" class=\"tabla_home\" style=\"display: none;\" border=\"1\">
+   <form method=\"get\" action=\"\">
+     <input type=\"text\" name=\"nota_estudiante\" placeholder=\"Buscar estudiante\" value=\"{{ app.request.get('nota_estudiante') }}\">
+     <input type=\"text\" name=\"nota_asignatura\" placeholder=\"Buscar asignatura\" value=\"{{ app.request.get('nota_asignatura') }}\">
+     <button type=\"submit\">Buscar</button>
+    </form>
     <thead>
         <tr>
             <th colspan=\"7\">Notas de los Finales</th>
