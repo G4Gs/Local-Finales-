@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CSecurityController
 
-<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/5/B/JeCY7Sv4sNI+q9sQ3LAA
-return [PHP_INT_MAX, 1751069258];
-=======
-return [PHP_INT_MAX, 1751063687];
->>>>>>> 82480ab6010721423d12f89a341c60c33df4d328:var/cache/dev/pools/system/9evvotpsxZ/5/B/JeCY7Sv4sNI+q9sQ3LAA
+return [PHP_INT_MAX, 1751074559];

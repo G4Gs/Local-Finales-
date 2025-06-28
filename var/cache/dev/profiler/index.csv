@@ -1,1 +1,7 @@
-21d4e3,::1,GET,http://localhost/local/public/index.php/vistasmesas?nota_asignatura=&nota_estudiante=,1751071670,,200
+18b1a6,127.0.0.1,GET,http://localhost/Local-Finales-/public/,1751074593,,404
+1e49e0,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/,1751074680,,404
+dd8dc3,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1751074814,,200
+af02f7,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1751074817,e76f5f,404
+e76f5f,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1751074817,,404
+f6300a,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1751074948,,302
+1a1c96,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1751074952,,200

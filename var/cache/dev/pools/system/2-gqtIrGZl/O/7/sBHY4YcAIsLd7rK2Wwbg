@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CVistasestudianteController
 
-<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/O/7/sBHY4YcAIsLd7rK2Wwbg
-return [PHP_INT_MAX, 1751069269];
-=======
-return [PHP_INT_MAX, 1751063688];
->>>>>>> 82480ab6010721423d12f89a341c60c33df4d328:var/cache/dev/pools/system/9evvotpsxZ/O/7/sBHY4YcAIsLd7rK2Wwbg
+return [PHP_INT_MAX, 1751074570];

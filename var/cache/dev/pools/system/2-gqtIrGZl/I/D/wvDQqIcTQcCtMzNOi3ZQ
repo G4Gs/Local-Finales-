@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CRevistaController%2523index
 
-<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/I/D/wvDQqIcTQcCtMzNOi3ZQ
-return [PHP_INT_MAX, 1751069255];
-=======
-return [PHP_INT_MAX, 1751063687];
->>>>>>> 82480ab6010721423d12f89a341c60c33df4d328:var/cache/dev/pools/system/9evvotpsxZ/I/D/wvDQqIcTQcCtMzNOi3ZQ
+return [PHP_INT_MAX, 1751074557];

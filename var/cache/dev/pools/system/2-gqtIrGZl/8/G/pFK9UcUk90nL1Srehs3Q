@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CNotaController%2523delete
 
-<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/8/G/pFK9UcUk90nL1Srehs3Q
-return [PHP_INT_MAX, 1751069248];
-=======
-return [PHP_INT_MAX, 1751063687];
->>>>>>> 82480ab6010721423d12f89a341c60c33df4d328:var/cache/dev/pools/system/9evvotpsxZ/8/G/pFK9UcUk90nL1Srehs3Q
+return [PHP_INT_MAX, 1751074554];
