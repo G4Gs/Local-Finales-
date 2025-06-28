@@ -930,6 +930,10 @@ class __TwigTemplate_3a3865b6e1a03f36519e2762c661ca83 extends Template
         </tbody>
     </table>
 {% endmacro %}
+<<<<<<< HEAD:var/cache/dev/twig/60/6053d283f409eb261deff5abb954aa7b.php
 ", "@WebProfiler/Collector/translation.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\translation.html.twig");
+=======
+", "@WebProfiler/Collector/translation.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\translation.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/b7/b74749b280b352463d6669a6fd2be3e7a0b59b6a540ba4d8d0092b77e73f0c6c.php
     }
 }

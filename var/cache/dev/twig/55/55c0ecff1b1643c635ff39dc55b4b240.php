@@ -1866,6 +1866,10 @@ class __TwigTemplate_d5f39fff6d1acdd7a805b2b1025e62e8 extends Template
         </tbody>
     </table>
 {% endmacro %}
+<<<<<<< HEAD:var/cache/dev/twig/55/55c0ecff1b1643c635ff39dc55b4b240.php
 ", "@Doctrine/Collector/db.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\doctrine\\doctrine-bundle\\templates\\Collector\\db.html.twig");
+=======
+", "@Doctrine/Collector/db.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\doctrine\\doctrine-bundle\\templates\\Collector\\db.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/7d/7ddd369737271e7f7e836d8ee0aa4cddb208c0910a09baedec54ff1b1977236b.php
     }
 }

@@ -2112,6 +2112,10 @@ class __TwigTemplate_03d78dc44c0069934c44e69c86e2d3d9 extends Template
         {{ tree.form_tree_details(childName, childData, forms_by_hash) }}
     {% endfor %}
 {% endmacro %}
+<<<<<<< HEAD:var/cache/dev/twig/50/50011dec15a66cbdf92121d753521712.php
 ", "@WebProfiler/Collector/form.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\form.html.twig");
+=======
+", "@WebProfiler/Collector/form.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\form.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/83/83347c52c01af3e6444d9e261fcd64164fd16a44127db71742fe1ec1a5591e87.php
     }
 }

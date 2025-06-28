@@ -1106,6 +1106,10 @@ $context["log"], "type", [], "any", false, false, false, 144))) ? ("silenced") :
         {% endif %}
     </div>
 {% endmacro %}
+<<<<<<< HEAD:var/cache/dev/twig/05/055f256d15f7162878394a930f589975.php
 ", "@WebProfiler/Collector/logger.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\logger.html.twig");
+=======
+", "@WebProfiler/Collector/logger.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\logger.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/3b/3ba460d3a3d46d122a566e30500188845290e3059b399e82e80cf2c32c2ef2a2.php
     }
 }

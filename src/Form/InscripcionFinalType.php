@@ -17,8 +17,8 @@ class InscripcionFinalType extends AbstractType
                 'widget' => 'single_text',
                 'data' => new \DateTime('today'),  // Establece la fecha por defecto del sistema
             ])
-            ->add('alumno_id')
-            ->add('asignatura_id')
+            ->add('alumno')
+            ->add('asignatura')
         ;
     }
 

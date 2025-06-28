@@ -117,6 +117,10 @@ class __TwigTemplate_948080d682048aa87414eb541eb09d0d extends Template
     {% if link|default(false) %}</a>{% endif %}
         <div class=\"sf-toolbar-info\">{{ text|default('') }}</div>
 </div>
+<<<<<<< HEAD:var/cache/dev/twig/1b/1b04FB9.tmp
 ", "@WebProfiler/Profiler/toolbar_item.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_item.html.twig");
+=======
+", "@WebProfiler/Profiler/toolbar_item.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_item.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/18/184419ab409557756430beefb4164b9c742821d9d721b7c31f83600e227d5ed2.php
     }
 }

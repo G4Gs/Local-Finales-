@@ -831,6 +831,10 @@ class __TwigTemplate_66c1af7fd1d652738d4d6641c259abad extends Template
         </table>
     {% endif %}
 {% endblock %}
+<<<<<<< HEAD:var/cache/dev/twig/b9/b98e107b7b7150f7fe851ac123edda4d.php
 ", "@WebProfiler/Collector/config.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+=======
+", "@WebProfiler/Collector/config.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/4a/4ac2b5d55708cfa8c296d9d03de292edeecc1ece6d2c2c7fb06408db8fc21868.php
     }
 }

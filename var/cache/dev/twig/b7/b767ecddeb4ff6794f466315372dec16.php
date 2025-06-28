@@ -248,6 +248,10 @@ $context["name"], "profiler_markup_version" =>                 // line 17
     </button>
 </div>
 <!-- END of Symfony Web Debug Toolbar -->
+<<<<<<< HEAD:var/cache/dev/twig/b7/b767ecddeb4ff6794f466315372dec16.php
 ", "@WebProfiler/Profiler/toolbar.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.html.twig");
+=======
+", "@WebProfiler/Profiler/toolbar.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/fd/fd02299fd5621230e92a5492b3b2b11eb888cbebda3fcbe9eacbef428e48a932.php
     }
 }

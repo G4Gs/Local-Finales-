@@ -1,11 +1,5 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New ExamenFinal{% endblock %}
+{% block title %}Crear Nuevo Examen Final{% endblock %}
 
 {% block body %}
-    <h1>Crear Nuevo Examen Final</h1>
-
-    {{ include('examen_final/_form.html.twig') }}
-
-    <a href="{{ path('app_examen_final_index') }}">Regresar</a>
+    {{ include('examen_final/_form.html.twig', { form: form, button_label: 'Guardar' }) }}
 {% endblock %}

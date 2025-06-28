@@ -3,7 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 07-06-2025 a las 14:39:04
+=======
+<<<<<<< HEAD
+-- Tiempo de generación: 07-06-2025 a las 14:39:04
+=======
+-- Tiempo de generación: 03-06-2025 a las 18:43:55
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -283,10 +291,27 @@ CREATE TABLE `asistencia` (
 --
 
 INSERT INTO `asistencia` (`id`, `cursada_id`, `asistencia`, `observacion`, `calendario_clase_id`) VALUES
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 (105, 7, 'Presente', NULL, 55),
 (106, 8, 'Presente', NULL, 55),
 (107, 9, 'Presente', NULL, 55),
 (108, 22, 'Presente', NULL, 55);
+<<<<<<< HEAD
+=======
+=======
+(1, 7, 'presente', 'ninguna', 1),
+(2, 8, 'ausente', 'nada', 1),
+(3, 8, 'presente', 'no', 1),
+(5, 8, 'si', 'no', 1),
+(6, 7, 'presente', 'ninguna', 1),
+(7, 7, 'presente', 'ninguna', 1),
+(8, 8, 'presente', 'no', 1),
+(9, 9, 'ausente', 'justificado', 1);
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 -- --------------------------------------------------------
 
@@ -299,7 +324,15 @@ CREATE TABLE `calendario_clase` (
   `modalidad_id` int(11) DEFAULT NULL,
   `curso_id` int(11) DEFAULT NULL,
   `fecha` date NOT NULL,
+<<<<<<< HEAD
   `observacion` varchar(255) DEFAULT NULL
+=======
+<<<<<<< HEAD
+  `observacion` varchar(255) DEFAULT NULL
+=======
+  `observacion` varchar(255) NOT NULL
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -307,7 +340,15 @@ CREATE TABLE `calendario_clase` (
 --
 
 INSERT INTO `calendario_clase` (`id`, `modalidad_id`, `curso_id`, `fecha`, `observacion`) VALUES
+<<<<<<< HEAD
 (55, 1, 1, '2025-06-07', '');
+=======
+<<<<<<< HEAD
+(55, 1, 1, '2025-06-07', '');
+=======
+(1, 1, 1, '2025-05-26', '1');
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 -- --------------------------------------------------------
 
@@ -514,6 +555,10 @@ CREATE TABLE `docente` (
 
 INSERT INTO `docente` (`id`, `persona_id`, `foja`) VALUES
 (1, 6, '1'),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 (2, 7, '2'),
 (3, 158, 'Matematicas');
 
@@ -528,6 +573,12 @@ CREATE TABLE `doctrine_migration_versions` (
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+<<<<<<< HEAD
+=======
+=======
+(2, 7, '2');
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 -- --------------------------------------------------------
 
@@ -792,8 +843,17 @@ INSERT INTO `persona` (`id`, `pais_id`, `localidad_id`, `nombre`, `apellido`, `f
 (5, 1, 1, 'Prat', 'Prum', '1904-01-01', '006', 'otro', 'pp@gmail.com', '6', 'lp', '9', '6', 6, '6', '6'),
 (6, 1, 1, 'willy', 'west', '1904-01-01', '005', 'masculino', 'flash@gmail.com', '7', 'Central city', '7', '7', 77, '7', '7'),
 (7, 1, 1, 'Smith', 'Will', '1904-01-01', '747565', 'masculino', 'gotg@gmail.com', '00014', 'la plata', '3', '3', 3, '3', '3'),
+<<<<<<< HEAD
 (157, 1, 1, 'Albert', 'Perez', '1984-01-01', '257000', 'masculino', 'ap@gmail.com', NULL, 'lp', '1', NULL, NULL, NULL, NULL),
 (158, 1, 1, 'Facundo', 'Garnica', '1996-08-28', '39803324', 'masculino', 'facundo@gmai.com', NULL, 'La Plata', '60', '2211', NULL, NULL, NULL);
+=======
+<<<<<<< HEAD
+(157, 1, 1, 'Albert', 'Perez', '1984-01-01', '257000', 'masculino', 'ap@gmail.com', NULL, 'lp', '1', NULL, NULL, NULL, NULL),
+(158, 1, 1, 'Facundo', 'Garnica', '1996-08-28', '39803324', 'masculino', 'facundo@gmai.com', NULL, 'La Plata', '60', '2211', NULL, NULL, NULL);
+=======
+(157, 1, 1, 'Albert', 'Perez', '1984-01-01', '257000', 'masculino', 'ap@gmail.com', NULL, 'lp', '1', NULL, NULL, NULL, NULL);
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 -- --------------------------------------------------------
 
@@ -965,14 +1025,31 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `password`, `persona_id`) VALUES
 (1, 'admin@directivo.i12', '$2y$13$Z64fqu4CtfOmrJ2ZqhQJhOWxWJvmPSJdBwvpvxF8Ev6kG2jBY5ok6', NULL),
+<<<<<<< HEAD
 (2, '007@docente.i12', '$2y$13$xh2SHGtbX/il.KwaMjieo.ptT1XiYymUUn2UI0KGcfWeLmOlkYiD6', NULL),
+=======
+<<<<<<< HEAD
+(2, '007@docente.i12', '$2y$13$xh2SHGtbX/il.KwaMjieo.ptT1XiYymUUn2UI0KGcfWeLmOlkYiD6', NULL),
+=======
+(2, '007@docente.i12', '$2y$13$0UU7v4C2F5HVUXNiA9ImJeJPrwgAY9V3tVj30ysdKKpwjOkLBPVsK', NULL),
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 (4, 'admin@admin.i12', '$2y$13$1fEHMaJL6/AbCGS8RUUqyuoM3TCIWDcucW0llOIz1cOHY8g8prQ26', NULL),
 (5, '002@estudiante.i12', '$2y$13$prSCR4IhGvASajQnfPEjWuauh/UMKOpPYEWLopgwPAvsXRMeEo9M6', NULL),
 (6, 'pm@gmail.com', '$2y$13$Fyc/bGJmra56YoxsIXy8FumGq2mSA.6bcScChmpcX1DJqTSXQpT9e', 2),
 (7, 'papa@gmail.com', '$2y$13$j53T0kXQBlIWlUa8H4/QbeDP3BAPDR5tgiSDNUwmdAB5TM1HBe5sm', NULL),
 (8, '4@gmail.com', '$2y$13$RGpG5mDmZSTJ5QhWsNWVG.slp0cjyd9JA3JPytxmCUqSiTeYcdEAG', NULL),
+<<<<<<< HEAD
 (11, 'flash@gmail.com', '$2y$13$IY/wxeBLYaXKWB6zou.x9u3j7QKW0o6x8z4kwdUS8cq00J/QyZbz6', 6),
 (12, 'facundo@gmai.com', '$2y$13$YVkudJpqD0JImfU81br5/O75fYrikCB2uBjSwIDQ3Ui2fmD6RM7aS', 158);
+=======
+<<<<<<< HEAD
+(11, 'flash@gmail.com', '$2y$13$IY/wxeBLYaXKWB6zou.x9u3j7QKW0o6x8z4kwdUS8cq00J/QyZbz6', 6),
+(12, 'facundo@gmai.com', '$2y$13$YVkudJpqD0JImfU81br5/O75fYrikCB2uBjSwIDQ3Ui2fmD6RM7aS', 158);
+=======
+(11, 'flash@gmail.com', '$2y$13$ma9ID5TCW0xE6cwK9LCxvOhJNZQf.YmAMLr5a0aRyVAyCaVDZyPgG', 6);
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 -- --------------------------------------------------------
 
@@ -990,14 +1067,30 @@ CREATE TABLE `user_rol` (
 --
 
 INSERT INTO `user_rol` (`user_id`, `rol_id`) VALUES
+<<<<<<< HEAD
 (2, 3),
+=======
+<<<<<<< HEAD
+(2, 3),
+=======
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 (4, 1),
 (4, 2),
 (5, 4),
 (6, 5),
 (7, 1),
+<<<<<<< HEAD
 (11, 3),
 (12, 3);
+=======
+<<<<<<< HEAD
+(11, 3),
+(12, 3);
+=======
+(11, 2);
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 --
 -- Índices para tablas volcadas
@@ -1092,12 +1185,21 @@ ALTER TABLE `docente`
   ADD UNIQUE KEY `UNIQ_FD9FCFA4F5F88DB9` (`persona_id`);
 
 --
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 -- Indices de la tabla `doctrine_migration_versions`
 --
 ALTER TABLE `doctrine_migration_versions`
   ADD PRIMARY KEY (`version`);
 
 --
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 -- Indices de la tabla `examen_alumno`
 --
 ALTER TABLE `examen_alumno`
@@ -1275,13 +1377,29 @@ ALTER TABLE `asignatura`
 -- AUTO_INCREMENT de la tabla `asistencia`
 --
 ALTER TABLE `asistencia`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+=======
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 --
 -- AUTO_INCREMENT de la tabla `calendario_clase`
 --
 ALTER TABLE `calendario_clase`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+=======
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 --
 -- AUTO_INCREMENT de la tabla `carreras`
@@ -1323,7 +1441,15 @@ ALTER TABLE `curso`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+=======
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 --
 -- AUTO_INCREMENT de la tabla `examen_alumno`
@@ -1335,7 +1461,15 @@ ALTER TABLE `examen_alumno`
 -- AUTO_INCREMENT de la tabla `examen_final`
 --
 ALTER TABLE `examen_final`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 --
 -- AUTO_INCREMENT de la tabla `habilitante`
@@ -1395,7 +1529,15 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+=======
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`
@@ -1449,7 +1591,15 @@ ALTER TABLE `turno`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+=======
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 --
 -- Restricciones para tablas volcadas
@@ -1471,8 +1621,18 @@ ALTER TABLE `asignatura`
 -- Filtros para la tabla `asistencia`
 --
 ALTER TABLE `asistencia`
+<<<<<<< HEAD
   ADD CONSTRAINT `FK_D8264A8DC248204C` FOREIGN KEY (`calendario_clase_id`) REFERENCES `calendario_clase` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_D8264A8DE51B8CF2` FOREIGN KEY (`cursada_id`) REFERENCES `cursada` (`id`) ON DELETE CASCADE;
+=======
+<<<<<<< HEAD
+  ADD CONSTRAINT `FK_D8264A8DC248204C` FOREIGN KEY (`calendario_clase_id`) REFERENCES `calendario_clase` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_D8264A8DE51B8CF2` FOREIGN KEY (`cursada_id`) REFERENCES `cursada` (`id`) ON DELETE CASCADE;
+=======
+  ADD CONSTRAINT `FK_D8264A8DC248204C` FOREIGN KEY (`calendario_clase_id`) REFERENCES `calendario_clase` (`id`),
+  ADD CONSTRAINT `FK_D8264A8DE51B8CF2` FOREIGN KEY (`cursada_id`) REFERENCES `cursada` (`id`);
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 
 --
 -- Filtros para la tabla `calendario_clase`
@@ -1547,7 +1707,15 @@ ALTER TABLE `examen_final`
   ADD CONSTRAINT `FK_8861EFE2CFA8626B` FOREIGN KEY (`vocal1_id_id`) REFERENCES `docente` (`id`),
   ADD CONSTRAINT `FK_8861EFE2D1F46B1E` FOREIGN KEY (`presidente_id_id`) REFERENCES `docente` (`id`),
   ADD CONSTRAINT `FK_8861EFE2FE4078F6` FOREIGN KEY (`vocal2_id_id`) REFERENCES `docente` (`id`);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+ 
+>>>>>>> dbb35f2e0ed046077df855ec631d238ddedf5cd8
+>>>>>>> c5463314c518ad1d7df04cf0d0c938e99174b70e
 --
 -- Filtros para la tabla `habilitante`
 --

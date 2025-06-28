@@ -442,6 +442,10 @@ class __TwigTemplate_1126aabae9a8e4190c2f1abcd0159d8e extends Template
         </div>
     {% endfor %}
 {% endblock %}
+<<<<<<< HEAD:var/cache/dev/twig/59/5905d401ff7e5055ba38a79d8b1a051a.php
 ", "@Debug/Profiler/dump.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\debug-bundle\\Resources\\views\\Profiler\\dump.html.twig");
+=======
+", "@Debug/Profiler/dump.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\debug-bundle\\Resources\\views\\Profiler\\dump.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/45/45e9597299391b2bd7ff2e9fb9408d6a2bd550ddac4054afa06c0ccd2c8323e8.php
     }
 }

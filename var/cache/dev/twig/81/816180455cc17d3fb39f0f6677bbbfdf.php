@@ -1558,6 +1558,10 @@ $context["voter_detail"], "vote", [], "array", false, false, false, 418) == Twig
         </div>
     {% endif %}
 {% endblock %}
+<<<<<<< HEAD:var/cache/dev/twig/81/816180455cc17d3fb39f0f6677bbbfdf.php
 ", "@Security/Collector/security.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
+=======
+", "@Security/Collector/security.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/f1/f1ec219355e7158bb0cfeaf5d3885337ef985acf6f136f300aab8f8358a7e9fe.php
     }
 }

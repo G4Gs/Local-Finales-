@@ -18,10 +18,13 @@ class InscripcionFinal
     private ?\DateTimeInterface $fecha = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscripcionFinals')]
-    private ?Alumno $alumno_id = null;
+    private ?Alumno $alumno = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscripcionFinals')]
-    private ?Asignatura $asignatura_id = null;
+    private ?Asignatura $asignatura = null;
+
+    #[ORM\ManyToOne(targetEntity: \App\Entity\Curso::class)]
+    private ?Curso $curso = null;
 
     public function getId(): ?int
     {
@@ -33,35 +36,45 @@ class InscripcionFinal
         return $this->fecha;
     }
 
-    public function setFecha(\DateTimeInterface $fecha): static
+    public function setFecha(\DateTimeInterface $fecha): staÑtic
     {
         $this->fecha = $fecha;
 
         return $this;
     }
 
-    public function getAlumnoId(): ?Alumno
+    public function getAlumno(): ?Alumno
     {
-        return $this->alumno_id;
+        return $this->alumno;
     }
 
-    public function setAlumnoId(?Alumno $alumno_id): static
+    public function setAlumno(?Alumno $alumno): static
     {
-        $this->alumno_id = $alumno_id;
+        $this->alumno = $alumno;
 
         return $this;
     }
 
-    public function getAsignaturaId(): ?Asignatura
+    public function getAsignatura(): ?Asignatura
     {
-        return $this->asignatura_id;
+        return $this->asignatura;
     }
 
-    public function setAsignaturaId(?Asignatura $asignatura_id): static
+    public function setAsignatura(?Asignatura $asignatura): static
     {
-        $this->asignatura_id = $asignatura_id;
+        $this->asignatura = $asignatura;
 
         return $this;
     }
+    public function getCurso(): ?Curso
+     {
+    return $this->curso;
+    }
+
+    public function setCurso(?Curso $curso): static
+   {
+    $this->curso = $curso;
+    return $this;
+   }
 
 }

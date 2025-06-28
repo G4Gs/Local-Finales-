@@ -75,6 +75,10 @@ class __TwigTemplate_f0aa99847f0f776fd0d7bcef0b533e52 extends Template
     public function getSourceContext(): Source
     {
         return new Source("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"#AAA\" d=\"M8.932 22.492c.016-6.448-.971-11.295-5.995-11.619 4.69-.352 7.113 2.633 9.298 6.907C12.205 6.354 9.882 1.553 4.8 1.297c7.433.07 10.028 5.9 11.508 14.293 1.171-2.282 3.56-5.553 5.347-1.361-1.594-2.04-3.607-1.617-3.978 8.262H8.933z\"/></svg>
+<<<<<<< HEAD:var/cache/dev/twig/10/107620907d64c701da2c183404fd61ff.php
 ", "@WebProfiler/Icon/twig.svg", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\twig.svg");
+=======
+", "@WebProfiler/Icon/twig.svg", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\twig.svg");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/ee/ee724fef9748704782185b3aee2581933e6c9fcab265f1fa6d59a5c31cfb7961.php
     }
 }

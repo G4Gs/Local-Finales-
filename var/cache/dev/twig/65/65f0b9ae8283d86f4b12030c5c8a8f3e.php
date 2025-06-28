@@ -920,6 +920,10 @@ class __TwigTemplate_c10bbf0b033bb7bb01500fe214fc2c76 extends Template
         {% endautoescape %}</script>
     </div>
 {% endmacro %}
+<<<<<<< HEAD:var/cache/dev/twig/65/65f0b9ae8283d86f4b12030c5c8a8f3e.php
 ", "@WebProfiler/Collector/time.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
+=======
+", "@WebProfiler/Collector/time.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/66/669ed1515de88f0f3e7f60f38e81d3cd47e567318481d714f221b823dc98be15.php
     }
 }

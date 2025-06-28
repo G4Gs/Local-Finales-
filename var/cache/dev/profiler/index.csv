@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 d573a2,::1,GET,http://localhost/Local-Finales-/public/index.php/,1750728491,556137,500
 556137,::1,GET,http://localhost/Local-Finales-/public/index.php/,1750728491,,500
 8ebd1a,::1,GET,http://localhost/Local-Finales-/public/index.php/login,1750728551,d51931,500
@@ -16,3 +17,6 @@ d9cacd,::1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/cs
 5bb132,::1,GET,http://localhost/Local-Finales-/public/index.php/home,1750728642,,200
 cb7aa0,::1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750728657,d4c9ba,500
 d4c9ba,::1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750728657,,500
+=======
+21d4e3,::1,GET,http://localhost/local/public/index.php/vistasmesas?nota_asignatura=&nota_estudiante=,1751071670,,200
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
