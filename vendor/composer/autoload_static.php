@@ -1863,6 +1863,7 @@ class ComposerStaticInit9b7187a1cca893b1c811929a4bfdecc3
         'Doctrine\\ORM\\Repository\\Exception\\InvalidMagicMethodCall' => __DIR__ . '/..' . '/doctrine/orm/src/Repository/Exception/InvalidMagicMethodCall.php',
         'Doctrine\\ORM\\Repository\\RepositoryFactory' => __DIR__ . '/..' . '/doctrine/orm/src/Repository/RepositoryFactory.php',
         'Doctrine\\ORM\\Tools\\AttachEntityListenersListener' => __DIR__ . '/..' . '/doctrine/orm/src/Tools/AttachEntityListenersListener.php',
+        'Doctrine\\ORM\\Tools\\Console\\ApplicationCompatibility' => __DIR__ . '/..' . '/doctrine/orm/src/Tools/Console/ApplicationCompatibility.php',
         'Doctrine\\ORM\\Tools\\Console\\CommandCompatibility' => __DIR__ . '/..' . '/doctrine/orm/src/Tools/Console/CommandCompatibility.php',
         'Doctrine\\ORM\\Tools\\Console\\Command\\AbstractEntityManagerCommand' => __DIR__ . '/..' . '/doctrine/orm/src/Tools/Console/Command/AbstractEntityManagerCommand.php',
         'Doctrine\\ORM\\Tools\\Console\\Command\\ClearCache\\CollectionRegionCommand' => __DIR__ . '/..' . '/doctrine/orm/src/Tools/Console/Command/ClearCache/CollectionRegionCommand.php',

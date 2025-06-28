@@ -1268,6 +1268,7 @@ return array(
     'Doctrine\\ORM\\Repository\\Exception\\InvalidMagicMethodCall' => $vendorDir . '/doctrine/orm/src/Repository/Exception/InvalidMagicMethodCall.php',
     'Doctrine\\ORM\\Repository\\RepositoryFactory' => $vendorDir . '/doctrine/orm/src/Repository/RepositoryFactory.php',
     'Doctrine\\ORM\\Tools\\AttachEntityListenersListener' => $vendorDir . '/doctrine/orm/src/Tools/AttachEntityListenersListener.php',
+    'Doctrine\\ORM\\Tools\\Console\\ApplicationCompatibility' => $vendorDir . '/doctrine/orm/src/Tools/Console/ApplicationCompatibility.php',
     'Doctrine\\ORM\\Tools\\Console\\CommandCompatibility' => $vendorDir . '/doctrine/orm/src/Tools/Console/CommandCompatibility.php',
     'Doctrine\\ORM\\Tools\\Console\\Command\\AbstractEntityManagerCommand' => $vendorDir . '/doctrine/orm/src/Tools/Console/Command/AbstractEntityManagerCommand.php',
     'Doctrine\\ORM\\Tools\\Console\\Command\\ClearCache\\CollectionRegionCommand' => $vendorDir . '/doctrine/orm/src/Tools/Console/Command/ClearCache/CollectionRegionCommand.php',
