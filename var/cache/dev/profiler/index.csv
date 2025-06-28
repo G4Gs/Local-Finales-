@@ -34,3 +34,11 @@ e32078,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/fin
 5a2078,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/alumno/,1751090613,,200
 0d1f98,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/inscripcion/final/,1751090632,,200
 5d5bb9,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/inscripcion/final/new,1751090693,,200
+289eed,127.0.0.1,GET,http://localhost/Local-Finales-/public/,1751144051,,404
+5ef1a7,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/,1751144080,,404
+dd8372,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1751144111,,200
+d3c196,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1751144123,c4e757,404
+c4e757,127.0.0.1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1751144123,,404
+ba2df1,127.0.0.1,POST,http://localhost/Local-Finales-/public/index.php/login,1751144147,,302
+b15a21,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/home,1751144149,,200
+bcbf29,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751144209,,200
