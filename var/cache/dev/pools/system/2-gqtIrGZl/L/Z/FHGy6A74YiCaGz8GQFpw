@@ -1,17 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CTelefonoController%2523show
 
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/L/Z/FHGy6A74YiCaGz8GQFpw
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1751082282];
-========
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/L/Z/FHGy6A74YiCaGz8GQFpw
-=======
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
-return [PHP_INT_MAX, 1750728524];
-========
-return [PHP_INT_MAX, 1751071669];
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/L/Z/FHGy6A74YiCaGz8GQFpw
-<<<<<<< HEAD
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/pools/system/9evvotpsxZ/L/Z/FHGy6A74YiCaGz8GQFpw
-=======
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1751086334];

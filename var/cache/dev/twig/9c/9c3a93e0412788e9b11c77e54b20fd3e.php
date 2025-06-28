@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* @WebProfiler/Profiler/layout.html.twig */
-<<<<<<<< HEAD:var/cache/dev/twig/9c/9c3a93e0412788e9b11c77e54b20fd3e.php
 class __TwigTemplate_fd4cb34026c0ad413201d1e9bdc840f8 extends Template
-========
-class __TwigTemplate_797e5f7894eff28f41f89a0ea9d2b864 extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/af/afd507f4c79fa82022c16abacc3c6275.php
 {
     private Source $source;
     /**
@@ -673,14 +669,6 @@ class __TwigTemplate_797e5f7894eff28f41f89a0ea9d2b864 extends Template
         }());
     </script>
 {% endblock %}
-<<<<<<<< HEAD:var/cache/dev/twig/9c/9c3a93e0412788e9b11c77e54b20fd3e.php
 ", "@WebProfiler/Profiler/layout.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\layout.html.twig");
-========
-<<<<<<< HEAD:var/cache/dev/twig/af/afd507f4c79fa82022c16abacc3c6275.php
-", "@WebProfiler/Profiler/layout.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\layout.html.twig");
-=======
-", "@WebProfiler/Profiler/layout.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\layout.html.twig");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/41/4184f8ff86f674e227b0982e0cad8fe034be8bda4a4ce69071e98c98535db6e9.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/af/afd507f4c79fa82022c16abacc3c6275.php
     }
 }

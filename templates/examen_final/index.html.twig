@@ -89,6 +89,33 @@
             document.getElementById('newExamenModal').style.display = 'none';
             document.getElementById('newExamenBody').innerHTML = '';
         }
+
+        function filterTable() {
+            const inputPresidente = document.getElementById('searchPresidente').value.toLowerCase();
+            const inputCurso = document.getElementById('searchCurso').value.toLowerCase();
+            const inputEstado = document.getElementById('searchEstado').value.toLowerCase();
+            const table = document.getElementById('copied-table');
+            const trs = table.getElementsByTagName('tr');
+
+            for (let i = 2; i < trs.length; i++) { // Empieza en 2 para saltar los encabezados
+                const tds = trs[i].getElementsByTagName('td');
+                if (tds.length > 0) {
+                    const presidente = tds[3].textContent.toLowerCase();
+                    const curso = tds[7].textContent.toLowerCase();
+                    const estado = tds[6].textContent.toLowerCase();
+
+                    const matchPresidente = presidente.includes(inputPresidente);
+                    const matchCurso = curso.includes(inputCurso);
+                    const matchEstado = estado.includes(inputEstado);
+
+                    if (matchPresidente && matchCurso && matchEstado) {
+                        trs[i].style.display = '';
+                    } else {
+                        trs[i].style.display = 'none';
+                    }
+                }
+            }
+        }
     </script>
 {% endblock %}
 
@@ -101,9 +128,27 @@
     </div>
   {% endfor %}
 
-  <table class="tabla_home">
-      <thead>
-          <tr>
+    <div id="body-vistas2" style="display: block;">
+    <table class="tabla_home" id="copied-table" border="1">
+      
+    <thead>
+
+            <tr>
+                <th colspan="3">
+                    Buscar por : Presidente
+                    <input type="text" id="searchPresidente" onkeyup="filterTable()" placeholder="Buscar Presidente...">
+                </th>
+                <th colspan="3">
+                    Buscar por : Curso
+                    <input type="text" id="searchCurso" onkeyup="filterTable()" placeholder="Buscar Curso...">
+                </th>
+                <th colspan="3">
+                    Buscar por : Estado de Mesa
+                    <input type="text" id="searchEstado" onkeyup="filterTable()" placeholder="Buscar Estado de Mesa...">
+                </th>
+                </th>
+            </tr>
+            <tr>
               <th>ID</th>
               <th>Fecha</th>
               <th>Hora</th>
@@ -160,5 +205,6 @@
       <span class="close" onclick="closeNewExamenModal()">&times;</span>
       <div id="newExamenBody" class="submodal"></div>
     </div>
+  </div>
   </div>
 {% endblock %}

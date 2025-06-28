@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* @WebProfiler/Profiler/toolbar_js.html.twig */
-<<<<<<<< HEAD:var/cache/dev/twig/c0/c01e4fd55de9af713b7c9f2d2a4dce4c.php
 class __TwigTemplate_2b70b5e921b2a73a2c81c4e5ee479de3 extends Template
-========
-class __TwigTemplate_353401cbb3b5ada5a0cfd7294512f43e extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/04/874fdba3c4f6de2bed5f58ca6bf89541.php
 {
     private Source $source;
     /**
@@ -149,14 +145,6 @@ class __TwigTemplate_353401cbb3b5ada5a0cfd7294512f43e extends Template
         Sfjs.loadToolbar('{{ token }}');
     })();
 /*]]>*/</script>
-<<<<<<<< HEAD:var/cache/dev/twig/c0/c01e4fd55de9af713b7c9f2d2a4dce4c.php
 ", "@WebProfiler/Profiler/toolbar_js.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_js.html.twig");
-========
-<<<<<<< HEAD:var/cache/dev/twig/87/874fdba3c4f6de2bed5f58ca6bf89541.php
-", "@WebProfiler/Profiler/toolbar_js.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_js.html.twig");
-=======
-", "@WebProfiler/Profiler/toolbar_js.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar_js.html.twig");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/9f/9f93f3b40c0e9cddcaeef19eb0857802592096e4c5beb911126f296e8d76b2bd.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/04/874fdba3c4f6de2bed5f58ca6bf89541.php
     }
 }

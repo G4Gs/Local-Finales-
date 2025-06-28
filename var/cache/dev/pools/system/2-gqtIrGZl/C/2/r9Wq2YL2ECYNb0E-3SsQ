@@ -1,17 +1,3 @@
 <?php //%5BC%5DSymfony%255CBundle%255CFrameworkBundle%255CController%255CAbstractController%2523stream
 
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/C/2/r9Wq2YL2ECYNb0E-3SsQ
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1751082259];
-========
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/C/2/r9Wq2YL2ECYNb0E-3SsQ
-=======
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
-return [PHP_INT_MAX, 1750728446];
-========
-return [PHP_INT_MAX, 1751071668];
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/C/2/r9Wq2YL2ECYNb0E-3SsQ
-<<<<<<< HEAD
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/pools/system/9evvotpsxZ/C/2/r9Wq2YL2ECYNb0E-3SsQ
-=======
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1751086235];

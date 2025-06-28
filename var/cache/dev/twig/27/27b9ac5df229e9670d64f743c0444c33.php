@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* @WebProfiler/Profiler/toolbar.html.twig */
-<<<<<<<< HEAD:var/cache/dev/twig/27/27b9ac5df229e9670d64f743c0444c33.php
 class __TwigTemplate_2c25612e5b758e210cedf6d82c84a1f9 extends Template
-========
-class __TwigTemplate_402e252389d994fa98aad40e3303be24 extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/b7/b767ecddeb4ff6794f466315372dec16.php
 {
     private Source $source;
     /**
@@ -252,14 +248,6 @@ $context["name"], "profiler_markup_version" =>                 // line 17
     </button>
 </div>
 <!-- END of Symfony Web Debug Toolbar -->
-<<<<<<<< HEAD:var/cache/dev/twig/27/27b9ac5df229e9670d64f743c0444c33.php
 ", "@WebProfiler/Profiler/toolbar.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.html.twig");
-========
-<<<<<<< HEAD:var/cache/dev/twig/b7/b767ecddeb4ff6794f466315372dec16.php
-", "@WebProfiler/Profiler/toolbar.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.html.twig");
-=======
-", "@WebProfiler/Profiler/toolbar.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.html.twig");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/fd/fd02299fd5621230e92a5492b3b2b11eb888cbebda3fcbe9eacbef428e48a932.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/b7/b767ecddeb4ff6794f466315372dec16.php
     }
 }

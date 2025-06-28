@@ -32,23 +32,6 @@ class ExamenFinal
     #[ORM\Column(type: 'time', nullable: true)]
     private ?\DateTimeInterface $hora = null;
 
-    // Relación con Tecnicatura (si tu tabla examen_final tiene tecnicatura_id)
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tecnicatura")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Tecnicatura $tecnicatura = null;
-
-    #[ORM\ManyToOne(targetEntity: Asignatura::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Asignatura $asignatura = null;
-
-    #[ORM\ManyToOne(targetEntity: Comision::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Comision $comision = null;
-
     #[ORM\ManyToOne(targetEntity: Curso::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Curso $curso = null;
@@ -124,48 +107,14 @@ class ExamenFinal
         return $this;
     }
 
-    public function getTecnicatura(): ?Tecnicatura
+    public function getCurso(): ?Curso
     {
-        return $this->tecnicatura;
+        return $this->curso;
     }
 
-    public function setTecnicatura(?Tecnicatura $tecnicatura): static
+    public function setCurso(?Curso $curso): static
     {
-        $this->tecnicatura = $tecnicatura;
+        $this->curso = $curso;
         return $this;
     }
-
-    public function getAsignatura(): ?Asignatura
-    {
-        return $this->asignatura;
-    }
-
-    public function setAsignatura(?Asignatura $asignatura): static
-    {
-        $this->asignatura = $asignatura;
-        return $this;
-    }
-
-    public function getComision(): ?Comision
-    {
-        return $this->comision;
-    }
-
-    public function setComision(?Comision $comision): static
-    {
-        $this->comision = $comision;
-        return $this;
-    }
-
-public function getCurso(): ?Curso
-   {
-      return $this->curso;
-   }
-
-   public function setCurso(?Curso $curso): static
-    {
-      $this->curso = $curso;
-      return $this;
-    }
-
 }

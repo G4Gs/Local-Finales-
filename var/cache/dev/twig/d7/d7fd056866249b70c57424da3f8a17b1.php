@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* base.html.twig */
-<<<<<<<< HEAD:var/cache/dev/twig/d7/d7fd056866249b70c57424da3f8a17b1.php
 class __TwigTemplate_2ba67001b8c4bf5e2ecbbc5de7de30d3 extends Template
-========
-class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/3d/3d9e5cff1a77a19fde7b672342090c75.php
 {
     private Source $source;
     /**
@@ -1137,14 +1133,6 @@ class __TwigTemplate_20e5c1dd207c1b420a2ad5dc4c41e0e1 extends Template
 \t\t\t</body>
 \t\t</body>
 \t</html>
-<<<<<<<< HEAD:var/cache/dev/twig/d7/d7fd056866249b70c57424da3f8a17b1.php
 ", "base.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\base.html.twig");
-========
-<<<<<<< HEAD:var/cache/dev/twig/3d/3d9e5cff1a77a19fde7b672342090c75.php
-", "base.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\base.html.twig");
-=======
-", "base.html.twig", "C:\\xampp\\htdocs\\local\\templates\\base.html.twig");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/2f/2f397d78847bf79f7bdc00961938c7c423849f845279dfbccc2d83c2a447491c.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/3d/3d9e5cff1a77a19fde7b672342090c75.php
     }
 }

@@ -1,17 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CTecnicaturaController%2523delete
 
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/B/8/GRlSwDA86l5g+ea+vewQ
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1751082281];
-========
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/B/8/GRlSwDA86l5g+ea+vewQ
-=======
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
-return [PHP_INT_MAX, 1750728522];
-========
-return [PHP_INT_MAX, 1751071669];
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/B/8/GRlSwDA86l5g+ea+vewQ
-<<<<<<< HEAD
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/pools/system/9evvotpsxZ/B/8/GRlSwDA86l5g+ea+vewQ
-=======
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1751086334];

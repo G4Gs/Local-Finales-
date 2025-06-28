@@ -1,11 +1,3 @@
 <?php //%5BC%5DSymfony%255CComponent%255CHttpKernel%255CKernel%2523getProjectDir
 
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1751082303];
-=======
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/G/D/v0Cl0S3hWlqVyBSuHwkg
-return [PHP_INT_MAX, 1751082303];
-========
-return [PHP_INT_MAX, 1750728580];
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/pools/system/2-gqtIrGZl/9/X/q3JP2Z+N4KQLXjIEH9lw
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1751086374];

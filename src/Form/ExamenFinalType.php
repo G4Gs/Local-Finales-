@@ -53,10 +53,10 @@ public function buildForm(FormBuilderInterface $builder, array $options): void
            ->add('curso', EntityType::class, [
                 'class' => Curso::class,
                 'choice_label' => function($curso) {
-                   return $curso->getId() . ' - ' . $curso->getAsignatura()->getNombre() . ' (' . $curso->getComision()->getCiclolectivo() . ')';
-               },
-               'label' => 'Curso',
-           ]) 
+                    return $curso->getId() . ' - ' . $curso->getAsignatura()->getNombre() . ' (' . $curso->getComision()->getCiclolectivo() . ')';
+                },
+                'label' => 'Curso',
+            ]) 
      ;
     }
 
@@ -64,7 +64,6 @@ public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $resolver->setDefaults([
             'data_class' => ExamenFinal::class,
-            'tecnicaturas' => [],
             'asignaturas' => [],
             'comisiones' => [],
         ]);

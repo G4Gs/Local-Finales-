@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* @WebProfiler/Collector/cache.html.twig */
-<<<<<<<< HEAD:var/cache/dev/twig/30/30ccb4188c04f736d5d6d60fed279404.php
 class __TwigTemplate_b3b769c10416e057af74ef355bdb2ae6 extends Template
-========
-class __TwigTemplate_488821919134beb6e6dd772cabeae2e6 extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/61/61f22f03f016437b8eb844afc72ad481.php
 {
     private Source $source;
     /**
@@ -639,14 +635,6 @@ $context["key"] == "hit_read_ratio")) {
         </div>
     {% endif %}
 {% endblock %}
-<<<<<<<< HEAD:var/cache/dev/twig/30/30ccb4188c04f736d5d6d60fed279404.php
 ", "@WebProfiler/Collector/cache.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\cache.html.twig");
-========
-<<<<<<< HEAD:var/cache/dev/twig/61/61f22f03f016437b8eb844afc72ad481.php
-", "@WebProfiler/Collector/cache.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\cache.html.twig");
-=======
-", "@WebProfiler/Collector/cache.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\cache.html.twig");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/df/dfd60a6762d62dd6b5daaf5995150b2c36c3279eb9eab15636c423d5c59f3cff.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/61/61f22f03f016437b8eb844afc72ad481.php
     }
 }

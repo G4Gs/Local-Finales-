@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* @Doctrine/Collector/icon.svg */
-<<<<<<<< HEAD:var/cache/dev/twig/d7/d7d604b25142475c64e660bfdaea3b78.php
 class __TwigTemplate_61f836be10e58ca296f13f01921d0850 extends Template
-========
-class __TwigTemplate_9dd05a864b1fc7f5cdbec607a66aceff extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/21/211c175460b44cb26423c9c0c9bf3f24.php
 {
     private Source $source;
     /**
@@ -85,14 +81,6 @@ class __TwigTemplate_9dd05a864b1fc7f5cdbec607a66aceff extends Template
     <path fill=\"#AAAAAA\" d=\"M5,8h14c1.7,0,3-1.3,3-3s-1.3-3-3-3H5C3.3,2,2,3.3,2,5S3.3,8,5,8z M18,3.6c0.8,0,1.5,0.7,1.5,1.5S18.8,6.6,18,6.6s-1.5-0.7-1.5-1.5S17.2,3.6,18,3.6z M19,9H5c-1.7,0-3,1.3-3,3s1.3,3,3,3h14c1.7,0,3-1.3,3-3S20.7,9,19,9z M18,13.6
     c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S18.8,13.6,18,13.6z M19,16H5c-1.7,0-3,1.3-3,3s1.3,3,3,3h14c1.7,0,3-1.3,3-3S20.7,16,19,16z M18,20.6c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S18.8,20.6,18,20.6z\"/>
 </svg>
-<<<<<<<< HEAD:var/cache/dev/twig/d7/d7d604b25142475c64e660bfdaea3b78.php
 ", "@Doctrine/Collector/icon.svg", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\doctrine\\doctrine-bundle\\templates\\Collector\\icon.svg");
-========
-<<<<<<< HEAD:var/cache/dev/twig/21/211c175460b44cb26423c9c0c9bf3f24.php
-", "@Doctrine/Collector/icon.svg", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\doctrine\\doctrine-bundle\\templates\\Collector\\icon.svg");
-=======
-", "@Doctrine/Collector/icon.svg", "C:\\xampp\\htdocs\\local\\vendor\\doctrine\\doctrine-bundle\\templates\\Collector\\icon.svg");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/1a/1ac9ee7a9b55ea7463b60bf34faf7f4a8a31707e47b4ecb8a79c583948f1f67d.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/21/211c175460b44cb26423c9c0c9bf3f24.php
     }
 }

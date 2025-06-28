@@ -1,11 +1,3 @@
 <?php //%5BC%5DSymfony%255CComponent%255CHttpKernel%255CKernel%2523setAnnotatedClassCache
 
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1751082303];
-=======
-<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/K/N/I1NtDPHVkioZDnQ8W5tg
-return [PHP_INT_MAX, 1750728582];
-=======
-return [PHP_INT_MAX, 1751071670];
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/K/N/I1NtDPHVkioZDnQ8W5tg
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1751086375];

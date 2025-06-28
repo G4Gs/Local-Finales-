@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* @Security/Collector/icon.svg */
-<<<<<<<< HEAD:var/cache/dev/twig/b2/b2088ce5740484b19217372b8e472124.php
 class __TwigTemplate_4a8c08eb64c6ee524ecf8bc209c2e5fc extends Template
-========
-class __TwigTemplate_3b5c58010633be9c73f117ebc72e92bc extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/36/364394ec7b6eade71fdc3d841c494817.php
 {
     private Source $source;
     /**
@@ -79,14 +75,6 @@ class __TwigTemplate_3b5c58010633be9c73f117ebc72e92bc extends Template
     public function getSourceContext(): Source
     {
         return new Source("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"#AAA\" d=\"M21 20.4V22H3v-1.6c0-3.7 2.4-6.9 5.8-8-1.7-1.1-2.9-3-2.9-5.2 0-3.4 2.7-6.1 6.1-6.1s6.1 2.7 6.1 6.1c0 2.2-1.2 4.1-2.9 5.2 3.4 1.1 5.8 4.3 5.8 8z\"/></svg>
-<<<<<<<< HEAD:var/cache/dev/twig/b2/b2088ce5740484b19217372b8e472124.php
 ", "@Security/Collector/icon.svg", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\icon.svg");
-========
-<<<<<<< HEAD:var/cache/dev/twig/36/364394ec7b6eade71fdc3d841c494817.php
-", "@Security/Collector/icon.svg", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\icon.svg");
-=======
-", "@Security/Collector/icon.svg", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\icon.svg");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/ab/abb872f8cd56861231320dce0438a310586d308d42fccce695e1a9c9e2be8d9b.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/36/364394ec7b6eade71fdc3d841c494817.php
     }
 }

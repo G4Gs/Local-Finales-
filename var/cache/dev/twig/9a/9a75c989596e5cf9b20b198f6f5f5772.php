@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* @Security/Collector/security.html.twig */
-<<<<<<<< HEAD:var/cache/dev/twig/9a/9a75c989596e5cf9b20b198f6f5f5772.php
 class __TwigTemplate_37b119193e848ff96c5bfb68c79d8c54 extends Template
-========
-class __TwigTemplate_67fef24bd00403e8c188ca84ab12b15c extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/81/816180455cc17d3fb39f0f6677bbbfdf.php
 {
     private Source $source;
     /**
@@ -1562,14 +1558,6 @@ $context["voter_detail"], "vote", [], "array", false, false, false, 418) == Twig
         </div>
     {% endif %}
 {% endblock %}
-<<<<<<<< HEAD:var/cache/dev/twig/9a/9a75c989596e5cf9b20b198f6f5f5772.php
 ", "@Security/Collector/security.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
-========
-<<<<<<< HEAD:var/cache/dev/twig/81/816180455cc17d3fb39f0f6677bbbfdf.php
-", "@Security/Collector/security.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
-=======
-", "@Security/Collector/security.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/f1/f1ec219355e7158bb0cfeaf5d3885337ef985acf6f136f300aab8f8358a7e9fe.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/81/816180455cc17d3fb39f0f6677bbbfdf.php
     }
 }

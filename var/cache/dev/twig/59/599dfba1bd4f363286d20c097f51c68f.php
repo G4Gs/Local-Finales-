@@ -15,11 +15,7 @@ use Twig\Template;
 use Twig\TemplateWrapper;
 
 /* @WebProfiler/Collector/memory.html.twig */
-<<<<<<<< HEAD:var/cache/dev/twig/59/599dfba1bd4f363286d20c097f51c68f.php
 class __TwigTemplate_4f279f179dc6d9ee2327cd1243cca0da extends Template
-========
-class __TwigTemplate_efd41c2004687923c588dc0da1cbcaf4 extends Template
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/4d/4d9735a4281b9c5a3463f721e770435f.php
 {
     private Source $source;
     /**
@@ -184,14 +180,6 @@ class __TwigTemplate_efd41c2004687923c588dc0da1cbcaf4 extends Template
 
     {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: profiler_url, name: 'time', status: status_color }) }}
 {% endblock %}
-<<<<<<<< HEAD:var/cache/dev/twig/59/599dfba1bd4f363286d20c097f51c68f.php
 ", "@WebProfiler/Collector/memory.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\memory.html.twig");
-========
-<<<<<<< HEAD:var/cache/dev/twig/4d/4d9735a4281b9c5a3463f721e770435f.php
-", "@WebProfiler/Collector/memory.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\memory.html.twig");
-=======
-", "@WebProfiler/Collector/memory.html.twig", "C:\\xampp\\htdocs\\local\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\memory.html.twig");
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/twig/bd/bd578288966fc86423d51cb365f65e733160f415ae59db2cd49e79374d94046b.php
->>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/twig/4d/4d9735a4281b9c5a3463f721e770435f.php
     }
 }

@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CKernel%2523registerContainerConfiguration
 
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1751082306];
-=======
-return [PHP_INT_MAX, 1750728591];
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1751086381];

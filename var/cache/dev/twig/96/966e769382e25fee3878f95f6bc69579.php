@@ -98,11 +98,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 6
-        yield "    ";
-        yield from $this->yieldParentBlock("javascripts", $context, $blocks);
-        yield "
-    <script>
-        // Manejo de envío de formularios en los modales
+        yield "    <script>
         function handleExamenFinalFormSubmit(modalId, bodyId) {
             const modalBody = document.getElementById(bodyId);
             modalBody.addEventListener('submit', function(e) {
@@ -147,10 +143,9 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             });
         }
 
-        // Abrir modal de edición
         function openEditExamenModal(examenId) {
             const url = \"";
-        // line 55
+        // line 52
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_edit", ["id" => "__id__"]);
         yield "\".replace('__id__', examenId);
             fetch(url, {
@@ -172,10 +167,9 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             document.getElementById('editExamenBody').innerHTML = '';
         }
 
-        // Abrir modal de creación
         function openNewExamenModal() {
             const url = \"";
-        // line 77
+        // line 73
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_new");
         yield "\";
             fetch(url, {
@@ -197,79 +191,32 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             document.getElementById('newExamenBody').innerHTML = '';
         }
 
-        // Recarga el formulario por AJAX cuando cambian los selects dependientes
-        function updateExamenFinalForm(modalBodyId, data) {
-            fetch('/examen/final/form-update', {
-                method: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams(data)
-            })
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById(modalBodyId).innerHTML = html;
-            });
+        function filterTable() {
+            const inputPresidente = document.getElementById('searchPresidente').value.toLowerCase();
+            const inputCurso = document.getElementById('searchCurso').value.toLowerCase();
+            const inputEstado = document.getElementById('searchEstado').value.toLowerCase();
+            const table = document.getElementById('copied-table');
+            const trs = table.getElementsByTagName('tr');
+
+            for (let i = 2; i < trs.length; i++) { // Empieza en 2 para saltar los encabezados
+                const tds = trs[i].getElementsByTagName('td');
+                if (tds.length > 0) {
+                    const presidente = tds[3].textContent.toLowerCase();
+                    const curso = tds[7].textContent.toLowerCase();
+                    const estado = tds[6].textContent.toLowerCase();
+
+                    const matchPresidente = presidente.includes(inputPresidente);
+                    const matchCurso = curso.includes(inputCurso);
+                    const matchEstado = estado.includes(inputEstado);
+
+                    if (matchPresidente && matchCurso && matchEstado) {
+                        trs[i].style.display = '';
+                    } else {
+                        trs[i].style.display = 'none';
+                    }
+                }
+            }
         }
-
-        // Evento para selects dependientes (recarga el form por AJAX)
-        document.addEventListener('change', function(e) {
-            if (['tecnicatura-select', 'asignatura-select'].includes(e.target.id)) {
-                const modalBody = e.target.closest('.submodal');
-                if (!modalBody) return;
-                const tecnicatura = modalBody.querySelector('#tecnicatura-select')?.value || '';
-                const asignatura = modalBody.querySelector('#asignatura-select')?.value || '';
-                const data = {
-                    tecnicatura: tecnicatura,
-                    asignatura: asignatura
-                };
-                updateExamenFinalForm(modalBody.id, data);
-            }
-        });
-
-        // Asignaturas por Tecnicatura
-        document.addEventListener('change', function(e) {
-            if (e.target && e.target.id === 'tecnicatura-select') {
-                const tecnicaturaId = e.target.value;
-                const asignaturaSelect = document.getElementById('asignatura-select');
-                const comisionSelect = document.getElementById('comision-select');
-                if (!tecnicaturaId) {
-                    asignaturaSelect.innerHTML = '<option value=\"\">Seleccione una asignatura</option>';
-                    comisionSelect.innerHTML = '<option value=\"\">Seleccione una comisión</option>';
-                    return;
-                }
-                fetch('/asignaturas/by-tecnicatura/' + tecnicaturaId)
-                    .then(response => response.json())
-                    .then(data => {
-                        asignaturaSelect.innerHTML = '<option value=\"\">Seleccione una asignatura</option>';
-                        data.forEach(function(asignatura) {
-                            asignaturaSelect.innerHTML += `<option value=\"\${asignatura.id}\">\${asignatura.nombre}</option>`;
-                        });
-                        comisionSelect.innerHTML = '<option value=\"\">Seleccione una comisión</option>';
-                    });
-            }
-        });
-
-        // Comisiones por Asignatura
-        document.addEventListener('change', function(e) {
-            if (e.target && e.target.id === 'asignatura-select') {
-                const asignaturaId = e.target.value;
-                const comisionSelect = document.getElementById('comision-select');
-                if (!asignaturaId) {
-                    comisionSelect.innerHTML = '<option value=\"\">Seleccione una comisión</option>';
-                    return;
-                }
-                fetch('/comisiones/by-asignatura/' + asignaturaId)
-                    .then(response => response.json())
-                    .then(data => {
-                        comisionSelect.innerHTML = '<option value=\"\">Seleccione una comisión</option>';
-                        data.forEach(function(comision) {
-                            comisionSelect.innerHTML += `<option value=\"\${comision.id}\">\${comision.nombre}</option>`;
-                        });
-                    });
-            }
-        });
     </script>
 ";
         
@@ -281,7 +228,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
         yield from [];
     }
 
-    // line 173
+    // line 122
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -294,141 +241,152 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 174
-        yield "<h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
+        // line 123
+        yield "  <h1 class=\"datos-filtered\" style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
 
-";
-        // line 176
+  ";
+        // line 125
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 176, $this->source); })()), "flashes", ["error"], "method", false, false, false, 176));
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 125, $this->source); })()), "flashes", ["error"], "method", false, false, false, 125));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 177
+            // line 126
             yield "    <div class=\"alert alert-danger\">
-        ";
-            // line 178
+      ";
+            // line 127
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
             yield "
     </div>
-";
+  ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 181
+        // line 130
         yield "
-<table class=\"tabla_home\">
+    <div id=\"body-vistas2\" style=\"display: block;\">
+    <table class=\"tabla_home\" id=\"copied-table\" border=\"1\">
+      
     <thead>
-    <tr>
-                        <th colspan=\"3\">
-                            Buscar por : Presidente
-                            <input type=\"text\" id=\"searchDNI\" onkeyup=\"filterTable()\" placeholder=\"Buscar presidente...\">
-                        </th>
-                        <th colspan=\"3\">
-                            Buscar por : Curso
-                            <input type=\"text\" id=\"searchTec\" onkeyup=\"filterTable()\" placeholder=\"Buscar Tecnicatura...\">
-                        </th>
-                    </tr>
-        <tr>
-            <th>ID</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Presidente</th>
-            <th>Vocal 1</th>
-            <th>Vocal 2</th>
-            <th>Estado de Mesa</th>
-            <th>Curso</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-    ";
-        // line 207
+
+            <tr>
+                <th colspan=\"3\">
+                    Buscar por : Presidente
+                    <input type=\"text\" id=\"searchPresidente\" onkeyup=\"filterTable()\" placeholder=\"Buscar Presidente...\">
+                </th>
+                <th colspan=\"3\">
+                    Buscar por : Curso
+                    <input type=\"text\" id=\"searchCurso\" onkeyup=\"filterTable()\" placeholder=\"Buscar Curso...\">
+                </th>
+                <th colspan=\"3\">
+                    Buscar por : Estado de Mesa
+                    <input type=\"text\" id=\"searchEstado\" onkeyup=\"filterTable()\" placeholder=\"Buscar Estado de Mesa...\">
+                </th>
+                </th>
+            </tr>
+
+
+            <tr>
+              <th>ID</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Presidente</th>
+              <th>Vocal 1</th>
+              <th>Vocal 2</th>
+              <th>Estado de Mesa</th>
+              <th>Curso</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+      ";
+        // line 166
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 207, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 166, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_final"]) {
-            // line 208
-            yield "        <tr>
-            <td>";
-            // line 209
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 209), "html", null, true);
+            // line 167
+            yield "          <tr>
+              <td>";
+            // line 168
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 168), "html", null, true);
             yield "</td>
-            <td>";
-            // line 210
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 210)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 210), "Y-m-d"), "html", null, true)) : (""));
+              <td>";
+            // line 169
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 169)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 169), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
-            <td>";
-            // line 211
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 211)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 211), "H:i"), "html", null, true)) : (""));
+              <td>";
+            // line 170
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 170)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 170), "H:i"), "html", null, true)) : (""));
             yield "</td>
-            <td>";
-            // line 212
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 212)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 212), "persona", [], "any", false, false, false, 212), "html", null, true)) : (""));
+              <td>";
+            // line 171
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 171)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 171), "persona", [], "any", false, false, false, 171), "html", null, true)) : (""));
             yield "</td>
-            <td>";
-            // line 213
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 213)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 213), "persona", [], "any", false, false, false, 213), "html", null, true)) : (""));
+              <td>";
+            // line 172
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 172)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 172), "persona", [], "any", false, false, false, 172), "html", null, true)) : (""));
             yield "</td>
-            <td>";
-            // line 214
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 214)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 214), "persona", [], "any", false, false, false, 214), "html", null, true)) : (""));
+              <td>";
+            // line 173
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 173)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 173), "persona", [], "any", false, false, false, 173), "html", null, true)) : (""));
             yield "</td>
-            <td>";
-            // line 215
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "estadoMesa", [], "any", false, false, false, 215), "html", null, true);
+              <td>";
+            // line 174
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "estadoMesa", [], "any", false, false, false, 174), "html", null, true);
             yield "</td>
-            <td>
-                ";
-            // line 217
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((((((((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 217), "nombre", [], "any", false, false, false, 217) . " - ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 217), "nombre", [], "any", false, false, false, 217)) . " - ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "comision", [], "any", false, false, false, 217), "comision", [], "any", false, false, false, 217)) . " (") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "comision", [], "any", false, false, false, 217), "cicloLectivo", [], "any", false, false, false, 217)) . ")"), "html", null, true);
+              <td>
+                 ";
+            // line 176
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 176)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 176), "asignatura", [], "any", false, false, false, 176), "nombre", [], "any", false, false, false, 176) . " - ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "curso", [], "any", false, false, false, 176), "comision", [], "any", false, false, false, 176), "ciclolectivo", [], "any", false, false, false, 176)), "html", null, true)) : (""));
             yield "
-            </td>
-            <td>
-                <button type=\"button\" class=\"buttonn\" onclick=\"openEditExamenModal(";
-            // line 220
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 220), "html", null, true);
+              </td>
+              <td>
+                  <button type=\"button\" class=\"buttonn\" onclick=\"openEditExamenModal(";
+            // line 179
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 179), "html", null, true);
             yield ")\">
-                    Editar
-                </button>
-            </td>
-        </tr>
-    ";
+                      Editar
+                  </button>
+              </td>
+          </tr>
+      ";
             $context['_iterated'] = true;
         }
-        // line 225
+        // line 184
         if (!$context['_iterated']) {
-            // line 226
-            yield "        <tr>
-            <td colspan=\"9\">No se encontraron registros</td>
-        </tr>
-    ";
+            // line 185
+            yield "          <tr>
+              <td colspan=\"9\">No se encontraron registros</td>
+          </tr>
+      ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 230
-        yield "    </tbody>
-</table>
+        // line 189
+        yield "      </tbody>
+  </table>
 
-<div style=\"text-align: center;\">
-    <button class=\"buttonn\" onclick=\"openNewExamenModal()\">Crear Nuevo Examen Final</button>
-</div>
+  <div style=\"text-align: center;\">
+      <button class=\"buttonn\" onclick=\"openNewExamenModal()\">Crear Nuevo Examen Final</button>
+  </div>
 
-<!-- Modal para editar -->
-<div id=\"editExamenModal\" class=\"modal\" style=\"display: none;\">
+  <!-- Modal para editar -->
+  <div id=\"editExamenModal\" class=\"modal\" style=\"display: none;\">
     <div class=\"modal-content\">
-        <span class=\"close\" onclick=\"closeEditExamenModal()\">&times;</span>
-        <div id=\"editExamenBody\" class=\"submodal\"></div>
+      <span class=\"close\" onclick=\"closeEditExamenModal()\">&times;</span>
+      <div id=\"editExamenBody\" class=\"submodal\"></div>
     </div>
-</div>
+  </div>
 
-<!-- Modal para crear -->
-<div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
+  <!-- Modal para crear -->
+  <div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
     <div class=\"modal-content\">
-        <span class=\"close\" onclick=\"closeNewExamenModal()\">&times;</span>
-        <div id=\"newExamenBody\" class=\"submodal\"></div>
+      <span class=\"close\" onclick=\"closeNewExamenModal()\">&times;</span>
+      <div id=\"newExamenBody\" class=\"submodal\"></div>
     </div>
-</div>
+  </div>
+  </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -460,7 +418,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  410 => 230,  401 => 226,  399 => 225,  389 => 220,  383 => 217,  378 => 215,  374 => 214,  370 => 213,  366 => 212,  362 => 211,  358 => 210,  354 => 209,  351 => 208,  346 => 207,  318 => 181,  309 => 178,  306 => 177,  302 => 176,  298 => 174,  285 => 173,  179 => 77,  154 => 55,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  367 => 189,  358 => 185,  356 => 184,  346 => 179,  340 => 176,  335 => 174,  331 => 173,  327 => 172,  323 => 171,  319 => 170,  315 => 169,  311 => 168,  308 => 167,  303 => 166,  265 => 130,  256 => 127,  253 => 126,  249 => 125,  245 => 123,  232 => 122,  173 => 73,  149 => 52,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -470,9 +428,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
 {% block title %}Examen Final index{% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
     <script>
-        // Manejo de envío de formularios en los modales
         function handleExamenFinalFormSubmit(modalId, bodyId) {
             const modalBody = document.getElementById(bodyId);
             modalBody.addEventListener('submit', function(e) {
@@ -517,7 +473,6 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             });
         }
 
-        // Abrir modal de edición
         function openEditExamenModal(examenId) {
             const url = \"{{ path('app_examen_final_edit', {'id': '__id__'}) }}\".replace('__id__', examenId);
             fetch(url, {
@@ -539,7 +494,6 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             document.getElementById('editExamenBody').innerHTML = '';
         }
 
-        // Abrir modal de creación
         function openNewExamenModal() {
             const url = \"{{ path('app_examen_final_new') }}\";
             fetch(url, {
@@ -561,161 +515,125 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             document.getElementById('newExamenBody').innerHTML = '';
         }
 
-        // Recarga el formulario por AJAX cuando cambian los selects dependientes
-        function updateExamenFinalForm(modalBodyId, data) {
-            fetch('/examen/final/form-update', {
-                method: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams(data)
-            })
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById(modalBodyId).innerHTML = html;
-            });
+        function filterTable() {
+            const inputPresidente = document.getElementById('searchPresidente').value.toLowerCase();
+            const inputCurso = document.getElementById('searchCurso').value.toLowerCase();
+            const inputEstado = document.getElementById('searchEstado').value.toLowerCase();
+            const table = document.getElementById('copied-table');
+            const trs = table.getElementsByTagName('tr');
+
+            for (let i = 2; i < trs.length; i++) { // Empieza en 2 para saltar los encabezados
+                const tds = trs[i].getElementsByTagName('td');
+                if (tds.length > 0) {
+                    const presidente = tds[3].textContent.toLowerCase();
+                    const curso = tds[7].textContent.toLowerCase();
+                    const estado = tds[6].textContent.toLowerCase();
+
+                    const matchPresidente = presidente.includes(inputPresidente);
+                    const matchCurso = curso.includes(inputCurso);
+                    const matchEstado = estado.includes(inputEstado);
+
+                    if (matchPresidente && matchCurso && matchEstado) {
+                        trs[i].style.display = '';
+                    } else {
+                        trs[i].style.display = 'none';
+                    }
+                }
+            }
         }
-
-        // Evento para selects dependientes (recarga el form por AJAX)
-        document.addEventListener('change', function(e) {
-            if (['tecnicatura-select', 'asignatura-select'].includes(e.target.id)) {
-                const modalBody = e.target.closest('.submodal');
-                if (!modalBody) return;
-                const tecnicatura = modalBody.querySelector('#tecnicatura-select')?.value || '';
-                const asignatura = modalBody.querySelector('#asignatura-select')?.value || '';
-                const data = {
-                    tecnicatura: tecnicatura,
-                    asignatura: asignatura
-                };
-                updateExamenFinalForm(modalBody.id, data);
-            }
-        });
-
-        // Asignaturas por Tecnicatura
-        document.addEventListener('change', function(e) {
-            if (e.target && e.target.id === 'tecnicatura-select') {
-                const tecnicaturaId = e.target.value;
-                const asignaturaSelect = document.getElementById('asignatura-select');
-                const comisionSelect = document.getElementById('comision-select');
-                if (!tecnicaturaId) {
-                    asignaturaSelect.innerHTML = '<option value=\"\">Seleccione una asignatura</option>';
-                    comisionSelect.innerHTML = '<option value=\"\">Seleccione una comisión</option>';
-                    return;
-                }
-                fetch('/asignaturas/by-tecnicatura/' + tecnicaturaId)
-                    .then(response => response.json())
-                    .then(data => {
-                        asignaturaSelect.innerHTML = '<option value=\"\">Seleccione una asignatura</option>';
-                        data.forEach(function(asignatura) {
-                            asignaturaSelect.innerHTML += `<option value=\"\${asignatura.id}\">\${asignatura.nombre}</option>`;
-                        });
-                        comisionSelect.innerHTML = '<option value=\"\">Seleccione una comisión</option>';
-                    });
-            }
-        });
-
-        // Comisiones por Asignatura
-        document.addEventListener('change', function(e) {
-            if (e.target && e.target.id === 'asignatura-select') {
-                const asignaturaId = e.target.value;
-                const comisionSelect = document.getElementById('comision-select');
-                if (!asignaturaId) {
-                    comisionSelect.innerHTML = '<option value=\"\">Seleccione una comisión</option>';
-                    return;
-                }
-                fetch('/comisiones/by-asignatura/' + asignaturaId)
-                    .then(response => response.json())
-                    .then(data => {
-                        comisionSelect.innerHTML = '<option value=\"\">Seleccione una comisión</option>';
-                        data.forEach(function(comision) {
-                            comisionSelect.innerHTML += `<option value=\"\${comision.id}\">\${comision.nombre}</option>`;
-                        });
-                    });
-            }
-        });
     </script>
 {% endblock %}
 
 {% block body %}
-<h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
+  <h1 class=\"datos-filtered\" style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
 
-{% for message in app.flashes('error') %}
+  {% for message in app.flashes('error') %}
     <div class=\"alert alert-danger\">
-        {{ message }}
+      {{ message }}
     </div>
-{% endfor %}
+  {% endfor %}
 
-<table class=\"tabla_home\">
+    <div id=\"body-vistas2\" style=\"display: block;\">
+    <table class=\"tabla_home\" id=\"copied-table\" border=\"1\">
+      
     <thead>
-    <tr>
-                        <th colspan=\"3\">
-                            Buscar por : Presidente
-                            <input type=\"text\" id=\"searchDNI\" onkeyup=\"filterTable()\" placeholder=\"Buscar presidente...\">
-                        </th>
-                        <th colspan=\"3\">
-                            Buscar por : Curso
-                            <input type=\"text\" id=\"searchTec\" onkeyup=\"filterTable()\" placeholder=\"Buscar Tecnicatura...\">
-                        </th>
-                    </tr>
-        <tr>
-            <th>ID</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Presidente</th>
-            <th>Vocal 1</th>
-            <th>Vocal 2</th>
-            <th>Estado de Mesa</th>
-            <th>Curso</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for examen_final in examen_finals %}
-        <tr>
-            <td>{{ examen_final.id }}</td>
-            <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
-            <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
-            <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
-            <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
-            <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
-            <td>{{ examen_final.estadoMesa }}</td>
-            <td>
-                {{ examen_final.tecnicatura.nombre ~ ' - ' ~ examen_final.asignatura.nombre ~ ' - ' ~ examen_final.comision.comision ~ ' (' ~ examen_final.comision.cicloLectivo ~ ')' }}
-            </td>
-            <td>
-                <button type=\"button\" class=\"buttonn\" onclick=\"openEditExamenModal({{ examen_final.id }})\">
-                    Editar
-                </button>
-            </td>
-        </tr>
-    {% else %}
-        <tr>
-            <td colspan=\"9\">No se encontraron registros</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
 
-<div style=\"text-align: center;\">
-    <button class=\"buttonn\" onclick=\"openNewExamenModal()\">Crear Nuevo Examen Final</button>
-</div>
+            <tr>
+                <th colspan=\"3\">
+                    Buscar por : Presidente
+                    <input type=\"text\" id=\"searchPresidente\" onkeyup=\"filterTable()\" placeholder=\"Buscar Presidente...\">
+                </th>
+                <th colspan=\"3\">
+                    Buscar por : Curso
+                    <input type=\"text\" id=\"searchCurso\" onkeyup=\"filterTable()\" placeholder=\"Buscar Curso...\">
+                </th>
+                <th colspan=\"3\">
+                    Buscar por : Estado de Mesa
+                    <input type=\"text\" id=\"searchEstado\" onkeyup=\"filterTable()\" placeholder=\"Buscar Estado de Mesa...\">
+                </th>
+                </th>
+            </tr>
 
-<!-- Modal para editar -->
-<div id=\"editExamenModal\" class=\"modal\" style=\"display: none;\">
+
+            <tr>
+              <th>ID</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Presidente</th>
+              <th>Vocal 1</th>
+              <th>Vocal 2</th>
+              <th>Estado de Mesa</th>
+              <th>Curso</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+      {% for examen_final in examen_finals %}
+          <tr>
+              <td>{{ examen_final.id }}</td>
+              <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
+              <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
+              <td>{{ examen_final.presidente ? examen_final.presidente.persona : '' }}</td>
+              <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : '' }}</td>
+              <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : '' }}</td>
+              <td>{{ examen_final.estadoMesa }}</td>
+              <td>
+                 {{ examen_final.curso ? examen_final.curso.asignatura.nombre ~ ' - ' ~ examen_final.curso.comision.ciclolectivo : '' }}
+              </td>
+              <td>
+                  <button type=\"button\" class=\"buttonn\" onclick=\"openEditExamenModal({{ examen_final.id }})\">
+                      Editar
+                  </button>
+              </td>
+          </tr>
+      {% else %}
+          <tr>
+              <td colspan=\"9\">No se encontraron registros</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+
+  <div style=\"text-align: center;\">
+      <button class=\"buttonn\" onclick=\"openNewExamenModal()\">Crear Nuevo Examen Final</button>
+  </div>
+
+  <!-- Modal para editar -->
+  <div id=\"editExamenModal\" class=\"modal\" style=\"display: none;\">
     <div class=\"modal-content\">
-        <span class=\"close\" onclick=\"closeEditExamenModal()\">&times;</span>
-        <div id=\"editExamenBody\" class=\"submodal\"></div>
+      <span class=\"close\" onclick=\"closeEditExamenModal()\">&times;</span>
+      <div id=\"editExamenBody\" class=\"submodal\"></div>
     </div>
-</div>
+  </div>
 
-<!-- Modal para crear -->
-<div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
+  <!-- Modal para crear -->
+  <div id=\"newExamenModal\" class=\"modal\" style=\"display: none;\">
     <div class=\"modal-content\">
-        <span class=\"close\" onclick=\"closeNewExamenModal()\">&times;</span>
-        <div id=\"newExamenBody\" class=\"submodal\"></div>
+      <span class=\"close\" onclick=\"closeNewExamenModal()\">&times;</span>
+      <div id=\"newExamenBody\" class=\"submodal\"></div>
     </div>
-</div>
+  </div>
+  </div>
 {% endblock %}", "examen_final/index.html.twig", "C:\\xampp\\htdocs\\Local-Finales-\\templates\\examen_final\\index.html.twig");
     }
 }

@@ -1,15 +1,6 @@
 <?php
 
-<<<<<<< HEAD:var/cache/dev/Container8Un2Ui4/getErrorHandler_ErrorRenderer_HtmlService.php
 namespace Container8Un2Ui4;
-=======
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getErrorHandler_ErrorRenderer_HtmlService.php
-namespace ContainerZedAest;
-
-========
-namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getErrorHandler_ErrorRenderer_HtmlService.php
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/ContainerWxp6ynK/getErrorHandler_ErrorRenderer_HtmlService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;

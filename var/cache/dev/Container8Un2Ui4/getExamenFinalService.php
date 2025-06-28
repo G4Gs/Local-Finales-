@@ -1,15 +1,6 @@
 <?php
 
-<<<<<<< HEAD:var/cache/dev/Container8Un2Ui4/getExamenFinalService.php
 namespace Container8Un2Ui4;
-=======
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getExamenFinalService.php
-namespace ContainerZedAest;
-
-========
-namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getExamenFinalService.php
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/ContainerWxp6ynK/getExamenFinalService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -20,28 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getExamenFinalService extends App_KernelDevDebugContainer
 {
     /**
-<<<<<<< HEAD:var/cache/dev/Container8Un2Ui4/getExamenFinalService.php
      * Gets the private '.errored..service_locator.8lLQrxi.App\Entity\ExamenFinal' shared service.
-=======
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getExamenFinalService.php
-     * Gets the private '.errored..service_locator.V8mJv2f.App\Entity\ExamenFinal' shared service.
-========
-     * Gets the private '.errored..service_locator.4EHAhEc.App\Entity\ExamenFinal' shared service.
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getExamenFinalService.php
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/ContainerWxp6ynK/getExamenFinalService.php
      *
      * @return \App\Entity\ExamenFinal
      */
     public static function do($container, $lazyLoad = true)
     {
-<<<<<<< HEAD:var/cache/dev/Container8Un2Ui4/getExamenFinalService.php
         $container->throw('Cannot autowire service ".service_locator.8lLQrxi": it references class "App\\Entity\\ExamenFinal" but no such service exists.');
-=======
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getExamenFinalService.php
-        $container->throw('Cannot autowire service ".service_locator.V8mJv2f": it references class "App\\Entity\\ExamenFinal" but no such service exists.');
-========
-        $container->throw('Cannot autowire service ".service_locator.4EHAhEc": it references class "App\\Entity\\ExamenFinal" but no such service exists.');
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getExamenFinalService.php
->>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/ContainerWxp6ynK/getExamenFinalService.php
     }
 }

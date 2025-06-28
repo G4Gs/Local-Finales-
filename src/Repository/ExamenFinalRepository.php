@@ -39,29 +39,11 @@ class ExamenFinalRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByFilters(?string $tecnicatura, ?string $asignatura, ?string $comision, ?string $presidente, ?string $curso = null): array
+    public function findByFilters(?string $presidente, ?string $curso = null): array
     {
         $qb = $this->createQueryBuilder('e')
-            ->leftJoin('e.tecnicatura', 't')
-            ->leftJoin('e.asignatura', 'a')
-            ->leftJoin('e.comision', 'c')
             ->leftJoin('e.presidente', 'p')
             ->leftJoin('p.persona', 'pp');
-
-        if ($tecnicatura) {
-            $qb->andWhere('t.id = :tecnicatura')
-               ->setParameter('tecnicatura', $tecnicatura);
-        }
-
-        if ($asignatura) {
-            $qb->andWhere('a.id = :asignatura')
-               ->setParameter('asignatura', $asignatura);
-        }
-
-        if ($comision) {
-            $qb->andWhere('c.id = :comision')
-               ->setParameter('comision', $comision);
-        }
 
         if ($presidente) {
             $qb->andWhere('LOWER(pp.nombre) LIKE :presidente')

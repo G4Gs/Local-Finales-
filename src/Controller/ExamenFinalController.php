@@ -29,12 +29,9 @@ class ExamenFinalController extends AbstractController
         InscripcionFinalRepository $inscripcionFinalRepository
     ): Response {
         $curso = $request->query->get('curso');
-        $tecnicatura = $request->query->get('tecnicatura');
-        $asignatura = $request->query->get('asignatura');
-        $comision = $request->query->get('comision');
         $presidente = $request->query->get('presidente');
 
-        $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $comision, $presidente, $curso);
+        $examen_finals = $examenFinalRepository->findByFilters($presidente, $curso);
         $examen_alumnos = $examenAlumnoRepository->findAll();
         $inscripcion_finals = $inscripcionFinalRepository->findAll();
 
@@ -42,7 +39,7 @@ class ExamenFinalController extends AbstractController
             'examen_finals' => $examen_finals,
             'examen_alumnos' => $examen_alumnos,
             'inscripcion_finals' => $inscripcion_finals,
-            'curso' => $curso, // <-- Add this line
+            'curso' => $curso,
         ]);
     }
 
@@ -236,31 +233,20 @@ class ExamenFinalController extends AbstractController
     #[Route('/examen/final/form-update', name: 'app_examen_final_form_update', methods: ['POST'])]
     public function updateForm(
         Request $request,
-        TecnicaturaRepository $tecnicaturaRepository,
-        AsignaturaRepository $asignaturaRepository,
         ComisionRepository $comisionRepository
     ): Response {
         $data = $request->request->all();
 
-        $tecnicaturas = $tecnicaturaRepository->findAll();
-        $asignaturas = [];
         $comisiones = [];
-
-        if (!empty($data['tecnicatura'])) {
-            $asignaturas = $asignaturaRepository->findBy(['tecnicatura' => $data['tecnicatura']]);
-        }
-        if (!empty($data['asignatura'])) {
-            $comisiones = $comisionRepository->findBy(['asignatura' => $data['asignatura']]);
+        if (!empty($data['curso'])) {
+            $comisiones = $comisionRepository->findBy(['curso' => $data['curso']]);
         }
 
         $examenFinal = new ExamenFinal();
         $form = $this->createForm(ExamenFinalType::class, $examenFinal, [
-            'tecnicaturas' => $tecnicaturas,
-            'asignaturas' => $asignaturas,
             'comisiones' => $comisiones,
         ]);
 
-        // Preselecciona los valores enviados
         $form->submit($data, false);
 
         return $this->render('examen_final/_form.html.twig', [
