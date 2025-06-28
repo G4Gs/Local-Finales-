@@ -95,47 +95,6 @@
 {% block body %}
   <h1 class="datos-filtered" style="text-align: center;">Listado de Llamados a Exámenes Finales</h1>
 
-<<<<<<< HEAD
-    <table class="tabla_home">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Materia</th>
-                <th style="width: 180px;">Fecha</th>
-                <th>Presidente</th>
-                <th>Vocales </th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for examen_final in examen_finals %}
-            <tr>
-                <td>{{ examen_final.id }}</td>
-                <td>{{ examen_final.asignaturaId ? examen_final.asignaturaId.nombre : '' }}</td>
-                <td style="width: 180px;">{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
-                <td>
-                    {{ examen_final.presidenteId ? examen_final.presidenteId.persona : '' }}
-                </td>
-                <td>
-                    {{ examen_final.vocal1Id ? examen_final.vocal1Id.persona : '' }}<br>
-                    {{ examen_final.vocal2Id ? examen_final.vocal2Id.persona : '' }}
-                </td>
-                <td>
-                    <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}" class="buttonn">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">No se encontraron registros</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <div style="text-align: center;">
-      <a href="{{ path('app_examen_final_new') }}" class="buttonn">Crear Nuevo Examen Final</a>
-   </div>  
-   
-=======
   {% for message in app.flashes('error') %}
     <div class="alert alert-danger">
       {{ message }}
@@ -202,5 +161,4 @@
       <div id="newExamenBody" class="submodal"></div>
     </div>
   </div>
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
 {% endblock %}
