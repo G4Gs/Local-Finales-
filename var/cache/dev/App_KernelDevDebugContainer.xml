@@ -8118,6 +8118,14 @@
         <argument key="examenFinalRepository" type="service_closure" id="App\Repository\ExamenFinalRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.AeKPWUj" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="asignaturaRepository" type="service_closure" id="App\Repository\AsignaturaRepository"/>
+        <argument key="comisionRepository" type="service_closure" id="App\Repository\ComisionRepository"/>
+        <argument key="tecnicaturaRepository" type="service_closure" id="App\Repository\TecnicaturaRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.9S1U8eV" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8612,7 +8620,7 @@
         <argument key="personaRepository" type="service_closure" id="App\Repository\PersonaRepository"/>
       </argument>
     </service>
-    <service id=".service_locator._3bjQCo" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.pNiQQZv" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AlumnoController::delete" type="service_closure" id=".service_locator.B5lWQmM"/>
@@ -8681,6 +8689,7 @@
         <argument key="App\Controller\ExamenFinalController::edit" type="service_closure" id=".service_locator.ZPluiS2"/>
         <argument key="App\Controller\ExamenFinalController::index" type="service_closure" id=".service_locator.64bENgF"/>
         <argument key="App\Controller\ExamenFinalController::new" type="service_closure" id=".service_locator.YZQVR5i"/>
+        <argument key="App\Controller\ExamenFinalController::updateForm" type="service_closure" id=".service_locator.AeKPWUj"/>
         <argument key="App\Controller\HabilitanteController::delete" type="service_closure" id=".service_locator.zHcbPEg"/>
         <argument key="App\Controller\HabilitanteController::edit" type="service_closure" id=".service_locator.zHcbPEg"/>
         <argument key="App\Controller\HabilitanteController::index" type="service_closure" id=".service_locator.9S1U8eV"/>
@@ -8899,6 +8908,7 @@
         <argument key="App\Controller\ExamenFinalController:edit" type="service_closure" id=".service_locator.ZPluiS2"/>
         <argument key="App\Controller\ExamenFinalController:index" type="service_closure" id=".service_locator.64bENgF"/>
         <argument key="App\Controller\ExamenFinalController:new" type="service_closure" id=".service_locator.YZQVR5i"/>
+        <argument key="App\Controller\ExamenFinalController:updateForm" type="service_closure" id=".service_locator.AeKPWUj"/>
         <argument key="App\Controller\HabilitanteController:delete" type="service_closure" id=".service_locator.zHcbPEg"/>
         <argument key="App\Controller\HabilitanteController:edit" type="service_closure" id=".service_locator.zHcbPEg"/>
         <argument key="App\Controller\HabilitanteController:index" type="service_closure" id=".service_locator.9S1U8eV"/>
@@ -9989,12 +9999,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator._3bjQCo"/>
+      <argument type="service" id=".service_locator.pNiQQZv"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator._3bjQCo"/>
+      <argument type="service" id=".service_locator.pNiQQZv"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -11125,7 +11135,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator._3bjQCo"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.pNiQQZv"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -11154,6 +11164,7 @@
     <service id=".service_locator.wkCX.3X" alias=".service_locator.YZQVR5i"/>
     <service id=".service_locator.sOCVLcw" alias=".service_locator.ZPluiS2"/>
     <service id=".service_locator.SDZBTWe" alias=".service_locator.8lLQrxi"/>
+    <service id=".service_locator.IgjvtVQ" alias=".service_locator.AeKPWUj"/>
     <service id=".service_locator.QWIB9SW" alias=".service_locator.xa_XwVT"/>
     <service id=".service_locator.xSSbwpO" alias=".service_locator..qxwYms"/>
     <service id=".service_locator.QuZtOGn" alias=".service_locator.4XvCDTU"/>
@@ -11171,7 +11182,7 @@
     <service id=".service_locator.Z6fE_vk" alias=".service_locator.M1q10pk"/>
     <service id=".service_locator.FFy293G" alias=".service_locator.j1McYan"/>
     <service id=".service_locator.ZB6Pm9d" alias=".service_locator.rx0DwiK"/>
-    <service id=".service_locator.RSJFtfM" alias=".service_locator._3bjQCo"/>
+    <service id=".service_locator.AqnxzeZ" alias=".service_locator.pNiQQZv"/>
     <service id=".service_locator.vOwA1I0" alias=".service_locator.SSQnsG8"/>
     <service id=".service_locator.EiLRmSZ" alias=".service_locator.Vtu2h8e"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
@@ -11240,6 +11251,7 @@
     <service id=".service_locator.9HC5Kk8" alias=".service_locator.YZQVR5i"/>
     <service id=".service_locator.t1B0sYX" alias=".service_locator.ZPluiS2"/>
     <service id=".service_locator.boKGDpI" alias=".service_locator.8lLQrxi"/>
+    <service id=".service_locator.ALPBx6l" alias=".service_locator.AeKPWUj"/>
     <service id=".service_locator.iel2s5r" alias=".service_locator.9S1U8eV"/>
     <service id=".service_locator.dgxxi8." alias=".service_locator.Yv4Ghdl"/>
     <service id=".service_locator.hnlqME5" alias=".service_locator.zHcbPEg"/>

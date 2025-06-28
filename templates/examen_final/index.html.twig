@@ -5,6 +5,7 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
+        // Manejo de envío de formularios en los modales
         function handleExamenFinalFormSubmit(modalId, bodyId) {
             const modalBody = document.getElementById(bodyId);
             modalBody.addEventListener('submit', function(e) {
@@ -49,6 +50,7 @@
             });
         }
 
+        // Abrir modal de edición
         function openEditExamenModal(examenId) {
             const url = "{{ path('app_examen_final_edit', {'id': '__id__'}) }}".replace('__id__', examenId);
             fetch(url, {
@@ -70,6 +72,7 @@
             document.getElementById('editExamenBody').innerHTML = '';
         }
 
+        // Abrir modal de creación
         function openNewExamenModal() {
             const url = "{{ path('app_examen_final_new') }}";
             fetch(url, {
@@ -90,6 +93,37 @@
             document.getElementById('newExamenModal').style.display = 'none';
             document.getElementById('newExamenBody').innerHTML = '';
         }
+
+        // Recarga el formulario por AJAX cuando cambian los selects dependientes
+        function updateExamenFinalForm(modalBodyId, data) {
+            fetch('/examen/final/form-update', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(data)
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById(modalBodyId).innerHTML = html;
+            });
+        }
+
+        // Evento para selects dependientes (recarga el form por AJAX)
+        document.addEventListener('change', function(e) {
+            if (['tecnicatura-select', 'asignatura-select'].includes(e.target.id)) {
+                const modalBody = e.target.closest('.submodal');
+                if (!modalBody) return;
+                const tecnicatura = modalBody.querySelector('#tecnicatura-select')?.value || '';
+                const asignatura = modalBody.querySelector('#asignatura-select')?.value || '';
+                const data = {
+                    tecnicatura: tecnicatura,
+                    asignatura: asignatura
+                };
+                updateExamenFinalForm(modalBody.id, data);
+            }
+        });
 
         // Asignaturas por Tecnicatura
         document.addEventListener('change', function(e) {

@@ -102,6 +102,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
         yield from $this->yieldParentBlock("javascripts", $context, $blocks);
         yield "
     <script>
+        // Manejo de envío de formularios en los modales
         function handleExamenFinalFormSubmit(modalId, bodyId) {
             const modalBody = document.getElementById(bodyId);
             modalBody.addEventListener('submit', function(e) {
@@ -146,9 +147,10 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             });
         }
 
+        // Abrir modal de edición
         function openEditExamenModal(examenId) {
             const url = \"";
-        // line 53
+        // line 55
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_edit", ["id" => "__id__"]);
         yield "\".replace('__id__', examenId);
             fetch(url, {
@@ -170,9 +172,10 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             document.getElementById('editExamenBody').innerHTML = '';
         }
 
+        // Abrir modal de creación
         function openNewExamenModal() {
             const url = \"";
-        // line 74
+        // line 77
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_examen_final_new");
         yield "\";
             fetch(url, {
@@ -193,6 +196,37 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             document.getElementById('newExamenModal').style.display = 'none';
             document.getElementById('newExamenBody').innerHTML = '';
         }
+
+        // Recarga el formulario por AJAX cuando cambian los selects dependientes
+        function updateExamenFinalForm(modalBodyId, data) {
+            fetch('/examen/final/form-update', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(data)
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById(modalBodyId).innerHTML = html;
+            });
+        }
+
+        // Evento para selects dependientes (recarga el form por AJAX)
+        document.addEventListener('change', function(e) {
+            if (['tecnicatura-select', 'asignatura-select'].includes(e.target.id)) {
+                const modalBody = e.target.closest('.submodal');
+                if (!modalBody) return;
+                const tecnicatura = modalBody.querySelector('#tecnicatura-select')?.value || '';
+                const asignatura = modalBody.querySelector('#asignatura-select')?.value || '';
+                const data = {
+                    tecnicatura: tecnicatura,
+                    asignatura: asignatura
+                };
+                updateExamenFinalForm(modalBody.id, data);
+            }
+        });
 
         // Asignaturas por Tecnicatura
         document.addEventListener('change', function(e) {
@@ -247,7 +281,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
         yield from [];
     }
 
-    // line 139
+    // line 173
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -260,18 +294,18 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 140
+        // line 174
         yield "<h1 style=\"text-align: center;\">Listado de Llamados a Exámenes Finales</h1>
 
 ";
-        // line 142
+        // line 176
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 142, $this->source); })()), "flashes", ["error"], "method", false, false, false, 142));
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 176, $this->source); })()), "flashes", ["error"], "method", false, false, false, 176));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 143
+            // line 177
             yield "    <div class=\"alert alert-danger\">
         ";
-            // line 144
+            // line 178
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
             yield "
     </div>
@@ -280,7 +314,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 147
+        // line 181
         yield "
 <table class=\"tabla_home\">
     <thead>
@@ -298,51 +332,51 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
     </thead>
     <tbody>
     ";
-        // line 163
+        // line 197
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 163, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["examen_finals"]) || array_key_exists("examen_finals", $context) ? $context["examen_finals"] : (function () { throw new RuntimeError('Variable "examen_finals" does not exist.', 197, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["examen_final"]) {
-            // line 164
+            // line 198
             yield "        <tr>
             <td>";
-            // line 165
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 165), "html", null, true);
+            // line 199
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 199), "html", null, true);
             yield "</td>
             <td>";
-            // line 166
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 166)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 166), "Y-m-d"), "html", null, true)) : (""));
+            // line 200
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 200)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "fecha", [], "any", false, false, false, 200), "Y-m-d"), "html", null, true)) : (""));
             yield "</td>
             <td>";
-            // line 167
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 167)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 167), "H:i"), "html", null, true)) : (""));
+            // line 201
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 201)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "hora", [], "any", false, false, false, 201), "H:i"), "html", null, true)) : (""));
             yield "</td>
             <td>";
-            // line 168
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 168)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 168), "persona", [], "any", false, false, false, 168), "html", null, true)) : (""));
+            // line 202
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 202)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "presidente", [], "any", false, false, false, 202), "persona", [], "any", false, false, false, 202), "html", null, true)) : (""));
             yield "</td>
             <td>";
-            // line 169
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 169)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 169), "persona", [], "any", false, false, false, 169), "html", null, true)) : (""));
+            // line 203
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 203)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal1", [], "any", false, false, false, 203), "persona", [], "any", false, false, false, 203), "html", null, true)) : (""));
             yield "</td>
             <td>";
-            // line 170
-            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 170)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 170), "persona", [], "any", false, false, false, 170), "html", null, true)) : (""));
+            // line 204
+            yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 204)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "vocal2", [], "any", false, false, false, 204), "persona", [], "any", false, false, false, 204), "html", null, true)) : (""));
             yield "</td>
             <td>";
-            // line 171
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "estadoMesa", [], "any", false, false, false, 171), "html", null, true);
+            // line 205
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "estadoMesa", [], "any", false, false, false, 205), "html", null, true);
             yield "</td>
             <td>
                 ";
-            // line 173
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((((((((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 173), "nombre", [], "any", false, false, false, 173) . " - ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 173), "nombre", [], "any", false, false, false, 173)) . " - ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "comision", [], "any", false, false, false, 173), "comision", [], "any", false, false, false, 173)) . " (") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "comision", [], "any", false, false, false, 173), "cicloLectivo", [], "any", false, false, false, 173)) . ")"), "html", null, true);
+            // line 207
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((((((((CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "tecnicatura", [], "any", false, false, false, 207), "nombre", [], "any", false, false, false, 207) . " - ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "asignatura", [], "any", false, false, false, 207), "nombre", [], "any", false, false, false, 207)) . " - ") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "comision", [], "any", false, false, false, 207), "comision", [], "any", false, false, false, 207)) . " (") . CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "comision", [], "any", false, false, false, 207), "cicloLectivo", [], "any", false, false, false, 207)) . ")"), "html", null, true);
             yield "
             </td>
             <td>
                 <button type=\"button\" class=\"buttonn\" onclick=\"openEditExamenModal(";
-            // line 176
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 176), "html", null, true);
+            // line 210
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["examen_final"], "id", [], "any", false, false, false, 210), "html", null, true);
             yield ")\">
                     Editar
                 </button>
@@ -351,9 +385,9 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
     ";
             $context['_iterated'] = true;
         }
-        // line 181
+        // line 215
         if (!$context['_iterated']) {
-            // line 182
+            // line 216
             yield "        <tr>
             <td colspan=\"9\">No se encontraron registros</td>
         </tr>
@@ -362,7 +396,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['examen_final'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 186
+        // line 220
         yield "    </tbody>
 </table>
 
@@ -416,7 +450,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  366 => 186,  357 => 182,  355 => 181,  345 => 176,  339 => 173,  334 => 171,  330 => 170,  326 => 169,  322 => 168,  318 => 167,  314 => 166,  310 => 165,  307 => 164,  302 => 163,  284 => 147,  275 => 144,  272 => 143,  268 => 142,  264 => 140,  251 => 139,  176 => 74,  152 => 53,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
+        return array (  400 => 220,  391 => 216,  389 => 215,  379 => 210,  373 => 207,  368 => 205,  364 => 204,  360 => 203,  356 => 202,  352 => 201,  348 => 200,  344 => 199,  341 => 198,  336 => 197,  318 => 181,  309 => 178,  306 => 177,  302 => 176,  298 => 174,  285 => 173,  179 => 77,  154 => 55,  101 => 6,  88 => 5,  65 => 3,  42 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -428,6 +462,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
 {% block javascripts %}
     {{ parent() }}
     <script>
+        // Manejo de envío de formularios en los modales
         function handleExamenFinalFormSubmit(modalId, bodyId) {
             const modalBody = document.getElementById(bodyId);
             modalBody.addEventListener('submit', function(e) {
@@ -472,6 +507,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             });
         }
 
+        // Abrir modal de edición
         function openEditExamenModal(examenId) {
             const url = \"{{ path('app_examen_final_edit', {'id': '__id__'}) }}\".replace('__id__', examenId);
             fetch(url, {
@@ -493,6 +529,7 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             document.getElementById('editExamenBody').innerHTML = '';
         }
 
+        // Abrir modal de creación
         function openNewExamenModal() {
             const url = \"{{ path('app_examen_final_new') }}\";
             fetch(url, {
@@ -513,6 +550,37 @@ class __TwigTemplate_6a81ea848ddc60e245537bed77a2fbae extends Template
             document.getElementById('newExamenModal').style.display = 'none';
             document.getElementById('newExamenBody').innerHTML = '';
         }
+
+        // Recarga el formulario por AJAX cuando cambian los selects dependientes
+        function updateExamenFinalForm(modalBodyId, data) {
+            fetch('/examen/final/form-update', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(data)
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById(modalBodyId).innerHTML = html;
+            });
+        }
+
+        // Evento para selects dependientes (recarga el form por AJAX)
+        document.addEventListener('change', function(e) {
+            if (['tecnicatura-select', 'asignatura-select'].includes(e.target.id)) {
+                const modalBody = e.target.closest('.submodal');
+                if (!modalBody) return;
+                const tecnicatura = modalBody.querySelector('#tecnicatura-select')?.value || '';
+                const asignatura = modalBody.querySelector('#asignatura-select')?.value || '';
+                const data = {
+                    tecnicatura: tecnicatura,
+                    asignatura: asignatura
+                };
+                updateExamenFinalForm(modalBody.id, data);
+            }
+        });
 
         // Asignaturas por Tecnicatura
         document.addEventListener('change', function(e) {

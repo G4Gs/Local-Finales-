@@ -69,6 +69,7 @@ return [
     'app_examen_final_delete' => [['id'], ['_controller' => 'App\\Controller\\ExamenFinalController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/examen/final']], [], [], []],
     'asignaturas_by_tecnicatura' => [['id'], ['_controller' => 'App\\Controller\\ExamenFinalController::asignaturasByTecnicatura'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/examen/final/asignaturas/by-tecnicatura']], [], [], []],
     'comisiones_by_asignatura' => [['id'], ['_controller' => 'App\\Controller\\ExamenFinalController::comisionesByAsignatura'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/examen/final/comisiones/by-asignatura']], [], [], []],
+    'app_examen_final_form_update' => [[], ['_controller' => 'App\\Controller\\ExamenFinalController::updateForm'], [], [['text', '/examen/final/examen/final/form-update']], [], [], []],
     'app_habilitante_index' => [[], ['_controller' => 'App\\Controller\\HabilitanteController::index'], [], [['text', '/habilitante/']], [], [], []],
     'app_habilitante_new' => [[], ['_controller' => 'App\\Controller\\HabilitanteController::new'], [], [['text', '/habilitante/new']], [], [], []],
     'app_habilitante_show' => [['id'], ['_controller' => 'App\\Controller\\HabilitanteController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/habilitante']], [], [], []],

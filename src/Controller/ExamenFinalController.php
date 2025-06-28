@@ -78,6 +78,14 @@ class ExamenFinalController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Si el campo asignatura viene por POST pero no está en los choices originales:
+            $asignaturaId = $request->request->get('examen_final')['asignatura'] ?? null;
+            if ($asignaturaId) {
+                $asignatura = $asignaturaRepository->find($asignaturaId);
+                $examenFinal->setAsignatura($asignatura);
+            }
+            // Lo mismo para comisión si es necesario
+
             $examenFinalRepository->save($examenFinal, true);
 
             if ($request->isXmlHttpRequest()) {
@@ -132,6 +140,14 @@ class ExamenFinalController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Si el campo asignatura viene por POST pero no está en los choices originales:
+            $asignaturaId = $request->request->get('examen_final')['asignatura'] ?? null;
+            if ($asignaturaId) {
+                $asignatura = $asignaturaRepository->find($asignaturaId);
+                $examenFinal->setAsignatura($asignatura);
+            }
+            // Lo mismo para comisión si es necesario
+
             try {
                 $examenFinalRepository->save($examenFinal, true);
                 return $this->json(['success' => true]);
@@ -214,5 +230,42 @@ class ExamenFinalController extends AbstractController
             ];
         }
         return new JsonResponse($data);
+    }
+
+    #[Route('/examen/final/form-update', name: 'app_examen_final_form_update', methods: ['POST'])]
+    public function updateForm(
+        Request $request,
+        TecnicaturaRepository $tecnicaturaRepository,
+        AsignaturaRepository $asignaturaRepository,
+        ComisionRepository $comisionRepository
+    ): Response {
+        $data = $request->request->all();
+
+        $tecnicaturas = $tecnicaturaRepository->findAll();
+        $asignaturas = [];
+        $comisiones = [];
+
+        if (!empty($data['tecnicatura'])) {
+            $asignaturas = $asignaturaRepository->findBy(['tecnicatura' => $data['tecnicatura']]);
+        }
+        if (!empty($data['asignatura'])) {
+            $comisiones = $comisionRepository->findBy(['asignatura' => $data['asignatura']]);
+        }
+
+        $examenFinal = new ExamenFinal();
+        $form = $this->createForm(ExamenFinalType::class, $examenFinal, [
+            'tecnicaturas' => $tecnicaturas,
+            'asignaturas' => $asignaturas,
+            'comisiones' => $comisiones,
+        ]);
+
+        // Preselecciona los valores enviados
+        $form->submit($data, false);
+
+        return $this->render('examen_final/_form.html.twig', [
+            'form' => $form->createView(),
+            'examen_final' => $examenFinal,
+            'button_label' => 'Guardar',
+        ]);
     }
 }
