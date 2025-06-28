@@ -1,3 +1,17 @@
 <?php //%5BC%5DApp%255CController%255CCursoController%2523edit
 
+<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/I/M/tHOc0mjJWaFSGI-VnDww
+<<<<<<< HEAD
 return [PHP_INT_MAX, 1751082267];
+========
+<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/I/M/tHOc0mjJWaFSGI-VnDww
+=======
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1750728474];
+========
+return [PHP_INT_MAX, 1751071668];
+>>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/I/M/tHOc0mjJWaFSGI-VnDww
+<<<<<<< HEAD
+>>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/pools/system/9evvotpsxZ/I/M/tHOc0mjJWaFSGI-VnDww
+=======
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506

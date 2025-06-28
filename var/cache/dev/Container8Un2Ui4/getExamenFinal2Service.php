@@ -1,6 +1,15 @@
 <?php
 
+<<<<<<< HEAD:var/cache/dev/Container8Un2Ui4/getExamenFinal2Service.php
 namespace Container8Un2Ui4;
+=======
+<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getExamenFinal2Service.php
+namespace ContainerZedAest;
+
+========
+namespace ContainerWxp6ynK;
+>>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getExamenFinal2Service.php
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/ContainerWxp6ynK/getExamenFinal2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -11,12 +20,20 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getExamenFinal2Service extends App_KernelDevDebugContainer
 {
     /**
+<<<<<<< HEAD:var/cache/dev/Container8Un2Ui4/getExamenFinal2Service.php
      * Gets the private '.errored..service_locator.ZPluiS2.App\Entity\ExamenFinal' shared service.
+=======
+     * Gets the private '.errored..service_locator.VwQjRCK.App\Entity\ExamenFinal' shared service.
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/ContainerWxp6ynK/getExamenFinal2Service.php
      *
      * @return \App\Entity\ExamenFinal
      */
     public static function do($container, $lazyLoad = true)
     {
+<<<<<<< HEAD:var/cache/dev/Container8Un2Ui4/getExamenFinal2Service.php
         $container->throw('Cannot autowire service ".service_locator.ZPluiS2": it references class "App\\Entity\\ExamenFinal" but no such service exists.');
+=======
+        $container->throw('Cannot autowire service ".service_locator.VwQjRCK": it references class "App\\Entity\\ExamenFinal" but no such service exists.');
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/ContainerWxp6ynK/getExamenFinal2Service.php
     }
 }

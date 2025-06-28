@@ -1,3 +1,17 @@
 <?php //%5BC%5DApp%255CController%255CVistaspersonaController
 
+<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/7/E/ebDcyVxpECp46dYgqZbw
+<<<<<<< HEAD
 return [PHP_INT_MAX, 1751082292];
+========
+<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/7/E/ebDcyVxpECp46dYgqZbw
+=======
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1750728552];
+========
+return [PHP_INT_MAX, 1751071669];
+>>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/7/E/ebDcyVxpECp46dYgqZbw
+<<<<<<< HEAD
+>>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/pools/system/9evvotpsxZ/7/E/ebDcyVxpECp46dYgqZbw
+=======
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506

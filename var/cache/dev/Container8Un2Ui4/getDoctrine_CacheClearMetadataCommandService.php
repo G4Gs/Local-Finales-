@@ -1,6 +1,15 @@
 <?php
 
+<<<<<<< HEAD:var/cache/dev/Container8Un2Ui4/getDoctrine_CacheClearMetadataCommandService.php
 namespace Container8Un2Ui4;
+=======
+<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getDoctrine_CacheClearMetadataCommandService.php
+namespace ContainerZedAest;
+
+========
+namespace ContainerWxp6ynK;
+>>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getDoctrine_CacheClearMetadataCommandService.php
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/ContainerWxp6ynK/getDoctrine_CacheClearMetadataCommandService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;

@@ -1,3 +1,17 @@
 <?php //%5BC%5DApp%255CController%255CLocalidadController%2523new
 
+<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/Y/F/JaGi44CujqJ13jKt+zEA
+<<<<<<< HEAD
 return [PHP_INT_MAX, 1751082273];
+========
+<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/Y/F/JaGi44CujqJ13jKt+zEA
+=======
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
+return [PHP_INT_MAX, 1750728494];
+========
+return [PHP_INT_MAX, 1751071669];
+>>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/Y/F/JaGi44CujqJ13jKt+zEA
+<<<<<<< HEAD
+>>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506:var/cache/dev/pools/system/9evvotpsxZ/Y/F/JaGi44CujqJ13jKt+zEA
+=======
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506

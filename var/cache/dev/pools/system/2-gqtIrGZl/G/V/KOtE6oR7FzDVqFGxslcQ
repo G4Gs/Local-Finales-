@@ -1,3 +1,11 @@
 <?php //%5BC%5DApp%255CKernel%2523getBundlesPath
 
+<<<<<<< HEAD
 return [PHP_INT_MAX, 1751082307];
+=======
+<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/G/V/KOtE6oR7FzDVqFGxslcQ
+return [PHP_INT_MAX, 1750728592];
+=======
+return [PHP_INT_MAX, 1751071670];
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/G/V/KOtE6oR7FzDVqFGxslcQ
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506

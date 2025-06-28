@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 18b1a6,127.0.0.1,GET,http://localhost/Local-Finales-/public/,1751074593,,404
 1e49e0,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/,1751074680,,404
 dd8dc3,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/login,1751074814,,200
@@ -62,3 +63,27 @@ deb10b,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/fin
 b558bc,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751082872,,500
 e362ad,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751082887,870506,500
 870506,127.0.0.1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1751082887,,500
+=======
+<<<<<<< HEAD
+d573a2,::1,GET,http://localhost/Local-Finales-/public/index.php/,1750728491,556137,500
+556137,::1,GET,http://localhost/Local-Finales-/public/index.php/,1750728491,,500
+8ebd1a,::1,GET,http://localhost/Local-Finales-/public/index.php/login,1750728551,d51931,500
+d51931,::1,GET,http://localhost/Local-Finales-/public/index.php/login,1750728552,,500
+8cbf71,::1,GET,http://localhost/Local-Finales-/public/index.php/login,1750728568,f4cf42,500
+f4cf42,::1,GET,http://localhost/Local-Finales-/public/index.php/login,1750728568,,500
+573fcc,::1,GET,http://localhost/Local-Finales-/public/,1750728594,,404
+bba667,::1,GET,http://localhost/Local-Finales-/public/index.php/login,1750728597,,500
+fa93fb,::1,GET,http://localhost/Local-Finales-/public/index.php/login,1750728597,bba667,500
+f35a03,::1,GET,http://localhost/Local-Finales-/public/,1750728608,,404
+ab3868,::1,GET,http://localhost/Local-Finales-/public/index.php/,1750728618,,404
+554922,::1,GET,http://localhost/Local-Finales-/public/index.php/login,1750728625,,200
+d9cacd,::1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750728630,3d8edc,404
+3d8edc,::1,GET,http://localhost/Local-Finales-/public/vendor/fontawesome-free/css/all.min.css,1750728630,,404
+988d81,::1,POST,http://localhost/Local-Finales-/public/index.php/login,1750728639,,302
+5bb132,::1,GET,http://localhost/Local-Finales-/public/index.php/home,1750728642,,200
+cb7aa0,::1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750728657,d4c9ba,500
+d4c9ba,::1,GET,http://localhost/Local-Finales-/public/index.php/examen/final/,1750728657,,500
+=======
+21d4e3,::1,GET,http://localhost/local/public/index.php/vistasmesas?nota_asignatura=&nota_estudiante=,1751071670,,200
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506

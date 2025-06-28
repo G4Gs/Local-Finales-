@@ -1,3 +1,11 @@
 <?php //%5BC%5DApp%255CController%255CCalendarioClaseController%2523index
 
+<<<<<<< HEAD
 return [PHP_INT_MAX, 1751082262];
+=======
+<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/Q/H/p5BWAfMYSAMbJ1G-Y0Gg
+return [PHP_INT_MAX, 1750728456];
+=======
+return [PHP_INT_MAX, 1751071668];
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/Q/H/p5BWAfMYSAMbJ1G-Y0Gg
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506

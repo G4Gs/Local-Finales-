@@ -8083,7 +8083,14 @@
         <argument key="examenAlumnoRepository" type="service_closure" id="App\Repository\ExamenAlumnoRepository"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.64bENgF" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+<<<<<<< HEAD
+    <service id=".service_locator.d_4a3Jn" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+    <service id=".service_locator.29s7hJ1" class="Symfony\Component\DependencyInjection\ServiceLocator">
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="examenAlumnoRepository" type="service_closure" id="App\Repository\ExamenAlumnoRepository"/>
@@ -8091,7 +8098,12 @@
         <argument key="inscripcionFinalRepository" type="service_closure" id="App\Repository\InscripcionFinalRepository"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.YZQVR5i" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+    <service id=".service_locator.fiV_3M5" class="Symfony\Component\DependencyInjection\ServiceLocator">
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="comisionRepository" type="service_closure" id="App\Repository\ComisionRepository"/>
@@ -8100,17 +8112,41 @@
         <argument key="tecnicaturaRepository" type="service_closure" id="App\Repository\TecnicaturaRepository"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.ZPluiS2" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="comisionRepository" type="service_closure" id="App\Repository\ComisionRepository"/>
         <argument key="cursoRepository" type="service_closure" id="App\Repository\CursoRepository"/>
         <argument key="examenFinal" type="service_closure" id=".errored..service_locator.ZPluiS2.App\Entity\ExamenFinal"/>
+=======
+<<<<<<< HEAD
+    <service id=".service_locator.VwQjRCK" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="examenFinal" type="service_closure" id=".errored..service_locator.VwQjRCK.App\Entity\ExamenFinal"/>
+      </argument>
+    </service>
+    <service id=".service_locator.V8mJv2f" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+    <service id=".service_locator.u2fciAB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="examenFinal" type="service_closure" id=".errored..service_locator.V8mJv2f.App\Entity\ExamenFinal"/>
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
         <argument key="examenFinalRepository" type="service_closure" id="App\Repository\ExamenFinalRepository"/>
         <argument key="tecnicaturaRepository" type="service_closure" id="App\Repository\TecnicaturaRepository"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.8lLQrxi" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+<<<<<<< HEAD
+    <service id=".service_locator.9S1U8eV" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+    <service id=".service_locator.4EHAhEc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="examenAlumnoRepository" type="service_closure" id="App\Repository\ExamenAlumnoRepository"/>
@@ -8118,6 +8154,7 @@
         <argument key="examenFinalRepository" type="service_closure" id="App\Repository\ExamenFinalRepository"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.AeKPWUj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8127,6 +8164,10 @@
       </argument>
     </service>
     <service id=".service_locator.9S1U8eV" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+    <service id=".service_locator.xj1Vwg0" class="Symfony\Component\DependencyInjection\ServiceLocator">
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="habilitanteRepository" type="service_closure" id="App\Repository\HabilitanteRepository"/>
@@ -8580,6 +8621,7 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.d_4a3Jn" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8587,6 +8629,21 @@
       </argument>
     </service>
     <service id=".service_locator.M1q10pk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+<<<<<<< HEAD
+    <service id=".service_locator.64bENgF" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="examenAlumnoRepository" type="service_closure" id="App\Repository\ExamenAlumnoRepository"/>
+        <argument key="examenFinalRepository" type="service_closure" id="App\Repository\ExamenFinalRepository"/>
+        <argument key="inscripcionFinalRepository" type="service_closure" id="App\Repository\InscripcionFinalRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.M1q10pk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+    <service id=".service_locator.q4LbOCZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="alumnoRepository" type="service_closure" id="App\Repository\AlumnoRepository"/>
@@ -8620,6 +8677,7 @@
         <argument key="personaRepository" type="service_closure" id="App\Repository\PersonaRepository"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.pNiQQZv" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -9059,6 +9117,879 @@
         <argument key="App\Controller\VistaspreinscriptosController:verificarComision" type="service_closure" id=".service_locator.E5gj7iC"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
+=======
+<<<<<<< HEAD
+    <service id=".service_locator.zZeP124" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\AlumnoController::delete" type="service_closure" id=".service_locator.B5lWQmM"/>
+        <argument key="App\Controller\AlumnoController::edit" type="service_closure" id=".service_locator.B5lWQmM"/>
+        <argument key="App\Controller\AlumnoController::index" type="service_closure" id=".service_locator.RpWdsBZ"/>
+        <argument key="App\Controller\AlumnoController::new" type="service_closure" id=".service_locator.RpWdsBZ"/>
+        <argument key="App\Controller\AlumnoController::show" type="service_closure" id=".service_locator.hFQFq_g"/>
+        <argument key="App\Controller\AsignaturaController::delete" type="service_closure" id=".service_locator._lPNFGH"/>
+        <argument key="App\Controller\AsignaturaController::edit" type="service_closure" id=".service_locator._lPNFGH"/>
+        <argument key="App\Controller\AsignaturaController::index" type="service_closure" id=".service_locator.Hxsiru."/>
+        <argument key="App\Controller\AsignaturaController::new" type="service_closure" id=".service_locator.Hxsiru."/>
+        <argument key="App\Controller\AsignaturaController::show" type="service_closure" id=".service_locator.rhEh58E"/>
+        <argument key="App\Controller\AsistenciaController::delete" type="service_closure" id=".service_locator.uqsmDdT"/>
+        <argument key="App\Controller\AsistenciaController::edit" type="service_closure" id=".service_locator.uqsmDdT"/>
+        <argument key="App\Controller\AsistenciaController::index" type="service_closure" id=".service_locator.V1z4Oxo"/>
+        <argument key="App\Controller\AsistenciaController::new" type="service_closure" id=".service_locator.V1z4Oxo"/>
+        <argument key="App\Controller\AsistenciaController::show" type="service_closure" id=".service_locator.wqSOxPA"/>
+        <argument key="App\Controller\CalendarioClaseController::delete" type="service_closure" id=".service_locator.vNylNHY"/>
+        <argument key="App\Controller\CalendarioClaseController::edit" type="service_closure" id=".service_locator.vNylNHY"/>
+        <argument key="App\Controller\CalendarioClaseController::index" type="service_closure" id=".service_locator.T_bdcoi"/>
+        <argument key="App\Controller\CalendarioClaseController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\CalendarioClaseController::show" type="service_closure" id=".service_locator.yzhKFl_"/>
+        <argument key="App\Controller\CarrerasController::delete" type="service_closure" id=".service_locator.Qxsdnfg"/>
+        <argument key="App\Controller\CarrerasController::edit" type="service_closure" id=".service_locator.Qxsdnfg"/>
+        <argument key="App\Controller\CarrerasController::index" type="service_closure" id=".service_locator.Z.jmTaV"/>
+        <argument key="App\Controller\CarrerasController::new" type="service_closure" id=".service_locator.Z.jmTaV"/>
+        <argument key="App\Controller\CarrerasController::show" type="service_closure" id=".service_locator.lj6XXoj"/>
+        <argument key="App\Controller\ComisionController::delete" type="service_closure" id=".service_locator.5zZPUXR"/>
+        <argument key="App\Controller\ComisionController::edit" type="service_closure" id=".service_locator.5zZPUXR"/>
+        <argument key="App\Controller\ComisionController::index" type="service_closure" id=".service_locator.yej9iZf"/>
+        <argument key="App\Controller\ComisionController::new" type="service_closure" id=".service_locator.yej9iZf"/>
+        <argument key="App\Controller\ComisionController::show" type="service_closure" id=".service_locator.I2o8IfA"/>
+        <argument key="App\Controller\CorrelativaController::delete" type="service_closure" id=".service_locator.w_ydO5e"/>
+        <argument key="App\Controller\CorrelativaController::edit" type="service_closure" id=".service_locator.w_ydO5e"/>
+        <argument key="App\Controller\CorrelativaController::index" type="service_closure" id=".service_locator.X8Caz58"/>
+        <argument key="App\Controller\CorrelativaController::new" type="service_closure" id=".service_locator.X8Caz58"/>
+        <argument key="App\Controller\CorrelativaController::show" type="service_closure" id=".service_locator.R4Vsjqn"/>
+        <argument key="App\Controller\CursadaController::delete" type="service_closure" id=".service_locator.xZJ6eXh"/>
+        <argument key="App\Controller\CursadaController::edit" type="service_closure" id=".service_locator.xZJ6eXh"/>
+        <argument key="App\Controller\CursadaController::index" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\CursadaController::new" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\CursadaController::show" type="service_closure" id=".service_locator.VWX6yVv"/>
+        <argument key="App\Controller\CursadaDocenteController::delete" type="service_closure" id=".service_locator.dJZg4WQ"/>
+        <argument key="App\Controller\CursadaDocenteController::edit" type="service_closure" id=".service_locator.dJZg4WQ"/>
+        <argument key="App\Controller\CursadaDocenteController::index" type="service_closure" id=".service_locator.YkJcteB"/>
+        <argument key="App\Controller\CursadaDocenteController::new" type="service_closure" id=".service_locator.YkJcteB"/>
+        <argument key="App\Controller\CursadaDocenteController::show" type="service_closure" id=".service_locator.rWsgqL7"/>
+        <argument key="App\Controller\CursoController::delete" type="service_closure" id=".service_locator.FPVNRCt"/>
+        <argument key="App\Controller\CursoController::edit" type="service_closure" id=".service_locator.FPVNRCt"/>
+        <argument key="App\Controller\CursoController::index" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\CursoController::new" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\CursoController::show" type="service_closure" id=".service_locator.wqXBDHD"/>
+        <argument key="App\Controller\DocenteController::delete" type="service_closure" id=".service_locator.AICXjxe"/>
+        <argument key="App\Controller\DocenteController::edit" type="service_closure" id=".service_locator.AICXjxe"/>
+        <argument key="App\Controller\DocenteController::index" type="service_closure" id=".service_locator.7wGCJbM"/>
+        <argument key="App\Controller\DocenteController::new" type="service_closure" id=".service_locator.7wGCJbM"/>
+        <argument key="App\Controller\DocenteController::show" type="service_closure" id=".service_locator.sRmH63H"/>
+        <argument key="App\Controller\ExamenAlumnoController::delete" type="service_closure" id=".service_locator.r06nQXi"/>
+        <argument key="App\Controller\ExamenAlumnoController::edit" type="service_closure" id=".service_locator.r06nQXi"/>
+        <argument key="App\Controller\ExamenAlumnoController::index" type="service_closure" id=".service_locator.sgKQ_fb"/>
+        <argument key="App\Controller\ExamenAlumnoController::new" type="service_closure" id=".service_locator.sgKQ_fb"/>
+        <argument key="App\Controller\ExamenAlumnoController::show" type="service_closure" id=".service_locator.ufjxPva"/>
+        <argument key="App\Controller\ExamenFinalController::delete" type="service_closure" id=".service_locator.V8mJv2f"/>
+        <argument key="App\Controller\ExamenFinalController::edit" type="service_closure" id=".service_locator.V8mJv2f"/>
+        <argument key="App\Controller\ExamenFinalController::index" type="service_closure" id=".service_locator.d_4a3Jn"/>
+        <argument key="App\Controller\ExamenFinalController::new" type="service_closure" id=".service_locator.d_4a3Jn"/>
+        <argument key="App\Controller\ExamenFinalController::show" type="service_closure" id=".service_locator.VwQjRCK"/>
+        <argument key="App\Controller\HabilitanteController::delete" type="service_closure" id=".service_locator.zHcbPEg"/>
+        <argument key="App\Controller\HabilitanteController::edit" type="service_closure" id=".service_locator.zHcbPEg"/>
+        <argument key="App\Controller\HabilitanteController::index" type="service_closure" id=".service_locator.9S1U8eV"/>
+        <argument key="App\Controller\HabilitanteController::new" type="service_closure" id=".service_locator.9S1U8eV"/>
+        <argument key="App\Controller\HabilitanteController::show" type="service_closure" id=".service_locator.Yv4Ghdl"/>
+        <argument key="App\Controller\HorarioController::delete" type="service_closure" id=".service_locator.xa_XwVT"/>
+        <argument key="App\Controller\HorarioController::edit" type="service_closure" id=".service_locator.xa_XwVT"/>
+        <argument key="App\Controller\HorarioController::index" type="service_closure" id=".service_locator.QuQPjuR"/>
+        <argument key="App\Controller\HorarioController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\HorarioController::show" type="service_closure" id=".service_locator.esjls9Y"/>
+        <argument key="App\Controller\InscripcionFinalController::delete" type="service_closure" id=".service_locator.LCbobIM"/>
+        <argument key="App\Controller\InscripcionFinalController::edit" type="service_closure" id=".service_locator.LCbobIM"/>
+        <argument key="App\Controller\InscripcionFinalController::index" type="service_closure" id=".service_locator.VdX9ZX0"/>
+        <argument key="App\Controller\InscripcionFinalController::new" type="service_closure" id=".service_locator.VdX9ZX0"/>
+        <argument key="App\Controller\InscripcionFinalController::show" type="service_closure" id=".service_locator.pTCYBLk"/>
+        <argument key="App\Controller\InstitutoController::delete" type="service_closure" id=".service_locator.LF4OuHN"/>
+        <argument key="App\Controller\InstitutoController::edit" type="service_closure" id=".service_locator.LF4OuHN"/>
+        <argument key="App\Controller\InstitutoController::index" type="service_closure" id=".service_locator.dldfBHa"/>
+        <argument key="App\Controller\InstitutoController::new" type="service_closure" id=".service_locator.dldfBHa"/>
+        <argument key="App\Controller\InstitutoController::show" type="service_closure" id=".service_locator.b2M12.q"/>
+        <argument key="App\Controller\LocalidadController::delete" type="service_closure" id=".service_locator.SxwhuBD"/>
+        <argument key="App\Controller\LocalidadController::edit" type="service_closure" id=".service_locator.SxwhuBD"/>
+        <argument key="App\Controller\LocalidadController::index" type="service_closure" id=".service_locator.aHzFaQI"/>
+        <argument key="App\Controller\LocalidadController::new" type="service_closure" id=".service_locator.aHzFaQI"/>
+        <argument key="App\Controller\LocalidadController::show" type="service_closure" id=".service_locator.QrC_.Ng"/>
+        <argument key="App\Controller\ModalidadController::delete" type="service_closure" id=".service_locator.k.xcjCc"/>
+        <argument key="App\Controller\ModalidadController::edit" type="service_closure" id=".service_locator.k.xcjCc"/>
+        <argument key="App\Controller\ModalidadController::index" type="service_closure" id=".service_locator.F_1yAY7"/>
+        <argument key="App\Controller\ModalidadController::new" type="service_closure" id=".service_locator.F_1yAY7"/>
+        <argument key="App\Controller\ModalidadController::show" type="service_closure" id=".service_locator.f2yhxqd"/>
+        <argument key="App\Controller\NotaController::delete" type="service_closure" id=".service_locator..qxwYms"/>
+        <argument key="App\Controller\NotaController::edit" type="service_closure" id=".service_locator..qxwYms"/>
+        <argument key="App\Controller\NotaController::index" type="service_closure" id=".service_locator.iyO5EpN"/>
+        <argument key="App\Controller\NotaController::new" type="service_closure" id=".service_locator.iyO5EpN"/>
+        <argument key="App\Controller\NotaController::show" type="service_closure" id=".service_locator.FEhGlnP"/>
+        <argument key="App\Controller\PaisController::delete" type="service_closure" id=".service_locator.6akdvid"/>
+        <argument key="App\Controller\PaisController::edit" type="service_closure" id=".service_locator.6akdvid"/>
+        <argument key="App\Controller\PaisController::index" type="service_closure" id=".service_locator.l8U5AR_"/>
+        <argument key="App\Controller\PaisController::new" type="service_closure" id=".service_locator.l8U5AR_"/>
+        <argument key="App\Controller\PaisController::show" type="service_closure" id=".service_locator.HuJItRo"/>
+        <argument key="App\Controller\PersonaController::delete" type="service_closure" id=".service_locator.S6cVw0t"/>
+        <argument key="App\Controller\PersonaController::edit" type="service_closure" id=".service_locator.S6cVw0t"/>
+        <argument key="App\Controller\PersonaController::index" type="service_closure" id=".service_locator.jV5XtMl"/>
+        <argument key="App\Controller\PersonaController::new" type="service_closure" id=".service_locator.jV5XtMl"/>
+        <argument key="App\Controller\PersonaController::show" type="service_closure" id=".service_locator.UuLSni7"/>
+        <argument key="App\Controller\ProvinciaController::delete" type="service_closure" id=".service_locator.4XvCDTU"/>
+        <argument key="App\Controller\ProvinciaController::edit" type="service_closure" id=".service_locator.4XvCDTU"/>
+        <argument key="App\Controller\ProvinciaController::index" type="service_closure" id=".service_locator.X7dCCmR"/>
+        <argument key="App\Controller\ProvinciaController::new" type="service_closure" id=".service_locator.X7dCCmR"/>
+        <argument key="App\Controller\ProvinciaController::show" type="service_closure" id=".service_locator.DqTasRE"/>
+        <argument key="App\Controller\RegionController::delete" type="service_closure" id=".service_locator.vgdgQZJ"/>
+        <argument key="App\Controller\RegionController::edit" type="service_closure" id=".service_locator.vgdgQZJ"/>
+        <argument key="App\Controller\RegionController::index" type="service_closure" id=".service_locator.EMvzwna"/>
+        <argument key="App\Controller\RegionController::new" type="service_closure" id=".service_locator.EMvzwna"/>
+        <argument key="App\Controller\RegionController::show" type="service_closure" id=".service_locator.is9d6bI"/>
+        <argument key="App\Controller\RevistaController::delete" type="service_closure" id=".service_locator.uDOEynA"/>
+        <argument key="App\Controller\RevistaController::edit" type="service_closure" id=".service_locator.uDOEynA"/>
+        <argument key="App\Controller\RevistaController::index" type="service_closure" id=".service_locator.3L2C40E"/>
+        <argument key="App\Controller\RevistaController::new" type="service_closure" id=".service_locator.3L2C40E"/>
+        <argument key="App\Controller\RevistaController::show" type="service_closure" id=".service_locator.5fwZ1jo"/>
+        <argument key="App\Controller\RolController::delete" type="service_closure" id=".service_locator.MFzlSFV"/>
+        <argument key="App\Controller\RolController::edit" type="service_closure" id=".service_locator.MFzlSFV"/>
+        <argument key="App\Controller\RolController::index" type="service_closure" id=".service_locator.pHazE3F"/>
+        <argument key="App\Controller\RolController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\RolController::show" type="service_closure" id=".service_locator.oHNzwhY"/>
+        <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
+        <argument key="App\Controller\TecnicaturaController::delete" type="service_closure" id=".service_locator..0vGhcy"/>
+        <argument key="App\Controller\TecnicaturaController::edit" type="service_closure" id=".service_locator..0vGhcy"/>
+        <argument key="App\Controller\TecnicaturaController::index" type="service_closure" id=".service_locator.14NWBxH"/>
+        <argument key="App\Controller\TecnicaturaController::new" type="service_closure" id=".service_locator.14NWBxH"/>
+        <argument key="App\Controller\TecnicaturaController::show" type="service_closure" id=".service_locator.uCUCD3W"/>
+        <argument key="App\Controller\TelefonoController::delete" type="service_closure" id=".service_locator.vSoC8xx"/>
+        <argument key="App\Controller\TelefonoController::edit" type="service_closure" id=".service_locator.vSoC8xx"/>
+        <argument key="App\Controller\TelefonoController::index" type="service_closure" id=".service_locator.Oe2LQNY"/>
+        <argument key="App\Controller\TelefonoController::new" type="service_closure" id=".service_locator.Oe2LQNY"/>
+        <argument key="App\Controller\TelefonoController::show" type="service_closure" id=".service_locator.qhLLtpD"/>
+        <argument key="App\Controller\TituloController::delete" type="service_closure" id=".service_locator.QBmovtK"/>
+        <argument key="App\Controller\TituloController::edit" type="service_closure" id=".service_locator.QBmovtK"/>
+        <argument key="App\Controller\TituloController::index" type="service_closure" id=".service_locator.P8WZAn5"/>
+        <argument key="App\Controller\TituloController::new" type="service_closure" id=".service_locator.P8WZAn5"/>
+        <argument key="App\Controller\TituloController::show" type="service_closure" id=".service_locator.q8TnVXu"/>
+        <argument key="App\Controller\TurnoController::delete" type="service_closure" id=".service_locator.GlfVhgC"/>
+        <argument key="App\Controller\TurnoController::edit" type="service_closure" id=".service_locator.GlfVhgC"/>
+        <argument key="App\Controller\TurnoController::index" type="service_closure" id=".service_locator.C_P7wqW"/>
+        <argument key="App\Controller\TurnoController::new" type="service_closure" id=".service_locator.C_P7wqW"/>
+        <argument key="App\Controller\TurnoController::show" type="service_closure" id=".service_locator..ra8kI_"/>
+        <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.9uW928t"/>
+        <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.TNwhQMg"/>
+        <argument key="App\Controller\UserController::index" type="service_closure" id=".service_locator.Q1F27w5"/>
+        <argument key="App\Controller\UserController::new" type="service_closure" id=".service_locator.YUNSPEp"/>
+        <argument key="App\Controller\UserController::show" type="service_closure" id=".service_locator.4T4EJFR"/>
+        <argument key="App\Controller\VistasController::addCorrelativa" type="service_closure" id=".service_locator._QSB7Ls"/>
+        <argument key="App\Controller\VistasController::asignaturasPdf" type="service_closure" id=".service_locator._QSB7Ls"/>
+        <argument key="App\Controller\VistasController::create" type="service_closure" id=".service_locator.Hxsiru."/>
+        <argument key="App\Controller\VistasController::create2" type="service_closure" id=".service_locator.14NWBxH"/>
+        <argument key="App\Controller\VistasController::edit" type="service_closure" id=".service_locator..JJzQmV"/>
+        <argument key="App\Controller\VistasController::index" type="service_closure" id=".service_locator._QSB7Ls"/>
+        <argument key="App\Controller\VistasController::uploadPdf" type="service_closure" id=".service_locator._QSB7Ls"/>
+        <argument key="App\Controller\VistasController::viewCorrelativas" type="service_closure" id=".service_locator.Hxsiru."/>
+        <argument key="App\Controller\VistascursadaController::createComision" type="service_closure" id=".service_locator.yej9iZf"/>
+        <argument key="App\Controller\VistascursadaController::createCursada" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\VistascursadaController::createCursadaDocente" type="service_closure" id=".service_locator.YkJcteB"/>
+        <argument key="App\Controller\VistascursadaController::createCurso" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\VistascursadaController::editarComision" type="service_closure" id=".service_locator.yej9iZf"/>
+        <argument key="App\Controller\VistascursadaController::editarCursada" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\VistascursadaController::editarCursadaDocente" type="service_closure" id=".service_locator.YkJcteB"/>
+        <argument key="App\Controller\VistascursadaController::editarCurso" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\VistascursadaController::index" type="service_closure" id=".service_locator.mzL6Zhe"/>
+        <argument key="App\Controller\VistasdocenteController::actualizarAlumnos" type="service_closure" id=".service_locator.bgKgY6z"/>
+        <argument key="App\Controller\VistasdocenteController::actualizarListaAlumnos" type="service_closure" id=".service_locator.bgKgY6z"/>
+        <argument key="App\Controller\VistasdocenteController::actualizarestadisticas" type="service_closure" id=".service_locator.Bl3y0sy"/>
+        <argument key="App\Controller\VistasdocenteController::asistenciasPorFecha" type="service_closure" id=".service_locator.dBXl6cR"/>
+        <argument key="App\Controller\VistasdocenteController::edit" type="service_closure" id=".service_locator.UdS6csr"/>
+        <argument key="App\Controller\VistasdocenteController::editarAsistencia" type="service_closure" id=".service_locator.uqsmDdT"/>
+        <argument key="App\Controller\VistasdocenteController::getCalendarioClaseDelDia" type="service_closure" id=".service_locator._Dy1U4."/>
+        <argument key="App\Controller\VistasdocenteController::getFechasCalendario" type="service_closure" id=".service_locator._Dy1U4."/>
+        <argument key="App\Controller\VistasdocenteController::guardarAsistencia" type="service_closure" id=".service_locator.t6i3vFk"/>
+        <argument key="App\Controller\VistasdocenteController::index" type="service_closure" id=".service_locator.XgoTMxU"/>
+        <argument key="App\Controller\VistasdocenteController::listaAsistencia" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\VistasdocenteController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\VistasdocenteController::nuevaAsistencia" type="service_closure" id=".service_locator.V1z4Oxo"/>
+        <argument key="App\Controller\VistasdocenteController::pasarlista" type="service_closure" id=".service_locator.Bl3y0sy"/>
+        <argument key="App\Controller\VistasestudianteController::createCursada" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\VistasestudianteController::edit" type="service_closure" id=".service_locator.Jhfo2oT"/>
+        <argument key="App\Controller\VistasestudianteController::index" type="service_closure" id=".service_locator.xfoL88H"/>
+        <argument key="App\Controller\VistasestudianteController::new" type="service_closure" id=".service_locator.VdX9ZX0"/>
+        <argument key="App\Controller\VistasmesasController::index" type="service_closure" id=".service_locator.64bENgF"/>
+        <argument key="App\Controller\VistasmesasController::nuevaMesaFinal" type="service_closure" id=".service_locator.d_4a3Jn"/>
+        <argument key="App\Controller\VistasmesasController::nuevanotaFinal" type="service_closure" id=".service_locator.sgKQ_fb"/>
+        <argument key="App\Controller\VistaspersonaController::editarAlumno" type="service_closure" id=".service_locator.B5lWQmM"/>
+        <argument key="App\Controller\VistaspersonaController::editarCarreras" type="service_closure" id=".service_locator.ktDX1uV"/>
+        <argument key="App\Controller\VistaspersonaController::editarDocente" type="service_closure" id=".service_locator.AICXjxe"/>
+        <argument key="App\Controller\VistaspersonaController::editarPersona" type="service_closure" id=".service_locator.S6cVw0t"/>
+        <argument key="App\Controller\VistaspersonaController::index" type="service_closure" id=".service_locator.M1q10pk"/>
+        <argument key="App\Controller\VistaspersonaController::nuevacarreras" type="service_closure" id=".service_locator.Z.jmTaV"/>
+        <argument key="App\Controller\VistaspersonaController::nuevapersona" type="service_closure" id=".service_locator.jV5XtMl"/>
+        <argument key="App\Controller\VistaspersonaController::nuevoalumno" type="service_closure" id=".service_locator.RpWdsBZ"/>
+        <argument key="App\Controller\VistaspersonaController::nuevodocente" type="service_closure" id=".service_locator.7wGCJbM"/>
+        <argument key="App\Controller\VistaspreinscriptosController::CrearCursadasDeAsignaturas" type="service_closure" id=".service_locator.j1McYan"/>
+        <argument key="App\Controller\VistaspreinscriptosController::edit" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController::index" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController::nuevacarreraPreinscripcion" type="service_closure" id=".service_locator.Z.jmTaV"/>
+        <argument key="App\Controller\VistaspreinscriptosController::nuevapersonaPre" type="service_closure" id=".service_locator.jV5XtMl"/>
+        <argument key="App\Controller\VistaspreinscriptosController::nuevoalumnoPre" type="service_closure" id=".service_locator.RpWdsBZ"/>
+        <argument key="App\Controller\VistaspreinscriptosController::siguienteAlumno" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController::siguienteCarrera" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController::siguientePersonaPer" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController::verificarComision" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
+        <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
+        <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
+        <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
+        <argument key="App\Controller\AlumnoController:delete" type="service_closure" id=".service_locator.B5lWQmM"/>
+        <argument key="App\Controller\AlumnoController:edit" type="service_closure" id=".service_locator.B5lWQmM"/>
+        <argument key="App\Controller\AlumnoController:index" type="service_closure" id=".service_locator.RpWdsBZ"/>
+        <argument key="App\Controller\AlumnoController:new" type="service_closure" id=".service_locator.RpWdsBZ"/>
+        <argument key="App\Controller\AlumnoController:show" type="service_closure" id=".service_locator.hFQFq_g"/>
+        <argument key="App\Controller\AsignaturaController:delete" type="service_closure" id=".service_locator._lPNFGH"/>
+        <argument key="App\Controller\AsignaturaController:edit" type="service_closure" id=".service_locator._lPNFGH"/>
+        <argument key="App\Controller\AsignaturaController:index" type="service_closure" id=".service_locator.Hxsiru."/>
+        <argument key="App\Controller\AsignaturaController:new" type="service_closure" id=".service_locator.Hxsiru."/>
+        <argument key="App\Controller\AsignaturaController:show" type="service_closure" id=".service_locator.rhEh58E"/>
+        <argument key="App\Controller\AsistenciaController:delete" type="service_closure" id=".service_locator.uqsmDdT"/>
+        <argument key="App\Controller\AsistenciaController:edit" type="service_closure" id=".service_locator.uqsmDdT"/>
+        <argument key="App\Controller\AsistenciaController:index" type="service_closure" id=".service_locator.V1z4Oxo"/>
+        <argument key="App\Controller\AsistenciaController:new" type="service_closure" id=".service_locator.V1z4Oxo"/>
+        <argument key="App\Controller\AsistenciaController:show" type="service_closure" id=".service_locator.wqSOxPA"/>
+        <argument key="App\Controller\CalendarioClaseController:delete" type="service_closure" id=".service_locator.vNylNHY"/>
+        <argument key="App\Controller\CalendarioClaseController:edit" type="service_closure" id=".service_locator.vNylNHY"/>
+        <argument key="App\Controller\CalendarioClaseController:index" type="service_closure" id=".service_locator.T_bdcoi"/>
+        <argument key="App\Controller\CalendarioClaseController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\CalendarioClaseController:show" type="service_closure" id=".service_locator.yzhKFl_"/>
+        <argument key="App\Controller\CarrerasController:delete" type="service_closure" id=".service_locator.Qxsdnfg"/>
+        <argument key="App\Controller\CarrerasController:edit" type="service_closure" id=".service_locator.Qxsdnfg"/>
+        <argument key="App\Controller\CarrerasController:index" type="service_closure" id=".service_locator.Z.jmTaV"/>
+        <argument key="App\Controller\CarrerasController:new" type="service_closure" id=".service_locator.Z.jmTaV"/>
+        <argument key="App\Controller\CarrerasController:show" type="service_closure" id=".service_locator.lj6XXoj"/>
+        <argument key="App\Controller\ComisionController:delete" type="service_closure" id=".service_locator.5zZPUXR"/>
+        <argument key="App\Controller\ComisionController:edit" type="service_closure" id=".service_locator.5zZPUXR"/>
+        <argument key="App\Controller\ComisionController:index" type="service_closure" id=".service_locator.yej9iZf"/>
+        <argument key="App\Controller\ComisionController:new" type="service_closure" id=".service_locator.yej9iZf"/>
+        <argument key="App\Controller\ComisionController:show" type="service_closure" id=".service_locator.I2o8IfA"/>
+        <argument key="App\Controller\CorrelativaController:delete" type="service_closure" id=".service_locator.w_ydO5e"/>
+        <argument key="App\Controller\CorrelativaController:edit" type="service_closure" id=".service_locator.w_ydO5e"/>
+        <argument key="App\Controller\CorrelativaController:index" type="service_closure" id=".service_locator.X8Caz58"/>
+        <argument key="App\Controller\CorrelativaController:new" type="service_closure" id=".service_locator.X8Caz58"/>
+        <argument key="App\Controller\CorrelativaController:show" type="service_closure" id=".service_locator.R4Vsjqn"/>
+        <argument key="App\Controller\CursadaController:delete" type="service_closure" id=".service_locator.xZJ6eXh"/>
+        <argument key="App\Controller\CursadaController:edit" type="service_closure" id=".service_locator.xZJ6eXh"/>
+        <argument key="App\Controller\CursadaController:index" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\CursadaController:new" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\CursadaController:show" type="service_closure" id=".service_locator.VWX6yVv"/>
+        <argument key="App\Controller\CursadaDocenteController:delete" type="service_closure" id=".service_locator.dJZg4WQ"/>
+        <argument key="App\Controller\CursadaDocenteController:edit" type="service_closure" id=".service_locator.dJZg4WQ"/>
+        <argument key="App\Controller\CursadaDocenteController:index" type="service_closure" id=".service_locator.YkJcteB"/>
+        <argument key="App\Controller\CursadaDocenteController:new" type="service_closure" id=".service_locator.YkJcteB"/>
+        <argument key="App\Controller\CursadaDocenteController:show" type="service_closure" id=".service_locator.rWsgqL7"/>
+        <argument key="App\Controller\CursoController:delete" type="service_closure" id=".service_locator.FPVNRCt"/>
+        <argument key="App\Controller\CursoController:edit" type="service_closure" id=".service_locator.FPVNRCt"/>
+        <argument key="App\Controller\CursoController:index" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\CursoController:new" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\CursoController:show" type="service_closure" id=".service_locator.wqXBDHD"/>
+        <argument key="App\Controller\DocenteController:delete" type="service_closure" id=".service_locator.AICXjxe"/>
+        <argument key="App\Controller\DocenteController:edit" type="service_closure" id=".service_locator.AICXjxe"/>
+        <argument key="App\Controller\DocenteController:index" type="service_closure" id=".service_locator.7wGCJbM"/>
+        <argument key="App\Controller\DocenteController:new" type="service_closure" id=".service_locator.7wGCJbM"/>
+        <argument key="App\Controller\DocenteController:show" type="service_closure" id=".service_locator.sRmH63H"/>
+        <argument key="App\Controller\ExamenAlumnoController:delete" type="service_closure" id=".service_locator.r06nQXi"/>
+        <argument key="App\Controller\ExamenAlumnoController:edit" type="service_closure" id=".service_locator.r06nQXi"/>
+        <argument key="App\Controller\ExamenAlumnoController:index" type="service_closure" id=".service_locator.sgKQ_fb"/>
+        <argument key="App\Controller\ExamenAlumnoController:new" type="service_closure" id=".service_locator.sgKQ_fb"/>
+        <argument key="App\Controller\ExamenAlumnoController:show" type="service_closure" id=".service_locator.ufjxPva"/>
+        <argument key="App\Controller\ExamenFinalController:delete" type="service_closure" id=".service_locator.V8mJv2f"/>
+        <argument key="App\Controller\ExamenFinalController:edit" type="service_closure" id=".service_locator.V8mJv2f"/>
+        <argument key="App\Controller\ExamenFinalController:index" type="service_closure" id=".service_locator.d_4a3Jn"/>
+        <argument key="App\Controller\ExamenFinalController:new" type="service_closure" id=".service_locator.d_4a3Jn"/>
+        <argument key="App\Controller\ExamenFinalController:show" type="service_closure" id=".service_locator.VwQjRCK"/>
+        <argument key="App\Controller\HabilitanteController:delete" type="service_closure" id=".service_locator.zHcbPEg"/>
+        <argument key="App\Controller\HabilitanteController:edit" type="service_closure" id=".service_locator.zHcbPEg"/>
+        <argument key="App\Controller\HabilitanteController:index" type="service_closure" id=".service_locator.9S1U8eV"/>
+        <argument key="App\Controller\HabilitanteController:new" type="service_closure" id=".service_locator.9S1U8eV"/>
+        <argument key="App\Controller\HabilitanteController:show" type="service_closure" id=".service_locator.Yv4Ghdl"/>
+        <argument key="App\Controller\HorarioController:delete" type="service_closure" id=".service_locator.xa_XwVT"/>
+        <argument key="App\Controller\HorarioController:edit" type="service_closure" id=".service_locator.xa_XwVT"/>
+        <argument key="App\Controller\HorarioController:index" type="service_closure" id=".service_locator.QuQPjuR"/>
+        <argument key="App\Controller\HorarioController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\HorarioController:show" type="service_closure" id=".service_locator.esjls9Y"/>
+        <argument key="App\Controller\InscripcionFinalController:delete" type="service_closure" id=".service_locator.LCbobIM"/>
+        <argument key="App\Controller\InscripcionFinalController:edit" type="service_closure" id=".service_locator.LCbobIM"/>
+        <argument key="App\Controller\InscripcionFinalController:index" type="service_closure" id=".service_locator.VdX9ZX0"/>
+        <argument key="App\Controller\InscripcionFinalController:new" type="service_closure" id=".service_locator.VdX9ZX0"/>
+        <argument key="App\Controller\InscripcionFinalController:show" type="service_closure" id=".service_locator.pTCYBLk"/>
+        <argument key="App\Controller\InstitutoController:delete" type="service_closure" id=".service_locator.LF4OuHN"/>
+        <argument key="App\Controller\InstitutoController:edit" type="service_closure" id=".service_locator.LF4OuHN"/>
+        <argument key="App\Controller\InstitutoController:index" type="service_closure" id=".service_locator.dldfBHa"/>
+        <argument key="App\Controller\InstitutoController:new" type="service_closure" id=".service_locator.dldfBHa"/>
+        <argument key="App\Controller\InstitutoController:show" type="service_closure" id=".service_locator.b2M12.q"/>
+        <argument key="App\Controller\LocalidadController:delete" type="service_closure" id=".service_locator.SxwhuBD"/>
+        <argument key="App\Controller\LocalidadController:edit" type="service_closure" id=".service_locator.SxwhuBD"/>
+        <argument key="App\Controller\LocalidadController:index" type="service_closure" id=".service_locator.aHzFaQI"/>
+        <argument key="App\Controller\LocalidadController:new" type="service_closure" id=".service_locator.aHzFaQI"/>
+        <argument key="App\Controller\LocalidadController:show" type="service_closure" id=".service_locator.QrC_.Ng"/>
+        <argument key="App\Controller\ModalidadController:delete" type="service_closure" id=".service_locator.k.xcjCc"/>
+        <argument key="App\Controller\ModalidadController:edit" type="service_closure" id=".service_locator.k.xcjCc"/>
+        <argument key="App\Controller\ModalidadController:index" type="service_closure" id=".service_locator.F_1yAY7"/>
+        <argument key="App\Controller\ModalidadController:new" type="service_closure" id=".service_locator.F_1yAY7"/>
+        <argument key="App\Controller\ModalidadController:show" type="service_closure" id=".service_locator.f2yhxqd"/>
+        <argument key="App\Controller\NotaController:delete" type="service_closure" id=".service_locator..qxwYms"/>
+        <argument key="App\Controller\NotaController:edit" type="service_closure" id=".service_locator..qxwYms"/>
+        <argument key="App\Controller\NotaController:index" type="service_closure" id=".service_locator.iyO5EpN"/>
+        <argument key="App\Controller\NotaController:new" type="service_closure" id=".service_locator.iyO5EpN"/>
+        <argument key="App\Controller\NotaController:show" type="service_closure" id=".service_locator.FEhGlnP"/>
+        <argument key="App\Controller\PaisController:delete" type="service_closure" id=".service_locator.6akdvid"/>
+        <argument key="App\Controller\PaisController:edit" type="service_closure" id=".service_locator.6akdvid"/>
+        <argument key="App\Controller\PaisController:index" type="service_closure" id=".service_locator.l8U5AR_"/>
+        <argument key="App\Controller\PaisController:new" type="service_closure" id=".service_locator.l8U5AR_"/>
+        <argument key="App\Controller\PaisController:show" type="service_closure" id=".service_locator.HuJItRo"/>
+        <argument key="App\Controller\PersonaController:delete" type="service_closure" id=".service_locator.S6cVw0t"/>
+        <argument key="App\Controller\PersonaController:edit" type="service_closure" id=".service_locator.S6cVw0t"/>
+        <argument key="App\Controller\PersonaController:index" type="service_closure" id=".service_locator.jV5XtMl"/>
+        <argument key="App\Controller\PersonaController:new" type="service_closure" id=".service_locator.jV5XtMl"/>
+        <argument key="App\Controller\PersonaController:show" type="service_closure" id=".service_locator.UuLSni7"/>
+        <argument key="App\Controller\ProvinciaController:delete" type="service_closure" id=".service_locator.4XvCDTU"/>
+        <argument key="App\Controller\ProvinciaController:edit" type="service_closure" id=".service_locator.4XvCDTU"/>
+        <argument key="App\Controller\ProvinciaController:index" type="service_closure" id=".service_locator.X7dCCmR"/>
+        <argument key="App\Controller\ProvinciaController:new" type="service_closure" id=".service_locator.X7dCCmR"/>
+        <argument key="App\Controller\ProvinciaController:show" type="service_closure" id=".service_locator.DqTasRE"/>
+        <argument key="App\Controller\RegionController:delete" type="service_closure" id=".service_locator.vgdgQZJ"/>
+        <argument key="App\Controller\RegionController:edit" type="service_closure" id=".service_locator.vgdgQZJ"/>
+        <argument key="App\Controller\RegionController:index" type="service_closure" id=".service_locator.EMvzwna"/>
+        <argument key="App\Controller\RegionController:new" type="service_closure" id=".service_locator.EMvzwna"/>
+        <argument key="App\Controller\RegionController:show" type="service_closure" id=".service_locator.is9d6bI"/>
+        <argument key="App\Controller\RevistaController:delete" type="service_closure" id=".service_locator.uDOEynA"/>
+        <argument key="App\Controller\RevistaController:edit" type="service_closure" id=".service_locator.uDOEynA"/>
+        <argument key="App\Controller\RevistaController:index" type="service_closure" id=".service_locator.3L2C40E"/>
+        <argument key="App\Controller\RevistaController:new" type="service_closure" id=".service_locator.3L2C40E"/>
+        <argument key="App\Controller\RevistaController:show" type="service_closure" id=".service_locator.5fwZ1jo"/>
+        <argument key="App\Controller\RolController:delete" type="service_closure" id=".service_locator.MFzlSFV"/>
+        <argument key="App\Controller\RolController:edit" type="service_closure" id=".service_locator.MFzlSFV"/>
+        <argument key="App\Controller\RolController:index" type="service_closure" id=".service_locator.pHazE3F"/>
+        <argument key="App\Controller\RolController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\RolController:show" type="service_closure" id=".service_locator.oHNzwhY"/>
+        <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
+        <argument key="App\Controller\TecnicaturaController:delete" type="service_closure" id=".service_locator..0vGhcy"/>
+        <argument key="App\Controller\TecnicaturaController:edit" type="service_closure" id=".service_locator..0vGhcy"/>
+        <argument key="App\Controller\TecnicaturaController:index" type="service_closure" id=".service_locator.14NWBxH"/>
+        <argument key="App\Controller\TecnicaturaController:new" type="service_closure" id=".service_locator.14NWBxH"/>
+        <argument key="App\Controller\TecnicaturaController:show" type="service_closure" id=".service_locator.uCUCD3W"/>
+        <argument key="App\Controller\TelefonoController:delete" type="service_closure" id=".service_locator.vSoC8xx"/>
+        <argument key="App\Controller\TelefonoController:edit" type="service_closure" id=".service_locator.vSoC8xx"/>
+        <argument key="App\Controller\TelefonoController:index" type="service_closure" id=".service_locator.Oe2LQNY"/>
+        <argument key="App\Controller\TelefonoController:new" type="service_closure" id=".service_locator.Oe2LQNY"/>
+        <argument key="App\Controller\TelefonoController:show" type="service_closure" id=".service_locator.qhLLtpD"/>
+        <argument key="App\Controller\TituloController:delete" type="service_closure" id=".service_locator.QBmovtK"/>
+        <argument key="App\Controller\TituloController:edit" type="service_closure" id=".service_locator.QBmovtK"/>
+        <argument key="App\Controller\TituloController:index" type="service_closure" id=".service_locator.P8WZAn5"/>
+        <argument key="App\Controller\TituloController:new" type="service_closure" id=".service_locator.P8WZAn5"/>
+        <argument key="App\Controller\TituloController:show" type="service_closure" id=".service_locator.q8TnVXu"/>
+        <argument key="App\Controller\TurnoController:delete" type="service_closure" id=".service_locator.GlfVhgC"/>
+        <argument key="App\Controller\TurnoController:edit" type="service_closure" id=".service_locator.GlfVhgC"/>
+        <argument key="App\Controller\TurnoController:index" type="service_closure" id=".service_locator.C_P7wqW"/>
+        <argument key="App\Controller\TurnoController:new" type="service_closure" id=".service_locator.C_P7wqW"/>
+        <argument key="App\Controller\TurnoController:show" type="service_closure" id=".service_locator..ra8kI_"/>
+        <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.9uW928t"/>
+        <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.TNwhQMg"/>
+        <argument key="App\Controller\UserController:index" type="service_closure" id=".service_locator.Q1F27w5"/>
+        <argument key="App\Controller\UserController:new" type="service_closure" id=".service_locator.YUNSPEp"/>
+        <argument key="App\Controller\UserController:show" type="service_closure" id=".service_locator.4T4EJFR"/>
+        <argument key="App\Controller\VistasController:addCorrelativa" type="service_closure" id=".service_locator._QSB7Ls"/>
+        <argument key="App\Controller\VistasController:asignaturasPdf" type="service_closure" id=".service_locator._QSB7Ls"/>
+        <argument key="App\Controller\VistasController:create" type="service_closure" id=".service_locator.Hxsiru."/>
+        <argument key="App\Controller\VistasController:create2" type="service_closure" id=".service_locator.14NWBxH"/>
+        <argument key="App\Controller\VistasController:edit" type="service_closure" id=".service_locator..JJzQmV"/>
+        <argument key="App\Controller\VistasController:index" type="service_closure" id=".service_locator._QSB7Ls"/>
+        <argument key="App\Controller\VistasController:uploadPdf" type="service_closure" id=".service_locator._QSB7Ls"/>
+        <argument key="App\Controller\VistasController:viewCorrelativas" type="service_closure" id=".service_locator.Hxsiru."/>
+        <argument key="App\Controller\VistascursadaController:createComision" type="service_closure" id=".service_locator.yej9iZf"/>
+        <argument key="App\Controller\VistascursadaController:createCursada" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\VistascursadaController:createCursadaDocente" type="service_closure" id=".service_locator.YkJcteB"/>
+        <argument key="App\Controller\VistascursadaController:createCurso" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\VistascursadaController:editarComision" type="service_closure" id=".service_locator.yej9iZf"/>
+        <argument key="App\Controller\VistascursadaController:editarCursada" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\VistascursadaController:editarCursadaDocente" type="service_closure" id=".service_locator.YkJcteB"/>
+        <argument key="App\Controller\VistascursadaController:editarCurso" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\VistascursadaController:index" type="service_closure" id=".service_locator.mzL6Zhe"/>
+        <argument key="App\Controller\VistasdocenteController:actualizarAlumnos" type="service_closure" id=".service_locator.bgKgY6z"/>
+        <argument key="App\Controller\VistasdocenteController:actualizarListaAlumnos" type="service_closure" id=".service_locator.bgKgY6z"/>
+        <argument key="App\Controller\VistasdocenteController:actualizarestadisticas" type="service_closure" id=".service_locator.Bl3y0sy"/>
+        <argument key="App\Controller\VistasdocenteController:asistenciasPorFecha" type="service_closure" id=".service_locator.dBXl6cR"/>
+        <argument key="App\Controller\VistasdocenteController:edit" type="service_closure" id=".service_locator.UdS6csr"/>
+        <argument key="App\Controller\VistasdocenteController:editarAsistencia" type="service_closure" id=".service_locator.uqsmDdT"/>
+        <argument key="App\Controller\VistasdocenteController:getCalendarioClaseDelDia" type="service_closure" id=".service_locator._Dy1U4."/>
+        <argument key="App\Controller\VistasdocenteController:getFechasCalendario" type="service_closure" id=".service_locator._Dy1U4."/>
+        <argument key="App\Controller\VistasdocenteController:guardarAsistencia" type="service_closure" id=".service_locator.t6i3vFk"/>
+        <argument key="App\Controller\VistasdocenteController:index" type="service_closure" id=".service_locator.XgoTMxU"/>
+        <argument key="App\Controller\VistasdocenteController:listaAsistencia" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="App\Controller\VistasdocenteController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\VistasdocenteController:nuevaAsistencia" type="service_closure" id=".service_locator.V1z4Oxo"/>
+        <argument key="App\Controller\VistasdocenteController:pasarlista" type="service_closure" id=".service_locator.Bl3y0sy"/>
+        <argument key="App\Controller\VistasestudianteController:createCursada" type="service_closure" id=".service_locator.qJDu4T5"/>
+        <argument key="App\Controller\VistasestudianteController:edit" type="service_closure" id=".service_locator.Jhfo2oT"/>
+        <argument key="App\Controller\VistasestudianteController:index" type="service_closure" id=".service_locator.xfoL88H"/>
+        <argument key="App\Controller\VistasestudianteController:new" type="service_closure" id=".service_locator.VdX9ZX0"/>
+        <argument key="App\Controller\VistasmesasController:index" type="service_closure" id=".service_locator.64bENgF"/>
+        <argument key="App\Controller\VistasmesasController:nuevaMesaFinal" type="service_closure" id=".service_locator.d_4a3Jn"/>
+        <argument key="App\Controller\VistasmesasController:nuevanotaFinal" type="service_closure" id=".service_locator.sgKQ_fb"/>
+        <argument key="App\Controller\VistaspersonaController:editarAlumno" type="service_closure" id=".service_locator.B5lWQmM"/>
+        <argument key="App\Controller\VistaspersonaController:editarCarreras" type="service_closure" id=".service_locator.ktDX1uV"/>
+        <argument key="App\Controller\VistaspersonaController:editarDocente" type="service_closure" id=".service_locator.AICXjxe"/>
+        <argument key="App\Controller\VistaspersonaController:editarPersona" type="service_closure" id=".service_locator.S6cVw0t"/>
+        <argument key="App\Controller\VistaspersonaController:index" type="service_closure" id=".service_locator.M1q10pk"/>
+        <argument key="App\Controller\VistaspersonaController:nuevacarreras" type="service_closure" id=".service_locator.Z.jmTaV"/>
+        <argument key="App\Controller\VistaspersonaController:nuevapersona" type="service_closure" id=".service_locator.jV5XtMl"/>
+        <argument key="App\Controller\VistaspersonaController:nuevoalumno" type="service_closure" id=".service_locator.RpWdsBZ"/>
+        <argument key="App\Controller\VistaspersonaController:nuevodocente" type="service_closure" id=".service_locator.7wGCJbM"/>
+        <argument key="App\Controller\VistaspreinscriptosController:CrearCursadasDeAsignaturas" type="service_closure" id=".service_locator.j1McYan"/>
+        <argument key="App\Controller\VistaspreinscriptosController:edit" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController:index" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController:nuevacarreraPreinscripcion" type="service_closure" id=".service_locator.Z.jmTaV"/>
+        <argument key="App\Controller\VistaspreinscriptosController:nuevapersonaPre" type="service_closure" id=".service_locator.jV5XtMl"/>
+        <argument key="App\Controller\VistaspreinscriptosController:nuevoalumnoPre" type="service_closure" id=".service_locator.RpWdsBZ"/>
+        <argument key="App\Controller\VistaspreinscriptosController:siguienteAlumno" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController:siguienteCarrera" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController:siguientePersonaPer" type="service_closure" id=".service_locator.rx0DwiK"/>
+        <argument key="App\Controller\VistaspreinscriptosController:verificarComision" type="service_closure" id=".service_locator.E5gj7iC"/>
+        <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
+        <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
+=======
+    <service id=".service_locator.1A09lzI" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\AlumnoController::delete" type="service_closure" id=".service_locator.7MymQPJ"/>
+        <argument key="App\Controller\AlumnoController::edit" type="service_closure" id=".service_locator.7MymQPJ"/>
+        <argument key="App\Controller\AlumnoController::index" type="service_closure" id=".service_locator.jGFsy2A"/>
+        <argument key="App\Controller\AlumnoController::new" type="service_closure" id=".service_locator.jGFsy2A"/>
+        <argument key="App\Controller\AlumnoController::show" type="service_closure" id=".service_locator.6sNqD9k"/>
+        <argument key="App\Controller\AsignaturaController::delete" type="service_closure" id=".service_locator.Efy_p4g"/>
+        <argument key="App\Controller\AsignaturaController::edit" type="service_closure" id=".service_locator.Efy_p4g"/>
+        <argument key="App\Controller\AsignaturaController::index" type="service_closure" id=".service_locator.45gKVpm"/>
+        <argument key="App\Controller\AsignaturaController::new" type="service_closure" id=".service_locator.45gKVpm"/>
+        <argument key="App\Controller\AsignaturaController::show" type="service_closure" id=".service_locator.XSMQj8v"/>
+        <argument key="App\Controller\AsistenciaController::delete" type="service_closure" id=".service_locator.S2dBoYM"/>
+        <argument key="App\Controller\AsistenciaController::edit" type="service_closure" id=".service_locator.S2dBoYM"/>
+        <argument key="App\Controller\AsistenciaController::index" type="service_closure" id=".service_locator.M0J981l"/>
+        <argument key="App\Controller\AsistenciaController::new" type="service_closure" id=".service_locator.M0J981l"/>
+        <argument key="App\Controller\AsistenciaController::show" type="service_closure" id=".service_locator.6BT3nBg"/>
+        <argument key="App\Controller\CalendarioClaseController::delete" type="service_closure" id=".service_locator.2Xn9G.Y"/>
+        <argument key="App\Controller\CalendarioClaseController::edit" type="service_closure" id=".service_locator.2Xn9G.Y"/>
+        <argument key="App\Controller\CalendarioClaseController::index" type="service_closure" id=".service_locator.irC2Jnm"/>
+        <argument key="App\Controller\CalendarioClaseController::new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\CalendarioClaseController::show" type="service_closure" id=".service_locator.evQ0qH8"/>
+        <argument key="App\Controller\CarrerasController::delete" type="service_closure" id=".service_locator.BdWCJiq"/>
+        <argument key="App\Controller\CarrerasController::edit" type="service_closure" id=".service_locator.BdWCJiq"/>
+        <argument key="App\Controller\CarrerasController::index" type="service_closure" id=".service_locator.QEVlWuI"/>
+        <argument key="App\Controller\CarrerasController::new" type="service_closure" id=".service_locator.QEVlWuI"/>
+        <argument key="App\Controller\CarrerasController::show" type="service_closure" id=".service_locator.ZckD2vC"/>
+        <argument key="App\Controller\ComisionController::delete" type="service_closure" id=".service_locator._rTCOGA"/>
+        <argument key="App\Controller\ComisionController::edit" type="service_closure" id=".service_locator._rTCOGA"/>
+        <argument key="App\Controller\ComisionController::index" type="service_closure" id=".service_locator.EsTMT5U"/>
+        <argument key="App\Controller\ComisionController::new" type="service_closure" id=".service_locator.EsTMT5U"/>
+        <argument key="App\Controller\ComisionController::show" type="service_closure" id=".service_locator..A3Dw1B"/>
+        <argument key="App\Controller\CorrelativaController::delete" type="service_closure" id=".service_locator.XVIxVsi"/>
+        <argument key="App\Controller\CorrelativaController::edit" type="service_closure" id=".service_locator.XVIxVsi"/>
+        <argument key="App\Controller\CorrelativaController::index" type="service_closure" id=".service_locator.sYMLd0X"/>
+        <argument key="App\Controller\CorrelativaController::new" type="service_closure" id=".service_locator.sYMLd0X"/>
+        <argument key="App\Controller\CorrelativaController::show" type="service_closure" id=".service_locator.dQzUaDu"/>
+        <argument key="App\Controller\CursadaController::delete" type="service_closure" id=".service_locator.rbCKgcT"/>
+        <argument key="App\Controller\CursadaController::edit" type="service_closure" id=".service_locator.rbCKgcT"/>
+        <argument key="App\Controller\CursadaController::index" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\CursadaController::new" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\CursadaController::show" type="service_closure" id=".service_locator.u53w2.o"/>
+        <argument key="App\Controller\CursadaDocenteController::delete" type="service_closure" id=".service_locator.He_tDv4"/>
+        <argument key="App\Controller\CursadaDocenteController::edit" type="service_closure" id=".service_locator.He_tDv4"/>
+        <argument key="App\Controller\CursadaDocenteController::index" type="service_closure" id=".service_locator.ihyDi0i"/>
+        <argument key="App\Controller\CursadaDocenteController::new" type="service_closure" id=".service_locator.ihyDi0i"/>
+        <argument key="App\Controller\CursadaDocenteController::show" type="service_closure" id=".service_locator.jmzV6Su"/>
+        <argument key="App\Controller\CursoController::delete" type="service_closure" id=".service_locator.Lv5K54w"/>
+        <argument key="App\Controller\CursoController::edit" type="service_closure" id=".service_locator.Lv5K54w"/>
+        <argument key="App\Controller\CursoController::index" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\CursoController::new" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\CursoController::show" type="service_closure" id=".service_locator.y7lHMN6"/>
+        <argument key="App\Controller\DocenteController::delete" type="service_closure" id=".service_locator.HxCdkCe"/>
+        <argument key="App\Controller\DocenteController::edit" type="service_closure" id=".service_locator.HxCdkCe"/>
+        <argument key="App\Controller\DocenteController::index" type="service_closure" id=".service_locator.5VueRya"/>
+        <argument key="App\Controller\DocenteController::new" type="service_closure" id=".service_locator.5VueRya"/>
+        <argument key="App\Controller\DocenteController::show" type="service_closure" id=".service_locator.pOOOA_1"/>
+        <argument key="App\Controller\ExamenAlumnoController::delete" type="service_closure" id=".service_locator.gceykvT"/>
+        <argument key="App\Controller\ExamenAlumnoController::edit" type="service_closure" id=".service_locator.gceykvT"/>
+        <argument key="App\Controller\ExamenAlumnoController::index" type="service_closure" id=".service_locator.tU2nkXn"/>
+        <argument key="App\Controller\ExamenAlumnoController::new" type="service_closure" id=".service_locator.tU2nkXn"/>
+        <argument key="App\Controller\ExamenAlumnoController::show" type="service_closure" id=".service_locator.cJRo3qT"/>
+        <argument key="App\Controller\ExamenFinalController::delete" type="service_closure" id=".service_locator.4EHAhEc"/>
+        <argument key="App\Controller\ExamenFinalController::edit" type="service_closure" id=".service_locator.u2fciAB"/>
+        <argument key="App\Controller\ExamenFinalController::index" type="service_closure" id=".service_locator.29s7hJ1"/>
+        <argument key="App\Controller\ExamenFinalController::new" type="service_closure" id=".service_locator.fiV_3M5"/>
+        <argument key="App\Controller\HabilitanteController::delete" type="service_closure" id=".service_locator.dgvuIAT"/>
+        <argument key="App\Controller\HabilitanteController::edit" type="service_closure" id=".service_locator.dgvuIAT"/>
+        <argument key="App\Controller\HabilitanteController::index" type="service_closure" id=".service_locator.xj1Vwg0"/>
+        <argument key="App\Controller\HabilitanteController::new" type="service_closure" id=".service_locator.xj1Vwg0"/>
+        <argument key="App\Controller\HabilitanteController::show" type="service_closure" id=".service_locator..EDEdwm"/>
+        <argument key="App\Controller\HorarioController::delete" type="service_closure" id=".service_locator.bIPZ3W7"/>
+        <argument key="App\Controller\HorarioController::edit" type="service_closure" id=".service_locator.bIPZ3W7"/>
+        <argument key="App\Controller\HorarioController::index" type="service_closure" id=".service_locator.UJg4yqJ"/>
+        <argument key="App\Controller\HorarioController::new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\HorarioController::show" type="service_closure" id=".service_locator.NyMPQM_"/>
+        <argument key="App\Controller\InscripcionFinalController::delete" type="service_closure" id=".service_locator.yvYK5Bh"/>
+        <argument key="App\Controller\InscripcionFinalController::edit" type="service_closure" id=".service_locator.yvYK5Bh"/>
+        <argument key="App\Controller\InscripcionFinalController::index" type="service_closure" id=".service_locator.VIaBFJb"/>
+        <argument key="App\Controller\InscripcionFinalController::new" type="service_closure" id=".service_locator.VIaBFJb"/>
+        <argument key="App\Controller\InscripcionFinalController::show" type="service_closure" id=".service_locator.WW5KjXA"/>
+        <argument key="App\Controller\InstitutoController::delete" type="service_closure" id=".service_locator.N9VOSF8"/>
+        <argument key="App\Controller\InstitutoController::edit" type="service_closure" id=".service_locator.N9VOSF8"/>
+        <argument key="App\Controller\InstitutoController::index" type="service_closure" id=".service_locator.YN55Ayt"/>
+        <argument key="App\Controller\InstitutoController::new" type="service_closure" id=".service_locator.YN55Ayt"/>
+        <argument key="App\Controller\InstitutoController::show" type="service_closure" id=".service_locator.1_Qpv22"/>
+        <argument key="App\Controller\LocalidadController::delete" type="service_closure" id=".service_locator.98vJ9rN"/>
+        <argument key="App\Controller\LocalidadController::edit" type="service_closure" id=".service_locator.98vJ9rN"/>
+        <argument key="App\Controller\LocalidadController::index" type="service_closure" id=".service_locator.IuXccsC"/>
+        <argument key="App\Controller\LocalidadController::new" type="service_closure" id=".service_locator.IuXccsC"/>
+        <argument key="App\Controller\LocalidadController::show" type="service_closure" id=".service_locator.YVT_0fT"/>
+        <argument key="App\Controller\ModalidadController::delete" type="service_closure" id=".service_locator.bttjbPl"/>
+        <argument key="App\Controller\ModalidadController::edit" type="service_closure" id=".service_locator.bttjbPl"/>
+        <argument key="App\Controller\ModalidadController::index" type="service_closure" id=".service_locator.2m7.ihx"/>
+        <argument key="App\Controller\ModalidadController::new" type="service_closure" id=".service_locator.2m7.ihx"/>
+        <argument key="App\Controller\ModalidadController::show" type="service_closure" id=".service_locator.yAJgZEU"/>
+        <argument key="App\Controller\NotaController::delete" type="service_closure" id=".service_locator..RP8fEe"/>
+        <argument key="App\Controller\NotaController::edit" type="service_closure" id=".service_locator..RP8fEe"/>
+        <argument key="App\Controller\NotaController::index" type="service_closure" id=".service_locator.XgPMn.H"/>
+        <argument key="App\Controller\NotaController::new" type="service_closure" id=".service_locator.XgPMn.H"/>
+        <argument key="App\Controller\NotaController::show" type="service_closure" id=".service_locator.WCTzRw1"/>
+        <argument key="App\Controller\PaisController::delete" type="service_closure" id=".service_locator.OJsxJ.f"/>
+        <argument key="App\Controller\PaisController::edit" type="service_closure" id=".service_locator.OJsxJ.f"/>
+        <argument key="App\Controller\PaisController::index" type="service_closure" id=".service_locator.WKgLEIg"/>
+        <argument key="App\Controller\PaisController::new" type="service_closure" id=".service_locator.WKgLEIg"/>
+        <argument key="App\Controller\PaisController::show" type="service_closure" id=".service_locator.TJkIAI_"/>
+        <argument key="App\Controller\PersonaController::delete" type="service_closure" id=".service_locator.aBnFrU4"/>
+        <argument key="App\Controller\PersonaController::edit" type="service_closure" id=".service_locator.aBnFrU4"/>
+        <argument key="App\Controller\PersonaController::index" type="service_closure" id=".service_locator.chelA8_"/>
+        <argument key="App\Controller\PersonaController::new" type="service_closure" id=".service_locator.chelA8_"/>
+        <argument key="App\Controller\PersonaController::show" type="service_closure" id=".service_locator.uYQNobO"/>
+        <argument key="App\Controller\ProvinciaController::delete" type="service_closure" id=".service_locator.eSDB_Bi"/>
+        <argument key="App\Controller\ProvinciaController::edit" type="service_closure" id=".service_locator.eSDB_Bi"/>
+        <argument key="App\Controller\ProvinciaController::index" type="service_closure" id=".service_locator.eWN17oh"/>
+        <argument key="App\Controller\ProvinciaController::new" type="service_closure" id=".service_locator.eWN17oh"/>
+        <argument key="App\Controller\ProvinciaController::show" type="service_closure" id=".service_locator.MyFGqY6"/>
+        <argument key="App\Controller\RegionController::delete" type="service_closure" id=".service_locator.ROkM79E"/>
+        <argument key="App\Controller\RegionController::edit" type="service_closure" id=".service_locator.ROkM79E"/>
+        <argument key="App\Controller\RegionController::index" type="service_closure" id=".service_locator.sQT9DfJ"/>
+        <argument key="App\Controller\RegionController::new" type="service_closure" id=".service_locator.sQT9DfJ"/>
+        <argument key="App\Controller\RegionController::show" type="service_closure" id=".service_locator.q4bsI0S"/>
+        <argument key="App\Controller\RevistaController::delete" type="service_closure" id=".service_locator.TVi9ASB"/>
+        <argument key="App\Controller\RevistaController::edit" type="service_closure" id=".service_locator.TVi9ASB"/>
+        <argument key="App\Controller\RevistaController::index" type="service_closure" id=".service_locator.PK6I9Uv"/>
+        <argument key="App\Controller\RevistaController::new" type="service_closure" id=".service_locator.PK6I9Uv"/>
+        <argument key="App\Controller\RevistaController::show" type="service_closure" id=".service_locator.joWJGjh"/>
+        <argument key="App\Controller\RolController::delete" type="service_closure" id=".service_locator.qK8hRjI"/>
+        <argument key="App\Controller\RolController::edit" type="service_closure" id=".service_locator.qK8hRjI"/>
+        <argument key="App\Controller\RolController::index" type="service_closure" id=".service_locator.cuUB_.X"/>
+        <argument key="App\Controller\RolController::new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\RolController::show" type="service_closure" id=".service_locator.EdV3fE_"/>
+        <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\TecnicaturaController::delete" type="service_closure" id=".service_locator.mE2wygX"/>
+        <argument key="App\Controller\TecnicaturaController::edit" type="service_closure" id=".service_locator.mE2wygX"/>
+        <argument key="App\Controller\TecnicaturaController::index" type="service_closure" id=".service_locator.GHNv1uK"/>
+        <argument key="App\Controller\TecnicaturaController::new" type="service_closure" id=".service_locator.GHNv1uK"/>
+        <argument key="App\Controller\TecnicaturaController::show" type="service_closure" id=".service_locator.dpFd_PZ"/>
+        <argument key="App\Controller\TelefonoController::delete" type="service_closure" id=".service_locator.nFf2lw3"/>
+        <argument key="App\Controller\TelefonoController::edit" type="service_closure" id=".service_locator.nFf2lw3"/>
+        <argument key="App\Controller\TelefonoController::index" type="service_closure" id=".service_locator.RrBOjBL"/>
+        <argument key="App\Controller\TelefonoController::new" type="service_closure" id=".service_locator.RrBOjBL"/>
+        <argument key="App\Controller\TelefonoController::show" type="service_closure" id=".service_locator.UH9HhJu"/>
+        <argument key="App\Controller\TituloController::delete" type="service_closure" id=".service_locator._VltN4E"/>
+        <argument key="App\Controller\TituloController::edit" type="service_closure" id=".service_locator._VltN4E"/>
+        <argument key="App\Controller\TituloController::index" type="service_closure" id=".service_locator.y64cyUX"/>
+        <argument key="App\Controller\TituloController::new" type="service_closure" id=".service_locator.y64cyUX"/>
+        <argument key="App\Controller\TituloController::show" type="service_closure" id=".service_locator.LiLgd1."/>
+        <argument key="App\Controller\TurnoController::delete" type="service_closure" id=".service_locator.cRURelY"/>
+        <argument key="App\Controller\TurnoController::edit" type="service_closure" id=".service_locator.cRURelY"/>
+        <argument key="App\Controller\TurnoController::index" type="service_closure" id=".service_locator.DBOfijv"/>
+        <argument key="App\Controller\TurnoController::new" type="service_closure" id=".service_locator.DBOfijv"/>
+        <argument key="App\Controller\TurnoController::show" type="service_closure" id=".service_locator.bAD3la7"/>
+        <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.4MF6DUv"/>
+        <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.syInHo8"/>
+        <argument key="App\Controller\UserController::index" type="service_closure" id=".service_locator..Ae5NXw"/>
+        <argument key="App\Controller\UserController::new" type="service_closure" id=".service_locator.WUtyewl"/>
+        <argument key="App\Controller\UserController::show" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\VistasController::addCorrelativa" type="service_closure" id=".service_locator.7AwcF1W"/>
+        <argument key="App\Controller\VistasController::asignaturasPdf" type="service_closure" id=".service_locator.7AwcF1W"/>
+        <argument key="App\Controller\VistasController::create" type="service_closure" id=".service_locator.45gKVpm"/>
+        <argument key="App\Controller\VistasController::create2" type="service_closure" id=".service_locator.GHNv1uK"/>
+        <argument key="App\Controller\VistasController::edit" type="service_closure" id=".service_locator.raaoeKj"/>
+        <argument key="App\Controller\VistasController::index" type="service_closure" id=".service_locator.7AwcF1W"/>
+        <argument key="App\Controller\VistasController::uploadPdf" type="service_closure" id=".service_locator.7AwcF1W"/>
+        <argument key="App\Controller\VistasController::viewCorrelativas" type="service_closure" id=".service_locator.45gKVpm"/>
+        <argument key="App\Controller\VistascursadaController::createComision" type="service_closure" id=".service_locator.EsTMT5U"/>
+        <argument key="App\Controller\VistascursadaController::createCursada" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\VistascursadaController::createCursadaDocente" type="service_closure" id=".service_locator.ihyDi0i"/>
+        <argument key="App\Controller\VistascursadaController::createCurso" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\VistascursadaController::editarComision" type="service_closure" id=".service_locator.EsTMT5U"/>
+        <argument key="App\Controller\VistascursadaController::editarCursada" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\VistascursadaController::editarCursadaDocente" type="service_closure" id=".service_locator.ihyDi0i"/>
+        <argument key="App\Controller\VistascursadaController::editarCurso" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\VistascursadaController::index" type="service_closure" id=".service_locator.ij9q400"/>
+        <argument key="App\Controller\VistasdocenteController::actualizarAlumnos" type="service_closure" id=".service_locator.VwfW7AR"/>
+        <argument key="App\Controller\VistasdocenteController::actualizarListaAlumnos" type="service_closure" id=".service_locator.VwfW7AR"/>
+        <argument key="App\Controller\VistasdocenteController::actualizarestadisticas" type="service_closure" id=".service_locator.MEoY.JV"/>
+        <argument key="App\Controller\VistasdocenteController::asistenciasPorFecha" type="service_closure" id=".service_locator.8Sc58ds"/>
+        <argument key="App\Controller\VistasdocenteController::edit" type="service_closure" id=".service_locator.dkSwYJR"/>
+        <argument key="App\Controller\VistasdocenteController::editarAsistencia" type="service_closure" id=".service_locator.S2dBoYM"/>
+        <argument key="App\Controller\VistasdocenteController::getCalendarioClaseDelDia" type="service_closure" id=".service_locator.ouOW6lS"/>
+        <argument key="App\Controller\VistasdocenteController::getFechasCalendario" type="service_closure" id=".service_locator.ouOW6lS"/>
+        <argument key="App\Controller\VistasdocenteController::guardarAsistencia" type="service_closure" id=".service_locator.5miB8_X"/>
+        <argument key="App\Controller\VistasdocenteController::index" type="service_closure" id=".service_locator.8sxmf6L"/>
+        <argument key="App\Controller\VistasdocenteController::listaAsistencia" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\VistasdocenteController::new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\VistasdocenteController::nuevaAsistencia" type="service_closure" id=".service_locator.M0J981l"/>
+        <argument key="App\Controller\VistasdocenteController::pasarlista" type="service_closure" id=".service_locator.MEoY.JV"/>
+        <argument key="App\Controller\VistasestudianteController::createCursada" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\VistasestudianteController::edit" type="service_closure" id=".service_locator.JOlxy4n"/>
+        <argument key="App\Controller\VistasestudianteController::index" type="service_closure" id=".service_locator.8_u7Nqu"/>
+        <argument key="App\Controller\VistasestudianteController::new" type="service_closure" id=".service_locator.VIaBFJb"/>
+        <argument key="App\Controller\VistasmesasController::index" type="service_closure" id=".service_locator.29s7hJ1"/>
+        <argument key="App\Controller\VistasmesasController::nuevaMesaFinal" type="service_closure" id=".service_locator.fiV_3M5"/>
+        <argument key="App\Controller\VistasmesasController::nuevanotaFinal" type="service_closure" id=".service_locator.tU2nkXn"/>
+        <argument key="App\Controller\VistaspersonaController::editarAlumno" type="service_closure" id=".service_locator.7MymQPJ"/>
+        <argument key="App\Controller\VistaspersonaController::editarCarreras" type="service_closure" id=".service_locator.idHXkW9"/>
+        <argument key="App\Controller\VistaspersonaController::editarDocente" type="service_closure" id=".service_locator.HxCdkCe"/>
+        <argument key="App\Controller\VistaspersonaController::editarPersona" type="service_closure" id=".service_locator.aBnFrU4"/>
+        <argument key="App\Controller\VistaspersonaController::index" type="service_closure" id=".service_locator.q4LbOCZ"/>
+        <argument key="App\Controller\VistaspersonaController::nuevacarreras" type="service_closure" id=".service_locator.QEVlWuI"/>
+        <argument key="App\Controller\VistaspersonaController::nuevapersona" type="service_closure" id=".service_locator.chelA8_"/>
+        <argument key="App\Controller\VistaspersonaController::nuevoalumno" type="service_closure" id=".service_locator.jGFsy2A"/>
+        <argument key="App\Controller\VistaspersonaController::nuevodocente" type="service_closure" id=".service_locator.5VueRya"/>
+        <argument key="App\Controller\VistaspreinscriptosController::CrearCursadasDeAsignaturas" type="service_closure" id=".service_locator.E4CDJlE"/>
+        <argument key="App\Controller\VistaspreinscriptosController::edit" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController::index" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController::nuevacarreraPreinscripcion" type="service_closure" id=".service_locator.QEVlWuI"/>
+        <argument key="App\Controller\VistaspreinscriptosController::nuevapersonaPre" type="service_closure" id=".service_locator.chelA8_"/>
+        <argument key="App\Controller\VistaspreinscriptosController::nuevoalumnoPre" type="service_closure" id=".service_locator.jGFsy2A"/>
+        <argument key="App\Controller\VistaspreinscriptosController::siguienteAlumno" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController::siguienteCarrera" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController::siguientePersonaPer" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController::verificarComision" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
+        <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
+        <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
+        <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
+        <argument key="App\Controller\AlumnoController:delete" type="service_closure" id=".service_locator.7MymQPJ"/>
+        <argument key="App\Controller\AlumnoController:edit" type="service_closure" id=".service_locator.7MymQPJ"/>
+        <argument key="App\Controller\AlumnoController:index" type="service_closure" id=".service_locator.jGFsy2A"/>
+        <argument key="App\Controller\AlumnoController:new" type="service_closure" id=".service_locator.jGFsy2A"/>
+        <argument key="App\Controller\AlumnoController:show" type="service_closure" id=".service_locator.6sNqD9k"/>
+        <argument key="App\Controller\AsignaturaController:delete" type="service_closure" id=".service_locator.Efy_p4g"/>
+        <argument key="App\Controller\AsignaturaController:edit" type="service_closure" id=".service_locator.Efy_p4g"/>
+        <argument key="App\Controller\AsignaturaController:index" type="service_closure" id=".service_locator.45gKVpm"/>
+        <argument key="App\Controller\AsignaturaController:new" type="service_closure" id=".service_locator.45gKVpm"/>
+        <argument key="App\Controller\AsignaturaController:show" type="service_closure" id=".service_locator.XSMQj8v"/>
+        <argument key="App\Controller\AsistenciaController:delete" type="service_closure" id=".service_locator.S2dBoYM"/>
+        <argument key="App\Controller\AsistenciaController:edit" type="service_closure" id=".service_locator.S2dBoYM"/>
+        <argument key="App\Controller\AsistenciaController:index" type="service_closure" id=".service_locator.M0J981l"/>
+        <argument key="App\Controller\AsistenciaController:new" type="service_closure" id=".service_locator.M0J981l"/>
+        <argument key="App\Controller\AsistenciaController:show" type="service_closure" id=".service_locator.6BT3nBg"/>
+        <argument key="App\Controller\CalendarioClaseController:delete" type="service_closure" id=".service_locator.2Xn9G.Y"/>
+        <argument key="App\Controller\CalendarioClaseController:edit" type="service_closure" id=".service_locator.2Xn9G.Y"/>
+        <argument key="App\Controller\CalendarioClaseController:index" type="service_closure" id=".service_locator.irC2Jnm"/>
+        <argument key="App\Controller\CalendarioClaseController:new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\CalendarioClaseController:show" type="service_closure" id=".service_locator.evQ0qH8"/>
+        <argument key="App\Controller\CarrerasController:delete" type="service_closure" id=".service_locator.BdWCJiq"/>
+        <argument key="App\Controller\CarrerasController:edit" type="service_closure" id=".service_locator.BdWCJiq"/>
+        <argument key="App\Controller\CarrerasController:index" type="service_closure" id=".service_locator.QEVlWuI"/>
+        <argument key="App\Controller\CarrerasController:new" type="service_closure" id=".service_locator.QEVlWuI"/>
+        <argument key="App\Controller\CarrerasController:show" type="service_closure" id=".service_locator.ZckD2vC"/>
+        <argument key="App\Controller\ComisionController:delete" type="service_closure" id=".service_locator._rTCOGA"/>
+        <argument key="App\Controller\ComisionController:edit" type="service_closure" id=".service_locator._rTCOGA"/>
+        <argument key="App\Controller\ComisionController:index" type="service_closure" id=".service_locator.EsTMT5U"/>
+        <argument key="App\Controller\ComisionController:new" type="service_closure" id=".service_locator.EsTMT5U"/>
+        <argument key="App\Controller\ComisionController:show" type="service_closure" id=".service_locator..A3Dw1B"/>
+        <argument key="App\Controller\CorrelativaController:delete" type="service_closure" id=".service_locator.XVIxVsi"/>
+        <argument key="App\Controller\CorrelativaController:edit" type="service_closure" id=".service_locator.XVIxVsi"/>
+        <argument key="App\Controller\CorrelativaController:index" type="service_closure" id=".service_locator.sYMLd0X"/>
+        <argument key="App\Controller\CorrelativaController:new" type="service_closure" id=".service_locator.sYMLd0X"/>
+        <argument key="App\Controller\CorrelativaController:show" type="service_closure" id=".service_locator.dQzUaDu"/>
+        <argument key="App\Controller\CursadaController:delete" type="service_closure" id=".service_locator.rbCKgcT"/>
+        <argument key="App\Controller\CursadaController:edit" type="service_closure" id=".service_locator.rbCKgcT"/>
+        <argument key="App\Controller\CursadaController:index" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\CursadaController:new" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\CursadaController:show" type="service_closure" id=".service_locator.u53w2.o"/>
+        <argument key="App\Controller\CursadaDocenteController:delete" type="service_closure" id=".service_locator.He_tDv4"/>
+        <argument key="App\Controller\CursadaDocenteController:edit" type="service_closure" id=".service_locator.He_tDv4"/>
+        <argument key="App\Controller\CursadaDocenteController:index" type="service_closure" id=".service_locator.ihyDi0i"/>
+        <argument key="App\Controller\CursadaDocenteController:new" type="service_closure" id=".service_locator.ihyDi0i"/>
+        <argument key="App\Controller\CursadaDocenteController:show" type="service_closure" id=".service_locator.jmzV6Su"/>
+        <argument key="App\Controller\CursoController:delete" type="service_closure" id=".service_locator.Lv5K54w"/>
+        <argument key="App\Controller\CursoController:edit" type="service_closure" id=".service_locator.Lv5K54w"/>
+        <argument key="App\Controller\CursoController:index" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\CursoController:new" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\CursoController:show" type="service_closure" id=".service_locator.y7lHMN6"/>
+        <argument key="App\Controller\DocenteController:delete" type="service_closure" id=".service_locator.HxCdkCe"/>
+        <argument key="App\Controller\DocenteController:edit" type="service_closure" id=".service_locator.HxCdkCe"/>
+        <argument key="App\Controller\DocenteController:index" type="service_closure" id=".service_locator.5VueRya"/>
+        <argument key="App\Controller\DocenteController:new" type="service_closure" id=".service_locator.5VueRya"/>
+        <argument key="App\Controller\DocenteController:show" type="service_closure" id=".service_locator.pOOOA_1"/>
+        <argument key="App\Controller\ExamenAlumnoController:delete" type="service_closure" id=".service_locator.gceykvT"/>
+        <argument key="App\Controller\ExamenAlumnoController:edit" type="service_closure" id=".service_locator.gceykvT"/>
+        <argument key="App\Controller\ExamenAlumnoController:index" type="service_closure" id=".service_locator.tU2nkXn"/>
+        <argument key="App\Controller\ExamenAlumnoController:new" type="service_closure" id=".service_locator.tU2nkXn"/>
+        <argument key="App\Controller\ExamenAlumnoController:show" type="service_closure" id=".service_locator.cJRo3qT"/>
+        <argument key="App\Controller\ExamenFinalController:delete" type="service_closure" id=".service_locator.4EHAhEc"/>
+        <argument key="App\Controller\ExamenFinalController:edit" type="service_closure" id=".service_locator.u2fciAB"/>
+        <argument key="App\Controller\ExamenFinalController:index" type="service_closure" id=".service_locator.29s7hJ1"/>
+        <argument key="App\Controller\ExamenFinalController:new" type="service_closure" id=".service_locator.fiV_3M5"/>
+        <argument key="App\Controller\HabilitanteController:delete" type="service_closure" id=".service_locator.dgvuIAT"/>
+        <argument key="App\Controller\HabilitanteController:edit" type="service_closure" id=".service_locator.dgvuIAT"/>
+        <argument key="App\Controller\HabilitanteController:index" type="service_closure" id=".service_locator.xj1Vwg0"/>
+        <argument key="App\Controller\HabilitanteController:new" type="service_closure" id=".service_locator.xj1Vwg0"/>
+        <argument key="App\Controller\HabilitanteController:show" type="service_closure" id=".service_locator..EDEdwm"/>
+        <argument key="App\Controller\HorarioController:delete" type="service_closure" id=".service_locator.bIPZ3W7"/>
+        <argument key="App\Controller\HorarioController:edit" type="service_closure" id=".service_locator.bIPZ3W7"/>
+        <argument key="App\Controller\HorarioController:index" type="service_closure" id=".service_locator.UJg4yqJ"/>
+        <argument key="App\Controller\HorarioController:new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\HorarioController:show" type="service_closure" id=".service_locator.NyMPQM_"/>
+        <argument key="App\Controller\InscripcionFinalController:delete" type="service_closure" id=".service_locator.yvYK5Bh"/>
+        <argument key="App\Controller\InscripcionFinalController:edit" type="service_closure" id=".service_locator.yvYK5Bh"/>
+        <argument key="App\Controller\InscripcionFinalController:index" type="service_closure" id=".service_locator.VIaBFJb"/>
+        <argument key="App\Controller\InscripcionFinalController:new" type="service_closure" id=".service_locator.VIaBFJb"/>
+        <argument key="App\Controller\InscripcionFinalController:show" type="service_closure" id=".service_locator.WW5KjXA"/>
+        <argument key="App\Controller\InstitutoController:delete" type="service_closure" id=".service_locator.N9VOSF8"/>
+        <argument key="App\Controller\InstitutoController:edit" type="service_closure" id=".service_locator.N9VOSF8"/>
+        <argument key="App\Controller\InstitutoController:index" type="service_closure" id=".service_locator.YN55Ayt"/>
+        <argument key="App\Controller\InstitutoController:new" type="service_closure" id=".service_locator.YN55Ayt"/>
+        <argument key="App\Controller\InstitutoController:show" type="service_closure" id=".service_locator.1_Qpv22"/>
+        <argument key="App\Controller\LocalidadController:delete" type="service_closure" id=".service_locator.98vJ9rN"/>
+        <argument key="App\Controller\LocalidadController:edit" type="service_closure" id=".service_locator.98vJ9rN"/>
+        <argument key="App\Controller\LocalidadController:index" type="service_closure" id=".service_locator.IuXccsC"/>
+        <argument key="App\Controller\LocalidadController:new" type="service_closure" id=".service_locator.IuXccsC"/>
+        <argument key="App\Controller\LocalidadController:show" type="service_closure" id=".service_locator.YVT_0fT"/>
+        <argument key="App\Controller\ModalidadController:delete" type="service_closure" id=".service_locator.bttjbPl"/>
+        <argument key="App\Controller\ModalidadController:edit" type="service_closure" id=".service_locator.bttjbPl"/>
+        <argument key="App\Controller\ModalidadController:index" type="service_closure" id=".service_locator.2m7.ihx"/>
+        <argument key="App\Controller\ModalidadController:new" type="service_closure" id=".service_locator.2m7.ihx"/>
+        <argument key="App\Controller\ModalidadController:show" type="service_closure" id=".service_locator.yAJgZEU"/>
+        <argument key="App\Controller\NotaController:delete" type="service_closure" id=".service_locator..RP8fEe"/>
+        <argument key="App\Controller\NotaController:edit" type="service_closure" id=".service_locator..RP8fEe"/>
+        <argument key="App\Controller\NotaController:index" type="service_closure" id=".service_locator.XgPMn.H"/>
+        <argument key="App\Controller\NotaController:new" type="service_closure" id=".service_locator.XgPMn.H"/>
+        <argument key="App\Controller\NotaController:show" type="service_closure" id=".service_locator.WCTzRw1"/>
+        <argument key="App\Controller\PaisController:delete" type="service_closure" id=".service_locator.OJsxJ.f"/>
+        <argument key="App\Controller\PaisController:edit" type="service_closure" id=".service_locator.OJsxJ.f"/>
+        <argument key="App\Controller\PaisController:index" type="service_closure" id=".service_locator.WKgLEIg"/>
+        <argument key="App\Controller\PaisController:new" type="service_closure" id=".service_locator.WKgLEIg"/>
+        <argument key="App\Controller\PaisController:show" type="service_closure" id=".service_locator.TJkIAI_"/>
+        <argument key="App\Controller\PersonaController:delete" type="service_closure" id=".service_locator.aBnFrU4"/>
+        <argument key="App\Controller\PersonaController:edit" type="service_closure" id=".service_locator.aBnFrU4"/>
+        <argument key="App\Controller\PersonaController:index" type="service_closure" id=".service_locator.chelA8_"/>
+        <argument key="App\Controller\PersonaController:new" type="service_closure" id=".service_locator.chelA8_"/>
+        <argument key="App\Controller\PersonaController:show" type="service_closure" id=".service_locator.uYQNobO"/>
+        <argument key="App\Controller\ProvinciaController:delete" type="service_closure" id=".service_locator.eSDB_Bi"/>
+        <argument key="App\Controller\ProvinciaController:edit" type="service_closure" id=".service_locator.eSDB_Bi"/>
+        <argument key="App\Controller\ProvinciaController:index" type="service_closure" id=".service_locator.eWN17oh"/>
+        <argument key="App\Controller\ProvinciaController:new" type="service_closure" id=".service_locator.eWN17oh"/>
+        <argument key="App\Controller\ProvinciaController:show" type="service_closure" id=".service_locator.MyFGqY6"/>
+        <argument key="App\Controller\RegionController:delete" type="service_closure" id=".service_locator.ROkM79E"/>
+        <argument key="App\Controller\RegionController:edit" type="service_closure" id=".service_locator.ROkM79E"/>
+        <argument key="App\Controller\RegionController:index" type="service_closure" id=".service_locator.sQT9DfJ"/>
+        <argument key="App\Controller\RegionController:new" type="service_closure" id=".service_locator.sQT9DfJ"/>
+        <argument key="App\Controller\RegionController:show" type="service_closure" id=".service_locator.q4bsI0S"/>
+        <argument key="App\Controller\RevistaController:delete" type="service_closure" id=".service_locator.TVi9ASB"/>
+        <argument key="App\Controller\RevistaController:edit" type="service_closure" id=".service_locator.TVi9ASB"/>
+        <argument key="App\Controller\RevistaController:index" type="service_closure" id=".service_locator.PK6I9Uv"/>
+        <argument key="App\Controller\RevistaController:new" type="service_closure" id=".service_locator.PK6I9Uv"/>
+        <argument key="App\Controller\RevistaController:show" type="service_closure" id=".service_locator.joWJGjh"/>
+        <argument key="App\Controller\RolController:delete" type="service_closure" id=".service_locator.qK8hRjI"/>
+        <argument key="App\Controller\RolController:edit" type="service_closure" id=".service_locator.qK8hRjI"/>
+        <argument key="App\Controller\RolController:index" type="service_closure" id=".service_locator.cuUB_.X"/>
+        <argument key="App\Controller\RolController:new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\RolController:show" type="service_closure" id=".service_locator.EdV3fE_"/>
+        <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\TecnicaturaController:delete" type="service_closure" id=".service_locator.mE2wygX"/>
+        <argument key="App\Controller\TecnicaturaController:edit" type="service_closure" id=".service_locator.mE2wygX"/>
+        <argument key="App\Controller\TecnicaturaController:index" type="service_closure" id=".service_locator.GHNv1uK"/>
+        <argument key="App\Controller\TecnicaturaController:new" type="service_closure" id=".service_locator.GHNv1uK"/>
+        <argument key="App\Controller\TecnicaturaController:show" type="service_closure" id=".service_locator.dpFd_PZ"/>
+        <argument key="App\Controller\TelefonoController:delete" type="service_closure" id=".service_locator.nFf2lw3"/>
+        <argument key="App\Controller\TelefonoController:edit" type="service_closure" id=".service_locator.nFf2lw3"/>
+        <argument key="App\Controller\TelefonoController:index" type="service_closure" id=".service_locator.RrBOjBL"/>
+        <argument key="App\Controller\TelefonoController:new" type="service_closure" id=".service_locator.RrBOjBL"/>
+        <argument key="App\Controller\TelefonoController:show" type="service_closure" id=".service_locator.UH9HhJu"/>
+        <argument key="App\Controller\TituloController:delete" type="service_closure" id=".service_locator._VltN4E"/>
+        <argument key="App\Controller\TituloController:edit" type="service_closure" id=".service_locator._VltN4E"/>
+        <argument key="App\Controller\TituloController:index" type="service_closure" id=".service_locator.y64cyUX"/>
+        <argument key="App\Controller\TituloController:new" type="service_closure" id=".service_locator.y64cyUX"/>
+        <argument key="App\Controller\TituloController:show" type="service_closure" id=".service_locator.LiLgd1."/>
+        <argument key="App\Controller\TurnoController:delete" type="service_closure" id=".service_locator.cRURelY"/>
+        <argument key="App\Controller\TurnoController:edit" type="service_closure" id=".service_locator.cRURelY"/>
+        <argument key="App\Controller\TurnoController:index" type="service_closure" id=".service_locator.DBOfijv"/>
+        <argument key="App\Controller\TurnoController:new" type="service_closure" id=".service_locator.DBOfijv"/>
+        <argument key="App\Controller\TurnoController:show" type="service_closure" id=".service_locator.bAD3la7"/>
+        <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.4MF6DUv"/>
+        <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.syInHo8"/>
+        <argument key="App\Controller\UserController:index" type="service_closure" id=".service_locator..Ae5NXw"/>
+        <argument key="App\Controller\UserController:new" type="service_closure" id=".service_locator.WUtyewl"/>
+        <argument key="App\Controller\UserController:show" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\VistasController:addCorrelativa" type="service_closure" id=".service_locator.7AwcF1W"/>
+        <argument key="App\Controller\VistasController:asignaturasPdf" type="service_closure" id=".service_locator.7AwcF1W"/>
+        <argument key="App\Controller\VistasController:create" type="service_closure" id=".service_locator.45gKVpm"/>
+        <argument key="App\Controller\VistasController:create2" type="service_closure" id=".service_locator.GHNv1uK"/>
+        <argument key="App\Controller\VistasController:edit" type="service_closure" id=".service_locator.raaoeKj"/>
+        <argument key="App\Controller\VistasController:index" type="service_closure" id=".service_locator.7AwcF1W"/>
+        <argument key="App\Controller\VistasController:uploadPdf" type="service_closure" id=".service_locator.7AwcF1W"/>
+        <argument key="App\Controller\VistasController:viewCorrelativas" type="service_closure" id=".service_locator.45gKVpm"/>
+        <argument key="App\Controller\VistascursadaController:createComision" type="service_closure" id=".service_locator.EsTMT5U"/>
+        <argument key="App\Controller\VistascursadaController:createCursada" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\VistascursadaController:createCursadaDocente" type="service_closure" id=".service_locator.ihyDi0i"/>
+        <argument key="App\Controller\VistascursadaController:createCurso" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\VistascursadaController:editarComision" type="service_closure" id=".service_locator.EsTMT5U"/>
+        <argument key="App\Controller\VistascursadaController:editarCursada" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\VistascursadaController:editarCursadaDocente" type="service_closure" id=".service_locator.ihyDi0i"/>
+        <argument key="App\Controller\VistascursadaController:editarCurso" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\VistascursadaController:index" type="service_closure" id=".service_locator.ij9q400"/>
+        <argument key="App\Controller\VistasdocenteController:actualizarAlumnos" type="service_closure" id=".service_locator.VwfW7AR"/>
+        <argument key="App\Controller\VistasdocenteController:actualizarListaAlumnos" type="service_closure" id=".service_locator.VwfW7AR"/>
+        <argument key="App\Controller\VistasdocenteController:actualizarestadisticas" type="service_closure" id=".service_locator.MEoY.JV"/>
+        <argument key="App\Controller\VistasdocenteController:asistenciasPorFecha" type="service_closure" id=".service_locator.8Sc58ds"/>
+        <argument key="App\Controller\VistasdocenteController:edit" type="service_closure" id=".service_locator.dkSwYJR"/>
+        <argument key="App\Controller\VistasdocenteController:editarAsistencia" type="service_closure" id=".service_locator.S2dBoYM"/>
+        <argument key="App\Controller\VistasdocenteController:getCalendarioClaseDelDia" type="service_closure" id=".service_locator.ouOW6lS"/>
+        <argument key="App\Controller\VistasdocenteController:getFechasCalendario" type="service_closure" id=".service_locator.ouOW6lS"/>
+        <argument key="App\Controller\VistasdocenteController:guardarAsistencia" type="service_closure" id=".service_locator.5miB8_X"/>
+        <argument key="App\Controller\VistasdocenteController:index" type="service_closure" id=".service_locator.8sxmf6L"/>
+        <argument key="App\Controller\VistasdocenteController:listaAsistencia" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="App\Controller\VistasdocenteController:new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\VistasdocenteController:nuevaAsistencia" type="service_closure" id=".service_locator.M0J981l"/>
+        <argument key="App\Controller\VistasdocenteController:pasarlista" type="service_closure" id=".service_locator.MEoY.JV"/>
+        <argument key="App\Controller\VistasestudianteController:createCursada" type="service_closure" id=".service_locator.O6Oky2T"/>
+        <argument key="App\Controller\VistasestudianteController:edit" type="service_closure" id=".service_locator.JOlxy4n"/>
+        <argument key="App\Controller\VistasestudianteController:index" type="service_closure" id=".service_locator.8_u7Nqu"/>
+        <argument key="App\Controller\VistasestudianteController:new" type="service_closure" id=".service_locator.VIaBFJb"/>
+        <argument key="App\Controller\VistasmesasController:index" type="service_closure" id=".service_locator.29s7hJ1"/>
+        <argument key="App\Controller\VistasmesasController:nuevaMesaFinal" type="service_closure" id=".service_locator.fiV_3M5"/>
+        <argument key="App\Controller\VistasmesasController:nuevanotaFinal" type="service_closure" id=".service_locator.tU2nkXn"/>
+        <argument key="App\Controller\VistaspersonaController:editarAlumno" type="service_closure" id=".service_locator.7MymQPJ"/>
+        <argument key="App\Controller\VistaspersonaController:editarCarreras" type="service_closure" id=".service_locator.idHXkW9"/>
+        <argument key="App\Controller\VistaspersonaController:editarDocente" type="service_closure" id=".service_locator.HxCdkCe"/>
+        <argument key="App\Controller\VistaspersonaController:editarPersona" type="service_closure" id=".service_locator.aBnFrU4"/>
+        <argument key="App\Controller\VistaspersonaController:index" type="service_closure" id=".service_locator.q4LbOCZ"/>
+        <argument key="App\Controller\VistaspersonaController:nuevacarreras" type="service_closure" id=".service_locator.QEVlWuI"/>
+        <argument key="App\Controller\VistaspersonaController:nuevapersona" type="service_closure" id=".service_locator.chelA8_"/>
+        <argument key="App\Controller\VistaspersonaController:nuevoalumno" type="service_closure" id=".service_locator.jGFsy2A"/>
+        <argument key="App\Controller\VistaspersonaController:nuevodocente" type="service_closure" id=".service_locator.5VueRya"/>
+        <argument key="App\Controller\VistaspreinscriptosController:CrearCursadasDeAsignaturas" type="service_closure" id=".service_locator.E4CDJlE"/>
+        <argument key="App\Controller\VistaspreinscriptosController:edit" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController:index" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController:nuevacarreraPreinscripcion" type="service_closure" id=".service_locator.QEVlWuI"/>
+        <argument key="App\Controller\VistaspreinscriptosController:nuevapersonaPre" type="service_closure" id=".service_locator.chelA8_"/>
+        <argument key="App\Controller\VistaspreinscriptosController:nuevoalumnoPre" type="service_closure" id=".service_locator.jGFsy2A"/>
+        <argument key="App\Controller\VistaspreinscriptosController:siguienteAlumno" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController:siguienteCarrera" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController:siguientePersonaPer" type="service_closure" id=".service_locator.omZi5k."/>
+        <argument key="App\Controller\VistaspreinscriptosController:verificarComision" type="service_closure" id=".service_locator.Gui_fby"/>
+        <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
+        <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
       </argument>
     </service>
     <service id=".service_locator.SSQnsG8" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -9999,12 +10930,28 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
+<<<<<<< HEAD
       <argument type="service" id=".service_locator.pNiQQZv"/>
+=======
+<<<<<<< HEAD
+      <argument type="service" id=".service_locator.zZeP124"/>
+=======
+      <argument type="service" id=".service_locator.1A09lzI"/>
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
+<<<<<<< HEAD
       <argument type="service" id=".service_locator.pNiQQZv"/>
+=======
+<<<<<<< HEAD
+      <argument type="service" id=".service_locator.zZeP124"/>
+=======
+      <argument type="service" id=".service_locator.1A09lzI"/>
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -10023,6 +10970,10 @@
         <argument>App\Entity</argument>
       </call>
     </service>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.hFQFq_g.App\Entity\Alumno" class="App\Entity\Alumno"/>
     <service id=".errored..service_locator.B5lWQmM.App\Entity\Alumno" class="App\Entity\Alumno"/>
@@ -10048,8 +10999,13 @@
     <service id=".errored..service_locator.AICXjxe.App\Entity\Docente" class="App\Entity\Docente"/>
     <service id=".errored..service_locator.ufjxPva.App\Entity\ExamenAlumno" class="App\Entity\ExamenAlumno"/>
     <service id=".errored..service_locator.r06nQXi.App\Entity\ExamenAlumno" class="App\Entity\ExamenAlumno"/>
+<<<<<<< HEAD
     <service id=".errored..service_locator.ZPluiS2.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
     <service id=".errored..service_locator.8lLQrxi.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
+=======
+    <service id=".errored..service_locator.VwQjRCK.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
+    <service id=".errored..service_locator.V8mJv2f.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".errored..service_locator.Yv4Ghdl.App\Entity\Habilitante" class="App\Entity\Habilitante"/>
     <service id=".errored..service_locator.zHcbPEg.App\Entity\Habilitante" class="App\Entity\Habilitante"/>
     <service id=".errored..service_locator.esjls9Y.App\Entity\Horario" class="App\Entity\Horario"/>
@@ -10090,6 +11046,78 @@
     <service id=".errored..service_locator..JJzQmV.App\Entity\Asignatura" class="App\Entity\Asignatura"/>
     <service id=".errored..service_locator.UdS6csr.App\Entity\Nota" class="App\Entity\Nota"/>
     <service id=".errored..service_locator.ktDX1uV.App\Entity\Carreras" class="App\Entity\Carreras"/>
+<<<<<<< HEAD
+=======
+=======
+    <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.6sNqD9k.App\Entity\Alumno" class="App\Entity\Alumno"/>
+    <service id=".errored..service_locator.7MymQPJ.App\Entity\Alumno" class="App\Entity\Alumno"/>
+    <service id=".errored..service_locator.XSMQj8v.App\Entity\Asignatura" class="App\Entity\Asignatura"/>
+    <service id=".errored..service_locator.Efy_p4g.App\Entity\Asignatura" class="App\Entity\Asignatura"/>
+    <service id=".errored..service_locator.6BT3nBg.App\Entity\Asistencia" class="App\Entity\Asistencia"/>
+    <service id=".errored..service_locator.S2dBoYM.App\Entity\Asistencia" class="App\Entity\Asistencia"/>
+    <service id=".errored..service_locator.evQ0qH8.App\Entity\CalendarioClase" class="App\Entity\CalendarioClase"/>
+    <service id=".errored..service_locator.2Xn9G.Y.App\Entity\CalendarioClase" class="App\Entity\CalendarioClase"/>
+    <service id=".errored..service_locator.ZckD2vC.App\Entity\Carreras" class="App\Entity\Carreras"/>
+    <service id=".errored..service_locator.BdWCJiq.App\Entity\Carreras" class="App\Entity\Carreras"/>
+    <service id=".errored..service_locator..A3Dw1B.App\Entity\Comision" class="App\Entity\Comision"/>
+    <service id=".errored..service_locator._rTCOGA.App\Entity\Comision" class="App\Entity\Comision"/>
+    <service id=".errored..service_locator.dQzUaDu.App\Entity\Correlativa" class="App\Entity\Correlativa"/>
+    <service id=".errored..service_locator.XVIxVsi.App\Entity\Correlativa" class="App\Entity\Correlativa"/>
+    <service id=".errored..service_locator.u53w2.o.App\Entity\Cursada" class="App\Entity\Cursada"/>
+    <service id=".errored..service_locator.rbCKgcT.App\Entity\Cursada" class="App\Entity\Cursada"/>
+    <service id=".errored..service_locator.jmzV6Su.App\Entity\CursadaDocente" class="App\Entity\CursadaDocente"/>
+    <service id=".errored..service_locator.He_tDv4.App\Entity\CursadaDocente" class="App\Entity\CursadaDocente"/>
+    <service id=".errored..service_locator.y7lHMN6.App\Entity\Curso" class="App\Entity\Curso"/>
+    <service id=".errored..service_locator.Lv5K54w.App\Entity\Curso" class="App\Entity\Curso"/>
+    <service id=".errored..service_locator.pOOOA_1.App\Entity\Docente" class="App\Entity\Docente"/>
+    <service id=".errored..service_locator.HxCdkCe.App\Entity\Docente" class="App\Entity\Docente"/>
+    <service id=".errored..service_locator.cJRo3qT.App\Entity\ExamenAlumno" class="App\Entity\ExamenAlumno"/>
+    <service id=".errored..service_locator.gceykvT.App\Entity\ExamenAlumno" class="App\Entity\ExamenAlumno"/>
+    <service id=".errored..service_locator.u2fciAB.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
+    <service id=".errored..service_locator.4EHAhEc.App\Entity\ExamenFinal" class="App\Entity\ExamenFinal"/>
+    <service id=".errored..service_locator..EDEdwm.App\Entity\Habilitante" class="App\Entity\Habilitante"/>
+    <service id=".errored..service_locator.dgvuIAT.App\Entity\Habilitante" class="App\Entity\Habilitante"/>
+    <service id=".errored..service_locator.NyMPQM_.App\Entity\Horario" class="App\Entity\Horario"/>
+    <service id=".errored..service_locator.bIPZ3W7.App\Entity\Horario" class="App\Entity\Horario"/>
+    <service id=".errored..service_locator.WW5KjXA.App\Entity\InscripcionFinal" class="App\Entity\InscripcionFinal"/>
+    <service id=".errored..service_locator.yvYK5Bh.App\Entity\InscripcionFinal" class="App\Entity\InscripcionFinal"/>
+    <service id=".errored..service_locator.1_Qpv22.App\Entity\Instituto" class="App\Entity\Instituto"/>
+    <service id=".errored..service_locator.N9VOSF8.App\Entity\Instituto" class="App\Entity\Instituto"/>
+    <service id=".errored..service_locator.YVT_0fT.App\Entity\Localidad" class="App\Entity\Localidad"/>
+    <service id=".errored..service_locator.98vJ9rN.App\Entity\Localidad" class="App\Entity\Localidad"/>
+    <service id=".errored..service_locator.yAJgZEU.App\Entity\Modalidad" class="App\Entity\Modalidad"/>
+    <service id=".errored..service_locator.bttjbPl.App\Entity\Modalidad" class="App\Entity\Modalidad"/>
+    <service id=".errored..service_locator.WCTzRw1.App\Entity\Nota" class="App\Entity\Nota"/>
+    <service id=".errored..service_locator..RP8fEe.App\Entity\Nota" class="App\Entity\Nota"/>
+    <service id=".errored..service_locator.TJkIAI_.App\Entity\Pais" class="App\Entity\Pais"/>
+    <service id=".errored..service_locator.OJsxJ.f.App\Entity\Pais" class="App\Entity\Pais"/>
+    <service id=".errored..service_locator.uYQNobO.App\Entity\Persona" class="App\Entity\Persona"/>
+    <service id=".errored..service_locator.aBnFrU4.App\Entity\Persona" class="App\Entity\Persona"/>
+    <service id=".errored..service_locator.MyFGqY6.App\Entity\Provincia" class="App\Entity\Provincia"/>
+    <service id=".errored..service_locator.eSDB_Bi.App\Entity\Provincia" class="App\Entity\Provincia"/>
+    <service id=".errored..service_locator.q4bsI0S.App\Entity\Region" class="App\Entity\Region"/>
+    <service id=".errored..service_locator.ROkM79E.App\Entity\Region" class="App\Entity\Region"/>
+    <service id=".errored..service_locator.joWJGjh.App\Entity\Revista" class="App\Entity\Revista"/>
+    <service id=".errored..service_locator.TVi9ASB.App\Entity\Revista" class="App\Entity\Revista"/>
+    <service id=".errored..service_locator.EdV3fE_.App\Entity\Rol" class="App\Entity\Rol"/>
+    <service id=".errored..service_locator.qK8hRjI.App\Entity\Rol" class="App\Entity\Rol"/>
+    <service id=".errored..service_locator.dpFd_PZ.App\Entity\Tecnicatura" class="App\Entity\Tecnicatura"/>
+    <service id=".errored..service_locator.mE2wygX.App\Entity\Tecnicatura" class="App\Entity\Tecnicatura"/>
+    <service id=".errored..service_locator.UH9HhJu.App\Entity\Telefono" class="App\Entity\Telefono"/>
+    <service id=".errored..service_locator.nFf2lw3.App\Entity\Telefono" class="App\Entity\Telefono"/>
+    <service id=".errored..service_locator.LiLgd1..App\Entity\Titulo" class="App\Entity\Titulo"/>
+    <service id=".errored..service_locator._VltN4E.App\Entity\Titulo" class="App\Entity\Titulo"/>
+    <service id=".errored..service_locator.bAD3la7.App\Entity\Turno" class="App\Entity\Turno"/>
+    <service id=".errored..service_locator.cRURelY.App\Entity\Turno" class="App\Entity\Turno"/>
+    <service id=".errored..service_locator.ch4Jgvl.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.syInHo8.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.4MF6DUv.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.raaoeKj.App\Entity\Asignatura" class="App\Entity\Asignatura"/>
+    <service id=".errored..service_locator.dkSwYJR.App\Entity\Nota" class="App\Entity\Nota"/>
+    <service id=".errored..service_locator.idHXkW9.App\Entity\Carreras" class="App\Entity\Carreras"/>
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -10671,7 +11699,11 @@
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
+<<<<<<< HEAD
       <argument type="service" id=".service_locator.uxpczV2"/>
+=======
+      <argument type="service" id=".service_locator.zfa7Z9O"/>
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -10779,7 +11811,11 @@
         <argument key="make:security:form-login">maker.auto_command.make_security_form_login</argument>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".service_locator.uxpczV2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+=======
+    <service id=".service_locator.zfa7Z9O" class="Symfony\Component\DependencyInjection\ServiceLocator">
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service_closure" id=".console.command.about.lazy"/>
@@ -11135,7 +12171,15 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
+<<<<<<< HEAD
     <service id="argument_resolver.controller_locator" alias=".service_locator.pNiQQZv"/>
+=======
+<<<<<<< HEAD
+    <service id="argument_resolver.controller_locator" alias=".service_locator.zZeP124"/>
+=======
+    <service id="argument_resolver.controller_locator" alias=".service_locator.1A09lzI"/>
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -11159,12 +12203,17 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
+<<<<<<< HEAD
     <service id=".service_locator.PlpLQdK" alias=".service_locator.uqsmDdT"/>
     <service id=".service_locator.M3SLpc9" alias=".service_locator.64bENgF"/>
     <service id=".service_locator.wkCX.3X" alias=".service_locator.YZQVR5i"/>
     <service id=".service_locator.sOCVLcw" alias=".service_locator.ZPluiS2"/>
     <service id=".service_locator.SDZBTWe" alias=".service_locator.8lLQrxi"/>
     <service id=".service_locator.IgjvtVQ" alias=".service_locator.AeKPWUj"/>
+=======
+<<<<<<< HEAD
+    <service id=".service_locator.PlpLQdK" alias=".service_locator.uqsmDdT"/>
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".service_locator.QWIB9SW" alias=".service_locator.xa_XwVT"/>
     <service id=".service_locator.xSSbwpO" alias=".service_locator..qxwYms"/>
     <service id=".service_locator.QuZtOGn" alias=".service_locator.4XvCDTU"/>
@@ -11179,10 +12228,41 @@
     <service id=".service_locator.iDMAtxN" alias=".service_locator.dBXl6cR"/>
     <service id=".service_locator.azHOl4v" alias=".service_locator.xfoL88H"/>
     <service id=".service_locator.1rf087C" alias=".service_locator.Jhfo2oT"/>
+<<<<<<< HEAD
     <service id=".service_locator.Z6fE_vk" alias=".service_locator.M1q10pk"/>
     <service id=".service_locator.FFy293G" alias=".service_locator.j1McYan"/>
     <service id=".service_locator.ZB6Pm9d" alias=".service_locator.rx0DwiK"/>
     <service id=".service_locator.AqnxzeZ" alias=".service_locator.pNiQQZv"/>
+=======
+    <service id=".service_locator.M3SLpc9" alias=".service_locator.64bENgF"/>
+    <service id=".service_locator.Z6fE_vk" alias=".service_locator.M1q10pk"/>
+    <service id=".service_locator.FFy293G" alias=".service_locator.j1McYan"/>
+    <service id=".service_locator.ZB6Pm9d" alias=".service_locator.rx0DwiK"/>
+    <service id=".service_locator.RWIImz." alias=".service_locator.zZeP124"/>
+=======
+    <service id=".service_locator.zspsrL7" alias=".service_locator.S2dBoYM"/>
+    <service id=".service_locator.9Dm.eFz" alias=".service_locator.29s7hJ1"/>
+    <service id=".service_locator.V7MSkAY" alias=".service_locator.4EHAhEc"/>
+    <service id=".service_locator.UAuErqb" alias=".service_locator.bIPZ3W7"/>
+    <service id=".service_locator.qfV1snN" alias=".service_locator..RP8fEe"/>
+    <service id=".service_locator.RoHaIJo" alias=".service_locator.eSDB_Bi"/>
+    <service id=".service_locator.VVrTeo8" alias=".service_locator.TVi9ASB"/>
+    <service id=".service_locator.1tbT4ue" alias=".service_locator.qK8hRjI"/>
+    <service id=".service_locator.NjFUod4" alias=".service_locator.syInHo8"/>
+    <service id=".service_locator.V2bxRws" alias=".service_locator.7AwcF1W"/>
+    <service id=".service_locator.MPxljHg" alias=".service_locator.ij9q400"/>
+    <service id=".service_locator.xkLf3Tw" alias=".service_locator.8sxmf6L"/>
+    <service id=".service_locator.nxJn3l." alias=".service_locator.MEoY.JV"/>
+    <service id=".service_locator.xAu5mPB" alias=".service_locator.VwfW7AR"/>
+    <service id=".service_locator.1aQ8vDU" alias=".service_locator.8Sc58ds"/>
+    <service id=".service_locator.ldgxeB7" alias=".service_locator.8_u7Nqu"/>
+    <service id=".service_locator.CX_gAA2" alias=".service_locator.JOlxy4n"/>
+    <service id=".service_locator.8g3mun1" alias=".service_locator.q4LbOCZ"/>
+    <service id=".service_locator.rSnBo0F" alias=".service_locator.E4CDJlE"/>
+    <service id=".service_locator.lYeQ6ry" alias=".service_locator.omZi5k."/>
+    <service id=".service_locator.p1iTPvY" alias=".service_locator.1A09lzI"/>
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".service_locator.vOwA1I0" alias=".service_locator.SSQnsG8"/>
     <service id=".service_locator.EiLRmSZ" alias=".service_locator.Vtu2h8e"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
@@ -11209,6 +12289,10 @@
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller"/>
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
     <service id=".service_locator.TO_CNLi" alias=".service_locator.RpWdsBZ"/>
     <service id=".service_locator.1CgRYno" alias=".service_locator.hFQFq_g"/>
@@ -11247,11 +12331,17 @@
     <service id=".service_locator._SP1CJ5" alias=".service_locator.sgKQ_fb"/>
     <service id=".service_locator.k0jlv8h" alias=".service_locator.ufjxPva"/>
     <service id=".service_locator.loOl.d3" alias=".service_locator.r06nQXi"/>
+<<<<<<< HEAD
     <service id=".service_locator.qS3i97." alias=".service_locator.64bENgF"/>
     <service id=".service_locator.9HC5Kk8" alias=".service_locator.YZQVR5i"/>
     <service id=".service_locator.t1B0sYX" alias=".service_locator.ZPluiS2"/>
     <service id=".service_locator.boKGDpI" alias=".service_locator.8lLQrxi"/>
     <service id=".service_locator.ALPBx6l" alias=".service_locator.AeKPWUj"/>
+=======
+    <service id=".service_locator.JvLSTsL" alias=".service_locator.d_4a3Jn"/>
+    <service id=".service_locator.dpTJdy3" alias=".service_locator.VwQjRCK"/>
+    <service id=".service_locator.VOXBuMd" alias=".service_locator.V8mJv2f"/>
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".service_locator.iel2s5r" alias=".service_locator.9S1U8eV"/>
     <service id=".service_locator.dgxxi8." alias=".service_locator.Yv4Ghdl"/>
     <service id=".service_locator.hnlqME5" alias=".service_locator.zHcbPEg"/>
@@ -11321,12 +12411,137 @@
     <service id=".service_locator.0cCaBY_" alias=".service_locator.dBXl6cR"/>
     <service id=".service_locator.NGh06m8" alias=".service_locator.xfoL88H"/>
     <service id=".service_locator.OFIfK6z" alias=".service_locator.Jhfo2oT"/>
+<<<<<<< HEAD
     <service id=".service_locator.JvLSTsL" alias=".service_locator.d_4a3Jn"/>
+=======
+    <service id=".service_locator.qS3i97." alias=".service_locator.64bENgF"/>
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".service_locator.3q07wg5" alias=".service_locator.M1q10pk"/>
     <service id=".service_locator.4EVgLV6" alias=".service_locator.ktDX1uV"/>
     <service id=".service_locator.F6.IlbG" alias=".service_locator.j1McYan"/>
     <service id=".service_locator.593HRcf" alias=".service_locator.rx0DwiK"/>
     <service id=".service_locator.A740LBW" alias=".service_locator.mx0UMmY"/>
+<<<<<<< HEAD
+=======
+=======
+    <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
+    <service id=".service_locator.d3xHShk" alias=".service_locator.jGFsy2A"/>
+    <service id=".service_locator.QHeXPxR" alias=".service_locator.6sNqD9k"/>
+    <service id=".service_locator.qcHszl." alias=".service_locator.7MymQPJ"/>
+    <service id=".service_locator.A.P4GAx" alias=".service_locator.45gKVpm"/>
+    <service id=".service_locator.9CuaFXz" alias=".service_locator.XSMQj8v"/>
+    <service id=".service_locator.9ZOMoTx" alias=".service_locator.Efy_p4g"/>
+    <service id=".service_locator.Ny3CrQL" alias=".service_locator.M0J981l"/>
+    <service id=".service_locator.pfW9Lv9" alias=".service_locator.6BT3nBg"/>
+    <service id=".service_locator.RN6eB.m" alias=".service_locator.S2dBoYM"/>
+    <service id=".service_locator.08GZs7E" alias=".service_locator.irC2Jnm"/>
+    <service id=".service_locator.Er0_7SX" alias=".service_locator.l2QwsaZ"/>
+    <service id=".service_locator.s9mAPvp" alias=".service_locator.evQ0qH8"/>
+    <service id=".service_locator.A1HGM_N" alias=".service_locator.2Xn9G.Y"/>
+    <service id=".service_locator.yyxgZDb" alias=".service_locator.QEVlWuI"/>
+    <service id=".service_locator.hUheweK" alias=".service_locator.ZckD2vC"/>
+    <service id=".service_locator.9N1W1_8" alias=".service_locator.BdWCJiq"/>
+    <service id=".service_locator.VKdzyTt" alias=".service_locator.EsTMT5U"/>
+    <service id=".service_locator.8gxxCVN" alias=".service_locator..A3Dw1B"/>
+    <service id=".service_locator.NjL0pRr" alias=".service_locator._rTCOGA"/>
+    <service id=".service_locator.g9GYGHn" alias=".service_locator.sYMLd0X"/>
+    <service id=".service_locator.jonvMsx" alias=".service_locator.dQzUaDu"/>
+    <service id=".service_locator.lhyxLvN" alias=".service_locator.XVIxVsi"/>
+    <service id=".service_locator.No8q5Gh" alias=".service_locator.O6Oky2T"/>
+    <service id=".service_locator.SjK3v_Q" alias=".service_locator.u53w2.o"/>
+    <service id=".service_locator.eWhPgJB" alias=".service_locator.rbCKgcT"/>
+    <service id=".service_locator.x9t4jY8" alias=".service_locator.ihyDi0i"/>
+    <service id=".service_locator.Zb9oBsT" alias=".service_locator.jmzV6Su"/>
+    <service id=".service_locator.X8Czm6x" alias=".service_locator.He_tDv4"/>
+    <service id=".service_locator.E_67Apa" alias=".service_locator.Gui_fby"/>
+    <service id=".service_locator.hQH2XxV" alias=".service_locator.y7lHMN6"/>
+    <service id=".service_locator.JrG4c2G" alias=".service_locator.Lv5K54w"/>
+    <service id=".service_locator.V2XA8yS" alias=".service_locator.5VueRya"/>
+    <service id=".service_locator.Vkz8tEM" alias=".service_locator.pOOOA_1"/>
+    <service id=".service_locator.QPOv4M7" alias=".service_locator.HxCdkCe"/>
+    <service id=".service_locator.QJFrf5m" alias=".service_locator.tU2nkXn"/>
+    <service id=".service_locator.3I6YHxw" alias=".service_locator.cJRo3qT"/>
+    <service id=".service_locator.Vt5INLb" alias=".service_locator.gceykvT"/>
+    <service id=".service_locator.MguG8Rb" alias=".service_locator.29s7hJ1"/>
+    <service id=".service_locator.PCj_Z7Y" alias=".service_locator.fiV_3M5"/>
+    <service id=".service_locator.tGDLkWF" alias=".service_locator.u2fciAB"/>
+    <service id=".service_locator.d9.PyOZ" alias=".service_locator.4EHAhEc"/>
+    <service id=".service_locator.lTUi0Kx" alias=".service_locator.xj1Vwg0"/>
+    <service id=".service_locator.gGi0xWE" alias=".service_locator..EDEdwm"/>
+    <service id=".service_locator.avMzvDW" alias=".service_locator.dgvuIAT"/>
+    <service id=".service_locator.nnejjli" alias=".service_locator.UJg4yqJ"/>
+    <service id=".service_locator.eSrDnbX" alias=".service_locator.NyMPQM_"/>
+    <service id=".service_locator.lfNjKFH" alias=".service_locator.bIPZ3W7"/>
+    <service id=".service_locator.lWdq5QI" alias=".service_locator.VIaBFJb"/>
+    <service id=".service_locator.7DUiEoO" alias=".service_locator.WW5KjXA"/>
+    <service id=".service_locator.6TEk8s4" alias=".service_locator.yvYK5Bh"/>
+    <service id=".service_locator.pRsPv_1" alias=".service_locator.YN55Ayt"/>
+    <service id=".service_locator.Qffb1WX" alias=".service_locator.1_Qpv22"/>
+    <service id=".service_locator.5mHy5iQ" alias=".service_locator.N9VOSF8"/>
+    <service id=".service_locator.JBxZPwx" alias=".service_locator.IuXccsC"/>
+    <service id=".service_locator.t7cYfao" alias=".service_locator.YVT_0fT"/>
+    <service id=".service_locator.ibb5Yph" alias=".service_locator.98vJ9rN"/>
+    <service id=".service_locator.u6TPISG" alias=".service_locator.2m7.ihx"/>
+    <service id=".service_locator.AlHtu1N" alias=".service_locator.yAJgZEU"/>
+    <service id=".service_locator.5FVtvEL" alias=".service_locator.bttjbPl"/>
+    <service id=".service_locator.Y8LJ_0W" alias=".service_locator.XgPMn.H"/>
+    <service id=".service_locator.JlmCt1o" alias=".service_locator.WCTzRw1"/>
+    <service id=".service_locator.9ZIVuaj" alias=".service_locator..RP8fEe"/>
+    <service id=".service_locator.WANaGgq" alias=".service_locator.WKgLEIg"/>
+    <service id=".service_locator.0WfwZ4u" alias=".service_locator.TJkIAI_"/>
+    <service id=".service_locator.aWHbQ3l" alias=".service_locator.OJsxJ.f"/>
+    <service id=".service_locator.zjiucev" alias=".service_locator.chelA8_"/>
+    <service id=".service_locator.wocaZx_" alias=".service_locator.uYQNobO"/>
+    <service id=".service_locator.bAsvL5E" alias=".service_locator.aBnFrU4"/>
+    <service id=".service_locator.nakh_CY" alias=".service_locator.eWN17oh"/>
+    <service id=".service_locator.npb9.fI" alias=".service_locator.MyFGqY6"/>
+    <service id=".service_locator.GABpZms" alias=".service_locator.eSDB_Bi"/>
+    <service id=".service_locator.Teh8.JE" alias=".service_locator.sQT9DfJ"/>
+    <service id=".service_locator.yQKb4l2" alias=".service_locator.q4bsI0S"/>
+    <service id=".service_locator.rZ821cr" alias=".service_locator.ROkM79E"/>
+    <service id=".service_locator.PfZrNcM" alias=".service_locator.PK6I9Uv"/>
+    <service id=".service_locator.XmXch_7" alias=".service_locator.joWJGjh"/>
+    <service id=".service_locator.p1hxkyY" alias=".service_locator.TVi9ASB"/>
+    <service id=".service_locator.0Xzdz0X" alias=".service_locator.cuUB_.X"/>
+    <service id=".service_locator.rm6A4vM" alias=".service_locator.EdV3fE_"/>
+    <service id=".service_locator..asogEu" alias=".service_locator.qK8hRjI"/>
+    <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
+    <service id=".service_locator.M_vUiO9" alias=".service_locator.GHNv1uK"/>
+    <service id=".service_locator.kUh5tV." alias=".service_locator.dpFd_PZ"/>
+    <service id=".service_locator.fpDaB_H" alias=".service_locator.mE2wygX"/>
+    <service id=".service_locator.hZMbIbD" alias=".service_locator.RrBOjBL"/>
+    <service id=".service_locator._SgnYHS" alias=".service_locator.UH9HhJu"/>
+    <service id=".service_locator.ibuLDZ1" alias=".service_locator.nFf2lw3"/>
+    <service id=".service_locator._Cu4D6u" alias=".service_locator.y64cyUX"/>
+    <service id=".service_locator.X0uuSWy" alias=".service_locator.LiLgd1."/>
+    <service id=".service_locator.XvlbLin" alias=".service_locator._VltN4E"/>
+    <service id=".service_locator.0o9PxLC" alias=".service_locator.DBOfijv"/>
+    <service id=".service_locator.BX7AqU_" alias=".service_locator.bAD3la7"/>
+    <service id=".service_locator.nPBYX6g" alias=".service_locator.cRURelY"/>
+    <service id=".service_locator.8PQa8Mp" alias=".service_locator..Ae5NXw"/>
+    <service id=".service_locator.8NyPG9c" alias=".service_locator.WUtyewl"/>
+    <service id=".service_locator.NFoOWn0" alias=".service_locator.ch4Jgvl"/>
+    <service id=".service_locator.da4WYf9" alias=".service_locator.syInHo8"/>
+    <service id=".service_locator.IyTIsd6" alias=".service_locator.4MF6DUv"/>
+    <service id=".service_locator.Ik.3QVp" alias=".service_locator.7AwcF1W"/>
+    <service id=".service_locator.YwU.TIq" alias=".service_locator.raaoeKj"/>
+    <service id=".service_locator.KuJGBV2" alias=".service_locator.ij9q400"/>
+    <service id=".service_locator.sVKURSW" alias=".service_locator.8sxmf6L"/>
+    <service id=".service_locator.iUHdcUW" alias=".service_locator.dkSwYJR"/>
+    <service id=".service_locator.l3Sewms" alias=".service_locator.MEoY.JV"/>
+    <service id=".service_locator.kydi4Ed" alias=".service_locator.5miB8_X"/>
+    <service id=".service_locator.gWlnTlD" alias=".service_locator.VwfW7AR"/>
+    <service id=".service_locator.6a.0nWo" alias=".service_locator.ouOW6lS"/>
+    <service id=".service_locator.jWw5Mqt" alias=".service_locator.8Sc58ds"/>
+    <service id=".service_locator.bG1bI9a" alias=".service_locator.8_u7Nqu"/>
+    <service id=".service_locator.TQOoFqh" alias=".service_locator.JOlxy4n"/>
+    <service id=".service_locator.aGlBQG_" alias=".service_locator.q4LbOCZ"/>
+    <service id=".service_locator.qZ8OvnQ" alias=".service_locator.idHXkW9"/>
+    <service id=".service_locator.EDw99q0" alias=".service_locator.E4CDJlE"/>
+    <service id=".service_locator.pbqgeKl" alias=".service_locator.omZi5k."/>
+    <service id=".service_locator.Wd_D6Iy" alias=".service_locator.GNc8e5B"/>
+>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f
+>>>>>>> 9ff131dc3f1d539d565d1ea1bbe799cf5823e506
     <service id=".service_locator.sf85gDo" alias=".service_locator.XmPJruK"/>
     <service id=".service_locator.pFwChgS" alias=".service_locator.UkE3SaZ"/>
     <service id=".service_locator.aa1PbBb" alias=".service_locator.nLgZj7R"/>
