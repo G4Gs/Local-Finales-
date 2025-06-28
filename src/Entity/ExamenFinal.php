@@ -33,6 +33,10 @@ class ExamenFinal
     private ?\DateTimeInterface $hora = null;
 
     // Relación con Tecnicatura (si tu tabla examen_final tiene tecnicatura_id)
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tecnicatura")
+     * @ORM\JoinColumn(nullable=false)
+     */
     #[ORM\ManyToOne(targetEntity: Tecnicatura::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Tecnicatura $tecnicatura = null;

@@ -6,10 +6,14 @@ use App\Entity\ExamenFinal;
 use App\Entity\Tecnicatura;
 use App\Entity\Asignatura;
 use App\Entity\Comision;
+use App\Entity\Curso;
+use App\Entity\Docente;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ExamenFinalType extends AbstractType
 {

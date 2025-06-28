@@ -39,7 +39,7 @@ class ExamenFinalRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByFilters(?string $tecnicatura, ?string $asignatura, ?string $comision, ?string $presidente): array
+    public function findByFilters(?string $tecnicatura, ?string $asignatura, ?string $comision, ?string $presidente, ?string $curso = null): array
     {
         $qb = $this->createQueryBuilder('e')
             ->leftJoin('e.tecnicatura', 't')
@@ -69,9 +69,9 @@ class ExamenFinalRepository extends ServiceEntityRepository
         }
 
         if ($curso) {
-        $qb->andWhere('c.id = :curso')
-           ->setParameter('curso', $curso);
-    }
+            $qb->andWhere('e.curso = :curso')
+               ->setParameter('curso', $curso);
+        }
 
         return $qb->getQuery()->getResult();
     }

@@ -34,7 +34,7 @@ class ExamenFinalController extends AbstractController
         $comision = $request->query->get('comision');
         $presidente = $request->query->get('presidente');
 
-        $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $comision, $presidente);
+        $examen_finals = $examenFinalRepository->findByFilters($tecnicatura, $asignatura, $comision, $presidente, $curso);
         $examen_alumnos = $examenAlumnoRepository->findAll();
         $inscripcion_finals = $inscripcionFinalRepository->findAll();
 
@@ -42,6 +42,7 @@ class ExamenFinalController extends AbstractController
             'examen_finals' => $examen_finals,
             'examen_alumnos' => $examen_alumnos,
             'inscripcion_finals' => $inscripcion_finals,
+            'curso' => $curso, // <-- Add this line
         ]);
     }
 
