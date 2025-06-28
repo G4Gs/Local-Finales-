@@ -1,3 +1,7 @@
 <?php //%5BC%5DApp%255CController%255CVistasController%2523create2
 
+<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/M/P/6f8+O8hRJJ4-+HhhIf3A
 return [PHP_INT_MAX, 1751069265];
+=======
+return [PHP_INT_MAX, 1751063688];
+>>>>>>> 82480ab6010721423d12f89a341c60c33df4d328:var/cache/dev/pools/system/9evvotpsxZ/M/P/6f8+O8hRJJ4-+HhhIf3A

@@ -1,11 +1,10 @@
 {{ form_start(form, {'attr': {'id': 'form-crea-MiMesa'}, 'action': path('nueva_mesa')} ) }}
-    {{ form_row(form.asignatura, {'label': 'Asignatura'}) }}
+    {{ form_row(form.curso, {'label': 'Curso'}) }}
     {{ form_row(form.fecha, {'label': 'Fecha'}) }}
     {{ form_row(form.hora, {'label': 'Hora'}) }}
     {{ form_row(form.presidente, {'label': 'Presidente de Mesa'}) }}
     {{ form_row(form.vocal1, {'label': 'Primer Vocal'}) }}
     {{ form_row(form.vocal2, {'label': 'Segundo Vocal'}) }}
     {{ form_row(form.estadoMesa, {'label': 'Estado de Mesa'}) }}
-    {{ form_row(form.tecnicatura, {'label': 'Tecnicatura'}) }}
     <button type="submit" class="button">Guardar</button>
 {{ form_end(form) }}

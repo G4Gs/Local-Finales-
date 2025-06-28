@@ -76,6 +76,20 @@ class ExamenAlumno
     public function setAlumno(?Alumno $alumno): static
     {
         $this->alumno = $alumno;
+<<<<<<< HEAD
+=======
+        return $this;
+    }
+
+    public function getExamenFinal(): ?ExamenFinal
+    {
+        return $this->examenFinal;
+    }
+
+    public function setExamenFinal(?ExamenFinal $examenFinal): static
+    {
+        $this->examenFinal = $examenFinal;
+>>>>>>> 82480ab6010721423d12f89a341c60c33df4d328
         return $this;
     }
 }

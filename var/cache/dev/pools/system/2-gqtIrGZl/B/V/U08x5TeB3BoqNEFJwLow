@@ -1,3 +1,7 @@
 <?php //%5BC%5DApp%255CController%255CTecnicaturaController%2523index
 
+<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/B/V/U08x5TeB3BoqNEFJwLow
 return [PHP_INT_MAX, 1751069259];
+=======
+return [PHP_INT_MAX, 1751063687];
+>>>>>>> 82480ab6010721423d12f89a341c60c33df4d328:var/cache/dev/pools/system/9evvotpsxZ/B/V/U08x5TeB3BoqNEFJwLow
