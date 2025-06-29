@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getInscripcionFinalService.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getInscripcionFinalService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getInscripcionFinalService extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.LCbobIM.App\Entity\InscripcionFinal' shared service.
+     * Gets the private '.errored..service_locator.WW5KjXA.App\Entity\InscripcionFinal' shared service.
      *
      * @return \App\Entity\InscripcionFinal
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.LCbobIM": it references class "App\\Entity\\InscripcionFinal" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.WW5KjXA": it references class "App\\Entity\\InscripcionFinal" but no such service exists.');
     }
 }

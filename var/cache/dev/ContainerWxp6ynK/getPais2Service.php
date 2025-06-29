@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getPais2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getPais2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getPais2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.HuJItRo.App\Entity\Pais' shared service.
+     * Gets the private '.errored..service_locator.TJkIAI_.App\Entity\Pais' shared service.
      *
      * @return \App\Entity\Pais
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.HuJItRo": it references class "App\\Entity\\Pais" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.TJkIAI_": it references class "App\\Entity\\Pais" but no such service exists.');
     }
 }

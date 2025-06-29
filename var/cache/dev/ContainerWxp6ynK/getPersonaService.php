@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getPersonaService.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getPersonaService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getPersonaService extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.S6cVw0t.App\Entity\Persona' shared service.
+     * Gets the private '.errored..service_locator.aBnFrU4.App\Entity\Persona' shared service.
      *
      * @return \App\Entity\Persona
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.S6cVw0t": it references class "App\\Entity\\Persona" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.aBnFrU4": it references class "App\\Entity\\Persona" but no such service exists.');
     }
 }

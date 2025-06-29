@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CHabilitanteController%2523index
 
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/L/N/3i1jVbQUPmXwL68Hu3Cw
-return [PHP_INT_MAX, 1750728482];
-========
-return [PHP_INT_MAX, 1751071668];
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/L/N/3i1jVbQUPmXwL68Hu3Cw
+return [PHP_INT_MAX, 1751147146];

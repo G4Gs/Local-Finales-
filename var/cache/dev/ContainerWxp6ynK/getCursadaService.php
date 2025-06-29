@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getCursadaService.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getCursadaService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getCursadaService extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.VWX6yVv.App\Entity\Cursada' shared service.
+     * Gets the private '.errored..service_locator.rbCKgcT.App\Entity\Cursada' shared service.
      *
      * @return \App\Entity\Cursada
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.VWX6yVv": it references class "App\\Entity\\Cursada" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.rbCKgcT": it references class "App\\Entity\\Cursada" but no such service exists.');
     }
 }

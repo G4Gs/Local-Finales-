@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getTurno2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getTurno2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getTurno2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.GlfVhgC.App\Entity\Turno' shared service.
+     * Gets the private '.errored..service_locator.cRURelY.App\Entity\Turno' shared service.
      *
      * @return \App\Entity\Turno
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.GlfVhgC": it references class "App\\Entity\\Turno" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.cRURelY": it references class "App\\Entity\\Turno" but no such service exists.');
     }
 }

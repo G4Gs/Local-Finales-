@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getCalendarioClase2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getCalendarioClase2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getCalendarioClase2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.yzhKFl_.App\Entity\CalendarioClase' shared service.
+     * Gets the private '.errored..service_locator.evQ0qH8.App\Entity\CalendarioClase' shared service.
      *
      * @return \App\Entity\CalendarioClase
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.yzhKFl_": it references class "App\\Entity\\CalendarioClase" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.evQ0qH8": it references class "App\\Entity\\CalendarioClase" but no such service exists.');
     }
 }

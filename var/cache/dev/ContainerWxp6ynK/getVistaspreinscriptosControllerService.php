@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getVistaspreinscriptosControllerService.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getVistaspreinscriptosControllerService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -28,7 +23,7 @@ class getVistaspreinscriptosControllerService extends App_KernelDevDebugContaine
 
         $container->services['App\\Controller\\VistaspreinscriptosController'] = $instance = new \App\Controller\VistaspreinscriptosController(new \App\Service\PreinscriptionService(($container->services['doctrine.dbal.external_connection'] ?? $container->load('getDoctrine_Dbal_ExternalConnectionService'))));
 
-        $instance->setContainer(($container->privates['.service_locator.mx0UMmY'] ?? $container->load('get_ServiceLocator_Mx0UMmYService'))->withContext('App\\Controller\\VistaspreinscriptosController', $container));
+        $instance->setContainer(($container->privates['.service_locator.GNc8e5B'] ?? $container->load('get_ServiceLocator_GNc8e5BService'))->withContext('App\\Controller\\VistaspreinscriptosController', $container));
 
         return $instance;
     }

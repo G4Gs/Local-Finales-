@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getLocalidadService.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getLocalidadService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getLocalidadService extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.QrC_.Ng.App\Entity\Localidad' shared service.
+     * Gets the private '.errored..service_locator.98vJ9rN.App\Entity\Localidad' shared service.
      *
      * @return \App\Entity\Localidad
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.QrC_.Ng": it references class "App\\Entity\\Localidad" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.98vJ9rN": it references class "App\\Entity\\Localidad" but no such service exists.');
     }
 }

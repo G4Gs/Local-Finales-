@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getHorarioService.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getHorarioService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getHorarioService extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.esjls9Y.App\Entity\Horario' shared service.
+     * Gets the private '.errored..service_locator.NyMPQM_.App\Entity\Horario' shared service.
      *
      * @return \App\Entity\Horario
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.esjls9Y": it references class "App\\Entity\\Horario" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.NyMPQM_": it references class "App\\Entity\\Horario" but no such service exists.');
     }
 }

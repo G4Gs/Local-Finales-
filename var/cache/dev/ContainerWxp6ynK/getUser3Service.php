@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getUser3Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getUser3Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getUser3Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.TNwhQMg.App\Entity\User' shared service.
+     * Gets the private '.errored..service_locator.syInHo8.App\Entity\User' shared service.
      *
      * @return \App\Entity\User
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.TNwhQMg": it references class "App\\Entity\\User" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.syInHo8": it references class "App\\Entity\\User" but no such service exists.');
     }
 }

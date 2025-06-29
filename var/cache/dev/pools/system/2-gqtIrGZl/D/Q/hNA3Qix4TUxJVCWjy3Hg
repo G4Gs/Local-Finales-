@@ -1,7 +1,0 @@
-<?php //%5BC%5DApp%255CKernel%2523getCacheDir
-
-<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/D/Q/hNA3Qix4TUxJVCWjy3Hg
-return [PHP_INT_MAX, 1750728583];
-=======
-return [PHP_INT_MAX, 1751071670];
->>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/D/Q/hNA3Qix4TUxJVCWjy3Hg

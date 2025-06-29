@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getAsignatura2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getAsignatura2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getAsignatura2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator._lPNFGH.App\Entity\Asignatura' shared service.
+     * Gets the private '.errored..service_locator.XSMQj8v.App\Entity\Asignatura' shared service.
      *
      * @return \App\Entity\Asignatura
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator._lPNFGH": it references class "App\\Entity\\Asignatura" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.XSMQj8v": it references class "App\\Entity\\Asignatura" but no such service exists.');
     }
 }

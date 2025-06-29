@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getCurso2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getCurso2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getCurso2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.wqXBDHD.App\Entity\Curso' shared service.
+     * Gets the private '.errored..service_locator.y7lHMN6.App\Entity\Curso' shared service.
      *
      * @return \App\Entity\Curso
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.wqXBDHD": it references class "App\\Entity\\Curso" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.y7lHMN6": it references class "App\\Entity\\Curso" but no such service exists.');
     }
 }

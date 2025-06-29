@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getTecnicatura2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getTecnicatura2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getTecnicatura2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.uCUCD3W.App\Entity\Tecnicatura' shared service.
+     * Gets the private '.errored..service_locator.mE2wygX.App\Entity\Tecnicatura' shared service.
      *
      * @return \App\Entity\Tecnicatura
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.uCUCD3W": it references class "App\\Entity\\Tecnicatura" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.mE2wygX": it references class "App\\Entity\\Tecnicatura" but no such service exists.');
     }
 }

@@ -275,19 +275,22 @@ function handleNotaFinalFormSubmit() {
 
     {# Tabla Inscriptos #}
     <table id="tablaInscriptos" class="tabla_home" style="display: none;" border="1">
-         <form method="get" action="">
-             <input type="text" name="inscripto_nombre" placeholder="Buscar estudiante" value="{{ app.request.get('inscripto_nombre') }}">
-             <input type="text" name="inscripto_tecnicatura" placeholder="Buscar tecnicatura" value="{{ app.request.get('inscripto_tecnicatura') }}">
-             <input type="text" name="inscripto_asignatura" placeholder="Buscar asignatura" value="{{ app.request.get('inscripto_asignatura') }}">
-             <button type="submit">Buscar</button>
-         </form>
         <thead>
             <tr>
-                <th colspan="6">Inscriptos</th>
+                <th colspan="7">Inscriptos</th>
             </tr>
+             <tr>
+              <th colspan="7">
+             <form method="get" action="">
+               <input type="text" name="inscripto_nombre" placeholder="Buscar estudiante" value="{{ app.request.get('inscripto_nombre') }}">
+               <input type="text" name="inscripto_tecnicatura" placeholder="Buscar tecnicatura" value="{{ app.request.get('inscripto_tecnicatura') }}">
+               <input type="text" name="inscripto_asignatura" placeholder="Buscar asignatura" value="{{ app.request.get('inscripto_asignatura') }}">
+               <button type="submit">Buscar</button>
+             </form>
+            </th>
+           </tr>
             <tr>
                 <th>Fecha</th>
-
                 <th>Estudiante</th>
                 <th>Tecnicatura</th>
                 <th>Asignatura</th>
@@ -328,15 +331,19 @@ function handleNotaFinalFormSubmit() {
 
     {# Tabla Mesas (Fechas de Finales) #}
     <table id="tablaMesas" class="tabla_home" style="display: none;" border="1">
-       <form method="get" action="">
-         <input type="text" name="mesa_asignatura" placeholder="Buscar asignatura" value="{{ app.request.get('mesa_asignatura') }}">
-         <input type="text" name="mesa_tecnicatura" placeholder="Buscar tecnicatura" value="{{ app.request.get('mesa_tecnicatura') }}">
-         <input type="date" name="mesa_fecha" value="{{ app.request.get('mesa_fecha') }}">
-         <button type="submit">Buscar</button>
-     </form>
         <thead>
             <tr>
                 <th colspan="8">Fechas de Finales</th>
+            </tr>
+              <tr>
+              <th colspan="8">
+               <form method="get" action="">
+                 <input type="text" name="mesa_asignatura" placeholder="Buscar asignatura" value="{{ app.request.get('mesa_asignatura') }}">
+                 <input type="text" name="mesa_tecnicatura" placeholder="Buscar tecnicatura" value="{{ app.request.get('mesa_tecnicatura') }}">
+                 <input type="date" name="mesa_fecha" value="{{ app.request.get('mesa_fecha') }}">
+                 <button type="submit">Buscar</button>
+               </form>
+             </th>
             </tr>
             <tr>
                 <th>Fecha</th>
@@ -384,15 +391,20 @@ function handleNotaFinalFormSubmit() {
 
     {# Tabla Notas Finales #}
    <table id="tablaNotasFinales" class="tabla_home" style="display: none;" border="1">
-   <form method="get" action="">
-     <input type="text" name="nota_estudiante" placeholder="Buscar estudiante" value="{{ app.request.get('nota_estudiante') }}">
-     <input type="text" name="nota_asignatura" placeholder="Buscar asignatura" value="{{ app.request.get('nota_asignatura') }}">
-     <button type="submit">Buscar</button>
-    </form>
+   
     <thead>
         <tr>
             <th colspan="7">Notas de los Finales</th>
         </tr>
+        <tr>
+          <th colspan="7">
+             <form method="get" action="">
+              <input type="text" name="nota_estudiante" placeholder="Buscar estudiante" value="{{ app.request.get('nota_estudiante') }}">
+              <input type="text" name="nota_asignatura" placeholder="Buscar asignatura" value="{{ app.request.get('nota_asignatura') }}">
+              <button type="submit">Buscar</button>
+             </form>
+          </th>
+       </tr>
         <tr>
             <th>Estudiante</th>
             <th>Nota</th>

@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getModalidadService.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getModalidadService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getModalidadService extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.f2yhxqd.App\Entity\Modalidad' shared service.
+     * Gets the private '.errored..service_locator.bttjbPl.App\Entity\Modalidad' shared service.
      *
      * @return \App\Entity\Modalidad
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.f2yhxqd": it references class "App\\Entity\\Modalidad" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.bttjbPl": it references class "App\\Entity\\Modalidad" but no such service exists.');
     }
 }

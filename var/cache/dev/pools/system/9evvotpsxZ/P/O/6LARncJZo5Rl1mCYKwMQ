@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CHorarioController%2523delete
 
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/P/O/6LARncJZo5Rl1mCYKwMQ
-return [PHP_INT_MAX, 1750728488];
-========
-return [PHP_INT_MAX, 1751071669];
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/P/O/6LARncJZo5Rl1mCYKwMQ
+return [PHP_INT_MAX, 1751147146];

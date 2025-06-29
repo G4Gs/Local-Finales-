@@ -1,7 +1,3 @@
 <?php //%5BC%5DApp%255CController%255CVistasController%2523uploadPdf
 
-<<<<<<<< HEAD:var/cache/dev/pools/system/2-gqtIrGZl/Q/1/Qv1A0P71ZImzCbrScj4g
-return [PHP_INT_MAX, 1750728534];
-========
-return [PHP_INT_MAX, 1751071669];
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/pools/system/9evvotpsxZ/Q/1/Qv1A0P71ZImzCbrScj4g
+return [PHP_INT_MAX, 1751147147];

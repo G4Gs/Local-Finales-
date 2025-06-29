@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getComision2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getComision2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getComision2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.I2o8IfA.App\Entity\Comision' shared service.
+     * Gets the private '.errored..service_locator._rTCOGA.App\Entity\Comision' shared service.
      *
      * @return \App\Entity\Comision
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.I2o8IfA": it references class "App\\Entity\\Comision" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator._rTCOGA": it references class "App\\Entity\\Comision" but no such service exists.');
     }
 }

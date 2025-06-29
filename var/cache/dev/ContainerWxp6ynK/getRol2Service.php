@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getRol2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getRol2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getRol2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.oHNzwhY.App\Entity\Rol' shared service.
+     * Gets the private '.errored..service_locator.qK8hRjI.App\Entity\Rol' shared service.
      *
      * @return \App\Entity\Rol
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.oHNzwhY": it references class "App\\Entity\\Rol" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.qK8hRjI": it references class "App\\Entity\\Rol" but no such service exists.');
     }
 }

@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<<< HEAD:var/cache/dev/ContainerZedAest/getRevista2Service.php
-namespace ContainerZedAest;
-
-========
 namespace ContainerWxp6ynK;
->>>>>>>> 15004e1e441728d7bfb90a33f34e34e28484990f:var/cache/dev/ContainerWxp6ynK/getRevista2Service.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -16,12 +11,12 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 class getRevista2Service extends App_KernelDevDebugContainer
 {
     /**
-     * Gets the private '.errored..service_locator.uDOEynA.App\Entity\Revista' shared service.
+     * Gets the private '.errored..service_locator.joWJGjh.App\Entity\Revista' shared service.
      *
      * @return \App\Entity\Revista
      */
     public static function do($container, $lazyLoad = true)
     {
-        $container->throw('Cannot autowire service ".service_locator.uDOEynA": it references class "App\\Entity\\Revista" but no such service exists.');
+        $container->throw('Cannot autowire service ".service_locator.joWJGjh": it references class "App\\Entity\\Revista" but no such service exists.');
     }
 }
