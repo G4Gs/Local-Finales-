@@ -44,7 +44,9 @@ class CursoRepository extends ServiceEntityRepository
 {
     return $this->createQueryBuilder('c')
         ->join('c.comision', 'com')
-        ->andWhere('com.ciclo_lectivo = :ciclo')
+      ->andWhere('com.ciclo_lectivo = :ciclo')
+
+
         ->setParameter('ciclo', $cicloLectivo)
         ->getQuery()
         ->getResult();

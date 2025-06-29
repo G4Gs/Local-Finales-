@@ -136,19 +136,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getMainRole(): string
+   public function getLowestRole(): string
 {
     $roles = $this->getRoles();
 
-    // Lista ordenada de mayor a menor jerarquía
-    $rolePriority = [
+    $rolePriority = array_reverse([
         'ROLE_SUPER_ADMIN',
         'ROLE_ADMIN',
         'ROLE_PRECEPTOR',
         'ROLE_DOCENTE',
         'ROLE_ESTUDIANTE',
         'ROLE_USER',
-    ];
+    ]);
 
     foreach ($rolePriority as $role) {
         if (in_array($role, $roles, true)) {
@@ -156,9 +155,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
     }
 
-    // Si no tiene ningún rol, devolvemos ROLE_USER por defecto
     return 'ROLE_USER';
 }
+
+public function hasRole(string $role): bool
+{
+    return in_array($role, $this->getRoles(), true);
+}
+
+
 
 
 }

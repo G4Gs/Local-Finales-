@@ -115,7 +115,7 @@ class VistaspreinscriptosController extends AbstractController
             ->join('curso.comision', 'comision')
             ->where('comision.tecnicatura = :tecnicatura')
             ->andWhere('comision.anio = 1') // Filtrar solo comisiones de 1° año
-            ->andWhere('curso.ciclo_lectivo = :anioActual')
+            ->andWhere('comision.ciclo_lectivo = :anioActual')
             ->setParameter('tecnicatura', $tecnicatura)
             ->setParameter('anioActual', $anioActual)
             ->getQuery()

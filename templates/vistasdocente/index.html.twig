@@ -107,18 +107,14 @@ console.log("Curso seleccionado:", selectedCursoId);
 // Actualizar el link con el cursoId correcto
     const linkLista = document.getElementById('linkListaPorDia');
     if (linkLista) {
-linkLista.href = `lista/${cursoId}`;
-
-
+        linkLista.href = `/local/public/index.php/lista/${cursoId}`;
     }
 
     const listaProfesores = document.getElementById('tablaTecnicaturas');
     if (listaProfesores) listaProfesores.style.display = 'none';
 
     // Pedir datos actualizados al backend
-fetch(`actualizar-lista-alumnos/${cursoId}`)
-
-
+    fetch(`/local/public/index.php/actualizar-lista-alumnos/${cursoId}`)
         .then(response => {
             if (!response.ok) throw new Error('Error al obtener datos actualizados');
             return response.json();
@@ -610,9 +606,7 @@ fetch(`actualizar-lista-alumnos/${cursoId}`)
         document.querySelector('.Fechadehoy').textContent = fechaActual;
 
         // 🔄 Pedir datos actualizados al backend
-fetch(`estadisticas/${cursoId}`)
-
-
+        fetch(`/local/public/index.php/estadisticas/${cursoId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error en la respuesta del servidor');
@@ -695,32 +689,33 @@ fetch(`estadisticas/${cursoId}`)
     </script>
 
     {# Filtro necesario para no acceder un docente a todas los cursos, aqui ademas el super-adminitrador puede acceder sin filtro a todos los registros #}
+        {# Script para abrir modal #}
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var userEmail = "{{ app.user.email }}";  // aqui obtenemos el correo del usuario logueado
-            var userDni = userEmail.split('@')[0];  // Extraer el DNI antes del '@'
-            
-            // Llamar a la función de filtrado
-            if (userEmail !== 'admin@admin.i12') {
-                filterTableByDni(userDni);
-            }
-        });
+        function openModal1() {
+    document.getElementById('Modal1').style.display = 'block';
 
-        function filterTableByDni(dni) {
-            // Obtener todas las filas de la tabla
-            var rows = document.querySelectorAll("#tablaTecnicaturas tbody tr");
-            
-            // Recorrer cada fila y mostrar/ocultar según el DNI
-            rows.forEach(function(row) {
-                var docenteData = row.querySelector('td:first-child').innerText;  // Obtener el texto del primer <td> (Docente)
-                if (docenteData.includes(dni)) {
-                    row.style.display = '';  // Mostrar la fila
-                } else {
-                    row.style.display = 'none';  // Ocultar la fila
-                }
-            });
-        }
-    </script>
+    if (docente) {
+        document.querySelector('.modal-contento .miinfo2.nombre').textContent = docente.persona.nombre;
+        document.querySelector('.modal-contento .miinfo2.apellido').textContent = docente.persona.apellido;
+        document.querySelector('.modal-contento .miinfo2.fechaNacimiento').textContent = docente.persona.fechaNacimiento;
+        document.querySelector('.modal-contento .miinfo2.dniPasaporte').textContent = docente.persona.dniPasaporte;
+        document.querySelector('.modal-contento .miinfo2.genero').textContent = docente.persona.genero;
+        document.querySelector('.modal-contento .miinfo2.email').textContent = docente.persona.email;
+        document.querySelector('.modal-contento .miinfo2.telefono').textContent = docente.persona.telefono;
+        document.querySelector('.modal-contento .miinfo2.partido').textContent = docente.persona.partido;
+        document.querySelector('.modal-contento .miinfo2.calle').textContent = docente.persona.calle;
+        document.querySelector('.modal-contento .miinfo2.numero').textContent = docente.persona.numero;
+        document.querySelector('.modal-contento .miinfo2.piso').textContent = docente.persona.piso;
+        document.querySelector('.modal-contento .miinfo2.departamento').textContent = docente.persona.departamento;
+        document.querySelector('.modal-contento .miinfo2.pasillo').textContent = docente.persona.pasillo;
+        document.querySelector('.modal-contento .miinfo2.pais').textContent = docente.persona.pais;
+        document.querySelector('.modal-contento .miinfo2.localidad').textContent = docente.persona.localidad;
+        document.querySelector('.modal-contento .miinfo2.foja').textContent = docente.foja;
+        // Si necesitás también mostrar habilitaciones:
+        // document.querySelector('.modal-contento .miinfo2.anioEgreso').textContent = docente.habilitaciones[0].anioEgreso;
+    }
+}
+
 
 {% endblock %}
 
@@ -740,26 +735,24 @@ fetch(`estadisticas/${cursoId}`)
                 </tr>
             </thead>
             <tbody>
-            {% for cursada_docente in cursada_docentes %}
-                <tr>
-                    <td>{{ cursada_docente }}</td>
-                    <td>{{ cursada_docente.curso.asignatura.nombre }}</td>
-                    <td>{{ cursada_docente.curso.comision }}</td>
-                    <td>{{ cursada_docente.curso.comision.tecnicatura }}</td>
-                    <td>
-                        <button onclick="showListaNueva({{ cursada_docente.curso.id }})" class="btn-primary">Asistencia</button>
-                      
-                        
-                    </td>
-                    <td>
-                        <button onclick="showCursoCursada({{ cursada_docente.curso.id }})" class="btn-primary">Notas</button>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="4">no records found</td>
-                </tr>
-            {% endfor %}
+                {% for cursada_docente in cursadas %}
+                    <tr>
+                        <td>{{ cursada_docente.docente.persona.apellido }}, {{ cursada_docente.docente.persona.nombre }}</td>
+                        <td>{{ cursada_docente.curso.asignatura.nombre }}</td>
+                        <td>{{ cursada_docente.curso.comision.comision }}</td>
+                        <td>{{ cursada_docente.curso.comision.tecnicatura.nombre }}</td>
+                        <td>
+                            <button onclick="showListaNueva({{ cursada_docente.curso.id }})" class="btn-primary">Asistencia</button>
+                        </td>
+                        <td>
+                            <button onclick="showCursoCursada({{ cursada_docente.curso.id }})" class="btn-primary">Notas</button>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">No se encontraron registros</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
 
@@ -1266,36 +1259,31 @@ fetch(`estadisticas/${cursoId}`)
     return `${yyyy}-${mm}-${dd}`;
 }
 
-// Ruta para obtener calendario del día, esperando un parámetro cursoId que se concatena en JS
-    const rutaBaseCalendarioClaseDelDia = "{{ path('api_calendario_clase_del_dia', {'cursoId': 0})|slice(0, -1) }}"; 
-    // Explicación: path('api_calendario_clase_del_dia', {'cursoId': 0}) da '/api/calendario-clase-del-dia/0'
-    // con slice(0, -1) quitamos el último caracter '0', quedando '/api/calendario-clase-del-dia/'
-
-    // Ruta para actualizar lista alumnos (similar al anterior)
-    const rutaBaseActualizarListaAlumnos = "{{ path('actualizar_lista_alumnos', {'curso_id': 0})|slice(0, -1) }}";
-
-    // Ruta completa para guardar asistencia (no necesita concatenar)
-    const rutaGuardarAsistencia = "{{ path('guardar_asistencia') }}";
-
 function guardarAsistencias() {
-    const urlCalendario = rutaBaseCalendarioClaseDelDia + selectedCursoId;
-    const urlGuardar = rutaGuardarAsistencia;
+    const urlCalendario = `/local/public/index.php/api/calendario-clase-del-dia/${selectedCursoId}`;
+    const urlGuardar = "{{ path('guardar_asistencia') }}";
 
+    // Paso 1: Obtener el CalendarioClase correspondiente al curso y día
     fetch(urlCalendario)
         .then(response => {
-            if (!response.ok) throw new Error('No se encontró CalendarioClase para este curso hoy');
+            if (!response.ok) {
+                throw new Error('No se encontró CalendarioClase para este curso hoy');
+            }
             return response.json();
         })
         .then(data => {
             const calendarioClaseId = data.id;
 
+            // Paso 2: Preparar los datos de asistencias con el ID del CalendarioClase
+            // Adaptamos la estructura para que tenga las claves que espera el backend
             const datosAEnviar = Object.values(asistenciasMarcadas).map(asistencia => ({
-                cursada_id: asistencia.cursada_id,
+                cursada_id: asistencia.cursada_id, // o asistencia.id, según cómo tengas
                 calendarioClase_id: calendarioClaseId,
-                estado: asistencia.estado,
+                estado: asistencia.estado,          // que sea 'presente', 'ausente', etc.
                 observacion: asistencia.observacion || null
             }));
 
+            // Paso 3: Enviar las asistencias al backend
             return fetch(urlGuardar, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1303,10 +1291,13 @@ function guardarAsistencias() {
             });
         })
         .then(response => {
-            if (!response.ok) return response.text().then(text => { throw new Error(text); });
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text); });
+            }
             console.log('✅ Asistencias guardadas correctamente');
 
-            return fetch(rutaBaseActualizarListaAlumnos + selectedCursoId);
+            // Paso 4: Actualizar la lista de alumnos para reflejar cambios
+            return fetch(`/local/public/index.php/actualizar-lista-alumnos/${selectedCursoId}`);
         })
         .then(response => {
             if (!response.ok) throw new Error('Error al obtener los datos actualizados');
@@ -1360,7 +1351,6 @@ function guardarAsistencias() {
 
 
 
-
     function actualizarContadorPresentes() {
         const filas = document.querySelectorAll('.curso-tabla tbody .fila-alumno');
         let presentes = 0;
@@ -1377,7 +1367,7 @@ function guardarAsistencias() {
 
         const totalPresentes = document.querySelector('.total-presentes');
         if (totalPresentes) {
-            totalPresentes.textContent = `Alumnos presentes: ${presentes} + ${mediaFaltas}`;
+            totalPresentes.textContent = `Alumnos presentes: ${presentes}`;
         }
     }
     document.addEventListener('DOMContentLoaded', () => {
@@ -1542,8 +1532,7 @@ document.getElementById('guardarModalidadBtn').addEventListener('click', () => {
   };
 
   // Enviar la solicitud POST a Symfony
-fetch('newcalendario', {
-
+  fetch('/local/public/index.php/newcalendario', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

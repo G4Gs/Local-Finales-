@@ -34,42 +34,68 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class VistasestudianteController extends AbstractController
 {
-    #[Route('/vistasestudiante', name: 'app_vistasestudiante')]
-    public function index(CursoRepository $cursoRepository, CarrerasRepository $carrerasRepository, Request $request): Response
-    {
+  #[Route('/vistasestudiante', name: 'app_vistasestudiante')]
+public function index(
+    CursoRepository $cursoRepository,
+    CarrerasRepository $carrerasRepository,
+    AlumnoRepository $alumnoRepository,
+    CursadaRepository $cursadaRepository,
+    Request $request
+): Response {
+    $session = $request->getSession();
+    $session->remove('tecId');
+    $session->remove('comId');
 
-        $session = $request->getSession();
-        $tecId = $session->get('tecId', null);
-        $comId = $session->get('comId', null);
+    /** @var User|null $user */
+    $user = $this->getUser();
 
-        if ($tecId === null) {
-            $tecId = null; 
-        } else {
-            $session->remove('tecId');
+    $alumno = null;
+    $alumnoId = null;
+    $tecnicaturaId = null;
+    $estudianteNombre = null;
+    $carreraNombre = null;
+    $cursadas = [];
+    $carreras = [];
+
+    if ($user) {
+        $persona = $user->getPersona();
+        if ($persona) {
+            $estudianteNombre = $persona->getNombre() . ' ' . $persona->getApellido();
         }
 
-        if ($comId === null) {
-            $comId = null; 
-        } else {
-            $session->remove('comId');
+        if ($this->isGranted('ROLE_SUPER_ADMIN') || $this->isGranted('ROLE_ADMIN')) {
+            // Admins ven todos los registros de carreras sin filtro
+            $carreras = $carrerasRepository->findAll();
+        } elseif ($this->isGranted('ROLE_ESTUDIANTE')) {
+            // Estudiantes ven sólo sus propias carreras
+            if ($persona) {
+                $alumno = $alumnoRepository->findOneBy(['persona' => $persona]);
+                if ($alumno) {
+                    $alumnoId = $alumno->getId();
+                    $cursadas = $cursadaRepository->findBy(['alumno' => $alumno]);
+
+                    if ($tecnicatura = $alumno->getTecnicaturaActiva()) {
+                        $tecnicaturaId = $tecnicatura->getId();
+                        $carreraNombre = $tecnicatura->getNombre();
+                    }
+
+                    $carreras = $carrerasRepository->findBy(['estudiante_id' => $alumno]);
+                }
+            }
         }
-        $estudianteNombre = null;
-        $carreraNombre = null;
-        $tecnicaturaId = null;
-        $alumnoId = null; //Paso esta variable para tenerla disponible global en el template y guradar id del estudiante
-        $alumno = null;
-        return $this->render('vistasestudiante/index.html.twig', [
-            'carreras' => $carrerasRepository->findAll(),
-            'cursos' => $cursoRepository->findAll(),
-            'alumnoId' => $alumnoId,
-            'tecnicaturaId' => $tecnicaturaId,
-            'tecId' => $tecId,
-            'comId' => $comId,
-            'estudianteNombre' => $estudianteNombre,
-            'carreraNombre' => $carreraNombre,
-            'alumno' => $alumno,
-        ]);
     }
+
+    return $this->render('vistasestudiante/index.html.twig', [
+        'carreras' => $carreras,
+        'cursos' => $cursoRepository->findAll(),
+        'alumnoId' => $alumnoId,
+        'tecnicaturaId' => $tecnicaturaId,
+        'estudianteNombre' => $estudianteNombre,
+        'carreraNombre' => $carreraNombre,
+        'alumno' => $alumno,
+        'cursadas' => $cursadas,
+    ]);
+}
 
     #[Route('/miscursos/{Id}/{tecnicaturaId}', name: 'cursos_disponibles')]
     public function cursosDisponiblesAction(Request $request, $Id, $tecnicaturaId)

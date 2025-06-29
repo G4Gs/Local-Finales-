@@ -63,4 +63,14 @@ class CursadaDocenteRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+public function findByPersona($persona): array
+{
+    return $this->createQueryBuilder('cd')
+        ->join('cd.docente', 'd')
+        ->where('d.persona = :persona')
+        ->setParameter('persona', $persona)
+        ->getQuery()
+        ->getResult();
+}
 }

@@ -39,23 +39,28 @@ class ExamenFinalRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByFilters(?string $curso, ?string $presidente): array
-{
-    $qb = $this->createQueryBuilder('e')
-        ->leftJoin('e.curso', 'c')
-        ->leftJoin('e.presidente', 'p')
-        ->leftJoin('p.persona', 'pp');
+//    /**
+//     * @return ExamenFinal[] Returns an array of ExamenFinal objects
+//     */
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('e')
+//            ->andWhere('e.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('e.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
 
-    if ($curso) {
-        $qb->andWhere('c.id = :curso')
-           ->setParameter('curso', $curso);
-    }
-
-    if ($presidente) {
-        $qb->andWhere('LOWER(pp.nombre) LIKE :presidente')
-           ->setParameter('presidente', '%' . strtolower($presidente) . '%');
-    }
-
-    return $qb->getQuery()->getResult();
- }
+//    public function findOneBySomeField($value): ?ExamenFinal
+//    {
+//        return $this->createQueryBuilder('e')
+//            ->andWhere('e.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
 }

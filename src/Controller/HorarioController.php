@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Horario;
-use App\Entity\Curso;
 use App\Form\HorarioType;
 use App\Repository\HorarioRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,41 +22,25 @@ class HorarioController extends AbstractController
         ]);
     }
 
-  #[Route('/new/{curso_id?}', name: 'app_horario_new', methods: ['GET', 'POST'])]
-public function new(Request $request, EntityManagerInterface $entityManager, $curso_id = null): Response
-{
-    $horario = new Horario();
+    #[Route('/new', name: 'app_horario_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntityManagerInterface $em): Response
+    {
+        $horario = new Horario();
+        $form = $this->createForm(HorarioType::class, $horario);
+        $form->handleRequest($request);
 
-    $form = $this->createForm(HorarioType::class, $horario);
-    $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($horario);
+            $em->flush();
 
-    if ($form->isSubmitted() && $form->isValid()) {
-        if ($curso_id) {
-            $curso = $entityManager->getRepository(Curso::class)->find($curso_id);
-            if ($curso) {
-                $horario->setCurso($curso);
-            } else {
-                $this->addFlash('error', 'Curso no encontrado.');
-                return $this->redirectToRoute('app_horario_new');
-            }
+            $this->addFlash('success', 'Horario creado correctamente.');
+            return $this->redirectToRoute('app_horario_index');
         }
 
-        $entityManager->persist($horario);
-        $entityManager->flush();
-
-        if ($request->isXmlHttpRequest()) {
-            return $this->json(['success' => true]);
-        }
-
-        return $this->redirectToRoute('app_horario_index', [], Response::HTTP_SEE_OTHER);
+        return $this->render('horario/new.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
-
-    return $this->renderForm('horario/_form.html.twig', [
-        'horario' => $horario,
-        'form' => $form,
-    ]);
-}
-
 
     #[Route('/{id}', name: 'app_horario_show', methods: ['GET'])]
     public function show(Horario $horario): Response
@@ -68,31 +51,37 @@ public function new(Request $request, EntityManagerInterface $entityManager, $cu
     }
 
     #[Route('/{id}/edit', name: 'app_horario_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Horario $horario, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Horario $horario, EntityManagerInterface $em): Response
     {
         $form = $this->createForm(HorarioType::class, $horario);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+            $em->flush();
 
-            return $this->redirectToRoute('app_horario_index', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash('success', 'Horario actualizado correctamente.');
+            return $this->redirectToRoute('app_horario_index');
         }
 
-        return $this->renderForm('horario/edit.html.twig', [
+        return $this->render('horario/edit.html.twig', [
+            'form' => $form->createView(),
             'horario' => $horario,
-            'form' => $form,
         ]);
     }
 
     #[Route('/{id}', name: 'app_horario_delete', methods: ['POST'])]
-    public function delete(Request $request, Horario $horario, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Horario $horario, EntityManagerInterface $em): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$horario->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($horario);
-            $entityManager->flush();
+        if ($this->isCsrfTokenValid('delete' . $horario->getId(), $request->request->get('_token'))) {
+            $em->remove($horario);
+            $em->flush();
+
+            $this->addFlash('success', 'Horario eliminado correctamente.');
         }
 
-        return $this->redirectToRoute('app_horario_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_horario_index');
     }
+
+   
+
 }

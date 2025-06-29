@@ -3,59 +3,46 @@
 namespace App\Form;
 
 use App\Entity\ExamenFinal;
-use App\Entity\Docente;
-use App\Entity\Curso;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ExamenFinalType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fecha')
-             ->add('hora', TimeType::class, [
-                  'widget' => 'single_text',
-                  'required' => false,
-                  'label' => 'Hora',
+            ->add('fecha', DateTimeType::class, [
+                'widget' => 'single_text',
+                'html5' => true,
             ])
             ->add('presidente', EntityType::class, [
-                'class' => Docente::class,
-                'choice_label' => 'persona',
-                'label' => 'Presidente de Mesa',
+                'class' => \App\Entity\Docente::class,
+                'choice_label' => 'persona', // o el campo que quieras mostrar
             ])
-            ->add('vocal1', EntityType::class, [
-                'class' => Docente::class,
+            ->add('Vocal1', EntityType::class, [
+                'class' => \App\Entity\Docente::class,
                 'choice_label' => 'persona',
-                'label' => 'Vocal 1',
                 'required' => false,
             ])
-            ->add('vocal2', EntityType::class, [
-                'class' => Docente::class,
+            ->add('Vocal2', EntityType::class, [
+                'class' => \App\Entity\Docente::class,
                 'choice_label' => 'persona',
-                'label' => 'Vocal 2',
                 'required' => false,
             ])
-            ->add('estadoMesa', ChoiceType::class, [
-                'choices' => [
-                    'Libre' => 'Libre',
-                    'Regular' => 'Regular',
-                ],
-                'label' => 'Estado de Mesa',
+            ->add('curso', EntityType::class, [
+                'class' => \App\Entity\Curso::class,
+                'required' => false,
+                'placeholder' => 'Seleccione un curso',
             ])
-           ->add('curso', EntityType::class, [
-                'class' => Curso::class,
-                'choice_label' => function($curso) {
-                   return $curso->getId() . ' - ' . $curso->getAsignatura()->getNombre() . ' (' . $curso->getComision()->getCiclolectivo() . ')';
-               },
-               'label' => 'Curso',
-           ]) 
-     ;
+            ->add('modalidadMesa', TextType::class, [
+                'required' => false,
+                'label' => 'Modalidad Mesa',
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

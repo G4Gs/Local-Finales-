@@ -31,33 +31,88 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Psr\Log\LoggerInterface;
 class VistasdocenteController extends AbstractController
 {
-        #[Route('/vistasdocente', name: 'app_vistasdocente')]
-        #[Route('/nuevalista', name: 'app_nuevalista')]
-        public function index(NotaRepository $notaRepository, CursadaDocenteRepository $cursadaDocenteRepository, CursoRepository $cursoRepository, Request $request): Response
-        {
-            // Recuperar `cursoId` de la sesión esto para cuando estoy cargando asignaturas y que no se pierda cursoId
-            $session = $request->getSession();
-            $cursoId = $session->get('cursoId', null);
-            $cursoId2 = $session->get('cursoId2', null);     
-            if ($cursoId === null) {
-                $cursoId = null; 
-            } else {
-                $session->remove('cursoId');
-            }
-            if ($cursoId2 !== null) {
-                $session->remove('cursoId2'); 
+
+
+    
+            #[Route('/vistasdocente', name: 'app_vistasdocente')]
+            #[Route('/nuevalista', name: 'app_nuevalista')]
+            public function index(
+                CursoRepository $cursoRepository,
+                CursadaDocenteRepository $cursadaDocenteRepository,
+                Request $request
+            ): Response {
+                $session = $request->getSession();
+                $session->remove('tecId');
+                $session->remove('comId');
+
+                /** @var User|null $user */
+                $user = $this->getUser();
+
+                $docente = null;
+                $docenteId = null;
+                $tecnicaturaId = null;
+                $docenteNombre = null;
+                $carreraNombre = null;
+                $cursadas = [];
+                $tecnicaturas = [];
+
+                if ($this->isGranted('ROLE_SUPER_ADMIN') || $this->isGranted('ROLE_ADMIN')) {
+                    // Admins: ver todas las cursadas sin filtro por usuario
+                    $cursadas = $cursadaDocenteRepository->findAll();
+
+                    foreach ($cursadas as $cursada) {
+                        $curso = $cursada->getCurso();
+                        if ($curso && $curso->getComision()) {
+                            $tecnicatura = $curso->getComision()->getTecnicatura();
+                            if ($tecnicatura) {
+                                $tecnicaturaId = $tecnicatura->getId();
+                                $carreraNombre = $tecnicatura->getNombre();
+                                $tecnicaturas[$tecnicaturaId] = $tecnicatura;
+                            }
+                        }
+                    }
+                } elseif ($this->isGranted('ROLE_DOCENTE')) {
+                    if ($user) {
+                        $persona = $user->getPersona();
+                        if ($persona) {
+                            $docenteNombre = $persona->getNombre() . ' ' . $persona->getApellido();
+
+                            $cursadas = $cursadaDocenteRepository->findByPersona($persona);
+
+                            if (count($cursadas) > 0) {
+                                $docente = $cursadas[0]->getDocente();
+                                $docenteId = $docente->getId();
+
+                                foreach ($cursadas as $cursada) {
+                                    $curso = $cursada->getCurso();
+                                    if ($curso && $curso->getComision()) {
+                                        $tecnicatura = $curso->getComision()->getTecnicatura();
+                                        if ($tecnicatura) {
+                                            $tecnicaturaId = $tecnicatura->getId();
+                                            $carreraNombre = $tecnicatura->getNombre();
+                                            $tecnicaturas[$tecnicaturaId] = $tecnicatura;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    throw $this->createAccessDeniedException('Acceso no autorizado.');
+                }
+
+                return $this->render('vistasdocente/index.html.twig', [
+                    'tecnicaturas' => $tecnicaturas,
+                    'cursos' => $cursoRepository->findAll(),
+                    'docenteId' => $docenteId,
+                    'tecnicaturaId' => $tecnicaturaId,
+                    'docenteNombre' => $docenteNombre,
+                    'carreraNombre' => $carreraNombre,
+                    'docente' => $docente,
+                    'cursadas' => $cursadas,
+                ]);
             }
 
-            $today = null;
-        
-            return $this->render('vistasdocente/index.html.twig', [
-                'cursos' => $cursoRepository->findAll(),
-                'cursada_docentes' => $cursadaDocenteRepository->findAll(),
-                'cursoId' => $cursoId,
-                'cursoId2' => $cursoId2,
-                'today' => $today,
-            ]);
-        }
 
         #[Route('/editarnota/{id}/cursodesesion/{curso_id}', name: 'editar_nota', methods: ['GET', 'POST'])]
         public function edit(Request $request, Nota $nota, NotaRepository $notaRepository, int $curso_id): Response

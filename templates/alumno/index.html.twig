@@ -19,8 +19,8 @@
         <tbody>
         {% for alumno in alumnos %}
             <tr>
-                <td>    </td>
-                <td>    </td>
+                <td> {{ alumno.persona.nombre }}   </td>
+                <td> {{ alumno.persona.apellido }}   </td>
                 <td>{{ alumno.tituloSec }}</td>
                 <td>{{ alumno.escuelaSec }}</td>
                 <td>{{ alumno.anioEgreso }}</td>

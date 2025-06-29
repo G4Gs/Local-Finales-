@@ -9,22 +9,7 @@
 
     
     <script>
-        function filterTableTecnicatura() {
-            let searchNombre = document.getElementById("searchNombre").value.toLowerCase();
-            let searchReso = document.getElementById("searchResolucion").value.toLowerCase();
-            let table = document.getElementById("tablaTecnicaturas"); // Obtener la tabla de tecnicaturas
-            let rows = table.getElementsByTagName("tr");       
-            for (let i = 1; i < rows.length; i++) {
-                let cells = rows[i].getElementsByTagName("td");
-                let nombre = cells[0].textContent.toLowerCase();
-                let resolucion = cells[3].textContent.toLowerCase();
-                if (nombre.includes(searchNombre) && resolucion.includes(searchReso)) {
-                    rows[i].style.display = ""; 
-                } else {
-                    rows[i].style.display = "none"; 
-                }
-            }
-        }
+       
 
         function filterCursadas(comisionId) {
             let searchEstudiante = document.getElementById("searchAsignatura_" + comisionId).value.toLowerCase();
@@ -63,7 +48,55 @@
             {% endif %}
         });
 
+
+      function showTecnicaturas() {
+    // Ocultar todas las tablas de Comision
+    let tablesComision = document.querySelectorAll('.tabla_comision');
+    tablesComision.forEach(table => table.style.display = 'none');
+
+    // Ocultar todas las tablas de cursada
+    let cursadaTables = document.querySelectorAll('.tabla_cursada');
+    cursadaTables.forEach(table => table.style.display = 'none');
+
+    // Ocultar todas las tablas de cursos
+    let cursoTables = document.querySelectorAll('.tabla_curso_cursada');
+    cursoTables.forEach(table => table.style.display = 'none');
+
+    // Mostrar tabla de tecnicaturas
+    let tablaTecnicaturas = document.getElementById('tablaTecnicaturas');
+    if (tablaTecnicaturas) {
+        tablaTecnicaturas.style.display = '';
+    }
+
+    // Mostrar filtro tecnicaturas (por ej. campo de búsqueda)
+    let search = document.getElementById('searchs');
+    if (search) {
+        search.style.display = '';
+    }
+}
+
+function hideTecnicaturas() {
+    // Ocultar tabla de tecnicaturas
+    let tablaTecnicaturas = document.getElementById('tablaTecnicaturas');
+    if (tablaTecnicaturas) {
+        tablaTecnicaturas.style.display = 'none';
+    }
+
+    // Opcional: ocultar filtro tecnicaturas
+    let search = document.getElementById('searchs');
+    if (search) {
+        search.style.display = 'none';
+    }
+}
+
+
+
+
+
+// CON ESTE SCRIPT MOSTRAS LAS COMISIONES DE LA TECNICATURA (2DA TABLA)
+
         function showComision(tecnicaturaId) {
+           
             // Ocultar todas las tablas de Comision
             let tables = document.querySelectorAll('.tabla_home');
             tables.forEach(table => table.style.display = 'none');
@@ -73,7 +106,7 @@
             cursadaTables.forEach(table => table.style.display = 'none');
 
             // oculta cursadas
-            let cursoTables = document.querySelectorAll('.tabla_curso');
+            let cursoTables = document.querySelectorAll('.tabla_curso_cursada');
             cursoTables.forEach(table => table.style.display = 'none');
 
             // Mostrar la tabla de Comision correspondiente
@@ -87,215 +120,8 @@
             if (search) {
                 search.style.display = 'none';
             }
+           
 
-        }
-
-        function showCursada(comisionId, tecnicaturaId) {
-            // oculta tabla tecnicaturas
-            let tablesToHide = document.querySelectorAll('.tabla_home, .tabla_comision');
-            tablesToHide.forEach(table => table.style.display = 'none');
-
-            // oculta cursadas
-            let cursadaTables = document.querySelectorAll('.tabla_cursada');
-            cursadaTables.forEach(table => table.style.display = 'none');
-
-            // oculta curso
-            let cursoTables = document.querySelectorAll('.tabla_curso');
-            cursoTables.forEach(table => table.style.display = 'none');
-
-            // muestra tabla comision
-            let cursadaTable = document.getElementById(`tablaCursada_${comisionId}`);
-            if (cursadaTable) {
-                cursadaTable.style.display = '';
-            }
-
-            // ocultar search
-            let search = document.getElementById('searchs');
-            if (search) {
-                search.style.display = 'none';
-            }
-
-            // muestra el boton de regresar, la funcion hide... recive id de comision y tecnicatura para poder regresar al punto anterior
-            let backButton = document.getElementById('backButton');
-            if (backButton) {
-                backButton.style.display = '';
-                backButton.onclick = function() {
-                    hideCursada(comisionId, tecnicaturaId);
-                };
-            }
-        }
-
-        function showCurso(comisionId, tecnicaturaId, asignaturaId) {
-            // Oculta todas las tablas de tecnicaturas, comisiones y cursadas
-            let tablesToHide = document.querySelectorAll('.tabla_home, .tabla_comision, .tabla_cursada');
-            tablesToHide.forEach(table => table.style.display = 'none');
-
-            
-            // oculta cursadas
-            let cursadaTables = document.querySelectorAll('.tabla_cursada');
-            cursadaTables.forEach(table => table.style.display = 'none');
-
-            // Muestra la tabla de cursos específica para la comisión y asignatura seleccionadas
-            let cursoTable = document.getElementById(`tablaCurso_${comisionId}_${asignaturaId}`);
-            if (cursoTable) {
-                cursoTable.style.display = '';
-            }
-
-            // Oculta el buscador
-            let search = document.getElementById('searchs');
-            if (search) {
-                search.style.display = 'none';
-            }
-
-            // Muestra el botón de regresar
-            let backButton = document.getElementById('backButton');
-            if (backButton) {
-                backButton.style.display = '';
-                backButton.onclick = function() {
-                    hideCurso(comisionId, tecnicaturaId, asignaturaId);
-                };
-            }
-        }
-
-        function showCursoCursada2(comisionId, tecnicaturaId) {
-            // oculta tabla tecnicaturas
-            let tablesToHide = document.querySelectorAll('.tabla_home, .tabla_comision, .tabla_cursada, .tabla_curso');
-            tablesToHide.forEach(table => table.style.display = 'none');
-
-            // oculta curso
-            let cursadaTables = document.querySelectorAll('.tabla_curso');
-            cursadaTables.forEach(table => table.style.display = 'none');
-
-            // muestra tabla comision
-            let cursadaTable = document.getElementById(`tablaCursoCursada_${comisionId}`);
-            if (cursadaTable) {
-                cursadaTable.style.display = '';
-            }
-
-            // ocultar search
-            let search = document.getElementById('searchs');
-            if (search) {
-                search.style.display = 'none';
-            }
-
-            // muestra el boton de regresar, la funcion hide... recive id de comision y tecnicatura para poder regresar al punto anterior
-            let backButton = document.getElementById('backButton');
-            if (backButton) {
-                backButton.style.display = '';
-                backButton.onclick = function() {
-                    hideCursoCursada(comisionId, tecnicaturaId);
-                };
-            }
-        }
-
-        function showCursoCursada(comisionId, tecnicaturaId, asignaturaId, cursoId) {
-            // oculta tablas no relevantes
-            let tablesToHide = document.querySelectorAll('.tabla_home, .tabla_comision, .tabla_cursada, .tabla_curso');
-            tablesToHide.forEach(table => table.style.display = 'none');
-
-            // oculta cursos
-            let cursadaTables = document.querySelectorAll('.tabla_curso');
-            cursadaTables.forEach(table => table.style.display = 'none');
-
-            // muestra tabla cursada específica
-            let cursadaTable = document.getElementById(`tablaCursoCursada_${comisionId}_${asignaturaId}_${cursoId}`);
-            if (cursadaTable) {
-                cursadaTable.style.display = '';
-            }
-
-            // ocultar search
-            let search = document.getElementById('searchs');
-            if (search) {
-                search.style.display = 'none';
-            }
-
-            // muestra el botón de regresar, la función hide... recibe id de comision, tecnicatura y asignatura para poder regresar al punto anterior
-            let backButton = document.getElementById('backButton');
-            if (backButton) {
-                backButton.style.display = '';
-                backButton.onclick = function() {
-                    hideCursoCursada(comisionId, tecnicaturaId, asignaturaId, cursoId);
-                };
-            }
-        }
-        function hideCursoCursada(comisionId, tecnicaturaId, asignaturaId, cursoId) {
-            // oculta tabla cursada específica
-            let cursadaTable = document.getElementById(`tablaCursoCursada_${comisionId}_${asignaturaId}_${cursoId}`);
-            if (cursadaTable) {
-                cursadaTable.style.display = 'none';
-            }
-
-            // muestra la tabla curso específica
-            let cursoTable = document.getElementById(`tablaCurso_${comisionId}_${asignaturaId}`);
-            if (cursoTable) {
-                cursoTable.style.display = '';
-            }
-
-            // oculta el botón regresar-volver
-            let backButton = document.getElementById('backButton');
-            if (backButton) {
-                backButton.style.display = 'none';
-            }
-        }
-
-
-        // JavaScript to toggle visibility of the tables
-        function showCursadaDocente(cursoId) {
-            // Hide all tables first
-            document.querySelectorAll('.tabla_curso, .tabla_cursada_docente').forEach(table => {
-                table.style.display = 'none';
-            });
-
-
-            // Show the associated docente table
-            document.getElementById(`tablaCursadaDocente_${cursoId}`).style.display = 'table';
-        }
-
-
-
-        function hideCurso(comisionId, tecnicaturaId, asignaturaId) {
-            // Oculta la tabla de curso específica
-            let cursoTable = document.getElementById(`tablaCurso_${comisionId}_${asignaturaId}`);
-            if (cursoTable) {
-                cursoTable.style.display = 'none';
-            }
-
-            document.querySelectorAll('.tabla_curso, .tabla_cursada_docente').forEach(table => {
-                table.style.display = 'none';
-            });
-
-            // Muestra la tabla de cursada (comisión) correspondiente
-            let comisionTable = document.getElementById(`tablaCursada_${comisionId}`);
-            if (comisionTable) {
-                comisionTable.style.display = '';
-            }
-
-            // Oculta el botón de regresar
-            let backButton = document.getElementById('backButton');
-            if (backButton) {
-                backButton.style.display = 'none';
-            }
-        }
-
-
-        function hideCursada(comisionId, tecnicaturaId) {
-            // oculta tabla cursada
-            let cursadaTable = document.getElementById(`tablaCursada_${comisionId}`);
-            if (cursadaTable) {
-                cursadaTable.style.display = 'none';
-            }
-
-            // muestra la tabla comision
-            let comisionTable = document.getElementById(`tablaComision_${tecnicaturaId}`);
-            if (comisionTable) {
-                comisionTable.style.display = '';
-            }
-
-            // oculta el boton regresar-volver
-            let backButton = document.getElementById('backButton');
-            if (backButton) {
-                backButton.style.display = 'none';
-            }
         }
 
         function hideComision(tecnicaturaId) {
@@ -317,12 +143,107 @@
                 tablaTecnicaturas.style.display = '';
             }
 
-            // Ocultar el botón de regresar
-            let backButton = document.getElementById(`backButton`);
-            if (backButton) {
-                backButton.style.display = 'none';
-            }
+          
         }
+
+// CON ESTE SCRIPT MOSTRAS LAS CURSADAS,CURSO CUPOF, HORARIO, DOCENTE, ETC (3RA TABLA)
+
+        function showCursada(comisionId, tecnicaturaId) {
+            
+            // oculta tabla tecnicaturas
+            let tablesToHide = document.querySelectorAll('.tabla_home, .tabla_comision');
+            tablesToHide.forEach(table => table.style.display = 'none');
+
+            // oculta cursadas
+            let cursadaTables = document.querySelectorAll('.tabla_cursada');
+            cursadaTables.forEach(table => table.style.display = 'none');
+
+            // oculta curso
+            let cursoTables = document.querySelectorAll('.tabla_curso_cursada');
+            cursoTables.forEach(table => table.style.display = 'none');
+
+            // muestra tabla comision
+            let cursadaTable = document.getElementById(`tablaCursada_${comisionId}`);
+            if (cursadaTable) {
+                cursadaTable.style.display = '';
+            }
+
+            // ocultar search
+            let search = document.getElementById('searchs');
+            if (search) {
+                search.style.display = 'none';
+            }
+
+           
+
+        }
+
+        function hideCursada(comisionId, tecnicaturaId) {
+            // oculta tabla cursada
+            let cursadaTable = document.getElementById(`tablaCursada_${comisionId}`);
+            if (cursadaTable) {
+                cursadaTable.style.display = 'none';
+            }
+
+            // muestra la tabla comision
+            let comisionTable = document.getElementById(`tablaComision_${tecnicaturaId}`);
+            if (comisionTable) {
+                comisionTable.style.display = '';
+            }
+
+           
+            
+        }
+
+      
+// CON ESTE SCRIPT MOSTRAS LA TABLA DE LA CURSADA (4TA TABLA)
+       
+ function showCursoCursada(comisionId, tecnicaturaId, asignaturaId, cursoId) {
+    
+    
+            // oculta tablas no relevantes
+            let tablesToHide = document.querySelectorAll('.tabla_home, .tabla_comision, .tabla_cursada, .tabla_curso');
+            tablesToHide.forEach(table => table.style.display = 'none');
+
+            // oculta cursos
+            let cursadaTables = document.querySelectorAll('.tabla_curso');
+            cursadaTables.forEach(table => table.style.display = 'none');
+
+            // muestra tabla cursada específica
+            let cursadaTable = document.getElementById(`tablaCursoCursada_${comisionId}_${asignaturaId}_${cursoId}`);
+            if (cursadaTable) {
+                cursadaTable.style.display = '';
+            }
+
+            // ocultar search
+            let search = document.getElementById('searchs');
+            if (search) {
+                search.style.display = 'none';
+            }
+          
+        }
+
+ function hideCursoCursada(comisionId, tecnicaturaId, asignaturaId, cursoId) {
+            // oculta tabla cursada específica
+            let cursadaTable = document.getElementById(`tablaCursoCursada_${comisionId}_${asignaturaId}_${cursoId}`);
+            if (cursadaTable) {
+                cursadaTable.style.display = 'none';
+            }
+
+            // muestra la tabla curso específica
+            let cursoTable = document.getElementById(`tablaCurso_${comisionId}_${asignaturaId}`);
+            if (cursoTable) {
+                cursoTable.style.display = '';
+            }
+
+        
+        }
+
+       
+
+        
+// OCULTAR TODAS LAS TABLAS
+        
 
         function hideAllTables() {
             // Ocultar todas las tablas de Comisiones, Cursadas y Tecnicaturas
@@ -348,8 +269,11 @@
             }
         }
 
+      
 
     </script>
+   
+
 
     {#script para crear comisiones#}
     <script>
@@ -434,8 +358,8 @@
      {# Script para crear horarios #}
 <script>
 function openModalHorario(cursoId) {
-    // Construye la URL dinámicamente pasando el cursoId
-    const url = "{{ path('app_horario_new', { 'curso_id': 'CURSO_ID' }) }}".replace('CURSO_ID', cursoId);
+   const url = "{{ path('app_vistascursada_horario_new', { 'curso_id': 'CURSO_ID' }) }}".replace('CURSO_ID', cursoId);
+
 
     fetch(url)
         .then(response => {
@@ -445,19 +369,41 @@ function openModalHorario(cursoId) {
             return response.text();
         })
         .then(html => {
-            // Inserta el contenido del formulario dentro del modal
             document.getElementById('modalBodyHorario').innerHTML = html;
-            // Muestra el modal
             document.getElementById('ModalHorario').style.display = 'block';
-
-            // Opcional: oculta campo y label 'curso' si existen en el formulario
-            const labelCurso = document.querySelector('label[for="horario_curso"]');
-            if (labelCurso) labelCurso.style.display = 'none';
 
             const cursoInput = document.getElementById('horario_curso');
             if (cursoInput) {
                 cursoInput.value = cursoId;
                 cursoInput.style.display = 'none';
+                const label = document.querySelector('label[for="horario_curso"]');
+                if (label) label.style.display = 'none';
+            }
+
+            const form = document.getElementById('form-horario');
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const formData = new FormData(form);
+                    fetch(url, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            closeModalHorario();
+                            location.reload();
+                        } else {
+                            return response.text().then(html => {
+                                document.getElementById('modalBodyHorario').innerHTML = html;
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al guardar el horario:', error);
+                        alert('Hubo un error al guardar el horario.');
+                    });
+                });
             }
         })
         .catch(error => {
@@ -472,6 +418,69 @@ function closeModalHorario() {
 }
 </script>
 
+{#Script para editar horarios#}
+    <script>
+function openModalEditHorario(horarioId) {
+    const url = "{{ path('app_vistascursada_horario_edit', {'horario_id': 'HORARIO_ID'}) }}".replace('HORARIO_ID', horarioId);
+
+    fetch(url)
+    .then(response => {
+        if (!response.ok) throw new Error('Error al cargar formulario');
+        return response.text();
+    })
+    .then(html => {
+        document.getElementById('modalBodyEditHorario').innerHTML = html;
+        document.getElementById('ModalEditHorario').style.display = 'block';
+
+        // Ocultar el campo curso si existe
+        const cursoInput = document.getElementById('horario_curso');
+        if (cursoInput) {
+            cursoInput.style.display = 'none';
+            const labelCurso = document.querySelector('label[for="horario_curso"]');
+            if(labelCurso) labelCurso.style.display = 'none';
+        }
+
+        // Agregar manejador al submit
+        const form = document.querySelector('#modalBodyEditHorario form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => {
+                    if (response.status === 204) {
+                        closeModalEditHorario();
+                        location.reload();
+                    } else {
+                        return response.text().then(html => {
+                            document.getElementById('modalBodyEditHorario').innerHTML = html;
+                        });
+                    }
+                })
+                .catch(err => {
+                    alert('Error al guardar horario');
+                    console.error(err);
+                });
+            });
+        }
+    })
+    .catch(error => {
+        alert('No se pudo cargar el formulario de edición.');
+        console.error(error);
+    });
+}
+
+function closeModalEditHorario() {
+    document.getElementById('ModalEditHorario').style.display = 'none';
+    document.getElementById('modalBodyEditHorario').innerHTML = '';
+}
+</script>
 
 
 
@@ -740,110 +749,85 @@ function closeModalHorario() {
         }
     </script> 
 
-    {#Script para agregar cursadas#}
-    <script>
-        function openModal2(tecnicaturaId, comisionId, cursoId) {
-            // Verificar si los IDs están correctos
-            if (!tecnicaturaId || !comisionId) {
-                console.error("IDs inválidos. Tecnicatura ID o Comisión ID está faltando.");
-                return;
+  {# Script para agregar cursadas #}
+<script>
+function openModal2(tecnicaturaId, comisionId, cursoId, asignaturaNombre, comisionNombre, cupof) {
+    if (!cursoId) {
+        console.error("ID de curso faltante.");
+        return;
+    }
+
+    // Generar título al estilo del __toString() de Curso
+    const titulo = `${asignaturaNombre} - ${comisionNombre} [CUPOF: ${cupof}]`;
+    const tituloElemento = document.getElementById('modalTitleCurso');
+    if (tituloElemento) {
+        tituloElemento.textContent = `Añadir estudiante a ${titulo}`;
+    }
+
+    // Generar la URL pasando solo el cursoId
+    const url = "{{ path('crear_cursada_directo', { 'curso_id': '__cursoId__' }) }}"
+        .replace('__cursoId__', encodeURIComponent(cursoId));
+
+    // Realizar la solicitud fetch
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('modalBody-2').innerHTML = html;
+            document.getElementById('Modal2').style.display = 'block';
+
+            $('#cursada_alumno').select2({
+    placeholder: 'Seleccionar alumno',
+    allowClear: true,
+    width: '60%',
+    minimumResultsForSearch: 5, // oculta buscador si hay pocos elementos
+    dropdownCssClass: 'select2-minimal-dropdown',
+    containerCssClass: 'select2-minimal'
+});
+
+
+            // Asignar valores y manipular campos
+            const condicionInput = document.getElementById('cursada_condicion');                   
+            const alumnoInput = document.getElementById('cursada_alumno');
+            const modalidadInput = document.getElementById('cursada_modalidad');
+            const cursoInput = document.getElementById('cursada_curso');                  
+            const notaInput = document.getElementById('cursada_nota_id');
+
+            // Ocultar label de curso
+            const labelCurso = document.querySelector('label[for="cursada_curso"]');
+            if (labelCurso) {
+                labelCurso.style.display = 'none';
             }
-            // Generar la URL con los IDs correctos
-            const url = "{{ path('crear_cursada', { 'tecnicatura_id': '__tecnicaturaId__', 'comision_id': '__comisionId__' }) }}"
-                .replace('__tecnicaturaId__', encodeURIComponent(tecnicaturaId))
-                .replace('__comisionId__', encodeURIComponent(comisionId));
-            // Realizar la solicitud fetch
-            fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('modalBody-2').innerHTML = html;
-                    document.getElementById('Modal2').style.display = 'block';
 
-
-                    // Asignar valores y manipular campos
-
-                    const condicionInput = document.getElementById('cursada_condicion');                   
-                    const alumnoInput = document.getElementById('cursada_alumno');
-                    const modalidadInput = document.getElementById('cursada_modalidad');
-                    const cursoInput = document.getElementById('cursada_curso');                  
-                    const notaInput = document.getElementById('cursada_nota_id');
-
-                    
-                    // Ocultar label de tecnicatura
-                    const labelCurso = document.querySelector('label[for="cursada_curso"]');
-                    if (labelCurso) {
-                        labelCurso.style.display = 'none';
-                    }
-
-                    if (cursoInput) {  //aqui evaluo la tec id de la posicion donde estoy y guardo en el input 
-                        cursoInput.value = cursoId;
-                        cursoInput.setAttribute('readonly', true); // Hacerlo solo lectura -suele no dar resultado al ser opciones desplegadas-
-                        cursoInput.style.display = 'none'; //ocultar el campo evitando que se edite por el usuario
-                    }
-
-                    // Ocultar label de nota se generan las notas vacias
-                    const labelNota = document.querySelector('label[for="cursada_nota_id"]');
-                    if (labelNota) {
-                        labelNota.style.display = 'none';
-                    }
-
-                    if (notaInput) {  //aqui evaluo la nota id de la posicion donde estoy y guardo en el input no lo necesita al crear cursada(nota empty) 
-                        /*notaInput.value = '';  nada, ya que quiero guardar nota sin calificaciones se edita y agregan notas mas adelante*/
-                        notaInput.setAttribute('readonly', true); // Hacerlo solo lectura -suele no dar resultado al ser opciones desplegadas-
-                        notaInput.style.display = 'none'; //ocultar el campo evitando que se edite por el usuario
-                    }
-                    
-                })  
-                .catch(error => console.error('Error al cargar el formulario de edición:', error));
-        }
-        function closeModal2() {
-            document.getElementById('Modal2').style.display = 'none';
-            document.getElementById('modalBody-2').innerHTML = '';
-        }
-        function filterAsignaturas(anio, tecnicaturaId) {
-            let dropdown = document.getElementById("cursada_asignatura");
-            let options = dropdown.getElementsByTagName("option");
-
-            for (let i = 0; i < options.length; i++) {
-                let optionText = options[i].textContent;
-
-                // Extraer el año y el tecnicaturaId del texto de la opción
-                let match = optionText.match(/\((\d+)\)\s+(\d+)$/);
-
-                if (match) {
-                    let optionAnio = match[1]; // Año dentro del paréntesis
-                    let optionTecId = match[2]; // tecnicaturaId después del paréntesis
-
-                    if (optionAnio === anio.toString() && optionTecId === tecnicaturaId.toString()) {
-                        options[i].style.display = "";  // Mostrar la opción si coincide
-                    } else {
-                        options[i].style.display = "none";  // Ocultar la opción si no coincide
-                    }
-
-                    // Ocultar visualmente la parte del texto que está entre paréntesis
-                    let visibleText = optionText.split('(')[0];
-                    options[i].textContent = visibleText.trim();
-                } else {
-                    options[i].style.display = "none";  // Ocultar la opción si no hay coincidencia
-                }
+            if (cursoInput) {
+                cursoInput.value = cursoId;
+                cursoInput.setAttribute('readonly', true);
+                cursoInput.style.display = 'none';
             }
-        }
 
-        function filterEstudiante() {
-            let searchNombre = document.getElementById("searchEstudiante").value.toLowerCase();
-            let dropdown = document.getElementById("cursada_alumno"); 
-            let options = dropdown.getElementsByTagName("option");
-            
-            for (let i = 0; i < options.length; i++) {
-                let optionText = options[i].textContent.toLowerCase();
-                if (optionText.includes(searchNombre)) {
-                    options[i].style.display = ""; 
-                } else {
-                    options[i].style.display = "none"; 
-                }
+            // Ocultar label de nota
+            const labelNota = document.querySelector('label[for="cursada_nota_id"]');
+            if (labelNota) {
+                labelNota.style.display = 'none';
             }
-        }
-    </script>
+
+            if (notaInput) {
+                notaInput.setAttribute('readonly', true);
+                notaInput.style.display = 'none';
+            }
+        })  
+        .catch(error => console.error('Error al cargar el formulario de edición:', error));
+}
+
+function closeModal2() {
+    document.getElementById('Modal2').style.display = 'none';
+    document.getElementById('modalBody-2').innerHTML = '';
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+    
 
 
 
@@ -851,6 +835,8 @@ function closeModalHorario() {
 
 
 {% block body %}
+
+
     {% for label, messages in app.session.flashbag.all() %}
         {% for message in messages %}
             <div class="alert alert-{{ label }}">
@@ -914,7 +900,110 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
 </script>
+
+
+<script>
+    
+function toggleDropdownDocente(cursoId) {
+  const dropdown = document.getElementById('dropdown-docentes-' + cursoId);
+  if (!dropdown) return;
+
+  // Cerrar otros dropdowns docentes
+  document.querySelectorAll('.dropdown-docentes.show').forEach(menu => {
+    if (menu !== dropdown) {
+      menu.classList.remove('show');
+      menu.style.display = 'none';
+    }
+  });
+  // Cerrar dropdowns horarios para que no estén abiertos juntos
+  document.querySelectorAll('.dropdown-horarios.show').forEach(menu => {
+    menu.classList.remove('show');
+    menu.style.display = 'none';
+  });
+
+  // Alternar el dropdown clickeado
+  if (dropdown.classList.contains('show')) {
+    dropdown.classList.remove('show');
+    dropdown.style.display = 'none';
+  } else {
+    dropdown.classList.add('show');
+    dropdown.style.display = 'block';
+  }
+}
+
+function toggleDropdownHorario(cursoId) {
+  const dropdown = document.getElementById('dropdown-horarios-' + cursoId);
+  if (!dropdown) return;
+
+  // Cerrar otros dropdowns horarios
+  document.querySelectorAll('.dropdown-horarios.show').forEach(menu => {
+    if (menu !== dropdown) {
+      menu.classList.remove('show');
+      menu.style.display = 'none';
+    }
+  });
+  // Cerrar dropdowns docentes para que no estén abiertos juntos
+  document.querySelectorAll('.dropdown-docentes.show').forEach(menu => {
+    menu.classList.remove('show');
+    menu.style.display = 'none';
+  });
+
+  // Alternar el dropdown clickeado
+  if (dropdown.classList.contains('show')) {
+    dropdown.classList.remove('show');
+    dropdown.style.display = 'none';
+  } else {
+    dropdown.classList.add('show');
+    dropdown.style.display = 'block';
+  }
+}
+
+// Cerrar dropdowns si clic afuera
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('.editar-container')) {
+    document.querySelectorAll('.dropdown-horarios.show, .dropdown-docentes.show').forEach(menu => {
+      menu.classList.remove('show');
+      menu.style.display = 'none';
+    });
+  }
+});
+
+
+</script>
+
+
+<script>
+    
+//FILTRO DE TECNICATURAS
+function filterTableTecnicatura() {
+    let searchNombre = document.getElementById("searchNombre").value.toLowerCase();
+    let searchReso = document.getElementById("searchResolucion").value.toLowerCase();
+    let table = document.getElementById("tablaTecnicaturas");
+    let rows = table.getElementsByTagName("tr");
+
+    for (let i = 1; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+
+        if (cells.length < 2) continue; // Salta filas mal formadas
+
+        let nombre = cells[0].textContent.toLowerCase();
+        let resolucion = cells[1].textContent.toLowerCase();
+
+        if (nombre.includes(searchNombre) && resolucion.includes(searchReso)) {
+            rows[i].style.display = "";
+        } else {
+            rows[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+
+
+
+
 
     <div id="body-vistas">
         <h1 id="vistas">Comisiones, Cursadas y Curso del Cohorte {{ cicloLectivo }}</h1>
@@ -925,6 +1014,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <label for="searchResolucion">Buscar por Resolucion:</label>
             <input type="text" id="searchResolucion" onkeyup="filterTableTecnicatura()" placeholder="Buscar por resolucion...">
         </div>
+
+<!-- TABLA DE TECNICATURAS PARA ACCEDER A COMISIONES -->
 
         <table class="tabla_home" id="tablaTecnicaturas" border="1">
             <thead>
@@ -951,9 +1042,20 @@ document.addEventListener("DOMContentLoaded", function() {
             </tbody>
         </table>
 
+<!-- FIN DE LA TABLA DE TECNICATURAS-->
+
+<!-- TABLA DE COMISIONES -->
+
         {% for tecnicatura in tecnicaturas %}
             <table id="tablaComision_{{ tecnicatura.id }}" class="tabla_comision" style="display: none;" border="1">
     <thead>
+        <tr>
+                <th colspan="6" style="text-align: center;">
+                    <button type="button" onclick="showTecnicaturas()" class="btn btn-secondary">
+                        Volver a Tecnicaturas
+                    </button>
+                </th>
+            </tr>
         <tr>
             <th colspan="6">{{ tecnicatura.nombre }} - Comisiones {{ cicloLectivo }}</th>
         </tr>
@@ -1002,21 +1104,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
         {% endfor %}   
 
+
+<!-- FIN TABALA COMISIONES -->
+
+<!-- DENTRO DE UNA COMISION DE LA TECNICATURA MUESTRA:
+ TABLA DE CURSOS, CON SUS ASIGNATURAS, SUS CUPOF Y SUS HORARIOS. CURSADAxDOCENTE SE MUESTRA AQUI
+ -->
+
  
+
 
         {% for comision in comisiones %}    
             <table id="tablaCursada_{{ comision.id }}" class="tabla_cursada" style="display: none;" border="1">
                 <thead>
+                        <tr>
+                <th colspan="7" style="text-align: center;">
+                    <button type="button" 
+                            onclick="showComision({{ comision.tecnicatura.id }})" 
+                            class="btn btn-secondary">
+                        Volver a Comisiones
+                    </button>
+                </th>
+            </tr>
                     <tr>
-                        <th colspan="2">{{ comision.tecnicatura }} -Cursos-</th>
-                        <th colspan="3"> Año: {{ comision.anio }} Comisión: {{ comision.comision }}</th>
+                        <th colspan="3">{{ comision.tecnicatura }} -Cursos-</th>
+                        <th colspan="1"> Año: {{ comision.anio }} Comisión: {{ comision.comision }}</th>
                     </tr>
                     <tr>
                         <th colspan="1">Asignatura</th>
                          <th colspan="1">Horario</th>
                          <th colspan="1">Docente</th>
-                        <th colspan="1">Cursos</th>
-                        <th colspan="1">Acciones</th>
+                        <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1029,12 +1147,13 @@ document.addEventListener("DOMContentLoaded", function() {
                                <td colspan="1">&nbsp;</td>
                                <td colspan="1">&nbsp;</td>
 
-                                <td>
+                                <td colspan="2">
                                     <button onclick="openModal3('{{ comision.tecnicatura.id }}', '{{ comision.id }}', '{{ asignatura.id }}')" class="btn-primary">Agregar Curso</button>
                                 </td>
-                                <td>
+                                <!--<td>
                                     <button onclick="showCurso('{{ comision.id }}', '{{ comision.tecnicatura.id }}', '{{ asignatura.id }}')" class="btn-primary">Ver Cursos</button>
-                                </td>                   
+                                </td>
+                                -->                     
                             </tr>
                             
                           {% for curso in cursos %}
@@ -1093,16 +1212,58 @@ document.addEventListener("DOMContentLoaded", function() {
                                                 </button>
 
                                                 <button onclick="openModal4({{ curso.id }})" class="btn-primary">Agregar Docente</button>
+                                               <!--{% for cursada in curso.cursadaDocentes %}
+    <button onclick="openModal41({{ curso.id }}, {{ cursada.id }})" class="btn-secondary">
+        Editar Docente: {{ cursada.docente.persona.apellido }}, {{ cursada.docente.persona.nombre }}
+    </button>
+{% else %}
+    <span>Sin docente para editar</span>
+{% endfor %} --> 
 
-                                                {% for cursada in curso.cursadaDocentes %}
-                                                    <button onclick="openModal41({{ curso.id }}, {{ cursada.id }})" class="btn-secondary">Editar Docente</button>
-                                                {% endfor %}
+                                           {# Contenedor para editar docentes #}
+                                           
+                                           <div class="editar-container" style="position: relative; display: block; width: 100%;">
+
+                                                <button onclick="toggleDropdownDocente({{ curso.id }})" class="btn-secondary">
+                                                    Editar docente
+                                                </button>
+
+                                                <div id="dropdown-docentes-{{ curso.id }}" class="dropdown-docentes" style="display: none;">
+                                                    {% for cursada in curso.cursadaDocentes %}
+                                                    <button class="dropdown-item" onclick="openModal41({{ curso.id }}, {{ cursada.id }})">
+                                                        {{ cursada.docente.persona.apellido }}, {{ cursada.docente.persona.nombre }}
+                                                    </button>
+                                                    {% else %}
+                                                    <div class="dropdown-item disabled">No hay docentes para editar</div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+
+
 
                                                 <button onclick="openModalHorario({{ curso.id }})" class="btn-primary">Agregar Horario</button>
 
-                                                {% if curso.horarios|length > 0 %}
-                                                    <button onclick="openModalHorario({{ curso.id }})" class="btn-secondary">Editar Horario</button>
-                                                {% endif %}
+                                           {# Contenedor para editar horarios #}
+                                        
+                                           <div class="editar-container" style="position: relative; display: block; width: 100%;">
+
+                                            <button onclick="toggleDropdownHorario({{ curso.id }})" class="btn-secondary">
+                                                Editar horario
+                                            </button>
+
+                                            <div id="dropdown-horarios-{{ curso.id }}" class="dropdown-horarios" style="display: none;">
+                                                {% for horario in curso.horarios %}
+                                                <button class="dropdown-item" onclick="openModalEditHorario({{ horario.id }})">
+                                                    {{ horario.dia }} - {{ horario.horarioInicio|date('H:i') }} a {{ horario.horarioFin|date('H:i') }}
+                                                </button>
+                                                {% else %}
+                                                <div class="dropdown-item disabled">No hay horarios para editar</div>
+                                                {% endfor %}
+                                            </div>
+                                            </div>
+
+
+
                                             </div>
                                         </td>
                                     </tr>
@@ -1122,126 +1283,107 @@ document.addEventListener("DOMContentLoaded", function() {
                     {% endif %}
                    
                     {# Botón de regreso #}
-                      <button id="backButton" class:"button" onclick="showTable('tablaTecnicaturas')" style="display: none;">Regresar</button>
-        
-                </tbody>
-            </table>
-        {% endfor %}
-        {% for curso in cursos %}
-            <table id="tablaCurso_{{ curso.comision.id }}_{{ curso.asignatura.id }}" class="tabla_curso" style="display: none;" border="1">
-                <thead>
-                    <tr>
-                        <th colspan="3">{{ curso.comision.tecnicatura }} -Cursos para cursadas-</th>
-                        <th colspan="1"> Año: {{ curso.comision.anio }} Comision: {{ curso.comision.comision }}</th>
-                    </tr>
-                    <tr>
-                        <th colspan="1">Asignatura</th>
-                        <th colspan="2">Cursos</th>
-                        <th colspan="1">Docentes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for curso_interno in cursos %}
-                        {% if curso_interno.comision.id == curso.comision.id and curso_interno.asignatura.id == curso.asignatura.id %}
-                            <tr>
-                                <td>{{ curso_interno.asignatura.nombre }}</td>
-                                <td>{{ curso_interno.comision.ciclolectivo }} ---> <button onclick="showCursoCursada({{ curso_interno.comision.id }}, {{ curso_interno.comision.tecnicatura.id }}, {{ curso_interno.asignatura.id }}, {{ curso_interno.id }})" class="btn-primary">Ver</button>
-                                </td>
-                                <td>    
-                                    <button onclick="openModal31({{ curso_interno.id }}, {{curso_interno.asignatura.id}}, {{curso_interno.comision.id}})" >Editar</button>
-                                </td>
-                                <td>
-                                    <button onclick="openModal4({{ curso_interno.id }})" class="btn-primary" >Asignar Docente/s</button>
-                                    <button onclick="showCursadaDocente({{ curso_interno.id }})" class="btn-primary">Ver Docente/s</button>
-                                </td>
-                            </tr>
-                        {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-
-            {# tabla para ver los docentes asignados a un curso# ----> #}
-            <table id="tablaCursadaDocente_{{ curso.id }}" class="tabla_cursada_docente" style="display: none;" border="1">
-                <thead>
-                    <tr>
-                        <th colspan="3">{{ curso.comision.tecnicatura }} -Docentes del Curso-</th>
-                        <th colspan="1"> Año: {{ curso.comision.anio }} Comisión: {{ curso.comision.comision }}</th>
-                    </tr>
-                    <tr>
-                        <th colspan="2">Docente/s de {{ curso.asignatura.nombre }}</th>
-                        <th colspan="1">Licencia</th>
-                        <th colspan="1">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for cursadaDocente in cursada_docentes %}
-                        {% if cursadaDocente.curso.id == curso.id %}
-                            <tr>
-                                <td colspan="2">{{ cursadaDocente.docente }}</td>
-                                <td colspan="1">{{ cursadaDocente.licencia ? 'Sí' : 'No' }}</td>
-                                <td colspan="1">
-                                    <button onclick="openModal41({{ cursadaDocente.curso.id }}, {{ cursadaDocente.id }})" >Editar</button>
-                                </td>
-                            </tr>
-
-                        {% endif %}
-                    {% endfor %}
+                     <!--<button id="backButton" class:"button" onclick="showTable('tablaTecnicaturas')" style="display: none;">Regresar</button>
+         --> 
                 </tbody>
             </table>
         {% endfor %}
 
+<!-- FIN DE TABLA CURSADA-->
+
+<!-- TABLA QUE MUESTRA LOS ALUMNOS QUE HAY EN LA CURSADA (CUPOF) SUS NOTAS Y TODO -->
 
 
+{% for curso in cursos %}
+    <table id="tablaCursoCursada_{{ curso.comision.id }}_{{ curso.asignatura.id }}_{{ curso.id }}" class="tabla_curso_cursada" style="display: none;" border="1">
+        <thead>
+            {# Botón para volver a la tabla cursada (3ra) #}
+            <tr>
+                <th colspan="7" style="text-align: center;">
+                    <button type="button" 
+                            onclick="showCursada({{ curso.comision.id }}, {{ curso.comision.tecnicatura.id }})" 
+                            class="btn btn-secondary">
+                        Volver a Cursadas
+                    </button>
+                </th>
+            </tr>
 
-        {% for curso in cursos %}
-            <table id="tablaCursoCursada_{{ curso.comision.id }}_{{ curso.asignatura.id }}_{{ curso.id }}" class="tabla_curso_cursada" style="display: none;" border="1">
-                <thead>
-                    <tr>
-                        <th colspan="2">{{ curso.comision.tecnicatura }} -Cursadas de Curso-</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th colspan="1"> Año: {{ curso.comision.anio }} Comisión: {{ curso.comision.comision }}</th>
-                    </tr>
-                    <tr>
-                        <th>Asignatura :</th>
-                        <th> {{ curso.asignatura.nombre }} {{ curso.comision.cicloLectivo}}</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th colspan="1"><button onclick="openModal2('{{ curso.comision.tecnicatura.id }}', '{{ curso.comision.id }}', '{{ curso.id }}')" class="btn-primary">Agregar Cursada</button></th>
-                    </tr>
-                    <tr>    
-                        <th>Ciclo Lectivo</th>
-                        <th>Cursada</th>
-                        <th>Primer Parcial</th>
-                        <th>Primer Recuperatorio</th>
-                        <th>Segundo Parcial</th>
-                        <th>Segundo Recuperatorio</th>
-                        <th>Condición</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for cursada in curso.cursadas %}
-                        {% if cursada.curso.comision.cicloLectivo == curso.comision.cicloLectivo %}
-                            <tr>
-                                <td>{{ curso.comision.cicloLectivo }}</td>
-                                <td>{{ cursada.alumno }}</td>
-                                <td>{{ cursada.getNotaId().parcial }}</td>
-                                <td>{{ cursada.getNotaId().recuperatorio1 }}</td>
-                                <td>{{ cursada.getNotaId().parcial2 }}</td>
-                                <td>{{ cursada.getNotaId().recuperatorio2 }}</td>
-                                <td>{{ cursada.condicion }}  
-                                <button onclick="openModal21({{ cursada.id }}, {{curso.id}})" >Editar</button>
-                                </td>
-                            </tr>
+            {# Fila 1: Tecnicatura y Comisión #}
+            <tr>
+                <th colspan="3">{{ curso.comision.tecnicatura }}</th>
+                <th colspan="4">Comisión: {{ curso.comision.comision }} - Año: {{ curso.comision.anio }}</th>
+            </tr>
+
+            {# Fila 2: Asignatura, Cupof, Docente activo #}
+            <tr>
+                <th colspan="3">Asignatura: {{ curso.asignatura.nombre }}</th>
+                <th>Cupof: {{ curso.cupof ?? 'No definido' }}</th>
+                <th colspan="3">
+                    Docente activo:
+                    {% set docenteActivo = null %}
+                    {% for cursada in curso.cursadaDocentes %}
+                        {% if not cursada.licencia %}
+                            {% set docenteActivo = cursada %}
+                            {{ cursada.docente.persona.apellido }}, {{ cursada.docente.persona.nombre }} (Desde: {{ cursada.toma|date('d/m/Y') }})
                         {% endif %}
                     {% endfor %}
-                </tbody>
-            </table>
-        {% endfor %}
+                    {% if not docenteActivo %}
+                        <span class="text-danger">Sin docente activo</span>
+                    {% endif %}
+                </th>
+            </tr>
+
+            {# Fila 3: Encabezados de cursada #}
+            <tr>    
+                <th>Alumno</th>
+                <th>Primer Parcial</th>
+                <th>Primer Recuperatorio</th>
+                <th>Segundo Parcial</th>
+                <th>Segundo Recuperatorio</th>
+                <th>Condición</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for cursada in curso.cursadas %}
+                {% if cursada.curso.comision.cicloLectivo == curso.comision.cicloLectivo %}
+                    <tr>
+                        <td>{{ cursada.alumno }}</td>
+                        <td>{{ cursada.getNotaId().parcial }}</td>
+                        <td>{{ cursada.getNotaId().recuperatorio1 }}</td>
+                        <td>{{ cursada.getNotaId().parcial2 }}</td>
+                        <td>{{ cursada.getNotaId().recuperatorio2 }}</td>
+                        <td>{{ cursada.condicion }}</td>
+                        <td>
+                            <button onclick="openModal21({{ cursada.id }}, {{ curso.id }})">Editar</button>
+                        </td>
+                    </tr>
+                     
+                {% endif %}
+            {% endfor %}
+            <tr>
+        <td colspan="7" style="text-align: center;">
+           <button type="button"
+        onclick="openModal2(
+            {{ curso.comision.tecnicatura.id }},
+            {{ curso.comision.id }},
+            {{ curso.id }},
+            '{{ curso.asignatura.nombre|e('js') }}',
+            '{{ curso.comision.comision|e('js') }}',
+            '{{ curso.CUPOF|e('js') }}'
+        )"
+        class="btn btn-secondary">
+    Agregar cursada
+</button>
+
+        </td>
+    </tr>
+        </tbody>
+    </table>
+{% endfor %}
+}
+
 
 
 
@@ -1264,19 +1406,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <!-- Modal2 para crear cursadas!!!-->
         <div id="Modal2" class="modal" style="display: none;">
-            <div class="modal-content">
-                <div id="modal-cursadas">
-                    <div id="searchsEs" class="search-container">
-                        <label for="searchEstudiante">Buscar Estudiante:</label>
-                        <input type="text" id="searchEstudiante" onkeyup="filterEstudiante()" placeholder="Buscar por estudiante...">
-                    </div>
-                    <div class="modal-content2">
-                        <span class="close" onclick="closeModal2()">&times;</span>
-                        <div id="modalBody-2" class="submodal"></div>
-                    </div>
-                </div>
-            </div>    
+    <div class="modal-content">
+        <div id="modal-cursadas">
+
+            <!--  TÍTULO del modal (se llena dinámicamente) -->
+           <h3 id="modalTitleCurso" style="text-align: center; margin-top: 15px;"></h3>
+
+            <!--  Contenido dinámico + botón cerrar -->
+            <div class="modal-content2">
+                <span class="close" onclick="closeModal2()">&times;</span>
+                <div id="modalBody-2" class="submodal"></div>
+            </div>
+
         </div>
+    </div>
+</div>
 
         <!-- Modal21 para editar cursada!!!-->
         <div id="Modal21" class="modal" style="display: none;">
@@ -1327,18 +1471,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>    
         </div>
-        <!-- ModalHorario para cargar horarios -->
-<div id="ModalHorario" class="modal" style="display: none;">
-    <div class="modal-content">
-        <div class="modal-content-horario">
-            <span class="close" onclick="closeModalHorario()">&times;</span>
-            <div id="modalBodyHorario" class="submodal"></div>
-        </div>
-    </div>    
-</div>
+                    <!-- ModalHorario para cargar horarios -->
+            <div id="ModalHorario" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-content-horario">
+                        <span class="close" onclick="closeModalHorario()">&times;</span>
+                        <div id="modalBodyHorario" class="submodal"></div>
+                    </div>
+                </div>    
+            </div>
+            <!-- Modal Editar Horario -->
+            <div id="ModalEditHorario" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModalEditHorario()">&times;</span>
+                    <div id="modalBodyEditHorario"class="submodal">
+                        <!-- Aquí se cargará el formulario AJAX -->
+                    </div>
+                </div>
+            </div>
 
 
-        <button id="backButton" style="display: none;" class="btn-primary">Regresar</button>
+
+
+       
 
     </div>
 {% endblock %}

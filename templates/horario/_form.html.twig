@@ -1,8 +1,33 @@
 {{ form_start(form, {'attr': {'id': 'form-horario'}}) }}
-    {{ form_row(form.dia) }}
-    {{ form_row(form.horarioInicio) }}
-    {{ form_row(form.horarioFin) }}
-    {{ form_row(form.cantModulos) }}
+    <div class="mb-3">
+        {{ form_label(form.dia) }}
+        {{ form_widget(form.dia, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.dia) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.horarioInicio) }}
+        {{ form_widget(form.horarioInicio, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.horarioInicio) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.horarioFin) }}
+        {{ form_widget(form.horarioFin, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.horarioFin) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.cantModulos) }}
+        {{ form_widget(form.cantModulos, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.cantModulos) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.curso) }}
+        {{ form_widget(form.curso, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.curso) }}
+    </div>
 
     <button class="btn btn-primary">Guardar</button>
 {{ form_end(form) }}

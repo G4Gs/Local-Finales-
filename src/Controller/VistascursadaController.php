@@ -19,6 +19,9 @@ use App\Form\CursadaType;
 use App\Repository\CursadaRepository;
 use App\Entity\Curso;
 use App\Form\CursoType;
+use App\Entity\Horario;
+use App\Form\HorarioType;
+use App\Repository\HorarioRepository;
 use App\Repository\CursoRepository;
 use App\Entity\CursadaDocente;
 use App\Form\CursadaDocenteType;
@@ -29,6 +32,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Doctrine\ORM\EntityManagerInterface;
 
 class VistascursadaController extends AbstractController
 {
@@ -298,62 +302,67 @@ class VistascursadaController extends AbstractController
     }
 
 
-    #[Route('/cursadas/{tecnicatura_id?}/comision/{comision_id?}', name: 'crear_cursada', methods: ['GET', 'POST'])]
-    public function createCursada(Request $request, CursadaRepository $cursadaRepository): Response
-    {
-        $tecnicatura_id = $request->attributes->get('tecnicatura_id', null);
-        $comision_id = $request->attributes->get('comision_id', null);
+   #[Route('/cursadas/curso/{curso_id}', name: 'crear_cursada_directo', methods: ['GET', 'POST'])]
+public function createCursada(
+    Request $request,
+    CursoRepository $cursoRepository,
+    CursadaRepository $cursadaRepository,
+    int $curso_id
+): Response {
+    $curso = $cursoRepository->find($curso_id);
 
-        // Almacenar `tecId` y `comId` en la sesión
-        $session = $request->getSession();
-        if ($tecnicatura_id !== null) {
-            $session->set('tecId', $tecnicatura_id);
-        }
-        if ($comision_id !== null) {
-            $session->set('comId', $comision_id);
-        }
 
-        $tecId = $session->get('tecId', null);
-        $comId = $session->get('comId', null);
+    if (!$curso) {
+        throw $this->createNotFoundException('Curso no encontrado');
+    }
 
-        $cursada = new Cursada();
-        $form = $this->createForm(CursadaType::class, $cursada);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Crear una nueva instancia de Nota
-            $nota = new Nota();
-            // Asignar valores iniciales a la Nota si es necesario
-            $nota->setParcial(''); 
-            $nota->setRecuperatorio1('');
-            $nota->setParcial2('');
-            $nota->setRecuperatorio2('');
+    $cursada = new Cursada();
+    $cursada->setCurso($curso);
 
-            // Asignar la nota creada a la cursada
-            $cursada->setNotaId($nota);
 
-            // Guardar la cursada (y la nota asociada debido a la relación en cascada)
-            $cursadaRepository->save($cursada, true);
+    $form = $this->createForm(CursadaType::class, $cursada, [
+        'curso' => $curso,
+        'tecnicatura' => $curso->getAsignatura()->getTecnicatura(),
+    ]);
 
-            return $this->redirectToRoute('app_vistascursada', [], Response::HTTP_SEE_OTHER);
-        }
 
-        if ($request->isXmlHttpRequest()) {
-            return $this->render('vistascursada/create_form2.html.twig', [
-                'cursada' => $cursada,
-                'form' => $form->createView(),
-                'tecId' => $tecId,
-                'comId' => $comId,
-            ]);
-        }
+    $form->handleRequest($request);
 
-        return $this->renderForm('vistascursada/create_form2.html.twig', [
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $nota = new \App\Entity\Nota();
+        $nota->setParcial('');
+        $nota->setRecuperatorio1('');
+        $nota->setParcial2('');
+        $nota->setRecuperatorio2('');
+
+
+        $cursada->setNotaId($nota);
+
+
+        $cursadaRepository->save($cursada, true);
+
+
+        return $this->redirectToRoute('app_vistascursada', [], Response::HTTP_SEE_OTHER);
+    }
+
+
+    if ($request->isXmlHttpRequest()) {
+        return $this->render('vistascursada/create_form2.html.twig', [
+            'form' => $form->createView(),
             'cursada' => $cursada,
-            'form' => $form,
-            'tecId' => $tecId,
-            'comId' => $comId,
+            'curso' => $curso,
         ]);
     }
+
+
+    return $this->renderForm('vistascursada/create_form2.html.twig', [
+        'form' => $form,
+        'cursada' => $cursada,
+        'curso' => $curso,
+    ]);
+}
 
     #[Route('/editarcursada/{cursada_id}/curso{curso_id?}', name: 'editar_cursada', methods: ['GET', 'POST'])]
     public function editarCursada(Request $request, CursadaRepository $cursadaRepository, $cursada_id): Response
@@ -501,5 +510,70 @@ public function createCurso(Request $request, CursoRepository $cursoRepository):
             'cursoId' => $cursoId,
         ]);
     }
+
+    #[Route('/cursada/horario/nuevo/{curso_id}', name: 'app_vistascursada_horario_new', methods: ['GET', 'POST'])]
+public function newHorarioDesdeCursada(Request $request, EntityManagerInterface $em, int $curso_id): Response
+{
+    $curso = $em->getRepository(Curso::class)->find($curso_id);
+    if (!$curso) {
+        throw $this->createNotFoundException('Curso no encontrado');
+    }
+
+    $horario = new Horario();
+    $horario->setCurso($curso);
+
+    $form = $this->createForm(HorarioType::class, $horario);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $em->persist($horario);
+        $em->flush();
+
+        return new Response('OK');
+    }
+
+    return $this->render('horario/_form.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
+
+ #[Route('/cursada/horario/editar/{horario_id}', name: 'app_vistascursada_horario_edit', methods: ['GET', 'POST'])]
+    public function editHorario(Request $request, EntityManagerInterface $em, int $horario_id): Response
+    {
+        $horario = $em->getRepository(Horario::class)->find($horario_id);
+
+        if (!$horario) {
+            throw $this->createNotFoundException('Horario no encontrado');
+        }
+
+        $form = $this->createForm(HorarioType::class, $horario);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                $em->flush();
+
+                if ($request->isXmlHttpRequest()) {
+                    // 204 No Content: éxito sin cuerpo
+                    return new Response('', Response::HTTP_NO_CONTENT);
+                }
+
+                return $this->redirectToRoute('app_vistascursada');
+            } else {
+                if ($request->isXmlHttpRequest()) {
+                    return $this->render('vistascursada/edit_form_horario.html.twig', [
+                        'form' => $form->createView(),
+                        'horario' => $horario,
+                    ]);
+                }
+            }
+        }
+
+        return $this->render('vistascursada/edit_form_horario.html.twig', [
+            'form' => $form->createView(),
+            'horario' => $horario,
+        ]);
+    }
+
 
 }

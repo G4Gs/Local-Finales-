@@ -215,8 +215,13 @@ class Curso
         return implode(', ', $nombres);
     }
 
-    public function __toString(): string
-    {
-        return (string) $this->getAsignatura();
-    }
+   public function __toString(): string
+{
+    $asignaturaNombre = $this->asignatura ? $this->asignatura->getNombre() : 'Sin asignatura';
+    $comisionNombre = $this->comision ? (string) $this->comision : 'Sin comisión';
+    $cupof = $this->CUPOF ?? 'Sin CUPOF';
+
+    return sprintf('%s - %s [CUPOF: %s]', $asignaturaNombre, $comisionNombre, $cupof);
+}
+
 }

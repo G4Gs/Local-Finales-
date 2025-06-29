@@ -195,6 +195,8 @@
     {#Script para ver las tablas ocultas #}
     <script>
         function showTable(tableId, carreraId = null, AluId = null, TecoId = null, EstNom = null, CarrNom = null, nombre = null, apellido = null, fechaNacimiento = null, dniPasaporte = null, genero = null, email = null, telefono = null, partido = null, calle = null, numero = null, piso = null, departamento = null, pasillo = null, pais = null, localidad = null, tituloSec = null, escuelaSec = null, anioEgreso = null) {
+           document.getElementById("searchs").style.display = "none";
+
             const tables = document.querySelectorAll('.tabla_home');
             document.getElementById(tableId).style.display = 'table';
             if (AluId !== null) {
@@ -267,6 +269,30 @@
             } else {
                 backButton.style.display = '';
             }
+             // Extraer todos los ciclos de las filas visibles
+    const filas = document.querySelectorAll(`#${tableId} tbody tr[data-carrera-id="${carreraId}"]`);
+    const ciclos = new Set();
+
+    filas.forEach(fila => {
+        const ciclo = fila.children[2]?.textContent?.trim(); // Columna 3: ciclo lectivo
+        if (ciclo) {
+            ciclos.add(ciclo);
+        }
+    });
+
+    // Mostrar botones únicos por ciclo
+    const contenedor = document.getElementById("botonesCiclos");
+    contenedor.innerHTML = ""; // Limpiar botones previos
+
+    ciclos.forEach(ciclo => {
+        const btn = document.createElement("button");
+        btn.textContent = `Ciclo Lectivo: ${ciclo}`;
+        btn.onclick = () => filtrarPorCiclo(carreraId, ciclo);
+        contenedor.appendChild(btn);
+    });
+
+    // Mostrar todas las filas al principio
+    filas.forEach(f => f.style.display = "");
         }
 
     </script>
@@ -305,38 +331,68 @@
         }
     </script>
 
-    {# Filtro necesario para no acceder un estudiante a todas partes, aqui ademas el super-adminitrador puede acceder sin filtro a todos los registros #}
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var userEmail = "{{ app.user.email }}";  // aqui obtenemos el correo del usuario logueado
-            var userDni = userEmail.split('@')[0];  // Extraer el DNI antes del '@'
-            
-            // Llamar a la función de filtrado
-            if (userEmail !== 'admin@admin.i12') {
-                filterTableByDni(userDni);
-            }
-        });
-
-        function filterTableByDni(dni) {
-            // Obtener todas las filas de la tabla
-            var rows = document.querySelectorAll("#tablacarrera tbody tr");
-            
-            // Recorrer cada fila y mostrar/ocultar según el DNI
-            rows.forEach(function(row) {
-                var estudianteData = row.querySelector('td:first-child').innerText;  // Obtener el texto del primer <td> (Estudiante)
-                if (estudianteData.includes(dni)) {
-                    row.style.display = '';  // Mostrar la fila
-                } else {
-                    row.style.display = 'none';  // Ocultar la fila
-                }
-            });
-        }
-    </script>
+    
 {% endblock %}
 
 {% block body %}
+<script>
+    function filtrarPorCiclo(carreraId, cicloSeleccionado) {
+    const filas = document.querySelectorAll(`#tablaCarreraEnCurso tbody tr[data-carrera-id="${carreraId}"]`);
+    filas.forEach(fila => {
+        const ciclo = fila.children[2]?.textContent?.trim(); // columna ciclo lectivo
+        fila.style.display = (ciclo === cicloSeleccionado) ? "" : "none";
+    });
+}
+
+</script>
+<script>
+    function filterTablaCarrera() {
+    let inputNombre = document.getElementById("searchNombre").value.toLowerCase();
+    let inputDni = document.getElementById("searchDni").value.toLowerCase();
+    let inputTecni = document.getElementById("searchTecnicatura").value.toLowerCase();
+    let estadoFiltro = document.getElementById("searchEstado").value.toLowerCase();
+
+    let tabla = document.getElementById("tablacarrera");
+    let filas = tabla.getElementsByTagName("tr");
+
+    for (let i = 1; i < filas.length; i++) {
+        let celdas = filas[i].getElementsByTagName("td");
+        if (celdas.length > 1) {
+            let textoEstudiante = celdas[0].textContent.toLowerCase(); // incluye nombre y DNI
+            let textoCarrera = celdas[1].textContent.toLowerCase(); // incluye nombre carrera y estado
+
+            let coincideNombre = inputNombre === "" || textoEstudiante.includes(inputNombre);
+            let coincideDni = inputDni === "" || textoEstudiante.includes(inputDni);
+            let coincideTecni = inputTecni === "" || textoCarrera.includes(inputTecni);
+            let coincideEstado = estadoFiltro === "" || textoCarrera.includes(estadoFiltro);
+
+            if (coincideNombre && coincideDni && coincideTecni && coincideEstado) {
+                filas[i].style.display = "";
+            } else {
+                filas[i].style.display = "none";
+            }
+        }
+    }
+}
+
+</script>
     <div id="body-vistas">
         <h1>Menú de Gestión del Estudiante</h1>
+
+        <div id="searchs" class="search-container" style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+    <input type="text" id="searchNombre" onkeyup="filterTablaCarrera()" placeholder="Nombre o Apellido..." style="padding: 5px; font-size: 14px; width: 180px;">
+    
+    <input type="text" id="searchDni" onkeyup="filterTablaCarrera()" placeholder="DNI..." style="padding: 5px; font-size: 14px; width: 120px;">
+    
+    <input type="text" id="searchTecnicatura" onkeyup="filterTablaCarrera()" placeholder="Tecnicatura..." style="padding: 5px; font-size: 14px; width: 200px;">
+    
+    <select id="searchEstado" onchange="filterTablaCarrera()" style="padding: 5px; font-size: 14px;">
+        <option value="">Todos</option>
+        <option value="Cursando">Cursando</option>
+        <option value="Terminado">Terminado</option>
+    </select>
+</div>
+
         <table id="tablacarrera" class="tabla_home" style="display: ;" border="1">
             <thead>
                 <tr>
@@ -349,7 +405,19 @@
             {% for carrera in carreras %}
                 <tr>
                     <td>{{ carrera.getestudianteId() }}</td>
-                    <td>{{ carrera.gettecnicaturaId() }}</td>
+                   <td>
+                    {{ carrera.tecnicaturaId.nombre }} -
+                    {% if carrera.estado %}
+                        <span style="color: green;">Terminado ({{ carrera.fin ? carrera.fin|date('d/m/Y') : 'Sin fecha' }})</span>
+                    {% else %}
+                        <span style="color: black;">
+                            Cursando
+                            {% if carrera.inicio %}
+                                (desde {{ carrera.inicio|date('Y') }})
+                            {% endif %}
+                        </span>
+                    {% endif %}
+                </td>
                     <td>
                         <button class:"button" onclick="showTable('tablaCarreraEnCurso', '{{ carrera.id }}', '{{ carrera.getestudianteId().id }}', '{{ carrera.gettecnicaturaId().id }}', '{{ carrera.getestudianteId().persona }}', '{{ carrera.gettecnicaturaId().nombre }}', '{{ carrera.getestudianteId().persona.nombre }}', '{{ carrera.getestudianteId().persona.apellido }}', '{{ carrera.getestudianteId().persona.fechaNacimiento|date('Y-m-d') }}', '{{ carrera.getestudianteId().persona.dniPasaporte }}', '{{ carrera.getestudianteId().persona.genero }}', '{{ carrera.getestudianteId().persona.email }}', '{{ carrera.getestudianteId().persona.telefono }}', '{{ carrera.getestudianteId().persona.partido }}', '{{ carrera.getestudianteId().persona.calle }}', '{{ carrera.getestudianteId().persona.numero }}', '{{ carrera.getestudianteId().persona.piso }}', '{{ carrera.getestudianteId().persona.departamento }}', '{{ carrera.getestudianteId().persona.pasillo }}', '{{ carrera.getestudianteId().persona.pais }}', '{{ carrera.getestudianteId().persona.localidad }}', '{{ carrera.getestudianteId().tituloSec }}', '{{ carrera.getestudianteId().escuelaSec }}', '{{ carrera.getestudianteId().anioEgreso }}')">Situación académica</button>
                     </td>
@@ -365,14 +433,22 @@
         <table id="tablaCarreraEnCurso" class="tabla_home" style="display:none;" border="1">
             <thead>
                 <tr>
-                    <th colspan="14" >
-                        <button id="backButton" onclick="showTable('tablacarrera')">Volver</button>
-                        <button onclick="openModal1()">Mis Datos</button> 
-                        <button id="botonImprimir" onclick="imprimirTable('tablaCarreraEnCurso')">Imprimir certificado</button>  
-                        <button id="cursadaMia" onclick="openCursosModal()">Inscripción a Cursada</button>                  
-                        <button id="finalMio"  onclick="openModal('final')">Inscripción a Final</button>                       
-                        <button id="claveMia"  onclick="openModal('clave')">Cambiar Clave</button> 
-                    </th>
+                    <th colspan="14">
+                <button id="backButton" onclick="showTable('tablacarrera')">Volver</button>
+                <button onclick="openModal1()">Mis Datos</button> 
+                <button id="botonImprimir" onclick="imprimirTable('tablaCarreraEnCurso')">Imprimir certificado</button>  
+                <button id="cursadaMia" onclick="openCursosModal()">Inscripción a Cursada</button>                  
+                <button id="finalMio" onclick="openModal('final')">Inscripción a Final</button>                       
+                <button id="claveMia" onclick="openModal('clave')">Cambiar Clave</button> 
+
+       
+                     </th>
+                </tr>
+                <tr>
+                    <th colspan="14">
+                         <!-- Botones de ciclo lectivo -->
+                    <div id="botonesCiclos" style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;"></div>
+
                 </tr>
                 <tr>
                     <th>Asignatura</th>

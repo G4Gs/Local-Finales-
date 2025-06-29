@@ -247,4 +247,15 @@ class Alumno
         return $this;
     }
 
+    public function getTecnicaturaActiva(): ?Tecnicatura
+{
+    foreach ($this->carreras as $carrera) {
+        if ($carrera->isEstado()) {
+            return $carrera->getTecnicaturaId();
+        }
+    }
+    return null;
+}
+
+
 }

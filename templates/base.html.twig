@@ -8,12 +8,21 @@
 			<link rel="stylesheet" href="{{asset('css/oter.css')}}">
 			<link rel="stylesheet" href="{{asset('css/container.css')}}">
 			<link rel="stylesheet" href="{{asset('css/styles.css')}}">
-		    
+			<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+			
+				
 		{% endblock %}
 	</head>
 	<body
 		id="page-top">
-		<!-- Page Wrapper -->
+		 	<!--Page Wrapper 
+Debug de roles
+		{% for rol in app.user.roles %}
+    <p >Rol: {{ rol }}</p> 
+{% endfor %}
+ -->	
+		
 		<div
 			id="wrapper">
 
@@ -45,63 +54,108 @@
 				</div>
 
 
-				{% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
-				<!-- Nav Item - Charts -->
-				
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_vistaspreinscriptos')}}">
-						<i class="fas fa-fw fa-folder"></i>
-						<span class="custin">Preinscriptos</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_vistasestudiante')}}" >
-						<i class="fas fa-fw fa-folder"></i>
-						<span class="custin">Estudiantes</span>
-					</a>
-				</li>
-				
-				<li class="nav-item">
-					<a class="nav-link" href="#" onclick="clearSessionCursos(); return false;">
-						<i class="fas fa-fw fa-folder"></i>
-						<span class="custin">Comisiones, Cursos y Cursadas</span>
-					</a>
-				</li>	
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_vistasmesas')}}" >
-						<i class="fas fa-fw fa-folder"></i>
-						<span class="custin">Finales</span>
-					</a>
-				</li>
-				{% endif %}
+				{% set mostrados = [] %}
 
-				
-				{% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_DOCENTE') %}
-				<li class="nav-item">
-					<a class="nav-link" href="#" onclick="clearSessionDocentes(); return false;">
-						<i class="fas fa-fw fa-folder"></i>
-						<span class="custin">Docentes</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#" onclick="clearSessionPersonas(); return false;">
-						<i class="fas fa-fw fa-folder"></i>
-						<span class="custin">Recursos Humanos</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="clearSessionLink" href="#" onclick="clearSessionTecnicaturas(); return false;">
-						<i class="fas fa-fw fa-folder"></i>
-						<span class="custin">Tecnicaturas y Asignaturas</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('app_user_index')}}">
-						<i class="fas fa-fw fa-folder"></i>
-						<span class="custin">Usuarios</span>
-					</a>
-				</li>
-				{% endif %}
+					{# PREINSCRIPTOS #}
+					{% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') %}
+						{% if 'preinscriptos' not in mostrados %}
+							{% set mostrados = mostrados|merge(['preinscriptos']) %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_vistaspreinscriptos') }}">
+									<i class="fas fa-fw fa-folder"></i>
+									<span>Preinscriptos</span>
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+
+					{# ESTUDIANTES #}
+					{% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') or is_granted('ROLE_ESTUDIANTE') %}
+						{% if 'estudiantes' not in mostrados %}
+							{% set mostrados = mostrados|merge(['estudiantes']) %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_vistasestudiante') }}">
+									<i class="fas fa-fw fa-folder"></i>
+									<span>Estudiantes</span>
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+
+					{# CURSOS Y CURSADAS #}
+					{% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') %}
+						{% if 'cursos' not in mostrados %}
+							{% set mostrados = mostrados|merge(['cursos']) %}
+							<li class="nav-item">
+								<a class="nav-link" href="#" onclick="clearSessionCursos(); return false;">
+									<i class="fas fa-fw fa-folder"></i>
+									<span>Comisiones, Cursos y Cursadas</span>
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+
+					{# FINALES #}
+					{% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') %}
+						{% if 'finales' not in mostrados %}
+							{% set mostrados = mostrados|merge(['finales']) %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_vistasmesas') }}">
+									<i class="fas fa-fw fa-folder"></i>
+									<span>Finales</span>
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+
+					{# DOCENTES #}
+					{% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_DOCENTE') %}
+						{% if 'docentes' not in mostrados %}
+							{% set mostrados = mostrados|merge(['docentes']) %}
+							<li class="nav-item">
+								<a class="nav-link" href="#" onclick="clearSessionDocentes(); return false;">
+									<i class="fas fa-fw fa-folder"></i>
+									<span>Docentes</span>
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+
+					{# RRHH (solo SUPER_ADMIN) #}
+					{% if is_granted('ROLE_SUPER_ADMIN') %}
+						{% if 'rrhh' not in mostrados %}
+							{% set mostrados = mostrados|merge(['rrhh']) %}
+							<li class="nav-item">
+								<a class="nav-link" href="#" onclick="clearSessionPersonas(); return false;">
+									<i class="fas fa-fw fa-folder"></i>
+									<span>Recursos Humanos</span>
+								</a>
+							</li>
+						{% endif %}
+
+						{% if 'tecnicaturas' not in mostrados %}
+							{% set mostrados = mostrados|merge(['tecnicaturas']) %}
+							<li class="nav-item">
+								<a class="nav-link" href="#" onclick="clearSessionTecnicaturas(); return false;">
+									<i class="fas fa-fw fa-folder"></i>
+									<span>Tecnicaturas y Asignaturas</span>
+								</a>
+							</li>
+						{% endif %}
+
+						{% if 'usuarios' not in mostrados %}
+							{% set mostrados = mostrados|merge(['usuarios']) %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_user_index') }}">
+									<i class="fas fa-fw fa-folder"></i>
+									<span>Usuarios</span>
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+
+
+
 
 		
 				<!-- Nav Item - Charts -->
@@ -118,6 +172,7 @@
 							<a class="collapse-item" href="{{ path('app_carreras_index')}}">Estudiante Por Carrera</a>
 							<a class="collapse-item" href="{{ path('app_tecnicatura_index')}}">Tecnicatura</a>
 							<a class="collapse-item" href="{{ path('app_asignatura_index')}}">Asignatura</a>
+							<a class="collapse-item" href="{{ path('app_carreras_index')}}">Carrera</a>
 							<a class="collapse-item" href="{{ path('app_comision_index')}}">Comisiones</a>
 							<a class="collapse-item" href="{{ path('app_correlativa_index')}}">Correlativas</a>
 							<a class="collapse-item" href="{{ path('app_cursada_index')}}">Cursadas</a>
@@ -131,6 +186,7 @@
 							<a class="collapse-item" href="{{ path('app_cursada_docente_index')}}">Cursadas Por Docentes</a>
 							<a class="collapse-item" href="{{ path('app_revista_index')}}">Revista</a>
 							<a class="collapse-item" href="{{ path('app_titulo_index')}}">Título</a>
+							<a class="collapse-item" href="{{ path('app_horario_index')}}">Horarios</a>
 
 						</div>
 					</div>
@@ -150,6 +206,7 @@
 							<a class="collapse-item" href="{{ path('app_alumno_index')}}">Estudiantes</a>
 							<a class="collapse-item" href="{{ path('app_docente_index')}}">Docentes</a>
 							<a class="collapse-item" href="{{ path('app_persona_index')}}">Personas</a>
+							<a class="collapse-item" href="{{ path('app_rol_index')}}">Rol</a>
 						
 						</div>
 					</div>
@@ -256,18 +313,15 @@
 
 						<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-        {% if app.user and app.user.persona %}
-            {% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') or is_granted('ROLE_DOCENTE') or is_granted('ROLE_ESTUDIANTE') %}
-                {{ app.user.persona.nombre }}
-            {% else %}
-                Invitado
-            {% endif %}
+        {% if app.user and app.user.persona and is_granted('ROLE_USER') %}
+            {{ app.user.persona.nombre }}
         {% else %}
             Invitado
         {% endif %}
     </span>
     <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
 </a>
+
 
 
 								<!-- Dropdown - User Information -->
@@ -343,6 +397,14 @@
 
 						function clearSessionDocentes() {  
 							var url1 = '{{ path('app_vistasdocente') }}';
+							// Redirigir dos veces
+							window.location.href = url1;
+							setTimeout(function() {
+								window.location.href = url1;
+							}, 200);
+						}
+						function clearSessionEstudiantes() {  
+							var url1 = '{{ path('app_vistasestudiante') }}';
 							// Redirigir dos veces
 							window.location.href = url1;
 							setTimeout(function() {

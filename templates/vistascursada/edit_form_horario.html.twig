@@ -1,0 +1,32 @@
+{{ form_start(form, {'attr': {'id': 'form-editar-horario'}}) }}
+
+   <div class="mb-3">
+        {{ form_label(form.dia) }}
+        {{ form_widget(form.dia, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.dia) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.horarioInicio) }}
+        {{ form_widget(form.horarioInicio, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.horarioInicio) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.horarioFin) }}
+        {{ form_widget(form.horarioFin, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.horarioFin) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.cantModulos) }}
+        {{ form_widget(form.cantModulos, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.cantModulos) }}
+    </div>
+
+    {# Campo oculto o deshabilitado para curso (si lo querés mostrar, aunque el JS lo oculta) #}
+    {{ form_row(form.curso) }}
+
+    <button type="submit"id="guarda-modal-edit"class="button">Guardar</button>
+
+{{ form_end(form) }}

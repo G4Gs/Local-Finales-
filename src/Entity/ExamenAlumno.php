@@ -23,10 +23,10 @@ class ExamenAlumno
     private ?int $folio = null;
 
     #[ORM\ManyToOne(inversedBy: 'examenAlumnos')]
-    private ?Alumno $alumno = null;
+    private ?Alumno $alumno_id = null;
 
     #[ORM\ManyToOne(inversedBy: 'examenAlumnos')]
-    private ?ExamenFinal $examenFinal = null;
+    private ?ExamenFinal $examenFinal_id = null;
 
     public function getId(): ?int
     {
@@ -41,6 +41,7 @@ class ExamenAlumno
     public function setNota(string $nota): static
     {
         $this->nota = $nota;
+
         return $this;
     }
 
@@ -52,6 +53,7 @@ class ExamenAlumno
     public function setTomo(string $tomo): static
     {
         $this->tomo = $tomo;
+
         return $this;
     }
 
@@ -63,28 +65,31 @@ class ExamenAlumno
     public function setFolio(int $folio): static
     {
         $this->folio = $folio;
+
         return $this;
     }
 
-    public function getAlumno(): ?Alumno
+    public function getAlumnoId(): ?Alumno
     {
-        return $this->alumno;
+        return $this->alumno_id;
     }
 
-    public function setAlumno(?Alumno $alumno): static
+    public function setAlumnoId(?Alumno $alumno_id): static
     {
-        $this->alumno = $alumno;
+        $this->alumno_id = $alumno_id;
+
         return $this;
     }
 
-    public function getExamenFinal(): ?ExamenFinal
+    public function getExamenFinalId(): ?ExamenFinal
     {
-        return $this->examenFinal;
+        return $this->examenFinal_id;
     }
 
-    public function setExamenFinal(?ExamenFinal $examenFinal): static
+    public function setExamenFinalId(?ExamenFinal $examenFinal_id): static
     {
-        $this->examenFinal = $examenFinal;
+        $this->examenFinal_id = $examenFinal_id;
+
         return $this;
     }
 }

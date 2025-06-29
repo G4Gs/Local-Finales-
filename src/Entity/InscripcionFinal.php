@@ -18,13 +18,15 @@ class InscripcionFinal
     private ?\DateTimeInterface $fecha = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscripcionFinals')]
-    private ?Alumno $alumno = null;
+    private ?Alumno $alumno_id = null;
+
+    #[ORM\Column(length: 20)]
+    private ?string $condicion = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscripcionFinals')]
-    private ?Asignatura $asignatura = null;
+    private ?ExamenFinal $examen_final = null;
 
-    #[ORM\ManyToOne(targetEntity: \App\Entity\Curso::class)]
-    private ?Curso $curso = null;
+    
 
     public function getId(): ?int
     {
@@ -36,45 +38,49 @@ class InscripcionFinal
         return $this->fecha;
     }
 
-    public function setFecha(\DateTimeInterface $fecha): staÑtic
+    public function setFecha(\DateTimeInterface $fecha): static
     {
         $this->fecha = $fecha;
 
         return $this;
     }
 
-    public function getAlumno(): ?Alumno
+    public function getAlumnoId(): ?Alumno
     {
-        return $this->alumno;
+        return $this->alumno_id;
     }
 
-    public function setAlumno(?Alumno $alumno): static
+    public function setAlumnoId(?Alumno $alumno_id): static
     {
-        $this->alumno = $alumno;
+        $this->alumno_id = $alumno_id;
 
         return $this;
     }
 
-    public function getAsignatura(): ?Asignatura
+    public function getCondicion(): ?string
     {
-        return $this->asignatura;
+        return $this->condicion;
     }
 
-    public function setAsignatura(?Asignatura $asignatura): static
+    public function setCondicion(string $condicion): static
     {
-        $this->asignatura = $asignatura;
+        $this->condicion = $condicion;
 
         return $this;
     }
-    public function getCurso(): ?Curso
-     {
-    return $this->curso;
+
+    public function getExamenFinal(): ?ExamenFinal
+    {
+        return $this->examen_final;
     }
 
-    public function setCurso(?Curso $curso): static
-   {
-    $this->curso = $curso;
-    return $this;
-   }
+    public function setExamenFinal(?ExamenFinal $examen_final): static
+    {
+        $this->examen_final = $examen_final;
+
+        return $this;
+    }
+
+
 
 }

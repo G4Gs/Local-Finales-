@@ -19,8 +19,8 @@
         {% for docente in docentes %}
             <tr>
                 <td>{{ docente.id }}</td>
-                <td>    </td>
-                <td>    </td>
+                <td>{{ docente.persona.nombre}}    </td>
+                <td>  {{ docente.persona.apellido}}  </td>
                 <td>{{ docente.foja}}</td>
                 <td>
                     <a href="{{ path('app_docente_show', {'id': docente.id}) }}">Mostrar</a>

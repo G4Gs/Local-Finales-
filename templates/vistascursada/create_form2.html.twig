@@ -1,13 +1,11 @@
 {{ form_start(form, {
     'attr': {'id': 'form-crea-cursada'},
-    'action': path('crear_cursada', { 'tecnicatura_id': tecId, 'comision_id': comId })
+    'action': path('crear_cursada_directo', { 'curso_id': curso.id })
 }) }}
-        {{ form_row(form.condicion, {'label': 'Condición'})  }}
-        {{ form_row(form.alumno, {'label': 'Alumno'})  }}
-        {{ form_row(form.modalidad, {'label': 'Modalidad'})  }}
-        {{ form_row(form.nota_id, {'label': 'Nota'})  }}
-        {{ form_row(form.curso, {'label': 'Curso'})  }} 
-    <button type="submit"class="button">Guardar</button>
+    {{ form_row(form.condicion, {'label': 'Condición'})  }}
+    {{ form_row(form.alumno, {'label': 'Alumno'})  }}
+    {{ form_row(form.modalidad, {'label': 'Modalidad'})  }}
+    {{ form_row(form.nota_id, {'label': 'Nota'})  }}
+    {{ form_row(form.curso, {'label': 'Curso'})  }} 
+    <button type="submit" class="button">Guardar</button>
 {{ form_end(form) }}
-
-

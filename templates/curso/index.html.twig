@@ -45,16 +45,16 @@
     {% for curso in cursos %}
         <tr>
             <td>{{ curso.id }}</td>
-            <td>{{ curso.comision.ciclolectivo }}</td>
-            <td>
-              {% for horario in curso.horarios %}
-                 {{ horario }}{% if not loop.last %}, {% endif %}
-              {% else %}
-                 Sin horario
-             {% endfor %}
-            </td>
-            <td>{{ curso.asignatura.nombre }}</td>
-            <td>{{ curso.comision.comision }}</td>
+            <td>{{ curso.comision.cicloLectivo }}</td>
+           <td>
+            {% for horario in curso.horarios %}
+                {{ horario.dia }}: {{ horario.horarioInicio }} a {{ horario.horarioFin }}<br>
+            {% else %}
+                Sin horarios
+            {% endfor %}
+        </td>
+            <td>{{ curso.getAsignatura.nombre }}</td>
+            <td>{{ curso.getComision.comision }}</td>
             <td>
                 <a href="{{ path('app_curso_show', {'id': curso.id}) }}">Mostrar</a>
                 <a href="{{ path('app_curso_edit', {'id': curso.id}) }}">Editar</a>
@@ -71,3 +71,4 @@
 
     <a href="{{ path('app_curso_new') }}">Crear Nuevo Curso</a>
 {% endblock %}
+

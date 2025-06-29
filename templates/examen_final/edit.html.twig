@@ -1,10 +1,13 @@
-{% block title %} <h1>Editar Examen Final</h1> {% endblock %}
+
+
+{% block title %}Edit ExamenFinal{% endblock %}
 
 {% block body %}
-    {{ include('examen_final/_form.html.twig', {'form': form, 'button_label': 'Actualizar'}) }}
+    <h1>Editar Examen Final</h1>
 
-    <form method="post" action="{{ path('app_examen_final_delete', {'id': examen_final.id}) }}" onsubmit="return confirm('¿Estás seguro de eliminar este examen final?');">
-        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ examen_final.id) }}">
-        <button class="btn btn-danger">Eliminar</button>
-    </form>
+    {{ include('examen_final/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <a href="{{ path('app_examen_final_index') }}">Regresar</a>
+
+    {{ include('examen_final/_delete_form.html.twig') }}
 {% endblock %}

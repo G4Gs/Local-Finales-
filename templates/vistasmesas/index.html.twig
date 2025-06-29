@@ -302,15 +302,15 @@ function handleNotaFinalFormSubmit() {
                 <tr>
                     <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
                     <td>
-                     {{ inscripcion_final.curso and inscripcion_final.curso.comision and inscripcion_final.curso.comision.tecnicatura
-                       ? inscripcion_final.curso.comision.tecnicatura.nombre : 'N/A' }}
+                     {{ inscripcion_final.examenFinal and inscripcion_final.examenFinal.curso and inscripcion_final.examenFinal.curso.comision and inscripcion_final.examenFinal.curso.comision.tecnicatura
+                        ? inscripcion_final.examenFinal.curso.comision.tecnicatura.nombre : 'N/A' }}
                    </td>
                    <td>
-                      {{ inscripcion_final.curso and inscripcion_final.curso.asignatura
-                     ? inscripcion_final.curso.asignatura.nombre : 'N/A' }}
+                      {{ inscripcion_final.examenFinal and inscripcion_final.examenFinal.curso and inscripcion_final.examenFinal.curso.asignatura
+                         ? inscripcion_final.examenFinal.curso.asignatura.nombre : 'N/A' }}
                  </td>
                  <td>
-                  {{ inscripcion_final.alumno ? inscripcion_final.alumno.persona.nombre ~ ' ' ~ inscripcion_final.alumno.persona.apellido : 'N/A' }}
+                 {{ inscripcion_final.alumnoId ? inscripcion_final.alumnoId.persona.nombre ~ ' ' ~ inscripcion_final.alumnoId.persona.apellido : 'N/A' }}
                  </td>
                     <td>
                         {% if is_granted('ROLE_SUPER_ADMIN') %}
@@ -336,7 +336,7 @@ function handleNotaFinalFormSubmit() {
                 <th colspan="8">Fechas de Finales</th>
             </tr>
               <tr>
-              <th colspan="8">
+              <th colspan="">
                <form method="get" action="">
                  <input type="text" name="mesa_asignatura" placeholder="Buscar asignatura" value="{{ app.request.get('mesa_asignatura') }}">
                  <input type="text" name="mesa_tecnicatura" placeholder="Buscar tecnicatura" value="{{ app.request.get('mesa_tecnicatura') }}">
@@ -347,7 +347,6 @@ function handleNotaFinalFormSubmit() {
             </tr>
             <tr>
                 <th>Fecha</th>
-                <th>Hora</th>
                 <th>Asignatura</th>
                 <th>Tecnicatura</th>
                 <th>Presidente</th>
@@ -360,7 +359,6 @@ function handleNotaFinalFormSubmit() {
             {% for examen_final in examen_finals %}
                 <tr> 
                     <td>{{ examen_final.fecha ? examen_final.fecha|date('Y-m-d') : '' }}</td>
-                    <td>{{ examen_final.hora ? examen_final.hora|date('H:i') : '' }}</td>
                     <td>
                     {{ examen_final.curso and examen_final.curso.asignatura
                     ? examen_final.curso.asignatura.nombre : 'N/A' }}

@@ -48,29 +48,23 @@ class ExamenAlumnoController extends AbstractController
         ]);
     }
 
-   #[Route('/{id}/edit', name: 'app_examen_alumno_edit', methods: ['GET', 'POST'])]
-public function edit(Request $request, ExamenAlumno $examenAlumno, ExamenAlumnoRepository $examenAlumnoRepository): Response
-{
-    $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+    #[Route('/{id}/edit', name: 'app_examen_alumno_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, ExamenAlumno $examenAlumno, ExamenAlumnoRepository $examenAlumnoRepository): Response
+    {
+        $form = $this->createForm(ExamenAlumnoType::class, $examenAlumno);
+        $form->handleRequest($request);
 
-    $form = $this->createForm(\App\Form\ExamenAlumnoType::class, $examenAlumno);
-    $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $examenAlumnoRepository->save($examenAlumno, true);
 
-    if ($form->isSubmitted() && $form->isValid()) {
-        $examenAlumnoRepository->save($examenAlumno, true);
-        return $this->json(['success' => true]);
-    }
+            return $this->redirectToRoute('app_examen_alumno_index', [], Response::HTTP_SEE_OTHER);
+        }
 
-    if ($request->isXmlHttpRequest()) {
-        return $this->render('vistasmesas/Super_Editar.html.twig', [
-            'form_nota' => $form->createView(),
+        return $this->renderForm('examen_alumno/edit.html.twig', [
+            'examen_alumno' => $examenAlumno,
+            'form' => $form,
         ]);
     }
-
-    return $this->render('vistasmesas/Super_Editar.html.twig', [
-        'form_nota' => $form->createView(),
-    ]);
-}
 
     #[Route('/{id}', name: 'app_examen_alumno_delete', methods: ['POST'])]
     public function delete(Request $request, ExamenAlumno $examenAlumno, ExamenAlumnoRepository $examenAlumnoRepository): Response

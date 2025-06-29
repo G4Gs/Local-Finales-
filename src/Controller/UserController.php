@@ -24,14 +24,28 @@ class UserController extends AbstractController
     }
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
-    {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+{
+    $user = new User();
+    $form = $this->createForm(UserType::class, $user);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Obtener los roles seleccionados en el formulario
+        $roles = array_map(fn($rol) => $rol->getNombre(), $user->getRolesCollection()->toArray());
 
+        // Definir los roles que requieren una persona asociada
+        $rolesQueRequierenPersona = ['ROLE_DOCENTE', 'ROLE_ESTUDIANTE', 'ROLE_PRECEPTOR'];
+
+        // Validar si se necesita persona y no se asignó
+        if (array_intersect($roles, $rolesQueRequierenPersona) && !$user->getPersona()) {
+            $form->get('persona')->addError(
+                new \Symfony\Component\Form\FormError('Este campo es obligatorio para el rol seleccionado.')
+            );
+        }
+
+        // Si todo está bien después de validar manualmente
+        if ($form->isValid()) {
             $password = $form->get('password')->getData();
             if ($password) {
                 $user->setPassword(
@@ -44,12 +58,14 @@ class UserController extends AbstractController
 
             return $this->redirectToRoute('app_user_index');
         }
-
-        return $this->renderForm('user/new.html.twig', [
-            'user' => $user,
-            'form' => $form,
-        ]);
     }
+
+    return $this->renderForm('user/new.html.twig', [
+        'user' => $user,
+        'form' => $form,
+    ]);
+}
+
 
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response

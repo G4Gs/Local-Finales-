@@ -22,33 +22,23 @@ class NotaController extends AbstractController
     }
 
     #[Route('/new', name: 'app_nota_new', methods: ['GET', 'POST'])]
-public function new(Request $request, NotaRepository $notaRepository): Response
-{
-    $notum = new Nota();
-    $form = $this->createForm(NotaType::class, $notum);
-    $form->handleRequest($request);
+    public function new(Request $request, NotaRepository $notaRepository): Response
+    {
+        $notum = new Nota();
+        $form = $this->createForm(NotaType::class, $notum);
+        $form->handleRequest($request);
 
-    if ($form->isSubmitted() && $form->isValid()) {
-        $notaRepository->save($notum, true);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $notaRepository->save($notum, true);
 
-        if ($request->isXmlHttpRequest()) {
-            return new Response('', 200);
+            return $this->redirectToRoute('app_nota_index', [], Response::HTTP_SEE_OTHER);
         }
-        return $this->redirectToRoute('app_nota_index', [], Response::HTTP_SEE_OTHER);
-    }
 
-    if ($request->isXmlHttpRequest()) {
-        return $this->render('nota/_form.html.twig', [
-            'form' => $form->createView(),
-            'button_label' => 'Guardar',
+        return $this->renderForm('nota/new.html.twig', [
+            'notum' => $notum,
+            'form' => $form,
         ]);
     }
-
-    return $this->renderForm('nota/new.html.twig', [
-        'notum' => $notum,
-        'form' => $form,
-    ]);
-  }
 
     #[Route('/{id}', name: 'app_nota_show', methods: ['GET'])]
     public function show(Nota $notum): Response

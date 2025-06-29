@@ -3,51 +3,64 @@
 namespace App\Form;
 
 use App\Entity\Horario;
+use App\Entity\Curso;
+use App\Form\DataTransformer\TimeStringToDateTimeTransformer;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class HorarioType extends AbstractType
 {
+    private TimeStringToDateTimeTransformer $transformer;
+
+    public function __construct(TimeStringToDateTimeTransformer $transformer)
+    {
+        $this->transformer = $transformer;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $dias = [
-            'Lunes' => 'Lunes',
-            'Martes' => 'Martes',
-            'Miércoles' => 'Miércoles',
-            'Jueves' => 'Jueves',
-            'Viernes' => 'Viernes',
-            'Sábado' => 'Sábado',
-            'Domingo' => 'Domingo',
-        ];
-
-        $horas = [];
-        for ($h = 0; $h <= 23; $h++) {
-            $horaStr = str_pad($h, 2, '0', STR_PAD_LEFT);
-            $horas[$horaStr . ':00'] = $horaStr . ':00';
-        }
-
         $builder
             ->add('dia', ChoiceType::class, [
-                'choices' => $dias,
                 'label' => 'Día',
-                'placeholder' => 'Seleccione un día',
+                'choices' => [
+                    'Lunes' => 'Lunes',
+                    'Martes' => 'Martes',
+                    'Miércoles' => 'Miércoles',
+                    'Jueves' => 'Jueves',
+                    'Viernes' => 'Viernes',
+                    'Sábado' => 'Sábado',
+                ],
+                'placeholder' => 'Seleccionar día',
             ])
-            ->add('horarioInicio', ChoiceType::class, [
-                'choices' => $horas,
+            ->add('horarioInicio', TimeType::class, [
                 'label' => 'Hora de inicio',
-                'placeholder' => 'Seleccione la hora',
+                'widget' => 'single_text',
+                'input' => 'datetime',
+                'html5' => true,
             ])
-            ->add('horarioFin', ChoiceType::class, [
-                'choices' => $horas,
+            ->add('horarioFin', TimeType::class, [
                 'label' => 'Hora de fin',
-                'placeholder' => 'Seleccione la hora',
+                'widget' => 'single_text',
+                'input' => 'datetime',
+                'html5' => true,
             ])
-            ->add('cantModulos', TextType::class, [
-                'label' => 'Cantidad de módulos'
+            ->add('cantModulos', null, [
+                'label' => 'Cantidad de módulos',
+            ])
+            ->add('curso', EntityType::class, [
+                'class' => Curso::class,
+                'choice_label' => fn(Curso $curso) => (string) $curso,
+                'placeholder' => 'Seleccionar curso',
+                'label' => 'Curso',
             ]);
+
+        // Aplicar el transformer a los campos de tiempo
+        $builder->get('horarioInicio')->addModelTransformer($this->transformer);
+        $builder->get('horarioFin')->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
