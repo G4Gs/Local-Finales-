@@ -8,8 +8,24 @@
     <table class="table">
         <thead>
             <tr>
+                <th colspan="2">
+                    Buscar por :Examen Final
+                    <input type="text" id="searchFinal" onkeyup="filterTable()" placeholder="Buscar Examen Final...">
+                </th>
+                <th colspan="2">
+                    Buscar por : Alumnos Asignados
+                    <input type="text" id="searchAlumnos" onkeyup="filterTable()" placeholder="Buscar Alumnos Asignados...">
+                </th>
+                <th colspan="1">
+                    Buscar por : Estado de Mesa
+                    <input type="text" id="searchEstado" onkeyup="filterTable()" placeholder="Buscar Estado de Mesa...">
+                </th>
+            </tr>
+            <tr>
                 <th>ID</th>
-                <th>Fecha</th>
+                <th>Fecha Inscripción</th>
+                <th>Examen Final</th>
+                <th>Alumnos Asignados</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -18,6 +34,16 @@
             <tr>
                 <td>{{ inscripcion_final.id }}</td>
                 <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
+                <td>    
+                    {{ inscripcion_final.fecha ? inscripcion_final.examenFinal.fecha|date('Y-m-d') : '' }}
+                    {{ inscripcion_final.hora ? inscripcion_final.examenFinal.hora|date('H:i') : '' }}
+                    {{ inscripcion_final.presidente ? inscripcion_final.examenFinal.presidente.persona : '' }}
+                    {{ inscripcion_final.vocal1 ? inscripcion_final.examenFinal.vocal1.persona : '' }}
+                    {{ inscripcion_final.vocal2 ? inscripcion_final.examenFinal.vocal2.persona : '' }}
+                    {{ inscripcion_final.estadoMesa }}
+                    {{ inscripcion_final.curso ? inscripcion_final.examenFinal.curso.asignatura.nombre ~ ' - ' ~ inscripcion_final.examenFinal.curso.comision.ciclolectivo : '' }}
+                </td>
+                <td></td>
                 <td>
                     <a href="{{ path('app_inscripcion_final_show', {'id': inscripcion_final.id}) }}">Mostrar</a>
                     <a href="{{ path('app_inscripcion_final_edit', {'id': inscripcion_final.id}) }}">Editar</a>
@@ -25,7 +51,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">No se encontraron registros</td>
+                <td colspan="5">No se encontraron registros</td>
             </tr>
         {% endfor %}
         </tbody>
