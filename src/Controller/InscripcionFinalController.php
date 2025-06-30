@@ -10,30 +10,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/inscripcion/final')]
+#[Route('/inscripcion_final')]
 class InscripcionFinalController extends AbstractController
 {
     #[Route('/', name: 'app_inscripcion_final_index', methods: ['GET'])]
     public function index(InscripcionFinalRepository $inscripcionFinalRepository): Response
     {
-        $inscripciones = $inscripcionFinalRepository->findAll();
-
-        // Simulación: lista de nombres de exámenes finales
-        $nombresExamenes = ['Matemática', 'Historia', 'Lengua', 'Física', 'Química'];
-
-        foreach ($inscripciones as $i => $inscripcion) {
-            $inscripcion->setTipo($i % 3);
-            // Asigna un nombre de examen final (puedes usar tu lógica real aquí)
-            $nombreExamen = $nombresExamenes[$i % count($nombresExamenes)];
-            $inscripcion->examenFinalNombre = $nombreExamen; // propiedad pública o usa un setter
-        }
-
         return $this->render('inscripcion_final/index.html.twig', [
-            'inscripcion_finals' => $inscripciones,
+            'inscripcion_finals' => $inscripcionFinalRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'app_inscripcion_final_new', methods: ['GET', 'POST'])]
+    #[Route('/nueva', name: 'app_inscripcion_final_new', methods: ['GET', 'POST'])]
     public function new(Request $request, InscripcionFinalRepository $inscripcionFinalRepository): Response
     {
         $inscripcionFinal = new InscripcionFinal();
@@ -60,7 +48,7 @@ class InscripcionFinalController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_inscripcion_final_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/editar', name: 'app_inscripcion_final_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, InscripcionFinal $inscripcionFinal, InscripcionFinalRepository $inscripcionFinalRepository): Response
     {
         $form = $this->createForm(InscripcionFinalType::class, $inscripcionFinal);
@@ -78,10 +66,10 @@ class InscripcionFinalController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_inscripcion_final_delete', methods: ['POST'])]
+    #[Route('/{id}/eliminar', name: 'app_inscripcion_final_delete', methods: ['POST'])]
     public function delete(Request $request, InscripcionFinal $inscripcionFinal, InscripcionFinalRepository $inscripcionFinalRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$inscripcionFinal->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $inscripcionFinal->getId(), $request->request->get('_token'))) {
             $inscripcionFinalRepository->remove($inscripcionFinal, true);
         }
 

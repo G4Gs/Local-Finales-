@@ -302,6 +302,9 @@ function handleNotaFinalFormSubmit() {
                 <tr>
                     <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
                     <td>
+                 {{ inscripcion_final.alumnoId ? inscripcion_final.alumnoId.persona.nombre ~ ' ' ~ inscripcion_final.alumnoId.persona.apellido : 'N/A' }}
+                 </td>
+                    <td>
                      {{ inscripcion_final.examenFinal and inscripcion_final.examenFinal.curso and inscripcion_final.examenFinal.curso.comision and inscripcion_final.examenFinal.curso.comision.tecnicatura
                         ? inscripcion_final.examenFinal.curso.comision.tecnicatura.nombre : 'N/A' }}
                    </td>
@@ -309,9 +312,7 @@ function handleNotaFinalFormSubmit() {
                       {{ inscripcion_final.examenFinal and inscripcion_final.examenFinal.curso and inscripcion_final.examenFinal.curso.asignatura
                          ? inscripcion_final.examenFinal.curso.asignatura.nombre : 'N/A' }}
                  </td>
-                 <td>
-                 {{ inscripcion_final.alumnoId ? inscripcion_final.alumnoId.persona.nombre ~ ' ' ~ inscripcion_final.alumnoId.persona.apellido : 'N/A' }}
-                 </td>
+                 
                     <td>
                         {% if is_granted('ROLE_SUPER_ADMIN') %}
                             <button onclick="openEditInscripcionFinalModal({{ inscripcion_final.id }})">Editar</button>

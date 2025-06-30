@@ -21,6 +21,9 @@ class InscripcionFinalRepository extends ServiceEntityRepository
         parent::__construct($registry, InscripcionFinal::class);
     }
 
+    /**
+     * Guarda una inscripción a final en la base de datos.
+     */
     public function save(InscripcionFinal $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -30,6 +33,9 @@ class InscripcionFinalRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Elimina una inscripción a final de la base de datos.
+     */
     public function remove(InscripcionFinal $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -39,28 +45,29 @@ class InscripcionFinalRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return InscripcionFinal[] Returns an array of InscripcionFinal objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('i')
-//            ->andWhere('i.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('i.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * Ejemplo de método personalizado para buscar inscripciones por alumno
+     */
+    public function findByAlumnoId(int $alumnoId): array
+    {
+        return $this->createQueryBuilder('i')
+            ->andWhere('i.alumno = :alumnoId')
+            ->setParameter('alumnoId', $alumnoId)
+            ->orderBy('i.fecha', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?InscripcionFinal
-//    {
-//        return $this->createQueryBuilder('i')
-//            ->andWhere('i.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * Ejemplo de método personalizado para buscar por fecha
+     */
+    public function findByFecha(\DateTimeInterface $fecha): array
+    {
+        return $this->createQueryBuilder('i')
+            ->andWhere('i.fecha = :fecha')
+            ->setParameter('fecha', $fecha->format('Y-m-d'))
+            ->orderBy('i.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

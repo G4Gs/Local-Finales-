@@ -1,18 +1,17 @@
 <?php
-
 namespace App\Controller;
 
 use App\Repository\InscripcionFinalRepository;
-use App\Entity\ExamenAlumno;
-use App\Form\ExamenAlumnoType;
 use App\Repository\ExamenAlumnoRepository;
-use App\Entity\ExamenFinal;
-use App\Form\ExamenFinalType;
 use App\Repository\ExamenFinalRepository;
+use App\Entity\ExamenAlumno;
+use App\Entity\ExamenFinal;
+use App\Form\ExamenAlumnoType;
+use App\Form\ExamenFinalType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 class VistasmesasController extends AbstractController
 {
@@ -26,7 +25,6 @@ class VistasmesasController extends AbstractController
         ]);
     }
 
-
     #[Route('/nuevamesa', name: 'nueva_mesa', methods: ['GET', 'POST'])]
     public function nuevaMesaFinal(Request $request, ExamenFinalRepository $examenFinalRepository): Response
     {
@@ -37,7 +35,7 @@ class VistasmesasController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $examenFinalRepository->save($examenFinal, true);
 
-            return $this->redirectToRoute('app_vistasmesas', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_vistasmesas'); // Redirige a la página de vistas
         }
 
         return $this->renderForm('vistasmesas/crear_mesa_form.html.twig', [
@@ -47,7 +45,7 @@ class VistasmesasController extends AbstractController
     }
 
     #[Route('/nuevaNotaFinal', name: 'nueva_notaFinal', methods: ['GET', 'POST'])]
-    public function nuevanotaFinal(Request $request, ExamenAlumnoRepository $examenAlumnoRepository): Response
+    public function nuevaNotaFinal(Request $request, ExamenAlumnoRepository $examenAlumnoRepository): Response
     {
         $examenAlumno = new ExamenAlumno();
         $form = $this->createForm(ExamenAlumnoType::class, $examenAlumno);
@@ -56,7 +54,7 @@ class VistasmesasController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $examenAlumnoRepository->save($examenAlumno, true);
 
-            return $this->redirectToRoute('app_vistasmesas', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_vistasmesas'); // Redirige a la página de vistas
         }
 
         return $this->renderForm('vistasmesas/nueva_notaFinal_form.html.twig', [
@@ -64,5 +62,4 @@ class VistasmesasController extends AbstractController
             'form' => $form,
         ]);
     }
-
 }

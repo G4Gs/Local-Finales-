@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscripciones a Exámenes Finales{% endblock %}
+{% block title %}Listado de Inscripciones a Exámenes Finales{% endblock %}
 
 {% block body %}
-<h1 class="datos-filtered">Listado de Inscripciones a Finales</h1>
+<h1 class="datos-filtered">Listado de Inscripciones a Exámenes Finales</h1>
+
+<!-- Tabla de Inscripciones -->
 <table class="tabla_home table" id="copied-table" border="1">
     <thead>
         <tr>
@@ -54,7 +56,7 @@
                     N/A
                 {% endif %}
             </td>
-            <td>Sin alumno</td>
+            <td>{{ inscripcion_final.alumno ? inscripcion_final.alumno.getNombreCompleto() : 'Sin alumno' }}</td>
             <td>{{ inscripcion_final.examenFinalNombre }}</td>
             <td>
                 <a href="{{ path('app_inscripcion_final_show', {'id': inscripcion_final.id}) }}">Mostrar</a>
@@ -70,31 +72,32 @@
 </table>
 
 <a href="{{ path('app_inscripcion_final_new') }}" class="btn btn-primary">Crear Nueva Inscripción a Final</a>
+
 <script>
-function filterTable() {
-    var table = document.getElementById("copied-table");
-    var trs = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-    var searchFecha = document.getElementById("searchFecha").value.toLowerCase();
-    var searchCondicion = document.getElementById("searchCondicion").value.toLowerCase();
-    var searchAlumno = document.getElementById("searchAlumno").value.toLowerCase();
-    var searchExamenFinal = document.getElementById("searchExamenFinal").value.toLowerCase();
+    function filterTable() {
+        var table = document.getElementById("copied-table");
+        var trs = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        var searchFecha = document.getElementById("searchFecha").value.toLowerCase();
+        var searchCondicion = document.getElementById("searchCondicion").value.toLowerCase();
+        var searchAlumno = document.getElementById("searchAlumno").value.toLowerCase();
+        var searchExamenFinal = document.getElementById("searchExamenFinal").value.toLowerCase();
 
-    for (var i = 0; i < trs.length; i++) {
-        var tds = trs[i].getElementsByTagName("td");
-        if (tds.length < 6) continue;
-        var fecha = tds[1].textContent.toLowerCase();
-        var condicion = tds[2].textContent.toLowerCase();
-        var alumno = tds[3].textContent.toLowerCase();
-        var examenFinal = tds[4].textContent.toLowerCase();
+        for (var i = 0; i < trs.length; i++) {
+            var tds = trs[i].getElementsByTagName("td");
+            if (tds.length < 6) continue;
+            var fecha = tds[1].textContent.toLowerCase();
+            var condicion = tds[2].textContent.toLowerCase();
+            var alumno = tds[3].textContent.toLowerCase();
+            var examenFinal = tds[4].textContent.toLowerCase();
 
-        var show = true;
-        if (searchFecha && fecha.indexOf(searchFecha) === -1) show = false;
-        if (searchCondicion && condicion.indexOf(searchCondicion) === -1) show = false;
-        if (searchAlumno && alumno.indexOf(searchAlumno) === -1) show = false;
-        if (searchExamenFinal && examenFinal.indexOf(searchExamenFinal) === -1) show = false;
+            var show = true;
+            if (searchFecha && fecha.indexOf(searchFecha) === -1) show = false;
+            if (searchCondicion && condicion.indexOf(searchCondicion) === -1) show = false;
+            if (searchAlumno && alumno.indexOf(searchAlumno) === -1) show = false;
+            if (searchExamenFinal && examenFinal.indexOf(searchExamenFinal) === -1) show = false;
 
-        trs[i].style.display = show ? "" : "none";
+            trs[i].style.display = show ? "" : "none";
+        }
     }
-}
 </script>
 {% endblock %}
