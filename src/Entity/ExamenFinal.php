@@ -33,8 +33,8 @@ class ExamenFinal
     #[ORM\JoinColumn(nullable: true)]
     private ?Curso $curso = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $modalidad_mesa = null;
+    #[ORM\Column(name: "estado_mesa", type: "string", length: 255, nullable: true)]
+    private ?string $modalidadMesa = null;
 
     #[ORM\OneToMany(mappedBy: 'examen_final', targetEntity: InscripcionFinal::class)]
     private Collection $inscripcionFinals;
@@ -47,8 +47,16 @@ class ExamenFinal
     public function getPresidente(): ?Docente { return $this->presidente; }
     public function setPresidente(?Docente $presidente): static { $this->presidente = $presidente; return $this; }
 
-    public function getVocal1(): ?Docente { return $this->vocal1; }
-    public function setVocal1(?Docente $vocal1): static { $this->vocal1 = $vocal1; return $this; }
+    public function getVocal1(): ?Docente
+    {
+        return $this->vocal1;
+    }
+
+    public function setVocal1(?Docente $vocal1): static
+    {
+        $this->vocal1 = $vocal1;
+        return $this;
+    }
 
     public function getVocal2(): ?Docente { return $this->vocal2; }
     public function setVocal2(?Docente $vocal2): static { $this->vocal2 = $vocal2; return $this; }
@@ -132,13 +140,12 @@ class ExamenFinal
 
     public function getModalidadMesa(): ?string
     {
-        return $this->modalidad_mesa;
+        return $this->modalidadMesa;
     }
 
-    public function setModalidadMesa(string $modalidad_mesa): static
+    public function setModalidadMesa(?string $modalidadMesa): static
     {
-        $this->modalidad_mesa = $modalidad_mesa;
-
+        $this->modalidadMesa = $modalidadMesa;
         return $this;
     }
 

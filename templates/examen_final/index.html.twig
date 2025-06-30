@@ -4,9 +4,26 @@
 
 {% block body %}
     <h1>Listado de Exámenes Finales</h1>
-
-    <table class="table">
+    <table class="tabla_home table" id="copied-table" border="1">
         <thead>
+            <tr>
+                <th colspan="2">
+                    Buscar por: Fecha y Hora
+                    <input type="text" id="searchFechaHora" onkeyup="filterTable()" placeholder="Buscar Fecha y Hora...">
+                </th>
+                <th colspan="3">
+                    Buscar por: Curso
+                    <input type="text" id="searchCurso" onkeyup="filterTable()" placeholder="Buscar Curso...">
+                </th>
+                    <th colspan="3">
+                    Buscar por: Comision
+                    <input type="text" id="searchComision" onkeyup="filterTable()" placeholder="Buscar Comision...">
+                </th>
+                <th colspan="3">
+                    Buscar por: Presidente
+                    <input type="text" id="searchPresidente" onkeyup="filterTable()" placeholder="Buscar Presidente...">
+                </th>
+            </tr>
             <tr>
                 <th>ID</th>
                 <th>Fecha y Hora</th>
@@ -35,12 +52,11 @@
                     {% endif %}
                 </td>
                 <td>
-{% if examen_final.curso.asignatura.tecnicatura %}
+                    {% if examen_final.curso and examen_final.curso.asignatura and examen_final.curso.asignatura.tecnicatura %}
                         {{ examen_final.curso.asignatura.tecnicatura }}
                     {% else %}
-                        Sin curso
+                        Sin tecnicatura
                     {% endif %}
-
                 </td>
                 <td>
                     {% if examen_final.curso and examen_final.curso.asignatura %}
@@ -56,21 +72,51 @@
                         Sin comisión
                     {% endif %}
                 </td>
-                <td>{{ examen_final.presidenteId ? examen_final.presidenteId.persona : 'Sin presidente' }}</td>
-                <td>{{ examen_final.Vocal1Id ? examen_final.Vocal1Id.persona : 'Sin vocal 1' }}</td>
-                <td>{{ examen_final.Vocal2Id ? examen_final.Vocal2Id.persona : 'Sin vocal 2' }}</td>
+                <td>{{ examen_final.vocal1 ? examen_final.vocal1.persona : 'Sin vocal 1' }}</td>
+                <td>{{ examen_final.vocal2 ? examen_final.vocal2.persona : 'Sin vocal 2' }}</td>
+                <td>{{ examen_final.presidente ? examen_final.presidente.persona : 'Sin presidente' }}</td>
                 <td>
-                    <a href="{{ path('app_examen_final_show', {'id': examen_final.id}) }}">Mostrar</a>
+                    <a href="{{ path('app_examen_final_show', {'id': examen_final.id}) }}">Ver</a>
                     <a href="{{ path('app_examen_final_edit', {'id': examen_final.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">No se encontraron registros</td>
+                <td colspan="11">No se encontraron registros</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
     <a href="{{ path('app_examen_final_new') }}">Crear Nuevo Examen Final</a>
+
+    <script>
+    // Filtro de tabla por Fecha y Hora, Curso, Comisión y Presidente
+    function filterTable() {
+        var table = document.getElementById("copied-table");
+        var trs = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        var searchFechaHora = document.getElementById("searchFechaHora").value.toLowerCase();
+        var searchCurso = document.getElementById("searchCurso").value.toLowerCase();
+        var searchComision = document.getElementById("searchComision").value.toLowerCase();
+        var searchPresidente = document.getElementById("searchPresidente").value.toLowerCase();
+
+        for (var i = 0; i < trs.length; i++) {
+            var tds = trs[i].getElementsByTagName("td");
+            if (tds.length < 11) continue;
+
+            var fechaHora = tds[1].textContent.toLowerCase();
+            var curso = tds[3].textContent.toLowerCase();
+            var comision = tds[6].textContent.toLowerCase();
+            var presidente = tds[7].textContent.toLowerCase();
+
+            var show = true;
+            if (searchFechaHora && fechaHora.indexOf(searchFechaHora) === -1) show = false;
+            if (searchCurso && curso.indexOf(searchCurso) === -1) show = false;
+            if (searchComision && comision.indexOf(searchComision) === -1) show = false;
+            if (searchPresidente && presidente.indexOf(searchPresidente) === -1) show = false;
+
+            trs[i].style.display = show ? "" : "none";
+        }
+    }
+    </script>
 {% endblock %}
