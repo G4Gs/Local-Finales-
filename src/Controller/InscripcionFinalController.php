@@ -29,6 +29,11 @@ class InscripcionFinalController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Si usás examenFinalNombre como campo no mapeado, 
+            // acá podés obtener el valor seleccionado:
+            // $examenFinal = $form->get('examenFinalNombre')->getData();
+            // y asignarlo a donde corresponda en $inscripcionFinal si lo necesitás
+
             $inscripcionFinalRepository->save($inscripcionFinal, true);
 
             return $this->redirectToRoute('app_inscripcion_final_index', [], Response::HTTP_SEE_OTHER);
@@ -55,6 +60,9 @@ class InscripcionFinalController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Igual que en new(), si manejás campos no mapeados,
+            // actualizalos aquí manualmente si es necesario
+
             $inscripcionFinalRepository->save($inscripcionFinal, true);
 
             return $this->redirectToRoute('app_inscripcion_final_index', [], Response::HTTP_SEE_OTHER);

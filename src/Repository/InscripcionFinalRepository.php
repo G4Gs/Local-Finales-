@@ -22,7 +22,11 @@ class InscripcionFinalRepository extends ServiceEntityRepository
     }
 
     /**
-     * Guarda una inscripción a final en la base de datos.
+     * Guarda una inscripción final.
+     * 
+     * @param InscripcionFinal $entity
+     * @param bool $flush
+     * @return void
      */
     public function save(InscripcionFinal $entity, bool $flush = false): void
     {
@@ -34,7 +38,11 @@ class InscripcionFinalRepository extends ServiceEntityRepository
     }
 
     /**
-     * Elimina una inscripción a final de la base de datos.
+     * Elimina una inscripción final.
+     * 
+     * @param InscripcionFinal $entity
+     * @param bool $flush
+     * @return void
      */
     public function remove(InscripcionFinal $entity, bool $flush = false): void
     {
@@ -46,7 +54,10 @@ class InscripcionFinalRepository extends ServiceEntityRepository
     }
 
     /**
-     * Ejemplo de método personalizado para buscar inscripciones por alumno
+     * Buscar inscripciones finales por alumno.
+     *
+     * @param int $alumnoId
+     * @return InscripcionFinal[]
      */
     public function findByAlumnoId(int $alumnoId): array
     {
@@ -59,7 +70,10 @@ class InscripcionFinalRepository extends ServiceEntityRepository
     }
 
     /**
-     * Ejemplo de método personalizado para buscar por fecha
+     * Buscar inscripciones finales por fecha.
+     *
+     * @param \DateTimeInterface $fecha
+     * @return InscripcionFinal[]
      */
     public function findByFecha(\DateTimeInterface $fecha): array
     {
