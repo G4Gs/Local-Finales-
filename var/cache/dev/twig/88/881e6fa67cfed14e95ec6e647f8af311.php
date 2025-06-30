@@ -97,7 +97,7 @@ class __TwigTemplate_042ea790e7d1e1919a5498815f76bf3a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Listado de Notas</h1>
+        yield "    <h1 class=\"datos-filtered\">Listado de Notas</h1>
     <table class=\"tabla_home table\" id=\"copied-table\" border=\"1\">
         <thead>
             <tr>
@@ -261,7 +261,7 @@ class __TwigTemplate_042ea790e7d1e1919a5498815f76bf3a extends Template
 {% block title %}Nota index{% endblock %}
 
 {% block body %}
-    <h1>Listado de Notas</h1>
+    <h1 class=\"datos-filtered\">Listado de Notas</h1>
     <table class=\"tabla_home table\" id=\"copied-table\" border=\"1\">
         <thead>
             <tr>

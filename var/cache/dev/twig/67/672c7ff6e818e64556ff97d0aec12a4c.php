@@ -97,7 +97,7 @@ class __TwigTemplate_4d752e4f2deaa6c6f57c9d9934231a82 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "<h1>Listado de Inscripciones a Finales</h1>
+        yield "<h1 class=\"datos-filtered\">Listado de Inscripciones a Finales</h1>
 <table class=\"tabla_home table\" id=\"copied-table\" border=\"1\">
     <thead>
         <tr>
@@ -279,7 +279,7 @@ function filterTable() {
 {% block title %}Inscripciones a Exámenes Finales{% endblock %}
 
 {% block body %}
-<h1>Listado de Inscripciones a Finales</h1>
+<h1 class=\"datos-filtered\">Listado de Inscripciones a Finales</h1>
 <table class=\"tabla_home table\" id=\"copied-table\" border=\"1\">
     <thead>
         <tr>

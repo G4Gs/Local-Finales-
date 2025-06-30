@@ -97,7 +97,7 @@ class __TwigTemplate_5953a398d50aea81ed8b39631ba12bff extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Listado de Exámenes de Alumnos</h1>
+        yield "    <h1 class=\"datos-filtered\">Listado de Exámenes de Alumnos</h1>
 
     <table class=\"table\">
         <thead>
@@ -208,7 +208,7 @@ class __TwigTemplate_5953a398d50aea81ed8b39631ba12bff extends Template
 {% block title %}ExamenAlumno index{% endblock %}
 
 {% block body %}
-    <h1>Listado de Exámenes de Alumnos</h1>
+    <h1 class=\"datos-filtered\">Listado de Exámenes de Alumnos</h1>
 
     <table class=\"table\">
         <thead>
