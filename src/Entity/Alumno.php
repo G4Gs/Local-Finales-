@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\AlumnoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AlumnoRepository::class)]
@@ -62,7 +61,6 @@ class Alumno
     public function setTituloSec(?string $titulo_sec): static
     {
         $this->titulo_sec = $titulo_sec;
-
         return $this;
     }
 
@@ -74,7 +72,6 @@ class Alumno
     public function setEscuelaSec(?string $escuela_sec): static
     {
         $this->escuela_sec = $escuela_sec;
-
         return $this;
     }
 
@@ -86,7 +83,6 @@ class Alumno
     public function setAnioEgreso(?int $anio_egreso): static
     {
         $this->anio_egreso = $anio_egreso;
-
         return $this;
     }
 
@@ -98,7 +94,6 @@ class Alumno
     public function setPersona(Persona $persona): static
     {
         $this->persona = $persona;
-
         return $this;
     }
 
@@ -116,19 +111,16 @@ class Alumno
             $this->cursada->add($cursada);
             $cursada->setAlumno($this);
         }
-
         return $this;
     }
 
     public function removeCursada(Cursada $cursada): static
     {
         if ($this->cursada->removeElement($cursada)) {
-            // set the owning side to null (unless already changed)
             if ($cursada->getAlumno() === $this) {
                 $cursada->setAlumno(null);
             }
         }
-
         return $this;
     }
 
@@ -146,22 +138,18 @@ class Alumno
             $this->inscripcionFinals->add($inscripcionFinal);
             $inscripcionFinal->setAlumnoId($this);
         }
-
         return $this;
     }
 
     public function removeInscripcionFinal(InscripcionFinal $inscripcionFinal): static
     {
         if ($this->inscripcionFinals->removeElement($inscripcionFinal)) {
-            // set the owning side to null (unless already changed)
             if ($inscripcionFinal->getAlumnoId() === $this) {
                 $inscripcionFinal->setAlumnoId(null);
             }
         }
-
         return $this;
     }
-
 
     /**
      * @return Collection<int, ExamenAlumno>
@@ -177,46 +165,19 @@ class Alumno
             $this->examenAlumnos->add($examenAlumno);
             $examenAlumno->setAlumnoId($this);
         }
-
         return $this;
     }
 
     public function removeExamenAlumno(ExamenAlumno $examenAlumno): static
     {
         if ($this->examenAlumnos->removeElement($examenAlumno)) {
-            // set the owning side to null (unless already changed)
             if ($examenAlumno->getAlumnoId() === $this) {
                 $examenAlumno->setAlumnoId(null);
             }
         }
-
         return $this;
     }
 
-    public function __toString(): string
-    {
-        if ($this->persona) {
-            return sprintf('%s %s -->DNI: %s', $this->persona->getApellido(), $this->persona->getNombre(), $this->persona->getDniPasaporte());
-        } else {
-            return 'Sin información de persona';
-        }
-    }
-
-    public function getNombre(): ?string
-    {
-        return $this->persona ? $this->persona->getNombre() : null;
-    }
-    
-    public function getApellido(): ?string
-    {
-        return $this->persona ? $this->persona->getApellido() : null;
-    }
-    
-    public function getDniPasaporte(): ?string
-    {
-        return $this->persona ? $this->persona->getDniPasaporte() : null;
-    }
-    
     /**
      * @return Collection<int, Carreras>
      */
@@ -231,31 +192,59 @@ class Alumno
             $this->carreras->add($carrera);
             $carrera->setEstudianteId($this);
         }
-
         return $this;
     }
 
     public function removeCarrera(Carreras $carrera): static
     {
         if ($this->carreras->removeElement($carrera)) {
-            // set the owning side to null (unless already changed)
             if ($carrera->getEstudianteId() === $this) {
                 $carrera->setEstudianteId(null);
             }
         }
-
         return $this;
     }
 
     public function getTecnicaturaActiva(): ?Tecnicatura
-{
-    foreach ($this->carreras as $carrera) {
-        if ($carrera->isEstado()) {
-            return $carrera->getTecnicaturaId();
+    {
+        foreach ($this->carreras as $carrera) {
+            if ($carrera->isEstado()) {
+                return $carrera->getTecnicaturaId();
+            }
+        }
+        return null;
+    }
+
+    // Métodos para obtener datos de la persona relacionada
+    public function getNombre(): ?string
+    {
+        return $this->persona ? $this->persona->getNombre() : null;
+    }
+
+    public function getApellido(): ?string
+    {
+        return $this->persona ? $this->persona->getApellido() : null;
+    }
+
+    public function getDniPasaporte(): ?string
+    {
+        return $this->persona ? $this->persona->getDniPasaporte() : null;
+    }
+
+    // Método agregado para evitar error en twig al usar 'nombreCompleto'
+    public function getNombreCompleto(): string
+    {
+        $nombre = $this->getNombre() ?? '';
+        $apellido = $this->getApellido() ?? '';
+        return trim($nombre . ' ' . $apellido);
+    }
+
+    public function __toString(): string
+    {
+        if ($this->persona) {
+            return sprintf('%s %s -->DNI: %s', $this->persona->getApellido(), $this->persona->getNombre(), $this->persona->getDniPasaporte());
+        } else {
+            return 'Sin información de persona';
         }
     }
-    return null;
-}
-
-
 }

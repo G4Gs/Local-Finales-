@@ -177,7 +177,7 @@ $context["inscripcion_final"], "tipo", [], "any", false, false, false, 53) == 2)
             yield "            </td>
             <td>";
             // line 59
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 59)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 59), "nombreCompleto", [], "any", false, false, false, 59), "html", null, true)) : ("Sin alumno"));
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 59)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumno", [], "any", false, false, false, 59), "getNombreCompleto", [], "method", false, false, false, 59), "html", null, true)) : ("Sin alumno"));
             yield "</td>
             <td>";
             // line 60
@@ -338,7 +338,7 @@ $context["inscripcion_final"], "tipo", [], "any", false, false, false, 53) == 2)
                     N/A
                 {% endif %}
             </td>
-            <td>{{ inscripcion_final.alumno ? inscripcion_final.alumno.nombreCompleto : 'Sin alumno' }}</td>
+            <td>{{ inscripcion_final.alumno ? inscripcion_final.alumno.getNombreCompleto() : 'Sin alumno' }}</td>
             <td>{{ inscripcion_final.examenFinalNombre }}</td>
             <td>
                 <a href=\"{{ path('app_inscripcion_final_show', {'id': inscripcion_final.id}) }}\">Mostrar</a>
