@@ -59,7 +59,6 @@ class Curso
     public function setAsignatura(?Asignatura $asignatura): self
     {
         $this->asignatura = $asignatura;
-
         return $this;
     }
 
@@ -71,7 +70,6 @@ class Curso
     public function setComision(?Comision $comision): self
     {
         $this->comision = $comision;
-
         return $this;
     }
 
@@ -83,7 +81,6 @@ class Curso
     public function setCUPOF(string $CUPOF): static
     {
         $this->CUPOF = $CUPOF;
-
         return $this;
     }
 
@@ -215,13 +212,16 @@ class Curso
         return implode(', ', $nombres);
     }
 
-   public function __toString(): string
-{
-    $asignaturaNombre = $this->asignatura ? $this->asignatura->getNombre() : 'Sin asignatura';
-    $comisionNombre = $this->comision ? (string) $this->comision : 'Sin comisión';
-    $cupof = $this->CUPOF ?? 'Sin CUPOF';
+    public function __toString(): string
+    {
+        $asignatura = $this->getAsignatura();
+        $comision = $this->getComision();
+        $cupof = $this->getCUPOF() ?? 'Sin CUPOF';
 
-    return sprintf('%s - %s [CUPOF: %s]', $asignaturaNombre, $comisionNombre, $cupof);
-}
+        $asignaturaNombre = $asignatura?->getNombre() ?? 'Sin asignatura';
+        $tecnicaturaNombre = $asignatura?->getTecnicatura()?->getNombre() ?? 'Sin tecnicatura';
+        $comisionNombre = $comision ? (string) $comision : 'Sin comisión';
 
+        return sprintf('%s - %s - %s [CUPOF: %s]', $tecnicaturaNombre, $asignaturaNombre, $comisionNombre, $cupof);
+    }
 }

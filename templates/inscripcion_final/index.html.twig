@@ -3,7 +3,7 @@
 {% block title %}Inscripciones a Exámenes Finales{% endblock %}
 
 {% block body %}
-<h1>Listado de Inscripciones a Finales</h1>
+<h1 class="datos-filtered">Listado de Inscripciones a Finales</h1>
 <table class="tabla_home table" id="copied-table" border="1">
     <thead>
         <tr>
@@ -55,7 +55,7 @@
                 {% endif %}
             </td>
             <td>Sin alumno</td>
-            <td>Sin examen final</td>
+            <td>{{ inscripcion_final.examenFinalNombre }}</td>
             <td>
                 <a href="{{ path('app_inscripcion_final_show', {'id': inscripcion_final.id}) }}">Mostrar</a>
                 <a href="{{ path('app_inscripcion_final_edit', {'id': inscripcion_final.id}) }}">Editar</a>

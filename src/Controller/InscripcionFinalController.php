@@ -18,10 +18,14 @@ class InscripcionFinalController extends AbstractController
     {
         $inscripciones = $inscripcionFinalRepository->findAll();
 
-        // Simula el campo tipo para cada inscripción
-        foreach ($inscripciones as $inscripcion) {
-            // Puedes poner la lógica que quieras, aquí se alterna entre 0, 1 y 2
-            $inscripcion->setTipo(array_rand([0, 1, 2]));
+        // Simulación: lista de nombres de exámenes finales
+        $nombresExamenes = ['Matemática', 'Historia', 'Lengua', 'Física', 'Química'];
+
+        foreach ($inscripciones as $i => $inscripcion) {
+            $inscripcion->setTipo($i % 3);
+            // Asigna un nombre de examen final (puedes usar tu lógica real aquí)
+            $nombreExamen = $nombresExamenes[$i % count($nombresExamenes)];
+            $inscripcion->examenFinalNombre = $nombreExamen; // propiedad pública o usa un setter
         }
 
         return $this->render('inscripcion_final/index.html.twig', [

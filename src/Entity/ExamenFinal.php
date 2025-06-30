@@ -177,20 +177,41 @@ class ExamenFinal
         }
 
         return $this;
-    }
- public function __toString(): string
- {
+    }public function __toString(): string
+{
     $curso = $this->getCurso();
-    $asignatura = $curso?->getAsignatura();
-    $tecnicatura = $asignatura?->getTecnicatura();
 
-    $asignaturaNombre = $asignatura?->getNombre() ?? 'Sin asignatura';
-    $tecnicaturaNombre = $tecnicatura?->getNombre() ?? 'Sin tecnicatura';
-    $modalidad = $this->modalidad_mesa ?? 'Sin modalidad';
+    $tecnicaturaNombre = 'Sin tecnicatura';
+    $asignaturaNombre = 'Sin asignatura';
+    $comisionNombre = 'Sin comisión';
+    $cupofNombre = 'Sin cupof';
+
+    if ($curso) {
+        $asignatura = $curso->getAsignatura();
+        $comision = $curso->getComision();
+        $cupof = $curso->getCupof();
+
+        if ($asignatura) {
+            $asignaturaNombre = $asignatura->getNombre() ?: $asignaturaNombre;
+            $tecnicatura = $asignatura->getTecnicatura();
+            $tecnicaturaNombre = $tecnicatura ? $tecnicatura->getNombre() : $tecnicaturaNombre;
+        }
+
+        $comisionNombre = $comision ? $comision->getNombre() : $comisionNombre;
+        $cupofNombre = $cupof ?: $cupofNombre;
+    }
+
+    $modalidad = $this->modalidadMesa ?? 'Sin modalidad';
     $fechaStr = $this->fecha ? $this->fecha->format('Y-m-d') : 'Sin fecha';
 
-    return sprintf('%s (%s) - %s - %s', $asignaturaNombre, $tecnicaturaNombre, $modalidad, $fechaStr);
- }
-
-    
+    return sprintf(
+        '%s + %s + %s + %s - %s - %s',
+        $tecnicaturaNombre,
+        $asignaturaNombre,
+        $comisionNombre,
+        $cupofNombre,
+        $modalidad,
+        $fechaStr
+    );
+}
 }

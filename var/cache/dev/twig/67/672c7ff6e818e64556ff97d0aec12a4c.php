@@ -174,7 +174,10 @@ $context["inscripcion_final"], "tipo", [], "any", false, false, false, 51) == 2)
             // line 56
             yield "            </td>
             <td>Sin alumno</td>
-            <td>Sin examen final</td>
+            <td>";
+            // line 58
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "examenFinalNombre", [], "any", false, false, false, 58), "html", null, true);
+            yield "</td>
             <td>
                 <a href=\"";
             // line 60
@@ -266,7 +269,7 @@ function filterTable() {
      */
     public function getDebugInfo(): array
     {
-        return array (  209 => 72,  204 => 69,  195 => 65,  193 => 68,  185 => 61,  181 => 60,  175 => 56,  171 => 54,  167 => 52,  165 => 51,  162 => 50,  160 => 49,  157 => 48,  155 => 47,  150 => 45,  146 => 44,  143 => 43,  138 => 42,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  212 => 72,  207 => 69,  198 => 65,  196 => 68,  188 => 61,  184 => 60,  179 => 58,  175 => 56,  171 => 54,  167 => 52,  165 => 51,  162 => 50,  160 => 49,  157 => 48,  155 => 47,  150 => 45,  146 => 44,  143 => 43,  138 => 42,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -328,7 +331,7 @@ function filterTable() {
                 {% endif %}
             </td>
             <td>Sin alumno</td>
-            <td>Sin examen final</td>
+            <td>{{ inscripcion_final.examenFinalNombre }}</td>
             <td>
                 <a href=\"{{ path('app_inscripcion_final_show', {'id': inscripcion_final.id}) }}\">Mostrar</a>
                 <a href=\"{{ path('app_inscripcion_final_edit', {'id': inscripcion_final.id}) }}\">Editar</a>

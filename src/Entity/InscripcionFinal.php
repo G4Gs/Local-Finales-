@@ -19,6 +19,8 @@ class InscripcionFinal
 
     private ?int $tipo = null;
 
+    public string $examenFinalNombre = '';
+
     public function getId(): ?int
     {
         return $this->id;

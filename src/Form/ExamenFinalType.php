@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Doctrine\ORM\EntityRepository;
 
 class ExamenFinalType extends AbstractType
 {
@@ -21,7 +22,8 @@ class ExamenFinalType extends AbstractType
             ])
             ->add('presidente', EntityType::class, [
                 'class' => \App\Entity\Docente::class,
-                'choice_label' => 'persona', // o el campo que quieras mostrar
+                'choice_label' => 'persona',
+                'required' => true,
             ])
             ->add('Vocal1', EntityType::class, [
                 'class' => \App\Entity\Docente::class,
@@ -35,11 +37,22 @@ class ExamenFinalType extends AbstractType
             ])
             ->add('curso', EntityType::class, [
                 'class' => \App\Entity\Curso::class,
-                'required' => false,
+                'required' => true,
                 'placeholder' => 'Seleccione un curso',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('c')
+                        ->join('c.asignatura', 'a')
+                        ->join('a.tecnicatura', 't')
+                        ->orderBy('t.nombre', 'ASC')
+                        ->addOrderBy('a.nombre', 'ASC')
+                        ->addOrderBy('c.comision', 'ASC');
+                },
+                'choice_label' => function ($curso) {
+                    return (string) $curso;
+                },
             ])
             ->add('modalidadMesa', TextType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => 'Modalidad Mesa',
             ])
         ;
