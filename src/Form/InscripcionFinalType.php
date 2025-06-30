@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Alumno;
 use App\Entity\ExamenFinal;
@@ -21,20 +21,23 @@ class InscripcionFinalType extends AbstractType
                 'widget' => 'single_text',
                 'data' => new \DateTime('today'),
             ])
-            ->add('condicion', TextType::class, [
-                'required' => false,
-                'attr' => ['maxlength' => 20],
+            ->add('tipo', ChoiceType::class, [
+                'choices'  => [
+                    'Regular' => 0,
+                    'Libre' => 1,
+                    'Condicional' => 2,
+                ],
+                'placeholder' => 'Seleccione una condición',
             ])
             ->add('alumno_id', EntityType::class, [
                 'class' => Alumno::class,
-                'choice_label' => 'persona', // o algún campo representativo como nombre completo
+                'choice_label' => 'persona',
                 'placeholder' => 'Seleccione un alumno',
             ])
-           ->add('examen_final', EntityType::class, [
-    'class' => ExamenFinal::class,
-    'placeholder' => 'Seleccione un examen final',
-])
-
+            ->add('examen_final', EntityType::class, [
+                'class' => ExamenFinal::class,
+                'placeholder' => 'Seleccione un examen final',
+            ])
         ;
     }
 

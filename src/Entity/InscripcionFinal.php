@@ -20,13 +20,11 @@ class InscripcionFinal
     #[ORM\ManyToOne(inversedBy: 'inscripcionFinals')]
     private ?Alumno $alumno_id = null;
 
-    #[ORM\Column(length: 20)]
-    private ?string $condicion = null;
-
     #[ORM\ManyToOne(inversedBy: 'inscripcionFinals')]
     private ?ExamenFinal $examen_final = null;
 
-    
+    #[ORM\Column(type: "integer", nullable: true)]
+    private ?int $tipo = null;
 
     public function getId(): ?int
     {
@@ -41,7 +39,6 @@ class InscripcionFinal
     public function setFecha(\DateTimeInterface $fecha): static
     {
         $this->fecha = $fecha;
-
         return $this;
     }
 
@@ -53,19 +50,6 @@ class InscripcionFinal
     public function setAlumnoId(?Alumno $alumno_id): static
     {
         $this->alumno_id = $alumno_id;
-
-        return $this;
-    }
-
-    public function getCondicion(): ?string
-    {
-        return $this->condicion;
-    }
-
-    public function setCondicion(string $condicion): static
-    {
-        $this->condicion = $condicion;
-
         return $this;
     }
 
@@ -77,10 +61,17 @@ class InscripcionFinal
     public function setExamenFinal(?ExamenFinal $examen_final): static
     {
         $this->examen_final = $examen_final;
-
         return $this;
     }
 
+    public function getTipo(): ?int
+    {
+        return $this->tipo;
+    }
 
-
+    public function setTipo(?int $tipo): static
+    {
+        $this->tipo = $tipo;
+        return $this;
+    }
 }

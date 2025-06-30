@@ -13,11 +13,11 @@
             </th>
             <th colspan="2">
                 Buscar por: Condición
-                <select id="searchCondición" onchange="filterTable()">
+                <select id="searchCondicion" onchange="filterTable()">
                     <option value=""></option>
-                    <option value="0">Regular</option>
-                    <option value="1">Libre</option>
-                    <option value="2">Condicional</option>
+                    <option value="regular">Regular</option>
+                    <option value="libre">Libre</option>
+                    <option value="condicional">Condicional</option>
                 </select>
             </th>
             <th>
@@ -43,7 +43,17 @@
         <tr>
             <td>{{ inscripcion_final.id }}</td>
             <td>{{ inscripcion_final.fecha ? inscripcion_final.fecha|date('Y-m-d') : '' }}</td>
-            <td>{{ inscripcion_final.condicion }}</td>
+            <td>
+                {% if inscripcion_final.tipo == 0 %}
+                    Regular
+                {% elseif inscripcion_final.tipo == 1 %}
+                    Libre
+                {% elseif inscripcion_final.tipo == 2 %}
+                    Condicional
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
             <td>{{ inscripcion_final.alumnoId ? inscripcion_final.alumnoId.persona : 'Sin alumno' }}</td>
             <td>{{ inscripcion_final.examenFinal ? inscripcion_final.examenFinal : '' }}</td>
             <td>
@@ -60,4 +70,31 @@
 </table>
 
 <a href="{{ path('app_inscripcion_final_new') }}" class="btn btn-primary">Crear Nueva Inscripción a Final</a>
+<script>
+function filterTable() {
+    var table = document.getElementById("copied-table");
+    var trs = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    var searchFecha = document.getElementById("searchFecha").value.toLowerCase();
+    var searchCondicion = document.getElementById("searchCondicion").value.toLowerCase();
+    var searchAlumno = document.getElementById("searchAlumno").value.toLowerCase();
+    var searchExamenFinal = document.getElementById("searchExamenFinal").value.toLowerCase();
+
+    for (var i = 0; i < trs.length; i++) {
+        var tds = trs[i].getElementsByTagName("td");
+        if (tds.length < 6) continue;
+        var fecha = tds[1].textContent.toLowerCase();
+        var condicion = tds[2].textContent.toLowerCase();
+        var alumno = tds[3].textContent.toLowerCase();
+        var examenFinal = tds[4].textContent.toLowerCase();
+
+        var show = true;
+        if (searchFecha && fecha.indexOf(searchFecha) === -1) show = false;
+        if (searchCondicion && condicion.indexOf(searchCondicion) === -1) show = false;
+        if (searchAlumno && alumno.indexOf(searchAlumno) === -1) show = false;
+        if (searchExamenFinal && examenFinal.indexOf(searchExamenFinal) === -1) show = false;
+
+        trs[i].style.display = show ? "" : "none";
+    }
+}
+</script>
 {% endblock %}
