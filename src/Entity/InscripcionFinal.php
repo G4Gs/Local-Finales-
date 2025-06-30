@@ -23,7 +23,6 @@ class InscripcionFinal
     #[ORM\ManyToOne(inversedBy: 'inscripcionFinals')]
     private ?ExamenFinal $examen_final = null;
 
-    #[ORM\Column(type: "integer", nullable: true)]
     private ?int $tipo = null;
 
     public function getId(): ?int

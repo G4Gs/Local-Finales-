@@ -21,14 +21,6 @@ class InscripcionFinalType extends AbstractType
                 'widget' => 'single_text',
                 'data' => new \DateTime('today'),
             ])
-            ->add('tipo', ChoiceType::class, [
-                'choices'  => [
-                    'Regular' => 0,
-                    'Libre' => 1,
-                    'Condicional' => 2,
-                ],
-                'placeholder' => 'Seleccione una condición',
-            ])
             ->add('alumno_id', EntityType::class, [
                 'class' => Alumno::class,
                 'choice_label' => 'persona',

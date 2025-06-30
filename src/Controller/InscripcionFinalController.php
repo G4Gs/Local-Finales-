@@ -16,8 +16,16 @@ class InscripcionFinalController extends AbstractController
     #[Route('/', name: 'app_inscripcion_final_index', methods: ['GET'])]
     public function index(InscripcionFinalRepository $inscripcionFinalRepository): Response
     {
+        $inscripciones = $inscripcionFinalRepository->findAll();
+
+        // Simula el campo tipo para cada inscripción
+        foreach ($inscripciones as $inscripcion) {
+            // Puedes poner la lógica que quieras, aquí se alterna entre 0, 1 y 2
+            $inscripcion->setTipo(array_rand([0, 1, 2]));
+        }
+
         return $this->render('inscripcion_final/index.html.twig', [
-            'inscripcion_finals' => $inscripcionFinalRepository->findAll(),
+            'inscripcion_finals' => $inscripciones,
         ]);
     }
 
