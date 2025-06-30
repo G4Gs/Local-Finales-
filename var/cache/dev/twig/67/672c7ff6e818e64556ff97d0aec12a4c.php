@@ -173,14 +173,8 @@ $context["inscripcion_final"], "tipo", [], "any", false, false, false, 51) == 2)
             }
             // line 56
             yield "            </td>
-            <td>";
-            // line 57
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumnoId", [], "any", false, false, false, 57)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "alumnoId", [], "any", false, false, false, 57), "persona", [], "any", false, false, false, 57), "html", null, true)) : ("Sin alumno"));
-            yield "</td>
-            <td>";
-            // line 58
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "examenFinal", [], "any", false, false, false, 58)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["inscripcion_final"], "examenFinal", [], "any", false, false, false, 58), "html", null, true)) : (""));
-            yield "</td>
+            <td>Sin alumno</td>
+            <td>Sin examen final</td>
             <td>
                 <a href=\"";
             // line 60
@@ -272,7 +266,7 @@ function filterTable() {
      */
     public function getDebugInfo(): array
     {
-        return array (  215 => 72,  210 => 69,  201 => 65,  199 => 68,  191 => 61,  187 => 60,  182 => 58,  178 => 57,  175 => 56,  171 => 54,  167 => 52,  165 => 51,  162 => 50,  160 => 49,  157 => 48,  155 => 47,  150 => 45,  146 => 44,  143 => 43,  138 => 42,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  209 => 72,  204 => 69,  195 => 65,  193 => 68,  185 => 61,  181 => 60,  175 => 56,  171 => 54,  167 => 52,  165 => 51,  162 => 50,  160 => 49,  157 => 48,  155 => 47,  150 => 45,  146 => 44,  143 => 43,  138 => 42,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -333,8 +327,8 @@ function filterTable() {
                     N/A
                 {% endif %}
             </td>
-            <td>{{ inscripcion_final.alumnoId ? inscripcion_final.alumnoId.persona : 'Sin alumno' }}</td>
-            <td>{{ inscripcion_final.examenFinal ? inscripcion_final.examenFinal : '' }}</td>
+            <td>Sin alumno</td>
+            <td>Sin examen final</td>
             <td>
                 <a href=\"{{ path('app_inscripcion_final_show', {'id': inscripcion_final.id}) }}\">Mostrar</a>
                 <a href=\"{{ path('app_inscripcion_final_edit', {'id': inscripcion_final.id}) }}\">Editar</a>

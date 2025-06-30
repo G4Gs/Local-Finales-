@@ -4,9 +4,26 @@
 
 {% block body %}
     <h1>Listado de Notas</h1>
-
-    <table class="table">
+    <table class="tabla_home table" id="copied-table" border="1">
         <thead>
+            <tr>
+                <th colspan="2">
+                    Buscar por: Primer Parcial
+                    <input type="text" id="searchPrimerParcial" onkeyup="filterTable()" placeholder="Buscar Primer Parcial...">
+                </th>
+                <th colspan="1">
+                    Buscar por: Primer Recuperatorio
+                    <input type="text" id="searchPrimerRecuperatorio" onkeyup="filterTable()" placeholder="Buscar Primer Recuperatorio...">
+                </th>
+                <th colspan="1">
+                    Buscar por: Segundo Parcial
+                    <input type="text" id="searchSegundoParcial" onkeyup="filterTable()" placeholder="Buscar Segundo Parcial...">
+                </th>
+                <th colspan="2">
+                    Buscar por: Segundo Recuperatorio
+                    <input type="text" id="searchSegundoRecuperatorio" onkeyup="filterTable()" placeholder="Buscar Segundo Recuperatorio...">
+                </th>
+            </tr>
             <tr>
                 <th>ID</th>
                 <th>Primer Parcial</th>
@@ -38,4 +55,35 @@
     </table>
 
     <a href="{{ path('app_nota_new') }}">Crear Nueva Nota</a>
+
+    <script>
+    function filterTable() {
+        var table = document.getElementById("copied-table");
+        var trs = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+        var searchPrimerParcial = document.getElementById("searchPrimerParcial").value.toLowerCase();
+        var searchPrimerRecuperatorio = document.getElementById("searchPrimerRecuperatorio").value.toLowerCase();
+        var searchSegundoParcial = document.getElementById("searchSegundoParcial").value.toLowerCase();
+        var searchSegundoRecuperatorio = document.getElementById("searchSegundoRecuperatorio").value.toLowerCase();
+
+        for (var i = 0; i < trs.length; i++) {
+            var tds = trs[i].getElementsByTagName("td");
+            if (tds.length < 6) continue;
+
+            var primerParcial = tds[1].textContent.toLowerCase();
+            var primerRecuperatorio = tds[2].textContent.toLowerCase();
+            var segundoParcial = tds[3].textContent.toLowerCase();
+            var segundoRecuperatorio = tds[4].textContent.toLowerCase();
+
+            var show = true;
+
+            if (searchPrimerParcial && primerParcial.indexOf(searchPrimerParcial) === -1) show = false;
+            if (searchPrimerRecuperatorio && primerRecuperatorio.indexOf(searchPrimerRecuperatorio) === -1) show = false;
+            if (searchSegundoParcial && segundoParcial.indexOf(searchSegundoParcial) === -1) show = false;
+            if (searchSegundoRecuperatorio && segundoRecuperatorio.indexOf(searchSegundoRecuperatorio) === -1) show = false;
+
+            trs[i].style.display = show ? "" : "none";
+        }
+    }
+    </script>
 {% endblock %}

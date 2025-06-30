@@ -54,8 +54,8 @@
                     N/A
                 {% endif %}
             </td>
-            <td>{{ inscripcion_final.alumnoId ? inscripcion_final.alumnoId.persona : 'Sin alumno' }}</td>
-            <td>{{ inscripcion_final.examenFinal ? inscripcion_final.examenFinal : '' }}</td>
+            <td>Sin alumno</td>
+            <td>Sin examen final</td>
             <td>
                 <a href="{{ path('app_inscripcion_final_show', {'id': inscripcion_final.id}) }}">Mostrar</a>
                 <a href="{{ path('app_inscripcion_final_edit', {'id': inscripcion_final.id}) }}">Editar</a>

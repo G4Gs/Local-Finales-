@@ -21,15 +21,6 @@ class InscripcionFinalType extends AbstractType
                 'widget' => 'single_text',
                 'data' => new \DateTime('today'),
             ])
-            ->add('alumno_id', EntityType::class, [
-                'class' => Alumno::class,
-                'choice_label' => 'persona',
-                'placeholder' => 'Seleccione un alumno',
-            ])
-            ->add('examen_final', EntityType::class, [
-                'class' => ExamenFinal::class,
-                'placeholder' => 'Seleccione un examen final',
-            ])
         ;
     }
 
